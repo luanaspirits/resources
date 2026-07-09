@@ -6,178 +6,282 @@
 <meta name="description" content="Become Magnetic To Love, an interactive roadmap for healing the inner child block that keeps you from receiving love.">
 <title>Become Magnetic To Love</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Jost:wght@300;400;500&family=Parisienne&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Mono:wght@400;500&family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
   :root {
-    --bg-app: #f2e9f6;
-    --hero-start: #f4dff2;
-    --hero-mid: #c79bdd;
-    --hero-end: #4a2170;
-    --card: #ffffff;
-    --card-tint: #fbf7fc;
-    --card-deep: #efe1f4;
-    --text: #2e1740;
-    --muted: #6b5578;
-    --gold: #b8924a;
-    --gold-soft: #f3e8cd;
-    --purple-deep: #4a2170;
-    --line: rgba(74,33,112,0.12);
+    --bg: #2a2040;
+    --bg-2: #362a4d;
+    --bg-3: #1a1226;
+    --ink: #f7f2fa;
+    --ink-soft: rgba(247,242,250,0.82);
+    --ink-faint: rgba(247,242,250,0.56);
+    --pink: #e896c4;
+    --pink-2: #f0b8d9;
+    --purple: #a97fd4;
+    --purple-2: #c9a8e8;
+    --gold: #e8c988;
+    --holo: linear-gradient(135deg,#c9a8e8 0%,#f0b8d9 50%,#e8c988 100%);
+    --card: rgba(255,255,255,0.06);
+    --card-2: rgba(255,255,255,0.095);
+    --border: rgba(169,127,212,0.22);
+    --border-strong: rgba(169,127,212,0.40);
   }
-  * { box-sizing: border-box; }
+
+  html, body { min-height: 100%; }
   body {
-    margin: 0;
-    min-height: 100vh;
-    background: var(--bg-app);
-    color: var(--text);
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Nunito', sans-serif;
+    position: relative;
   }
-  #app { max-width: 700px; margin: 0 auto; padding: 0 20px 60px; }
-  h1, h2, h3 { font-family: 'Playfair Display', serif; margin: 0 0 12px; color: var(--purple-deep); }
-  h1 { font-size: 34px; font-weight: 700; line-height: 1.18; }
-  h2 { font-size: 24px; font-weight: 600; }
-  h3 { font-size: 18px; font-weight: 600; }
-  p { line-height: 1.75; color: var(--muted); font-size: 15px; margin: 0 0 14px; }
-  .eyebrow { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+
+  /* Ambient background: aurora glow + star field, sits behind everything */
+  #bg-fx {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse at 15% 0%, rgba(232,150,196,0.10) 0%, transparent 45%),
+      radial-gradient(ellipse at 85% 10%, rgba(232,201,136,0.07) 0%, transparent 45%),
+      radial-gradient(ellipse at 50% 100%, rgba(169,127,212,0.10) 0%, transparent 55%);
+  }
+  #stars { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .s-star {
+    position: absolute; width: 2px; height: 2px; border-radius: 50%;
+    background: #fff; box-shadow: 0 0 6px 1px rgba(255,255,255,0.8);
+    animation: twinkle 4s ease-in-out infinite;
+  }
+  @keyframes twinkle { 0%,100%{opacity:.15;transform:scale(.8)} 50%{opacity:.9;transform:scale(1.3)} }
+
+  #app { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; padding: 36px 20px 64px; }
+
+  h1, h2, h3 { font-family: 'Poppins', sans-serif; color: var(--ink); margin-bottom: 12px; }
+  h1 { font-weight: 800; font-size: 32px; line-height: 1.2; letter-spacing: -0.3px; }
+  h2 { font-weight: 700; font-size: 23px; }
+  h3 { font-weight: 700; font-size: 17px; }
+  p { line-height: 1.75; color: var(--ink-soft); font-size: 15px; margin-bottom: 14px; }
+
+  .holo-text { background: var(--holo); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-style: italic; }
+  .eyebrow { font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--pink-2); margin-bottom: 10px; font-weight: 500; }
+  .eyebrow.spaced { margin-top: 26px; }
+
+  /* Glass cards */
   .card {
     background: var(--card);
-    border: 1px solid var(--line);
+    border: 1px solid var(--border);
     border-radius: 18px;
     padding: 26px;
-    box-shadow: 0 6px 26px rgba(74,33,112,0.07);
     margin-bottom: 18px;
+    backdrop-filter: blur(6px);
   }
-  .card.deep { background: var(--card-deep); border-color: rgba(74,33,112,0.18); }
-  .flourish { display: flex; align-items: center; gap: 10px; margin: 6px auto 22px; max-width: 220px; }
-  .flourish .ln { flex: 1; height: 1px; background: rgba(255,255,255,0.5); }
-  .flourish .gem { color: var(--gold-soft); font-size: 13px; }
-  .sparkle { position: absolute; color: rgba(255,255,255,0.8); font-size: 12px; }
-  .btn { display: inline-block; background: var(--purple-deep); color: #fff; border: none; border-radius: 999px; padding: 13px 26px; font-family: 'Jost', sans-serif; font-size: 14px; letter-spacing: 0.03em; cursor: pointer; }
-  .btn.gold { background: var(--gold); color: #fff; }
-  .btn.ghost { background: transparent; color: var(--purple-deep); border: 1px solid var(--purple-deep); }
-  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
-  input[type=text] { width: 100%; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; font-family: 'Jost', sans-serif; font-size: 16px; color: var(--text); margin-bottom: 18px; }
-  textarea { width: 100%; background: var(--card-tint); border: 1px solid var(--line); border-radius: 12px; color: var(--text); font-family: 'Jost', sans-serif; font-size: 14.5px; padding: 14px; resize: vertical; min-height: 85px; margin-bottom: 14px; }
-  .journal-q { font-size: 14px; color: var(--text); margin-bottom: 6px; }
 
-  /* Hero (name gate only) */
-  .hero {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(150deg, var(--hero-start), var(--hero-mid) 55%, var(--hero-end));
-    border-radius: 0 0 28px 28px;
-    margin: 0 -20px 26px;
-    padding: 46px 26px 40px;
-    text-align: center;
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 14px;
+    padding: 13px 28px; border-radius: 999px; border: none; cursor: pointer;
+    letter-spacing: 0.2px; text-decoration: none;
   }
-  .hero .eyebrow { color: #f3e8cd; }
-  .hero h1 { color: #fff; }
-  .hero .sub { color: #f4e8fa; font-size: 15px; max-width: 46ch; margin: 0 auto 4px; }
+  .btn.gold { background: var(--holo); color: #241a35; box-shadow: 0 6px 22px rgba(169,127,212,0.4), inset 0 1px 0 rgba(255,255,255,0.3); }
+  .btn.gold:hover { transform: translateY(-1px); }
+  .btn.ghost { background: transparent; color: var(--ink-soft); border: 1px solid var(--border-strong); }
+  .btn.ghost:hover { color: var(--ink); border-color: var(--purple-2); }
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+
+  input[type=text] {
+    width: 100%; background: var(--card-2); border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px 16px; font-family: 'Nunito', sans-serif;
+    font-size: 16px; color: var(--ink); margin-bottom: 16px;
+  }
+  input[type=text]::placeholder { color: var(--ink-faint); }
+  textarea {
+    width: 100%; background: var(--card-2); border: 1px solid var(--border);
+    border-radius: 12px; color: var(--ink); font-family: 'Nunito', sans-serif;
+    font-size: 14.5px; padding: 14px; resize: vertical; min-height: 85px; margin-bottom: 14px;
+  }
+  .journal-q { font-size: 14px; color: var(--ink-soft); margin-bottom: 6px; font-weight: 600; }
 
   /* Top bar */
-  .topbar { display: flex; justify-content: space-between; align-items: center; padding: 18px 0 16px; }
-  .topbar .brand { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--purple-deep); font-weight: 600; }
-  .premium-pill { background: var(--purple-deep); color: #fff; border-radius: 999px; padding: 8px 18px; font-size: 12px; letter-spacing: 0.03em; cursor: pointer; text-decoration: none; }
+  .topbar { display: flex; justify-content: space-between; align-items: center; padding-bottom: 22px; }
+  .topbar-left { display: flex; align-items: center; gap: 12px; }
+  .topbar-icon {
+    width: 36px; height: 36px; border-radius: 11px; background: var(--holo);
+    display: flex; align-items: center; justify-content: center; font-size: 16px;
+    box-shadow: 0 4px 16px rgba(169,127,212,0.4), inset 0 1px 0 rgba(255,255,255,0.3);
+  }
+  .topbar-title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 16px; color: var(--ink); }
+  .premium-pill {
+    background: var(--holo); color: #241a35; font-family: 'Nunito', sans-serif; font-weight: 800;
+    font-size: 12px; border-radius: 999px; padding: 9px 18px; text-decoration: none;
+    box-shadow: 0 4px 16px rgba(169,127,212,0.35);
+  }
 
   /* Nav tabs */
-  .tabs { display: flex; gap: 8px; margin-bottom: 26px; flex-wrap: wrap; }
-  .tab { background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 9px 16px; font-size: 13px; color: var(--purple-deep); cursor: pointer; }
-  .tab.active { background: var(--purple-deep); color: #fff; border-color: var(--purple-deep); }
+  .tabs { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+  .tab {
+    font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 12.5px;
+    background: var(--card); border: 1px solid var(--border); color: var(--ink-faint);
+    border-radius: 999px; padding: 9px 16px; cursor: pointer;
+  }
+  .tab:hover { color: var(--ink-soft); }
+  .tab.active { background: var(--holo); color: #241a35; border-color: transparent; }
 
   /* Save reminder */
-  .save-reminder { background: var(--gold-soft); border: 1px solid var(--gold); border-radius: 14px; padding: 14px 18px; font-size: 13px; color: var(--purple-deep); margin-bottom: 20px; display: flex; gap: 10px; align-items: flex-start; }
+  .save-reminder {
+    background: linear-gradient(135deg, rgba(232,201,136,0.12), rgba(240,184,217,0.08));
+    border: 1px solid var(--border-strong); border-radius: 14px; padding: 14px 18px;
+    font-size: 13px; color: var(--ink-soft); margin-bottom: 20px; display: flex; gap: 10px; align-items: flex-start;
+  }
 
   /* Instructions list */
-  .steps { list-style: none; margin: 0 0 16px; padding: 0; }
-  .steps li { display: flex; gap: 12px; margin-bottom: 12px; font-size: 14.5px; color: var(--text); }
-  .steps .num { flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; background: var(--purple-deep); color: #fff; font-size: 12px; display: flex; align-items: center; justify-content: center; font-family: 'Jost', sans-serif; }
-  .rhythm { background: var(--card-tint); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; font-size: 13.5px; color: var(--text); }
+  .steps { list-style: none; margin-bottom: 16px; }
+  .steps li { display: flex; gap: 14px; margin-bottom: 14px; font-size: 14.5px; color: var(--ink-soft); }
+  .steps .num { flex-shrink: 0; font-family: 'DM Mono', monospace; font-size: 13px; color: var(--gold); padding-top: 1px; }
+  .steps strong { color: var(--ink); }
+  .rhythm { background: var(--card-2); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; font-size: 13.5px; color: var(--ink-soft); }
+  .rhythm strong { color: var(--ink); }
 
   /* Roadmap */
-  .map-grid { display: grid; gap: 14px; margin-bottom: 20px; }
-  .map-card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; cursor: pointer; display: flex; align-items: center; gap: 16px; }
-  .map-icon { font-size: 24px; flex-shrink: 0; }
+  .map-grid { display: grid; gap: 12px; margin-bottom: 20px; }
+  .map-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+    padding: 17px 20px; cursor: pointer; display: flex; align-items: center; gap: 16px;
+    transition: all .15s;
+  }
+  .map-card:hover { background: var(--card-2); border-color: var(--border-strong); transform: translateX(2px); }
+  .map-icon { font-size: 22px; flex-shrink: 0; }
   .map-text { flex: 1; }
-  .map-text .t { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; color: var(--purple-deep); }
-  .map-text .s { font-size: 12.5px; color: var(--muted); }
-  .check { width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--gold); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--gold); }
-  .check.done { background: var(--gold); color: #fff; border-color: var(--gold); }
+  .map-text .t { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; color: var(--ink); }
+  .map-text .s { font-size: 12.5px; color: var(--ink-faint); }
+  .check {
+    width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--border-strong);
+    flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--ink-faint);
+  }
+  .check.done { background: var(--holo); color: #241a35; border-color: transparent; }
 
   .choice-list { display: flex; flex-direction: column; gap: 10px; margin: 18px 0; }
-  .choice { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 15px 18px; cursor: pointer; font-size: 14.5px; color: var(--text); }
-  .choice:hover { border-color: var(--gold); }
-  .choice.selected { border-color: var(--gold); background: var(--gold-soft); }
-  .insight { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 12px; padding: 16px 18px; margin: 16px 0; }
-  .insight .k { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
-  .insight.alt { border-left-color: var(--purple-deep); }
-  .insight.alt .k { color: var(--purple-deep); }
-  .insight p { color: var(--text); margin: 0; }
+  .choice {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 15px 18px; cursor: pointer; font-size: 14.5px; color: var(--ink-soft); transition: all .15s;
+  }
+  .choice:hover { border-color: var(--purple-2); background: var(--card-2); }
+  .choice.selected { border-color: var(--pink-2); background: linear-gradient(135deg, rgba(255,138,209,0.1), rgba(169,127,212,0.08)); color: var(--ink); }
 
-  .back-link { display: inline-block; color: var(--muted); font-size: 13px; margin-bottom: 16px; cursor: pointer; }
-  .back-link:hover { color: var(--purple-deep); }
+  /* Insight / prompt box, matches the dark gradient prompt panels */
+  .insight {
+    background: linear-gradient(135deg, #170f26, #1c1340, #170f26);
+    border: 1px solid var(--border-strong); border-radius: 16px; padding: 22px; margin-top: 16px;
+    position: relative; overflow: hidden;
+  }
+  .insight .k { font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .insight.alt .k { color: var(--pink-2); }
+  .insight p { font-family: 'Fraunces', serif; font-style: italic; font-size: 15.5px; color: var(--ink-soft); margin: 0; line-height: 1.7; }
+
+  .back-link { display: inline-block; color: var(--ink-faint); font-size: 13px; margin-bottom: 16px; cursor: pointer; }
+  .back-link:hover { color: var(--ink-soft); }
 
   /* Card pull */
-  .pull-intro { font-size: 13.5px; color: var(--muted); margin-bottom: 20px; }
+  .pull-intro { font-size: 13.5px; color: var(--ink-faint); margin-bottom: 20px; }
   .flip-scene { perspective: 1200px; margin-bottom: 22px; }
-  .flip-card { position: relative; width: 100%; min-height: 210px; transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(.4,.2,.2,1); }
+  .flip-card { position: relative; width: 100%; min-height: 220px; transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(.4,.2,.2,1); }
   .flip-card.flipped { transform: rotateY(180deg); }
   .flip-face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 20px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 30px; }
-  .flip-front { background: linear-gradient(150deg, var(--hero-start), var(--hero-mid) 55%, var(--hero-end)); border: 1px solid var(--gold); }
-  .flip-front .mark { font-family: 'Playfair Display', serif; font-size: 30px; color: #fff; letter-spacing: 0.08em; }
-  .flip-front .tap { color: #f4e8fa; font-size: 12px; margin-top: 10px; letter-spacing: 0.05em; text-transform: uppercase; }
-  .flip-back { background: var(--card); border: 1px solid var(--gold); transform: rotateY(180deg); }
-  .flip-back p { font-family: 'Playfair Display', serif; font-size: 20px; font-style: italic; color: var(--purple-deep); margin: 0; line-height: 1.5; }
+  .flip-front { background: var(--holo); }
+  .flip-front .mark { font-family: 'Poppins', serif; font-size: 30px; color: #241a35; letter-spacing: 0.08em; }
+  .flip-front .tap { font-family: 'DM Mono', monospace; color: rgba(36,26,53,0.65); font-size: 11px; margin-top: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .flip-back { background: linear-gradient(135deg, #170f26, #1c1340, #170f26); border: 1px solid var(--border-strong); transform: rotateY(180deg); }
+  .flip-back p { font-family: 'Fraunces', serif; font-size: 20px; font-style: italic; color: var(--ink); margin: 0; line-height: 1.5; }
 
   /* Breathe */
-  .breathe-wrap { display: flex; flex-direction: column; align-items: center; padding: 20px 0 10px; }
-  .breathe-ball { width: 130px; height: 130px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, var(--gold-soft) 60%, var(--gold)); box-shadow: 0 0 40px rgba(184,146,74,0.3); transition: transform 4s ease-in-out; margin-bottom: 22px; }
-  .breathe-label { font-family: 'Playfair Display', serif; font-size: 19px; color: var(--purple-deep); min-height: 26px; }
-  .box-steps { display: flex; gap: 6px; margin-top: 6px; margin-bottom: 18px; }
-  .box-steps span { font-size: 11px; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 5px 10px; }
-  .box-steps span.on { background: var(--purple-deep); color: #fff; border-color: var(--purple-deep); }
+  .breathe-wrap { display: flex; flex-direction: column; align-items: center; padding: 16px 0 8px; }
+  .breathe-ball { width: 130px; height: 130px; border-radius: 50%; background: var(--holo); box-shadow: 0 0 50px rgba(169,127,212,0.4); transition: transform 4s ease-in-out; margin-bottom: 22px; }
+  .breathe-label { font-family: 'Poppins', sans-serif; font-size: 18px; color: var(--ink); min-height: 26px; }
+  .box-steps { display: flex; gap: 6px; margin-top: 8px; margin-bottom: 18px; }
+  .box-steps span { font-family: 'DM Mono', monospace; font-size: 10.5px; color: var(--ink-faint); border: 1px solid var(--border); border-radius: 999px; padding: 5px 11px; }
+  .box-steps span.on { background: var(--holo); color: #241a35; border-color: transparent; }
 
   /* Journal entries */
-  .entry { border-bottom: 1px solid var(--line); padding-bottom: 14px; margin-bottom: 14px; }
+  .entry { border-bottom: 1px solid var(--border); padding-bottom: 14px; margin-bottom: 14px; }
   .entry:last-child { border: none; margin: 0; padding: 0; }
-  .entry .tt { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--purple-deep); margin-bottom: 6px; }
-  .entry .q { font-size: 12.5px; color: var(--muted); margin-bottom: 2px; }
-  .entry .a { font-size: 14px; color: var(--text); margin-bottom: 8px; }
+  .entry .tt { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+  .entry .q { font-size: 12.5px; color: var(--ink-faint); margin-bottom: 2px; }
+  .entry .a { font-size: 14px; color: var(--ink-soft); margin-bottom: 8px; }
 
-  .resource-note { background: var(--card); border: 1px solid var(--gold); border-radius: 16px; padding: 20px 22px; margin-top: 8px; }
-  .resource-note .k { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
-  .resource-note p { font-size: 13.5px; margin-bottom: 12px; color: var(--text); }
-  .resource-note ul { margin: 0 0 14px; padding-left: 18px; color: var(--muted); font-size: 13px; }
-  .resource-note li { margin-bottom: 4px; }
+  /* Premium CTA, full version (used once) */
+  .quizcta-card {
+    background: linear-gradient(135deg, rgba(201,168,232,0.14), rgba(240,184,217,0.10));
+    border: 1px solid var(--border-strong); border-radius: 20px; padding: 30px 26px; text-align: center; margin-top: 8px;
+  }
+  .quizcta-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--pink); margin-bottom: 10px; }
+  .quizcta-title { font-family: 'Fraunces', serif; font-weight: 600; font-size: 23px; color: var(--ink); margin-bottom: 12px; }
+  .quizcta-body { font-size: 13.5px; line-height: 1.65; color: var(--ink-soft); max-width: 440px; margin: 0 auto 14px; }
+  .quizcta-list { list-style: none; text-align: left; max-width: 380px; margin: 0 auto 20px; font-size: 13px; color: var(--ink-soft); }
+  .quizcta-list li { padding: 5px 0 5px 18px; position: relative; }
+  .quizcta-list li::before { content: '\2726'; position: absolute; left: 0; color: var(--gold); font-size: 11px; top: 8px; }
 
-  .cta-pill { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--card-tint); border: 1px solid var(--line); border-radius: 999px; padding: 10px 18px; font-size: 12.5px; color: var(--muted); margin-top: 10px; }
-  .cta-pill a { color: var(--gold); font-weight: 500; text-decoration: none; white-space: nowrap; }
+  /* Premium CTA, light version (used sparingly, everywhere else) */
+  .premcta-card {
+    display: flex; align-items: flex-start; gap: 13px;
+    background: linear-gradient(135deg, rgba(232,201,136,0.08), rgba(240,184,217,0.06));
+    border: 1px solid var(--border); border-radius: 16px; padding: 16px 18px; margin-top: 10px;
+  }
+  .premcta-emoji { font-size: 20px; line-height: 1; }
+  .premcta-body { flex: 1; }
+  .premcta-text { font-size: 13px; line-height: 1.6; color: var(--ink-soft); margin-bottom: 6px; }
+  .premcta-link { font-size: 12.5px; font-weight: 700; color: var(--pink-2); text-decoration: none; border-bottom: 1px solid rgba(240,184,217,0.4); padding-bottom: 1px; }
+  .premcta-link:hover { color: var(--ink); }
 
-  .share-banner { background: var(--card-deep); border: 1px solid rgba(74,33,112,0.18); border-radius: 16px; padding: 20px 22px; margin-top: 22px; text-align: center; }
-  .share-banner .k { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  /* Share banner */
+  .share-banner { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px 22px; margin-top: 20px; text-align: center; }
+  .share-banner .k { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--purple-2); margin-bottom: 8px; }
   .share-banner p { font-size: 13.5px; margin-bottom: 14px; }
 
-  .resource-hint { font-size: 12.5px; color: var(--muted); margin: -4px 0 14px; font-style: italic; }
+  /* Learn tab */
+  .learn-list { display: flex; flex-direction: column; gap: 8px; }
+  .learn-item {
+    display: flex; align-items: center; gap: 10px; padding: 15px 18px;
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px; cursor: pointer; transition: all .15s;
+  }
+  .learn-item:hover { background: var(--card-2); border-color: var(--border-strong); transform: translateX(2px); }
+  .learn-item.static { cursor: default; flex-direction: column; align-items: flex-start; }
+  .learn-item .t { font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 700; color: var(--ink); }
+  .learn-item .s { font-size: 12.5px; color: var(--ink-faint); }
+  .learn-item a { text-decoration: none; }
+  .learn-item .why { margin-top: 5px; line-height: 1.55; font-size: 12.5px; color: var(--ink-faint); }
+  .linklist-tier { font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--purple-2); }
 
-  .learn-list { display: flex; flex-direction: column; gap: 10px; }
-  .learn-item { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; cursor: pointer; }
-  .learn-item .t { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--purple-deep); }
-  .learn-item .s { font-size: 12.5px; color: var(--muted); }
-  .learn-item.static { cursor: default; }
-  .learn-item .link-title { font-size: 15px; text-decoration: none; }
-  .learn-item .why { margin-top: 4px; line-height: 1.5; }
-  .eyebrow.spaced { margin-top: 22px; }
-  .quote-text { font-family: 'Playfair Display', serif; font-style: italic; color: var(--purple-deep); font-size: 18px; margin: 0; }
-  .prompt-text { color: var(--text); }
+  /* Quote text used in card journal */
+  .quote-text { font-family: 'Fraunces', serif; font-style: italic; color: var(--ink); font-size: 18px; margin: 0; }
+  .prompt-text { color: var(--ink-soft); }
 
   /* Footer */
-  .site-footer { text-align: center; font-size: 12px; color: var(--muted); padding: 30px 10px 10px; border-top: 1px solid var(--line); margin-top: 30px; }
-  .site-footer a { color: var(--muted); text-decoration: underline; }
+  .site-footer { margin-top: 44px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; }
+  .site-footer .brand { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 6px; }
+  .site-footer .links { font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: 0.5px; color: var(--ink-faint); line-height: 1.9; }
+  .site-footer a { color: var(--purple-2); text-decoration: none; }
+  .site-footer a:hover { color: var(--pink); }
 </style>
 </head>
 <body>
+<div id="bg-fx"></div>
+<div id="stars"></div>
 <div id="app"></div>
 
 <script>
+/* ---------- AMBIENT BACKGROUND (built once, not re-rendered) ---------- */
+(function initStars() {
+  const wrap = document.getElementById("stars");
+  const n = 12;
+  for (let i = 0; i < n; i++) {
+    const s = document.createElement("div");
+    s.className = "s-star";
+    s.style.top = Math.random() * 100 + "%";
+    s.style.left = Math.random() * 100 + "%";
+    s.style.animationDelay = (Math.random() * 4) + "s";
+    wrap.appendChild(s);
+  }
+})();
+
 /* ---------- DATA ---------- */
 
 const scenarios = [
@@ -311,8 +415,6 @@ const learnArticles = [
   ]}
 ];
 
-const PREMIUM_URL = "https://www.skool.com/union/plans";
-
 const classroomResources = {
   standard: {
     label: "From Foundations & Inner Union (Standard)",
@@ -332,6 +434,9 @@ const classroomResources = {
   }
 };
 
+const PREMIUM_URL = "https://www.skool.com/union/plans";
+const COMMUNITY_URL = "https://www.skool.com/union/";
+
 /* ---------- STATE ---------- */
 
 let state = {
@@ -347,28 +452,32 @@ function go(patch) { state = { ...state, ...patch }; render(); }
 /* ---------- SHARED PIECES ---------- */
 
 function saveReminder() {
-  return `<div class="save-reminder"><span>\u{1F4BE}</span><span>You can journal on paper and just click through the prompts, or type it here. If you type, be sure to hit <strong>Save</strong> and then <strong>Download My Journal</strong> before you close this tab, and store the file somewhere safe. Nothing is saved automatically.</span></div>`;
+  return `<div class="save-reminder"><span>\u{1F49C}</span><span>You can journal on paper and just click through the prompts, or type it here. If you type, be sure to hit <strong>Save</strong> and then <strong>Download My Journal</strong> before you close this tab, and store the file somewhere safe. Nothing is saved automatically.</span></div>`;
 }
 
 function resourceNoteFull() {
-  return `<div class="resource-note">
-    <div class="k">Want To Go Deeper</div>
-    <p>This roadmap is part of your Standard membership. Premium, $33/month, includes everything in Standard, plus:</p>
-    <ul>
+  return `<div class="quizcta-card">
+    <div class="quizcta-eyebrow">Want To Go Deeper</div>
+    <div class="quizcta-title">Premium, $33/month</div>
+    <p class="quizcta-body">Everything in Standard, plus:</p>
+    <ul class="quizcta-list">
       <li>Manifest Your Union\u2122 signature A-Z course, my full coaching process</li>
       <li>Weekly live coaching &amp; Q&amp;A calls, submit your questions ahead of time</li>
       <li>Inner Union Vault: Q&amp;A replays, live healing classes &amp; searchable topics</li>
       <li>Guided meditations, EFT tapping &amp; nervous system regulation tools</li>
       <li>Priority access to new lessons, artifacts &amp; tools as they're released</li>
     </ul>
-    <a class="btn gold" href="${PREMIUM_URL}" target="_blank" rel="noopener">View Premium, $33/mo</a>
+    <a class="btn gold" href="${PREMIUM_URL}" target="_blank" rel="noopener">View Premium</a>
   </div>`;
 }
 
 function resourceNotePill() {
-  return `<div class="cta-pill">
-    <span>\u2728 Curious what's inside Premium?</span>
-    <a href="${PREMIUM_URL}" target="_blank" rel="noopener">Take a look &rarr;</a>
+  return `<div class="premcta-card">
+    <div class="premcta-emoji">\u2728</div>
+    <div class="premcta-body">
+      <div class="premcta-text">Curious what's inside Premium? It picks up right where this roadmap leaves off.</div>
+      <a class="premcta-link" href="${PREMIUM_URL}" target="_blank" rel="noopener">Take a look &rarr;</a>
+    </div>
   </div>`;
 }
 
@@ -376,14 +485,17 @@ function shareBanner() {
   return `<div class="share-banner">
     <div class="k">Share Your Journey</div>
     <p>Had a realization, a win, or something you want to process out loud? The community would love to hear it.</p>
-    <a class="btn ghost" href="https://www.skool.com/union/" target="_blank" rel="noopener">Post In The Community</a>
+    <a class="btn ghost" href="${COMMUNITY_URL}" target="_blank" rel="noopener">Post In The Community</a>
   </div>`;
 }
 
 function topbar() {
   return `<div class="topbar">
-    <div class="brand">Become Magnetic To Love</div>
-    <a class="premium-pill" href="${PREMIUM_URL}" target="_blank" rel="noopener">\u2728 Premium</a>
+    <div class="topbar-left">
+      <div class="topbar-icon">\u2728</div>
+      <div class="topbar-title">Become Magnetic To <span class="holo-text">Love</span></div>
+    </div>
+    <a class="premium-pill" href="${PREMIUM_URL}" target="_blank" rel="noopener">Premium</a>
   </div>`;
 }
 
@@ -399,9 +511,12 @@ function tabs() {
 
 function footer() {
   return `<div class="site-footer">
-    Luana Spirits Consulting &middot; <a href="mailto:luana@luanaspirits.com">luana@luanaspirits.com</a> &middot;
-    <a href="https://docs.google.com/document/d/12oUQEXXesDmVw_XEZH-GEc8NVbtFYyLYf3359hvxyFE/edit?usp=sharing" target="_blank" rel="noopener">Privacy Policy</a> &middot;
-    <a href="https://docs.google.com/document/d/1i395On2ZByesCyRaIDocu1aIguhVxuHBQ1l_nPfVReQ/edit?usp=sharing" target="_blank" rel="noopener">Terms &amp; Conditions</a> &middot; &copy; 2026
+    <div class="brand">Luana <span class="holo-text">Spirits</span></div>
+    <div class="links">
+      <a href="mailto:luana@luanaspirits.com">luana@luanaspirits.com</a> &middot;
+      <a href="https://docs.google.com/document/d/12oUQEXXesDmVw_XEZH-GEc8NVbtFYyLYf3359hvxyFE/edit?usp=sharing" target="_blank" rel="noopener">Privacy Policy</a> &middot;
+      <a href="https://docs.google.com/document/d/1i395On2ZByesCyRaIDocu1aIguhVxuHBQ1l_nPfVReQ/edit?usp=sharing" target="_blank" rel="noopener">Terms &amp; Conditions</a> &middot; &copy; 2026
+    </div>
   </div>`;
 }
 
@@ -413,28 +528,25 @@ function shell(inner) {
 
 function renderName() {
   document.getElementById("app").innerHTML = `
-    <div class="hero">
-      <span class="sparkle" style="top:18px; left:14%;">&#10022;</span>
-      <span class="sparkle" style="top:34px; right:10%; font-size:16px;">&#10022;</span>
-      <span class="sparkle" style="bottom:20px; left:8%; font-size:10px;">&#10022;</span>
-      <div class="eyebrow">Standard tier and up</div>
-      <h1>Become Magnetic To Love</h1>
-      <div class="flourish"><span class="ln"></span><span class="gem">&#10048;</span><span class="ln"></span></div>
-      <p class="sub">The ultimate roadmap for divine feminines and spiritual women to heal their inner child and receive love.</p>
+    <div class="topbar-left" style="margin-bottom:22px;">
+      <div class="topbar-icon">\u2728</div>
+      <div class="topbar-title">Become Magnetic To <span class="holo-text">Love</span></div>
     </div>
-    <div class="card deep">
+    <div class="eyebrow">Standard tier and up</div>
+    <h1>The ultimate roadmap for divine feminines and spiritual women to heal their inner child and receive love.</h1>
+    <div class="card">
       <h3>What should I call you?</h3>
       <p>Every response in here will be personal to you.</p>
       <input type="text" id="nameInput" placeholder="Your first name" />
       <button class="btn gold" onclick="submitName()">Begin</button>
     </div>
-    <div class="card deep">
+    <div class="card">
       <div class="eyebrow">How To Use This</div>
       <ul class="steps">
-        <li><span class="num">1</span><span>Start with the <strong>Roadmap</strong>. Walk through all 4 scenarios now, or one a day, whatever feels right.</span></li>
-        <li><span class="num">2</span><span><strong>Pull a Card</strong> any time you need a quick reset or a reminder to come back to.</span></li>
-        <li><span class="num">3</span><span>Visit <strong>Learn</strong> when you want to understand the concepts a little deeper.</span></li>
-        <li><span class="num">4</span><span>Use <strong>Breathe</strong> anytime your body needs to settle before you begin.</span></li>
+        <li><span class="num">01</span><span>Start with the <strong>Roadmap</strong>. Walk through all 4 scenarios now, or one a day, whatever feels right.</span></li>
+        <li><span class="num">02</span><span><strong>Pull a Card</strong> any time you need a quick reset or a reminder to come back to.</span></li>
+        <li><span class="num">03</span><span>Visit <strong>Learn</strong> when you want to understand the concepts a little deeper.</span></li>
+        <li><span class="num">04</span><span>Use <strong>Breathe</strong> anytime your body needs to settle before you begin.</span></li>
       </ul>
       <div class="rhythm"><strong>A simple rhythm:</strong> in your first week, aim for one scenario a day. After that, come back weekly to pull a card, revisit your journal, and check in with yourself.</div>
     </div>
@@ -573,11 +685,11 @@ function renderLearn() {
     shell(`<div class="back-link" onclick="go({learnOpen:null})">&larr; Back</div><h2>${a.title}</h2>${a.body.map(p => `<p>${p}</p>`).join("")}${resourceNotePill()}`);
     return;
   }
-  const items = learnArticles.map(a => `<div class="learn-item" onclick="go({learnOpen:'${a.id}'})"><div class="t">${a.title}</div><div class="s">A short read, just a few minutes</div></div>`).join("");
+  const items = learnArticles.map(a => `<div class="learn-item" onclick="go({learnOpen:'${a.id}'})"><div class="map-text"><div class="t">${a.title}</div><div class="s">A short read, just a few minutes</div></div></div>`).join("");
   const classroomHtml = ["standard", "premium"].map(tier => {
     const group = classroomResources[tier];
-    const linksHtml = group.links.map(l => `<div class="learn-item static"><a href="${l.url}" target="_blank" rel="noopener"><div class="t link-title">${l.label}</div></a><div class="s why">${l.why}</div></div>`).join("");
-    return `<div class="eyebrow spaced">${group.label}</div><div class="learn-list">${linksHtml}</div>`;
+    const linksHtml = group.links.map(l => `<div class="learn-item static"><a href="${l.url}" target="_blank" rel="noopener"><div class="t">${l.label}</div></a><div class="why">${l.why}</div></div>`).join("");
+    return `<div class="linklist-tier eyebrow spaced">${group.label}</div><div class="learn-list">${linksHtml}</div>`;
   }).join("");
   shell(`<h2>Learn</h2><p>A few short reads to go deeper into the concepts behind this roadmap.</p><div class="learn-list">${items}</div>${classroomHtml}${resourceNoteFull()}`);
 }
@@ -685,5 +797,14 @@ function render() {
 
 render();
 </script>
+
+<!--
+  BUILD NOTES:
+  Single-file vanilla HTML/CSS/JS, no build step, no dependencies.
+  Ready to deploy as-is on GitHub Pages. Rename to index.html at the
+  root of its folder/repo and GitHub Pages will serve it automatically.
+  To edit content: scenario copy, card pull messages, and classroom
+  links all live in the DATA section near the top of the script.
+-->
 </body>
 </html>
