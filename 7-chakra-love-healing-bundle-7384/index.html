@@ -1,1 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The 7 Chakra Love Healing Bundle: Unblock Your Chakras For Union. Explore how love, relationships, and the twin flame journey move through all 7 chakras, with guided journaling and integration practices.">
+<title>The 7 Chakra Love Healing Bundle: Unblock Your Chakras For Union</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #e6d6ee; --card: #fbf5fa; --card-tint: #f2e6f3;
+    --text: #331947; --muted: #6b5680; --muted-2: #8a7398;
+    --gold: #b8923f; --gold-soft: #dcc386;
+    --line: rgba(58,27,77,0.16); --line-strong: rgba(58,27,77,0.28);
+    --accent: #8f5cc4; --accent-2: #d488bd;
+  }
+  body {
+    background: radial-gradient(ellipse at 12% 0%, #dfc0e8 0%, transparent 55%),
+                radial-gradient(ellipse at 90% 8%, #f0cbe0 0%, transparent 48%),
+                radial-gradient(ellipse at 50% 100%, #ddc8ea 0%, transparent 55%), var(--bg);
+    color: var(--text); font-family: 'Jost', sans-serif; font-weight: 300; min-height: 100vh;
+  }
+  #app { max-width: 680px; margin: 0 auto; padding: 0 20px 60px; }
+  h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text); margin-bottom: 12px; }
+  h1 { font-weight: 700; font-size: 30px; line-height: 1.25; }
+  h2 { font-weight: 600; font-size: 22px; }
+  h3 { font-weight: 600; font-size: 17px; }
+  p { line-height: 1.75; color: var(--muted); font-size: 14.5px; margin-bottom: 14px; }
+  em.hl { font-style: italic; color: var(--accent); }
+  .tagline { font-family: 'Playfair Display', serif; font-style: italic; color: var(--accent); font-size: 18px; text-align: center; margin: 18px 0; }
+  .eyebrow { font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .center { text-align: center; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 24px; margin-bottom: 16px; box-shadow: 0 8px 30px rgba(58,27,77,0.05); }
+  .card.ritual { background: linear-gradient(150deg, var(--card-tint), #fff); border-color: var(--line-strong); }
+  .btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Jost', sans-serif; font-weight: 700; font-size: 14px; padding: 13px 26px; border-radius: 999px; border: none; cursor: pointer; text-decoration: none; }
+  .btn.gold { background: linear-gradient(135deg, var(--accent-2), var(--accent)); color: #fff; box-shadow: 0 6px 20px rgba(160,107,214,0.3); }
+  .btn.ghost { background: transparent; color: var(--muted); border: 1px solid var(--line-strong); }
+  .btn.ghost:hover { color: var(--text); border-color: var(--accent); }
+  .btn.small { padding: 8px 16px; font-size: 12px; }
+  .btn:disabled { opacity: 0.35; cursor: not-allowed; }
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+  input[type=text] { width: 100%; background: var(--card-tint); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; font-family: 'Jost', sans-serif; font-size: 16px; color: var(--text); margin-bottom: 16px; }
+  input[type=text]::placeholder { color: var(--muted-2); }
+  textarea { width: 100%; background: var(--card-tint); border: 1px solid var(--line); border-radius: 12px; color: var(--text); font-family: 'Jost', sans-serif; font-size: 14.5px; padding: 14px; resize: vertical; min-height: 75px; margin-bottom: 14px; }
+  .journal-q { font-size: 14px; color: var(--text); margin-bottom: 6px; font-weight: 500; }
+  .std-pill { display: inline-block; background: linear-gradient(135deg, var(--accent-2), var(--accent)); color: #fff; font-family: 'Jost', sans-serif; font-weight: 800; font-size: 11px; letter-spacing: 0.5px; border-radius: 999px; padding: 6px 14px; margin-bottom: 14px; }
+  .topbar-left { display: flex; align-items: center; gap: 12px; justify-content: center; margin-bottom: 10px; }
+  .topbar-icon { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, var(--accent-2), var(--accent)); display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 4px 16px rgba(160,107,214,0.35); flex-shrink: 0; }
+  .topbar-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 17px; color: var(--text); }
 
+  .topnav-wrap { position: sticky; top: 0; z-index: 10; padding: 16px 0 12px; background: linear-gradient(to bottom, var(--bg) 85%, transparent); }
+  .topnav { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .topnav-brand { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+  .topnav-brand .icon { width: 26px; height: 26px; border-radius: 8px; background: linear-gradient(135deg, var(--accent-2), var(--accent)); display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+  .topnav-brand .name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 13.5px; color: var(--text); }
+  .nav-link { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted-2); cursor: pointer; background: none; border: none; padding: 3px 0; }
+  .nav-link:hover { color: var(--accent); }
+
+  .chakra-pills { display: flex; gap: 8px; overflow-x: auto; padding: 4px 2px 14px; }
+  .chakra-pill { flex-shrink: 0; border: 1.5px solid var(--line); background: var(--card); cursor: pointer; padding: 8px 7px; border-radius: 16px; display: flex; flex-direction: column; align-items: center; gap: 3px; width: 66px; transition: all 0.2s ease; }
+  .chakra-pill .dot { width: 20px; height: 20px; border-radius: 50%; }
+  .chakra-pill .n { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted-2); }
+  .chakra-pill .lbl { font-family: 'Jost', sans-serif; font-size: 9.5px; color: var(--muted); text-align: center; line-height: 1.2; }
+  .chakra-pill.active { border-color: transparent; box-shadow: 0 6px 18px rgba(58,27,77,0.18); transform: translateY(-2px); }
+  .chakra-pill.active .lbl { color: var(--text); font-weight: 500; }
+
+  .tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 14px; }
+  .tab { flex-shrink: 0; font-family: 'DM Mono', monospace; font-weight: 500; font-size: 10.5px; letter-spacing: 1px; text-transform: uppercase; background: var(--card); border: 1px solid var(--line); color: var(--muted); border-radius: 999px; padding: 9px 15px; cursor: pointer; }
+  .tab:hover { color: var(--text); border-color: var(--accent); }
+  .tab.active { color: #fff; border-color: transparent; }
+
+  .chakra-header { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+  .chakra-header .badge { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; box-shadow: 0 8px 22px rgba(0,0,0,0.12); }
+  .chakra-header .sanskrit { font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: 1.5px; color: var(--muted-2); text-transform: uppercase; }
+
+  .fact-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+  .fact-row { display: flex; gap: 12px; font-size: 13.5px; }
+  .fact-row .k { font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted-2); width: 90px; flex-shrink: 0; padding-top: 2px; }
+  .fact-row .v { color: var(--text); }
+
+  .affirmation-card { text-align: center; padding: 26px 22px; }
+  .affirmation-card .mantra { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 3px; color: var(--gold); margin-bottom: 10px; }
+  .affirmation-card .aff { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; color: var(--text); }
+
+  .imbalance-col { margin-bottom: 18px; }
+  .imbalance-label { display: flex; align-items: center; gap: 8px; font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; padding: 9px 14px; border-radius: 10px; margin-bottom: 10px; }
+  .imbalance-list { list-style: none; }
+  .imbalance-list li { display: flex; gap: 10px; padding: 7px 4px; font-size: 13.5px; color: var(--text); line-height: 1.55; }
+  .imbalance-list li .dot { flex-shrink: 0; color: var(--gold); }
+
+  .practice-grid { display: flex; flex-direction: column; gap: 10px; }
+  .practice-card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 15px 17px; display: flex; gap: 13px; align-items: flex-start; }
+  .practice-icon { font-size: 20px; flex-shrink: 0; }
+  .practice-card .t { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+  .practice-card .d { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+  .check-row { display: flex; align-items: flex-start; gap: 10px; padding: 9px 4px; cursor: pointer; }
+  .custom-check { width: 19px; height: 19px; border-radius: 6px; border: 1.5px solid var(--line-strong); flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; transition: all 0.15s ease; }
+  .custom-check.checked { border-color: transparent; }
+  .checklist-progress { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted-2); margin-bottom: 8px; }
+
+  .union-role-card { background: linear-gradient(135deg, #efe0f5, #f5e2ee); border: 1px solid rgba(143,92,196,0.28); border-radius: 16px; padding: 20px 22px; margin-bottom: 16px; }
+  .union-role-card .k { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+  .union-role-card p { font-family: 'Playfair Display', serif; font-size: 17px; font-style: italic; color: var(--text); margin: 0; line-height: 1.6; }
+  .union-split { display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
+  .union-balanced, .union-imbalanced { border-radius: 14px; padding: 16px 18px; }
+  .union-balanced { background: #dff2e2; border: 1px solid rgba(70,160,70,0.3); }
+  .union-imbalanced { background: #f5e5d5; border: 1px solid rgba(200,120,50,0.3); }
+  .union-balanced .k { color: #3a8a4a; } .union-imbalanced .k { color: #a05020; }
+  .union-balanced .k, .union-imbalanced .k { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; }
+  .union-balanced p, .union-imbalanced p { font-size: 13.5px; margin: 0; color: var(--text); line-height: 1.65; }
+  .integration-card { text-align: center; background: linear-gradient(135deg, var(--accent-2), var(--accent)); border-radius: 16px; padding: 22px 24px; }
+  .integration-card .k { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.85); margin-bottom: 8px; }
+  .integration-card p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 17px; color: #fff; margin: 0; line-height: 1.6; }
+  .link-btn { display: inline-block; margin-top: 12px; color: var(--accent); font-size: 13px; text-decoration: none; border-bottom: 1px solid var(--accent); }
+  .tier-badge { font-family: 'DM Mono', monospace; font-size: 8.5px; letter-spacing: 1px; padding: 3px 8px; border-radius: 999px; font-weight: 500; margin-left: 6px; }
+  .tier-badge.premium { background: rgba(201,165,72,0.16); color: var(--gold); border: 1px solid rgba(201,165,72,0.4); }
+  .tier-badge.standard { background: rgba(160,107,214,0.14); color: var(--accent); border: 1px solid rgba(160,107,214,0.35); }
+
+  .nav-arrows { display: flex; justify-content: space-between; align-items: center; margin-top: 22px; }
+  .nav-arrows .mid { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted-2); }
+
+  .cta-pill { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 12px 18px; font-size: 12.5px; color: var(--muted); margin-top: 18px; }
+  .cta-pill a { color: var(--gold); font-weight: 600; text-decoration: none; white-space: nowrap; }
+
+  .entry { border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 16px; }
+  .entry:last-child { border: none; margin: 0; padding: 0; }
+  .entry .tt { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600; color: var(--accent); margin-bottom: 2px; }
+  .entry .meta { font-family: 'DM Mono', monospace; font-size: 10.5px; color: var(--muted-2); margin-bottom: 10px; }
+  .entry .q { font-size: 12.5px; color: var(--muted-2); margin-bottom: 2px; }
+  .entry .a { font-size: 14px; color: var(--text); margin-bottom: 8px; }
+  .save-reminder { background: rgba(201,165,72,0.10); border: 1px solid var(--gold); border-radius: 14px; padding: 14px 18px; font-size: 13px; color: var(--muted); margin-bottom: 20px; display: flex; gap: 10px; align-items: flex-start; }
+
+  .site-footer { margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--line); text-align: center; }
+  .site-footer .brand { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 14px; margin-bottom: 6px; color: var(--text); }
+  .site-footer .brand em { font-style: italic; color: var(--gold); }
+  .site-footer .links { font-family: 'DM Mono', monospace; font-size: 10.5px; color: var(--muted-2); line-height: 1.9; }
+  .site-footer a { color: var(--muted-2); text-decoration: none; }
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+/* ---------- DATA: 7 CHAKRAS THROUGH LOVE ---------- */
+
+const CHAKRAS = [
+  {
+    id: "root", name: "Root Chakra", sanskrit: "Muladhara", number: 1, emoji: "\u{1F534}",
+    color: "#E85D5D", light: "#FFF0F0",
+    location: "Base of the spine, near the tailbone", colorMeaning: "Red, safety and security",
+    element: "Earth, stability and trust", keyFunction: "Governs your sense of safety, trust, and security within love. This is the foundation everything else is built on, if you don't feel safe, nothing above it can fully open.",
+    mantra: "LAM", affirmation: "I am safe to love and be loved. I trust this connection.",
+    underactive: ["Fear of abandonment or being left", "Difficulty trusting a partner, even when they've given no reason not to", "Anxious attachment, needing constant reassurance", "Feeling unsafe being vulnerable in love"],
+    overactive: ["Controlling or possessive behavior out of fear", "Testing your partner's loyalty repeatedly", "Rigid need for certainty before you'll open up", "Clinging to a relationship out of fear of being alone"],
+    practices: [
+      { icon: "\u{1F9D8}", title: "Movement", desc: "Grounding walks, barefoot on the earth, slow standing yoga poses" },
+      { icon: "\u{1F3B5}", title: "Sound", desc: "Chant \u201CLAM\u201D or listen to low, grounding tones like drums" },
+      { icon: "\u{1F955}", title: "Food", desc: "Root vegetables, protein-rich foods, warm cooked meals" },
+      { icon: "\u{1F33F}", title: "Meditation", desc: "Visualize red light at the base of your spine, roots growing into the Earth" },
+      { icon: "\u{1F48E}", title: "Crystals", desc: "Red jasper, garnet, black tourmaline" }
+    ],
+    journalPrompts: [
+      "What does safety in love actually feel like in my body?",
+      "Where do I notice fear of abandonment showing up in this connection?",
+      "What would I do differently if I fully trusted I was safe to love?",
+      "Is my mistrust coming from this relationship, or from an old wound?",
+      "What's one small way I can show myself I am safe today?"
+    ],
+    checklistBalanced: ["Feels secure and grounded in the relationship", "Trusts without needing constant proof", "Can be vulnerable without panic", "Feels safe even during distance or silence"],
+    checklistBlocked: ["Constant fear the other person will leave", "Needs frequent reassurance to feel okay", "Tests loyalty or picks fights to seek certainty", "Shuts down or clings when things feel uncertain"],
+    unionRole: "Root governs whether you feel safe enough to actually let union in. Real union starts with feeling safe within yourself first.",
+    unionBalanced: "You can receive love without bracing for it to be taken away. Distance doesn't destabilize you, because your safety isn't outsourced to another person.",
+    unionImbalanced: "Shows up as anxious attachment, needing your partner to constantly prove they're not leaving, or staying hyper-independent so you never have to feel unsafe again.",
+    integration: "Before reacting to fear in this relationship, place a hand on your lower belly and ask: is this fear about now, or about something old?",
+    link: { label: "Healing Family & Childhood Beliefs With EFT", tier: "premium", url: "https://www.skool.com/union/classroom/6bd2fa96?md=68b2016bc7b745ffa418b236cbd0ebdb" }
+  },
+  {
+    id: "sacral", name: "Sacral Chakra", sanskrit: "Svadhisthana", number: 2, emoji: "\u{1F7E0}",
+    color: "#FF8C42", light: "#FFF5EE",
+    location: "Lower abdomen, about two inches below the navel", colorMeaning: "Orange, pleasure and flow",
+    element: "Water, emotion and closeness", keyFunction: "Governs pleasure, intimacy, sensuality, and emotional flow between you and another. This is where healthy desire and closeness live.",
+    mantra: "VAM", affirmation: "I allow myself to feel pleasure and closeness without guilt.",
+    underactive: ["Emotional numbness or disconnection during intimacy", "Guilt around desire or pleasure", "Difficulty being physically or emotionally close", "Avoiding vulnerability through busyness or distraction"],
+    overactive: ["Using intimacy to fill an emotional void", "Emotional enmeshment, losing your own feelings in theirs", "Chasing intensity instead of real closeness", "Mood swings tied entirely to the relationship's ups and downs"],
+    practices: [
+      { icon: "\u{1F483}", title: "Movement", desc: "Hip-opening yoga poses, gentle dance, sensual movement" },
+      { icon: "\u{1F30A}", title: "Sound", desc: "Chant \u201CVAM\u201D or listen to flowing water sounds" },
+      { icon: "\u{1F96D}", title: "Food", desc: "Sweet fruits, orange foods, healthy fats" },
+      { icon: "\u2728", title: "Meditation", desc: "Visualize an orange glow in your lower belly, invite pleasure without guilt" },
+      { icon: "\u{1F48E}", title: "Crystals", desc: "Carnelian, orange moonstone, sunstone" }
+    ],
+    journalPrompts: [
+      "Where do I feel most emotionally alive in this connection?",
+      "Do I let myself receive pleasure and closeness, or do I hold back?",
+      "What emotions have I been avoiding feeling around this relationship?",
+      "Am I using this connection to fill something, or sharing from fullness?",
+      "What would it feel like to flow with this relationship instead of controlling it?"
+    ],
+    checklistBalanced: ["Feels emotionally connected without losing yourself", "Comfortable with healthy touch and closeness", "Emotions move through you instead of overwhelming you", "Desire feels natural, not guilty"],
+    checklistBlocked: ["Numb or disconnected during intimate moments", "Swings between craving closeness and pulling away", "Guilt or shame tied to pleasure", "Feels emotionally dependent on the relationship's mood"],
+    unionRole: "Sacral governs how freely love and closeness can move between you and your person, without you losing yourself in the process.",
+    unionBalanced: "Intimacy feels like a genuine exchange, not a performance or a way to prove your worth.",
+    unionImbalanced: "Shows up as either shutting down physically and emotionally, or losing your own identity inside the relationship's highs and lows.",
+    integration: "Next time you feel a wave of emotion in this connection, pause and ask: whose feeling is this, mine or theirs?",
+    link: { label: "Mapping Your Love Wounds + Beliefs", tier: "premium", url: "https://www.skool.com/union/classroom/6bd2fa96?md=a598f6013b3643afb7ac731385882582" }
+  },
+  {
+    id: "solar", name: "Solar Plexus", sanskrit: "Manipura", number: 3, emoji: "\u{1F7E1}",
+    color: "#F4C430", light: "#FFFBEA",
+    location: "Upper abdomen, above the navel", colorMeaning: "Yellow, confidence and power",
+    element: "Fire, personal power", keyFunction: "Governs your self-worth, confidence, and personal power within a relationship. This is what keeps you whole while deeply loving someone else.",
+    mantra: "RAM", affirmation: "I am worthy of love exactly as I am. I don't lose myself to keep it.",
+    underactive: ["Losing your identity or opinions to keep the peace", "Chronic people-pleasing in the relationship", "Difficulty setting boundaries, even small ones", "Feeling invisible or unimportant in the connection"],
+    overactive: ["Need to control or dominate the relationship", "Difficulty compromising or being wrong", "Using anger to feel powerful instead of connected", "Competing with your partner instead of partnering with them"],
+    practices: [
+      { icon: "\u{1F525}", title: "Movement", desc: "Core-strengthening poses, dynamic sun salutations" },
+      { icon: "\u2600", title: "Sound", desc: "Chant \u201CRAM\u201D or speak power affirmations out loud" },
+      { icon: "\u{1F34B}", title: "Food", desc: "Light warm foods, ginger tea, yellow lentils" },
+      { icon: "\u{1F49B}", title: "Meditation", desc: "Visualize a yellow sun at your solar plexus, repeat \u201CI am worthy\u201D" },
+      { icon: "\u{1F48E}", title: "Crystals", desc: "Citrine, yellow jasper, tiger's eye" }
+    ],
+    journalPrompts: [
+      "Where in this relationship do I shrink myself to keep things comfortable?",
+      "Do I feel like I have to earn love, or do I already believe I deserve it?",
+      "What boundary have I been avoiding setting?",
+      "If I fully owned my worth, what would I stop tolerating?",
+      "How can I stay powerful in myself without needing to control the relationship?"
+    ],
+    checklistBalanced: ["Maintains a clear sense of self within the relationship", "Sets boundaries with love, not guilt", "Feels worthy of love without needing to earn it", "Can disagree without losing confidence"],
+    checklistBlocked: ["Constantly seeks approval or validation from partner", "Abandons own needs to avoid conflict", "Feels not good enough, no matter how much is given", "Power struggles or need to always be right"],
+    unionRole: "Solar plexus is what allows you to stay fully yourself inside union, instead of dissolving into the relationship or fighting to control it.",
+    unionBalanced: "You can be deeply devoted to someone and still be completely, unmistakably yourself.",
+    unionImbalanced: "Shows up as either disappearing into who they need you to be, or needing to win every disagreement to feel secure.",
+    integration: "Before agreeing to something in this relationship, check in: is this a genuine yes, or a fear-based yes?",
+    link: { label: "What Is Self Hate Consciousness", tier: "standard", url: "https://www.skool.com/union/classroom/07a7f557?md=d1b690fc332947699d51847c9f2d22b3" }
+  },
+  {
+    id: "heart", name: "Heart Chakra", sanskrit: "Anahata", number: 4, emoji: "\u{1F49A}",
+    color: "#5BAD6F", light: "#F0FFF5",
+    location: "Center of the chest", colorMeaning: "Green and pink, love and compassion",
+    element: "Air, connection and breath", keyFunction: "The center of love itself. Governs your capacity to give love freely and receive it fully, without one canceling out the other.",
+    mantra: "YAM", affirmation: "I give love freely. I receive love fully. My heart is open.",
+    underactive: ["Guarded heart, difficulty being vulnerable", "Struggles to receive love, compliments, or help", "Holding onto old resentment or heartbreak", "Fear of getting close in case it ends"],
+    overactive: ["Over-giving until you're depleted", "Codependency, losing yourself in caring for them", "Rescuing or fixing instead of loving as equals", "Difficulty with boundaries because you fear seeming unloving"],
+    practices: [
+      { icon: "\u{1F54A}", title: "Movement", desc: "Heart-opening yoga poses, gentle chest stretches, arms wide" },
+      { icon: "\u{1F497}", title: "Sound", desc: "Chant \u201CYAM\u201D or practice loving-kindness meditation" },
+      { icon: "\u{1F96C}", title: "Food", desc: "Green leafy vegetables, meals made with intention" },
+      { icon: "\u{1F339}", title: "Meditation", desc: "Hands on heart, breathe in, send love to yourself first, then others" },
+      { icon: "\u{1F48E}", title: "Crystals", desc: "Rose quartz, green aventurine, jade" }
+    ],
+    journalPrompts: [
+      "Do I let myself fully receive love, or do I deflect it?",
+      "Where am I over-giving in this relationship, and why?",
+      "Is there an old heartbreak still living in my chest that needs tending?",
+      "What would it feel like to love this person without losing myself?",
+      "How do I want to feel in my heart, in this connection, six months from now?"
+    ],
+    checklistBalanced: ["Gives and receives love in roughly equal measure", "Feels safe being vulnerable", "Can hold compassion for self and partner at once", "Past hurt no longer runs the present connection"],
+    checklistBlocked: ["Deflects compliments, love, or help", "Gives far more than receives, then resents it", "Guards the heart to avoid getting hurt again", "Old heartbreak still colors how this connection feels"],
+    unionRole: "This is the actual seat of union. Every other chakra in this bundle supports this one's ability to stay open.",
+    unionBalanced: "Love moves both directions freely, you give generously and receive just as easily, without keeping score.",
+    unionImbalanced: "Shows up as loving from a place of proving your worth, or closing off just enough that real intimacy can't quite land.",
+    integration: "Each day this week, practice receiving one thing, a compliment, help, affection, without deflecting it.",
+    link: { label: "The Healing Power of Self-Love", tier: "standard", url: "https://www.skool.com/union/classroom/07a7f557?md=cf1fd5184858435eb36e138899241768" }
+  },
+  {
+    id: "throat", name: "Throat Chakra", sanskrit: "Vishuddha", number: 5, emoji: "\u{1F535}",
+    color: "#4A90D9", light: "#EEF6FF",
+    location: "Throat, base of the neck", colorMeaning: "Blue, truth and expression",
+    element: "Ether, sound and vibration", keyFunction: "Governs your ability to express your truth, your needs, and your boundaries honestly within a relationship, including the hard conversations.",
+    mantra: "HAM", affirmation: "I speak my truth with love. My voice is welcome here.",
+    underactive: ["Silencing your needs to avoid conflict", "Swallowing resentment instead of speaking it", "Difficulty saying what you actually mean", "Fear of being \u201Ctoo much\u201D if you say how you feel"],
+    overactive: ["Criticizing or nagging instead of expressing needs clearly", "Talking without truly listening", "Oversharing or venting instead of communicating with intention", "Using words as a weapon when hurt"],
+    practices: [
+      { icon: "\u{1F3A4}", title: "Movement", desc: "Neck stretches, shoulder rolls, speaking mantras out loud" },
+      { icon: "\u{1F3B6}", title: "Sound", desc: "Chant \u201CHAM\u201D, humming, singing, even in the car" },
+      { icon: "\u{1FAD6}", title: "Food", desc: "Warm teas, honey, hydrating foods" },
+      { icon: "\u{1F499}", title: "Meditation", desc: "Hand on throat, visualize blue light, \u201CI speak my truth with kindness\u201D" },
+      { icon: "\u{1F48E}", title: "Crystals", desc: "Aquamarine, blue lace agate, lapis lazuli" }
+    ],
+    journalPrompts: [
+      "What have I not said to this person that I need to say?",
+      "Do I express my needs clearly, or hope they'll just know?",
+      "Where does resentment build because I stay quiet?",
+      "How can I say a hard truth with love instead of blame?",
+      "What would change if I trusted my voice was welcome in this connection?"
+    ],
+    checklistBalanced: ["Expresses needs and feelings clearly and kindly", "Can have hard conversations without shutting down", "Listens as much as speaks", "Resentment doesn't build up in silence"],
+    checklistBlocked: ["Stays quiet to avoid conflict, then resents it later", "Communicates through hints instead of direct words", "Interrupts or dominates conversations", "Says things in anger that don't reflect the truth underneath"],
+    unionRole: "Throat governs the actual dialogue of union, the ongoing, honest exchange that keeps a connection real instead of assumed.",
+    unionBalanced: "You can say the hard thing and stay loving while you say it.",
+    unionImbalanced: "Shows up as either going silent to keep the peace, or letting frustration come out sideways instead of directly.",
+    integration: "This week, say one true thing you've been holding back, even if it's small.",
+    link: { label: "Unblock Your Intuition With EFT Tapping", tier: "standard", url: "https://www.skool.com/union/classroom/07a7f557?md=d33894f0b0854726bc297c93513c716e" }
+  },
+  {
+    id: "thirdeye", name: "Third Eye Chakra", sanskrit: "Ajna", number: 6, emoji: "\u{1F52E}",
+    color: "#6C5CE7", light: "#F0EEFF",
+    location: "Center of the forehead", colorMeaning: "Indigo, intuition and inner vision",
+    element: "Light, insight and clarity", keyFunction: "Governs your intuitive knowing about love, recognizing real connection, seeing beyond illusion, and trusting your inner guidance about who is truly aligned with you.",
+    mantra: "OM", affirmation: "I trust what I know. My intuition never misleads me.",
+    underactive: ["Ignoring red flags because logic explains them away", "Over-relying on what looks good on paper instead of what you feel", "Missing synchronicities or signs", "Chronic doubt about your own perception of the connection"],
+    overactive: ["Overanalyzing every sign or synchronicity", "Obsessing over what the connection \u2018means\u2019 instead of living it", "Spiritual bypassing real relationship issues", "Anxious mental loops about the future of the connection"],
+    practices: [
+      { icon: "\u{1F441}", title: "Movement", desc: "Gentle inversions like legs up the wall, eye-closure meditation" },
+      { icon: "\u{1F52E}", title: "Sound", desc: "Chant \u201COM\u201D or listen to high-frequency meditative tones" },
+      { icon: "\u{1F33F}", title: "Food", desc: "Light foods, clarity-supporting herbal teas" },
+      { icon: "\u{1F49C}", title: "Meditation", desc: "Gaze between the eyebrows, invite intuitive guidance" },
+      { icon: "\u{1F48E}", title: "Crystals", desc: "Amethyst, lapis lazuli, clear quartz" }
+    ],
+    journalPrompts: [
+      "What has my intuition been telling me about this connection that I've been ignoring?",
+      "Where am I using logic to override a gut feeling?",
+      "Have I noticed signs or synchronicities around this person? What do they feel like?",
+      "Am I using spiritual language to avoid looking at something real?",
+      "What would I know about this connection if I fully trusted myself?"
+    ],
+    checklistBalanced: ["Trusts gut feelings about the connection", "Notices synchronicities without obsessing over them", "Can tell the difference between real intuition and anxious thought", "Sees the relationship clearly, not just through hope"],
+    checklistBlocked: ["Dismisses intuitive hits as \u2018probably nothing\u2019", "Constantly analyzes every sign for hidden meaning", "Uses spiritual bypassing to avoid real relationship problems", "Second-guesses every gut feeling"],
+    unionRole: "Third eye is what lets you recognize real alignment, not just intensity or chemistry, and trust that recognition even when it defies logic.",
+    unionBalanced: "You can see this connection clearly, the real parts and the growth parts, without needing to spiritualize away what's actually happening.",
+    unionImbalanced: "Shows up as either dismissing your intuition entirely, or getting lost analyzing signs instead of doing the actual inner work.",
+    integration: "Before searching for another sign today, pause and ask what you already know, underneath the search.",
+    link: { label: "Twin Flame Spirit Guide Meditation", tier: "premium", url: "https://www.skool.com/union/classroom/3260f44f?md=e04cb092eafa464096f7b15f52f04886" }
+  },
+  {
+    id: "crown", name: "Crown Chakra", sanskrit: "Sahasrara", number: 7, emoji: "\u{1F451}",
+    color: "#9B59B6", light: "#FAF0FF",
+    location: "Top of the head", colorMeaning: "Violet and white, divine connection",
+    element: "Cosmic, unity and transcendence", keyFunction: "Governs your connection to something greater, and your understanding of union itself. This is where the biggest truth of this whole bundle lives: union is not something you find outside yourself. It's a frequency you carry, and can return to, within.",
+    mantra: "AH / OM", affirmation: "Union lives within me. I carry it wherever I go.",
+    underactive: ["Believing love only exists if a specific person provides it", "Feeling spiritually disconnected from the bigger meaning of this journey", "Purely transactional view of relationships", "Feeling like your peace depends entirely on the relationship's status"],
+    overactive: ["Spiritual bypassing real relationship work with \u2018it's all divine timing\u2019", "Obsessing over \u2018the one\u2019 instead of doing the inner work", "Using spirituality to avoid taking any real action", "Detached from the present relationship in favor of a future fantasy"],
+    practices: [
+      { icon: "\u{1F31F}", title: "Movement", desc: "Seated stillness, savasana, or simply sitting in silence" },
+      { icon: "\u{1F64F}", title: "Sound", desc: "Chant \u201CAH\u201D or \u201COM\u201D, or sit in silent prayer" },
+      { icon: "\u{1F4A7}", title: "Food", desc: "Light, clean, simple meals, pure water" },
+      { icon: "\u2728", title: "Meditation", desc: "Visualize violet or white light pouring through your crown" },
+      { icon: "\u{1F48E}", title: "Crystals", desc: "Clear quartz, selenite, amethyst" }
+    ],
+    journalPrompts: [
+      "If union was already inside me, not something I'm waiting for, how would I live differently today?",
+      "Where have I been outsourcing my peace to another person or an outcome?",
+      "What does the frequency of union actually feel like in my body, right now?",
+      "How can I return to that frequency on a hard day, without needing anything outside myself to change first?",
+      "What is this connection actually here to teach me about myself?"
+    ],
+    checklistBalanced: ["Feels whole regardless of the relationship's current status", "Can access peace and love internally, not just through another person", "Sees this connection as part of a bigger soul journey", "Trusts the timing of union without forcing it"],
+    checklistBlocked: ["Peace feels entirely dependent on the relationship going well", "Believes union can only happen once life circumstances are perfect", "Uses spiritual concepts to avoid present-moment action", "Feels disconnected from any sense of purpose in this journey"],
+    unionRole: "This is the whole point of the bundle. Crown chakra holds the truth that union is an energetic frequency you can return to any time, not a location you arrive at once and stay in forever.",
+    unionBalanced: "You carry union within you, so it doesn't disappear when your partner has a hard day, or when there's distance, or even during separation.",
+    unionImbalanced: "Shows up as tying your entire sense of peace to what your partner does, says, or feels, instead of anchoring it inside yourself first.",
+    integration: "Each morning this week, before checking your phone or thinking about them, spend 60 seconds simply feeling the frequency of union within your own body. That's the practice. That's the whole thing.",
+    link: { label: "The Twin Flame Transformation Vault", tier: "premium", url: "https://www.skool.com/union/classroom/3260f44f?md=9f7e863f00be47e99059caab1d8cec84" }
+  }
+];
+
+const TABS = [
+  { id: "overview", label: "Overview" },
+  { id: "imbalances", label: "Imbalances" },
+  { id: "practices", label: "Practices" },
+  { id: "journal", label: "Journal" },
+  { id: "checklist", label: "Checklist" },
+  { id: "union", label: "Union" }
+];
+
+const PREMIUM_URL = "https://skool.com/union/plans";
+
+/* ---------- STATE ---------- */
+
+let state = {
+  name: "", screen: "name",
+  view: "dashboard", activeChakra: 0, activeTab: "overview",
+  checkedBalanced: {}, checkedBlocked: {},
+  journal: []
+};
+
+function go(patch) { state = { ...state, ...patch }; render(); }
+
+/* ---------- SHARED CHROME ---------- */
+
+function topNav() {
+  return `<div class="topnav-wrap">
+    <div class="topnav">
+      <div class="topnav-brand" onclick="go({view:'dashboard', activeChakra:0, activeTab:'overview'})"><div class="icon">\u{1F49C}</div><div class="name">7 Chakra Love Healing Bundle</div></div>
+      <button class="nav-link" onclick="go({view:'journal'})">My Journal</button>
+    </div>
+  </div>`;
+}
+
+function footer() {
+  return `<div class="site-footer">
+    <div class="brand">Luana <em>Spirits</em></div>
+    <div class="links">
+      <a href="mailto:luana@luanaspirits.com">luana@luanaspirits.com</a> &middot;
+      <a href="https://docs.google.com/document/d/12oUQEXXesDmVw_XEZH-GEc8NVbtFYyLYf3359hvxyFE/edit?usp=sharing" target="_blank" rel="noopener">Privacy Policy</a> &middot;
+      <a href="https://docs.google.com/document/d/1i395On2ZByesCyRaIDocu1aIguhVxuHBQ1l_nPfVReQ/edit?usp=sharing" target="_blank" rel="noopener">Terms &amp; Conditions</a> &middot; &copy; 2026
+    </div>
+  </div>`;
+}
+
+function premiumPill() {
+  return `<div class="cta-pill">
+    <span>\u2728 Want the full depth in Premium?</span>
+    <a href="${PREMIUM_URL}" target="_blank" rel="noopener">Take a look &rarr;</a>
+  </div>`;
+}
+
+/* ---------- NAME GATE ---------- */
+
+function renderName() {
+  document.getElementById("app").innerHTML = `
+    <div class="topbar-left" style="margin-top:36px;"><div class="topbar-icon">\u{1F49C}</div><div class="topbar-title">The 7 Chakra Love Healing Bundle</div></div>
+    <div class="center"><div class="std-pill">STANDARD TIER AND UP</div></div>
+    <div class="eyebrow center">Unblock Your Chakras For Union</div>
+    <h1 class="center">Explore how love moves through all 7 chakras.</h1>
+    <p class="center">Union, your relationships, and your twin flame journey, mapped through the body's energy centers, with guided journaling to help you find and heal what's blocked.</p>
+    <div class="tagline">Union is a frequency. You can return to it any time, because it already lives within you.</div>
+    <div class="card">
+      <h3>What should I call you?</h3>
+      <input type="text" id="nameInput" placeholder="Your first name" />
+      <button class="btn gold" onclick="submitName()">Begin</button>
+    </div>
+    ${footer()}
+  `;
+}
+
+function submitName() {
+  const val = document.getElementById("nameInput").value.trim();
+  go({ name: val || "beautiful soul", screen: "dashboard" });
+}
+
+/* ---------- CHAKRA SELECTOR + TABS ---------- */
+
+function chakraPillsHtml() {
+  return `<div class="chakra-pills">${CHAKRAS.map((c, i) => `
+    <div class="chakra-pill ${state.activeChakra === i ? "active" : ""}" style="${state.activeChakra === i ? `background:linear-gradient(135deg, ${c.color}, ${c.color}cc); box-shadow:0 8px 20px ${c.color}55;` : ""}" onclick="switchChakra(${i})">
+      <div class="dot" style="background:${c.color};"></div>
+      <div class="n">${c.number}</div>
+      <div class="lbl" style="${state.activeChakra === i ? "color:#fff;" : ""}">${c.name.replace(" Chakra", "")}</div>
+    </div>
+  `).join("")}</div>`;
+}
+
+function tabsHtml() {
+  const c = CHAKRAS[state.activeChakra];
+  return `<div class="tabs">${TABS.map(t => `
+    <div class="tab ${state.activeTab === t.id ? "active" : ""}" style="${state.activeTab === t.id ? `background:${c.color};` : ""}" onclick="go({activeTab:'${t.id}'})">${t.label}</div>
+  `).join("")}</div>`;
+}
+
+function switchChakra(i) {
+  go({ activeChakra: i, activeTab: "overview" });
+}
+
+/* ---------- TAB CONTENT ---------- */
+
+function chakraHeaderHtml(c) {
+  return `<div class="chakra-header">
+    <div class="badge" style="background:linear-gradient(135deg, ${c.color}, ${c.color}cc);">${c.emoji}</div>
+    <div>
+      <div class="sanskrit">${c.sanskrit} &middot; Chakra ${c.number} of 7</div>
+      <h2 style="margin-bottom:0;">${c.name}</h2>
+    </div>
+  </div>`;
+}
+
+function overviewHtml(c) {
+  return `
+    ${chakraHeaderHtml(c)}
+    <p>${c.keyFunction}</p>
+    <div class="fact-grid">
+      <div class="fact-row"><div class="k">Location</div><div class="v">${c.location}</div></div>
+      <div class="fact-row"><div class="k">Color</div><div class="v">${c.colorMeaning}</div></div>
+      <div class="fact-row"><div class="k">Element</div><div class="v">${c.element}</div></div>
+    </div>
+    <div class="card affirmation-card">
+      <div class="mantra">MANTRA &middot; ${c.mantra}</div>
+      <div class="aff">\u201C${c.affirmation}\u201D</div>
+    </div>
+  `;
+}
+
+function imbalancesHtml(c) {
+  return `
+    ${chakraHeaderHtml(c)}
+    <p>Every chakra can be underactive (closed, blocked) or overactive (excessive, overcompensating). Neither is a flaw, both are just information about where healing wants to happen.</p>
+    <div class="imbalance-col">
+      <div class="imbalance-label" style="background:${c.light}; color:${c.color};">\u2193 Underactive, Closed</div>
+      <ul class="imbalance-list">${c.underactive.map(x => `<li><span class="dot">\u2726</span><span>${x}</span></li>`).join("")}</ul>
+    </div>
+    <div class="imbalance-col">
+      <div class="imbalance-label" style="background:${c.light}; color:${c.color};">\u2191 Overactive, Excessive</div>
+      <ul class="imbalance-list">${c.overactive.map(x => `<li><span class="dot">\u2726</span><span>${x}</span></li>`).join("")}</ul>
+    </div>
+  `;
+}
+
+function practicesHtml(c) {
+  return `
+    ${chakraHeaderHtml(c)}
+    <p>Simple ways to support this chakra, pick whichever feels most doable today.</p>
+    <div class="practice-grid">
+      ${c.practices.map(p => `<div class="practice-card"><div class="practice-icon">${p.icon}</div><div><div class="t">${p.title}</div><div class="d">${p.desc}</div></div></div>`).join("")}
+    </div>
+  `;
+}
+
+function journalHtml(c) {
+  const existing = state.journal.find(j => j.chakraId === c.id);
+  const fields = c.journalPrompts.map((q, i) => `
+    <div class="journal-q">${q}</div>
+    <textarea id="j-${i}">${existing ? (existing.answers[i] || "") : ""}</textarea>
+  `).join("");
+  return `
+    ${chakraHeaderHtml(c)}
+    <div class="card">${fields}
+      <button class="btn gold small" onclick="saveChakraJournal('${c.id}')">${existing ? "\u2726 Update Reflections" : "Save My Reflections"}</button>
+    </div>
+  `;
+}
+
+function saveChakraJournal(chakraId) {
+  const c = CHAKRAS.find(x => x.id === chakraId);
+  const answers = c.journalPrompts.map((q, i) => document.getElementById("j-" + i).value);
+  state.journal = state.journal.filter(j => j.chakraId !== chakraId);
+  state.journal.push({ chakraId: chakraId, chakraName: c.name, date: new Date().toLocaleString(), prompts: c.journalPrompts, answers: answers });
+  render();
+}
+
+function checklistHtml(c) {
+  const balancedCount = c.checklistBalanced.filter((x, i) => state.checkedBalanced[c.id + "-" + i]).length;
+  const blockedCount = c.checklistBlocked.filter((x, i) => state.checkedBlocked[c.id + "-" + i]).length;
+  return `
+    ${chakraHeaderHtml(c)}
+    <p>Check off whatever feels true for you right now. This isn't a test, it's a mirror.</p>
+    <div class="checklist-progress">BALANCED &middot; ${balancedCount} OF ${c.checklistBalanced.length} CHECKED</div>
+    <div class="card">
+      ${c.checklistBalanced.map((x, i) => {
+        const key = c.id + "-" + i;
+        const checked = !!state.checkedBalanced[key];
+        return `<div class="check-row" onclick="toggleCheck('balanced','${c.id}',${i})">
+          <div class="custom-check ${checked ? "checked" : ""}" style="${checked ? `background:${c.color};` : ""}">${checked ? "\u2713" : ""}</div>
+          <span style="font-size:13.5px; color:var(--text);">${x}</span>
+        </div>`;
+      }).join("")}
+    </div>
+    <div class="checklist-progress">MAY NEED HEALING &middot; ${blockedCount} OF ${c.checklistBlocked.length} CHECKED</div>
+    <div class="card">
+      ${c.checklistBlocked.map((x, i) => {
+        const key = c.id + "-" + i;
+        const checked = !!state.checkedBlocked[key];
+        return `<div class="check-row" onclick="toggleCheck('blocked','${c.id}',${i})">
+          <div class="custom-check ${checked ? "checked" : ""}" style="${checked ? "background:#c97a7a;" : ""}">${checked ? "\u2713" : ""}</div>
+          <span style="font-size:13.5px; color:var(--text);">${x}</span>
+        </div>`;
+      }).join("")}
+    </div>
+    ${blockedCount >= 2 ? `<div class="card ritual"><p style="margin-bottom:0; color:var(--text);">A few of these resonating is a sign, not a verdict. Head to the <strong>Union</strong> tab for how this shows up and how to start integrating it.</p></div>` : ""}
+  `;
+}
+
+function toggleCheck(type, chakraId, i) {
+  const key = chakraId + "-" + i;
+  if (type === "balanced") state.checkedBalanced[key] = !state.checkedBalanced[key];
+  else state.checkedBlocked[key] = !state.checkedBlocked[key];
+  render();
+}
+
+function unionHtml(c) {
+  const linkBadge = c.link.tier === "premium" ? `<span class="tier-badge premium">PREMIUM</span>` : `<span class="tier-badge standard">STANDARD</span>`;
+  return `
+    ${chakraHeaderHtml(c)}
+    <div class="union-role-card">
+      <div class="k">Its Role In Union</div>
+      <p>${c.unionRole}</p>
+    </div>
+    <div class="union-split">
+      <div class="union-balanced"><div class="k">\u2726 When Balanced</div><p>${c.unionBalanced}</p></div>
+      <div class="union-imbalanced"><div class="k">\u26A1 When Imbalanced</div><p>${c.unionImbalanced}</p></div>
+    </div>
+    <div class="integration-card">
+      <div class="k">\u2726 Integration Practice</div>
+      <p>${c.integration}</p>
+    </div>
+    <a class="link-btn" href="${c.link.url}" target="_blank" rel="noopener">${c.link.label} ${linkBadge} &rarr;</a>
+  `;
+}
+
+/* ---------- MY JOURNAL (aggregate) ---------- */
+
+function renderJournalView() {
+  const sorted = [...state.journal].reverse();
+  const entries = sorted.map(e => {
+    const qas = e.prompts.map((q, i) => e.answers[i] ? `<div class="q">${q}</div><div class="a">${e.answers[i]}</div>` : "").join("");
+    return `<div class="entry"><div class="tt">\u{1F49C} ${e.chakraName}</div><div class="meta">${e.date}</div>${qas}</div>`;
+  }).join("");
+  const empty = entries === "" ? "<p>Nothing here yet. Visit any chakra's Journal tab to start filling this in.</p>" : "";
+  document.getElementById("app").innerHTML = `
+    ${topNav()}
+    <div class="back-link" style="cursor:pointer; color:var(--muted-2); font-size:13px; margin-bottom:16px;" onclick="go({view:'dashboard'})">&larr; Back to the bundle</div>
+    <h2>\u{1F4D3} My Journal, ${state.name}</h2>
+    <div class="save-reminder"><span>\u{1F49C}</span><span>This saves while your browser tab stays open. Download it before closing, or it won't be there next time.</span></div>
+    <div class="card">${entries || empty}</div>
+    <div class="btn-row"><button class="btn gold" onclick="downloadJournal()">Download My Journal</button></div>
+    ${footer()}
+  `;
+}
+
+function downloadJournal() {
+  let text = "THE 7 CHAKRA LOVE HEALING BUNDLE\nMy Journal, " + state.name + "\n\n";
+  if (!state.journal.length) {
+    text += "No entries yet.\n";
+  } else {
+    [...state.journal].reverse().forEach(e => {
+      text += "== " + e.date + " \u00B7 " + e.chakraName + " ==\n";
+      e.prompts.forEach((q, i) => { if (e.answers[i]) text += q + "\n" + e.answers[i] + "\n\n"; });
+    });
+  }
+  const blob = new Blob([text], { type: "text/plain" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = "my-7-chakra-love-journal.txt";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+/* ---------- DASHBOARD ---------- */
+
+function renderDashboard() {
+  const c = CHAKRAS[state.activeChakra];
+  let content = "";
+  if (state.activeTab === "overview") content = overviewHtml(c);
+  else if (state.activeTab === "imbalances") content = imbalancesHtml(c);
+  else if (state.activeTab === "practices") content = practicesHtml(c);
+  else if (state.activeTab === "journal") content = journalHtml(c);
+  else if (state.activeTab === "checklist") content = checklistHtml(c);
+  else if (state.activeTab === "union") content = unionHtml(c);
+
+  const isFirst = state.activeChakra === 0;
+  const isLast = state.activeChakra === CHAKRAS.length - 1;
+
+  document.getElementById("app").innerHTML = `
+    ${topNav()}
+    ${chakraPillsHtml()}
+    ${tabsHtml()}
+    ${content}
+    ${state.activeChakra === 0 || state.activeChakra === CHAKRAS.length - 1 ? premiumPill() : ""}
+    <div class="nav-arrows">
+      <button class="btn ghost small" ${isFirst ? "disabled" : ""} onclick="switchChakra(${state.activeChakra - 1})">&larr; Previous</button>
+      <div class="mid">${state.activeChakra + 1} of ${CHAKRAS.length}</div>
+      <button class="btn ghost small" ${isLast ? "disabled" : ""} onclick="switchChakra(${state.activeChakra + 1})">Next &rarr;</button>
+    </div>
+    ${footer()}
+  `;
+}
+
+/* ---------- ROUTER ---------- */
+
+function render() {
+  if (state.screen === "name") { renderName(); return; }
+  if (state.view === "journal") { renderJournalView(); return; }
+  renderDashboard();
+}
+
+render();
+</script>
+
+<!--
+  BUILD NOTES:
+  Single-file vanilla HTML/CSS/JS, no build step, no dependencies.
+  Ready to deploy as-is on GitHub Pages. Rename to index.html at the
+  root of its folder/repo and GitHub Pages will serve it automatically.
+  All 7 chakras' content (overview, imbalances, practices, journal
+  prompts, checklist, and union integration) live in the CHAKRAS array
+  near the top of the script.
+-->
+</body>
+</html>
