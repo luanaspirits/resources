@@ -403,7 +403,7 @@ function journalHtml() {
   const empty = entries === "" ? "<p>Nothing here yet. Decode your first connection to start filling this in.</p>" : "";
   return `
     <h2>\u{1F4D3} My Journal, ${state.name}</h2>
-    <div class="save-reminder"><span>\u{1F49C}</span><span>This saves while your browser tab stays open. Download it before closing, or it won't be there next time.</span></div>
+    <div class="save-reminder"><span>\u{1F49C}</span><span><strong>Your answers save automatically</strong>, right here in this browser, on this device. Close the tab, come back next week, it'll still be here. It won't follow you to a different browser or device though, and clearing your browser's data will erase it, so download your journal now and then whenever you want a backup you can keep.</span></div>
     ${entries || empty}
     <div class="btn-row">
       <button class="btn gold" onclick="downloadJournal()">Download My Journal</button>
@@ -491,7 +491,19 @@ function learnHtml() {
 
 /* ---------- ROUTER ---------- */
 
+const STORAGE_KEY = "soul-connection-mirror-work-v1";
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) { /* storage unavailable */ }
+}
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) state = { ...state, ...JSON.parse(raw) };
+  } catch (e) { /* corrupted or unavailable, start fresh */ }
+}
+
 function render() {
+  saveState();
   if (state.screen === "name") { renderName(); return; }
   let content = "";
   if (state.activeTab === "start") content = startHtml();
@@ -507,6 +519,7 @@ function render() {
   `;
 }
 
+loadState();
 render();
 </script>
 
