@@ -1,1 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Trigger Recovery Roadmap, a Premium guided journey for healing love triggers through inner child reparenting.">
+<title>The Trigger Recovery Roadmap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #3a2159; --card: rgba(255,255,255,0.09); --card-2: rgba(255,255,255,0.14);
+    --ritual-bg: linear-gradient(150deg, rgba(217,164,78,0.14), rgba(181,126,218,0.14));
+    --text: #f7f0fb; --muted: #cbb3dd; --muted-2: #a98ec2;
+    --gold: #d9a44e; --gold-soft: #f0dcae; --violet: #b57eda; --violet-bright: #cf9ff0;
+    --line: rgba(255,255,255,0.14); --line-strong: rgba(255,255,255,0.26);
+  }
+  body {
+    background: radial-gradient(ellipse at 20% 0%, #55338090 0%, transparent 55%),
+                radial-gradient(ellipse at 85% 15%, #d9a44e22 0%, transparent 45%),
+                radial-gradient(ellipse at 50% 100%, #b57eda26 0%, transparent 55%), var(--bg);
+    color: var(--text); font-family: 'Jost', sans-serif; font-weight: 300; min-height: 100vh; position: relative;
+  }
+  #embers { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .ember { position: absolute; border-radius: 50%; background: radial-gradient(circle, var(--gold-soft), var(--gold) 60%, transparent 100%); opacity: 0.5; animation: rise linear infinite; }
+  @keyframes rise { 0%{transform:translateY(0);opacity:0;} 10%{opacity:.55;} 90%{opacity:.25;} 100%{transform:translateY(-100vh) translateX(20px);opacity:0;} }
+  #app { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; padding: 0 20px 60px; }
+  h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text); margin-bottom: 12px; }
+  h1 { font-weight: 700; font-size: 30px; line-height: 1.25; }
+  h2 { font-weight: 600; font-size: 22px; }
+  h3 { font-weight: 600; font-size: 17px; }
+  p { line-height: 1.75; color: var(--muted); font-size: 14.5px; margin-bottom: 14px; }
+  em.flame { font-style: italic; color: var(--gold-soft); }
+  .tagline { font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold-soft); font-size: 18px; text-align: center; margin: 18px 0; }
+  .eyebrow { font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 24px; margin-bottom: 16px; backdrop-filter: blur(8px); }
+  .card.ritual { background: var(--ritual-bg); border-color: var(--line-strong); }
+  .card.warn { background: rgba(217,164,78,0.12); border-color: var(--gold); }
+  .btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Jost', sans-serif; font-weight: 700; font-size: 14px; padding: 13px 26px; border-radius: 999px; border: none; cursor: pointer; text-decoration: none; }
+  .btn.gold { background: linear-gradient(135deg, var(--gold-soft), var(--gold)); color: #3a2159; box-shadow: 0 6px 20px rgba(217,164,78,0.35); }
+  .btn.ghost { background: transparent; color: var(--muted); border: 1px solid var(--line-strong); }
+  .btn.ghost:hover { color: var(--text); border-color: var(--violet-bright); }
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; justify-content: center; }
+  .btn-row.left { justify-content: flex-start; }
+  input[type=text] { width: 100%; background: rgba(0,0,0,0.15); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; font-family: 'Jost', sans-serif; font-size: 16px; color: var(--text); margin-bottom: 16px; }
+  input[type=text]::placeholder { color: var(--muted-2); }
+  textarea { width: 100%; background: rgba(0,0,0,0.15); border: 1px solid var(--line); border-radius: 12px; color: var(--text); font-family: 'Jost', sans-serif; font-size: 14.5px; padding: 14px; resize: vertical; min-height: 85px; margin-bottom: 14px; }
+  .journal-q { font-size: 14px; color: var(--text); margin-bottom: 6px; font-weight: 500; }
+  .center { text-align: center; }
+  .topbar-left { display: flex; align-items: center; gap: 12px; justify-content: center; margin-bottom: 10px; }
+  .topbar-icon { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, var(--gold-soft), var(--violet)); display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 4px 16px rgba(181,126,218,0.4); flex-shrink: 0; }
+  .topbar-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 17px; }
+  .premium-pill { display: inline-block; background: linear-gradient(135deg, var(--gold-soft), var(--gold)); color: #3a2159; font-family: 'Jost', sans-serif; font-weight: 800; font-size: 11px; letter-spacing: 0.5px; border-radius: 999px; padding: 6px 14px; margin-bottom: 14px; }
+  .back-link { display: inline-block; color: var(--muted-2); font-size: 13px; margin: 16px 0; cursor: pointer; }
+  .back-link:hover { color: var(--text); }
+  .option-grid { display: grid; gap: 14px; margin: 22px 0; }
+  .option-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; cursor: pointer; display: flex; align-items: center; gap: 16px; }
+  .option-card:hover { border-color: var(--violet-bright); background: var(--card-2); }
+  .option-icon { font-size: 26px; flex-shrink: 0; }
+  .option-text .t { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; }
+  .option-text .s { font-size: 12.5px; color: var(--muted-2); }
+  .choice-list { display: flex; flex-direction: column; gap: 10px; margin: 18px 0; }
+  .choice { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; cursor: pointer; font-size: 15px; color: var(--text); text-align: center; }
+  .choice:hover { border-color: var(--gold); background: var(--card-2); }
+  .steps { list-style: none; margin-bottom: 16px; }
+  .steps li { display: flex; gap: 12px; margin-bottom: 12px; font-size: 14px; color: var(--muted); }
+  .steps .dot { flex-shrink: 0; color: var(--gold); }
+  .breathe-wrap { display: flex; flex-direction: column; align-items: center; padding: 16px 0 8px; }
+  .breathe-ball { width: 130px; height: 130px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff8e8, var(--gold-soft) 45%, var(--violet) 100%); box-shadow: 0 0 50px rgba(181,126,218,0.5); transition: transform 4s ease-in-out; margin-bottom: 20px; }
+  .breathe-label { font-family: 'Playfair Display', serif; font-size: 19px; min-height: 26px; text-align: center; }
+  .box-steps { display: flex; gap: 6px; margin-top: 8px; margin-bottom: 10px; }
+  .box-steps span { font-family: 'DM Mono', monospace; font-size: 10.5px; color: var(--muted-2); border: 1px solid var(--line); border-radius: 999px; padding: 5px 11px; }
+  .box-steps span.on { background: linear-gradient(135deg, var(--gold-soft), var(--violet)); color: #2a1840; border-color: transparent; }
+  .cycle-count { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted-2); margin-top: 6px; }
+  .entry { border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 16px; }
+  .entry:last-child { border: none; margin: 0; padding: 0; }
+  .entry .tt { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600; color: var(--gold-soft); margin-bottom: 2px; }
+  .entry .meta { font-family: 'DM Mono', monospace; font-size: 10.5px; color: var(--muted-2); margin-bottom: 10px; }
+  .entry .q { font-size: 12.5px; color: var(--muted-2); margin-bottom: 2px; }
+  .entry .a { font-size: 14px; color: var(--text); margin-bottom: 8px; }
+  .lesson-item, .accordion-item { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; cursor: pointer; margin-bottom: 10px; }
+  .lesson-item:hover, .accordion-item:hover { border-color: var(--violet-bright); }
+  .lesson-item .t, .accordion-item .t { font-family: 'Playfair Display', serif; font-size: 15.5px; font-weight: 600; }
+  .lesson-item .s { font-size: 12.5px; color: var(--muted-2); }
+  .accordion-body { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
+  .accordion-body p { font-size: 13.5px; }
+  .accordion-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; margin-top: 10px; }
+  .tk-item { display: flex; gap: 10px; margin-bottom: 9px; font-size: 14px; color: var(--text); line-height: 1.6; }
+  .tk-spark { color: var(--gold); flex-shrink: 0; }
+  .section-label { font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin: 20px 0 10px; }
+  .link-btn { display: inline-block; margin-top: 10px; color: var(--gold-soft); font-size: 13px; text-decoration: none; border-bottom: 1px solid var(--gold); }
+  .save-reminder { background: rgba(217,164,78,0.10); border: 1px solid var(--gold); border-radius: 14px; padding: 14px 18px; font-size: 13px; color: var(--muted); margin-bottom: 20px; display: flex; gap: 10px; align-items: flex-start; }
+  .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+  .chip { background: rgba(0,0,0,0.15); border: 1px solid var(--line); border-radius: 999px; padding: 9px 15px; font-size: 13px; color: var(--muted); cursor: pointer; }
+  .chip:hover { border-color: var(--violet-bright); }
+  .chip.selected { background: linear-gradient(135deg, var(--gold-soft), var(--violet)); color: #2a1840; border-color: transparent; font-weight: 500; }
+  .med-card { display: flex; gap: 14px; align-items: flex-start; }
+  .med-icon { font-size: 30px; flex-shrink: 0; }
 
+  /* Persistent top nav, sleek & minimal */
+  .topnav-wrap { position: sticky; top: 0; z-index: 10; padding: 16px 0 14px; margin-bottom: 4px; }
+  .topnav { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .topnav-brand { display: flex; align-items: center; gap: 8px; cursor: pointer; opacity: 0.85; }
+  .topnav-brand .icon { width: 22px; height: 22px; border-radius: 7px; background: linear-gradient(135deg, var(--gold-soft), var(--violet)); display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
+  .topnav-brand .name { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; font-size: 12.5px; color: var(--muted); }
+  .topnav-links { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .nav-link { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted-2); cursor: pointer; background: none; border: none; padding: 3px 0; }
+  .nav-link:hover { color: var(--gold-soft); }
+  .nav-link.download { color: var(--gold); font-weight: 600; }
+  .flower-accent { font-size: 13px; opacity: 0.7; margin: 0 2px; }
+  .mt-nav { margin-top: 16px; }
+  .mt-pre { margin-top: 36px; }
+  .text-bright { color: var(--text); }
+
+  .site-footer { margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--line); text-align: center; }
+  .site-footer .brand { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+  .site-footer .brand em { font-style: italic; color: var(--gold-soft); }
+  .site-footer .links { font-family: 'DM Mono', monospace; font-size: 10.5px; color: var(--muted-2); line-height: 1.9; }
+  .site-footer a { color: var(--muted-2); text-decoration: none; }
+</style>
+</head>
+<body>
+<div id="embers"></div>
+<div id="app"></div>
+
+<script>
+/* ---------- AMBIENT EMBERS ---------- */
+(function initEmbers() {
+  const wrap = document.getElementById("embers");
+  for (let i = 0; i < 14; i++) {
+    const e = document.createElement("div");
+    e.className = "ember";
+    const size = 3 + Math.random() * 5;
+    e.style.width = size + "px"; e.style.height = size + "px";
+    e.style.left = Math.random() * 100 + "%"; e.style.bottom = "-10px";
+    e.style.animationDuration = (14 + Math.random() * 14) + "s";
+    e.style.animationDelay = (Math.random() * 14) + "s";
+    wrap.appendChild(e);
+  }
+})();
+
+/* ---------- DATA: TYPE LABELS & AFFIRMATIONS ---------- */
+
+const TYPE_LABELS = { intense: "Very Intense", somatic: "In Your Body", cognitive: "In Your Thoughts" };
+
+const COMPASSION_AFFIRMATIONS = {
+  intense: ["It's okay to feel this way.", "I'm so sorry you feel this. I'm here.", "You don't have to hold this alone.", "This feeling will not last forever.", "I'm not going anywhere."],
+  somatic: ["I'm so sorry your body feels this way right now.", "It's okay to feel this in your body.", "I'm here with you, even in this discomfort.", "You don't have to push this away.", "I love and accept you unconditionally."],
+  cognitive: ["It's okay that this belief feels true right now.", "I'm so sorry you've carried this thought for so long.", "I hear you, and I'm not going anywhere.", "This thought made sense once, and you're allowed to question it now.", "I love and accept you unconditionally."]
+};
+
+const REWIRE_THOUGHTS = {
+  intense: ["I am safe in this moment.", "I can feel this and still be okay.", "This is temporary, even when it doesn't feel like it."],
+  somatic: ["My body is allowed to feel this without it meaning something is wrong.", "I can hold myself the way I needed to be held.", "This sensation is information, not danger."],
+  cognitive: ["I am allowed to be loved without earning it.", "My worth was never actually in question.", "I get to decide what's true for me today, not my past."]
+};
+
+const MEDITATIONS_INFO = {
+  intense: { name: "Vipassana Meditation", source: "from Foundations to Inner Union", desc: "A grounding, present-moment meditation, ideal for when a trigger feels like too much to think your way through.", url: "https://www.skool.com/union/classroom/49a0a9e5?md=68e186cd087d43aaa409f6793bd3408b" },
+  somatic: { name: "The Divine Reparenting Method Guided Meditation", source: "from Manifest Your Union", desc: "A full audio journey guiding you through reparenting the part of you that's holding this trigger in your body.", url: "https://www.skool.com/union/classroom/49a0a9e5?md=b1628b7a9ffe4d9a9eb94d84a0b7e35f" },
+  cognitive: { name: "The Divine Reparenting Method Guided Meditation", source: "from Manifest Your Union", desc: "A full audio journey guiding you through reparenting the part of you that's holding this belief.", url: "https://www.skool.com/union/classroom/49a0a9e5?md=b1628b7a9ffe4d9a9eb94d84a0b7e35f" }
+};
+
+/* ---------- DATA: LESSONS ---------- */
+
+const LESSONS = [
+  { id: "what-are-triggers", icon: "\u{1F4D6}", title: "What Triggers Actually Are",
+    desc: [
+      "A trigger isn't proof that something is wrong with you. It's a message, energy trying to move through you and deliver something important, and usually urgent, to your conscious mind.",
+      "The intensity of a trigger tells you how much energy is behind it, not how broken you are.",
+      "You don't need to know exactly where a trigger came from in order to heal it. Healing is more about being present with the feeling than it is about excavating the origin story."
+    ],
+    takeaways: ["Triggers are messages, not malfunctions.", "Intensity tells you how much energy is trying to move, not how broken you are.", "You don't need the origin story to heal the pattern.", "Every emotion deserves a place, none of them are too much or too shameful to bring here."]
+  },
+  { id: "doorway-to-union", icon: "\u2728", title: "Triggers Are The Doorway To Union",
+    desc: [
+      "Everything you experience in your outer reality is, in some way, a mirror. The people and situations that trigger you most are often reflecting a belief you already hold about yourself.",
+      "A catalyst, a person or moment that stirs something painful in you, can actually be one of the most valuable things that happens on your healing journey. It brings the old wound to the surface, where it can finally be seen and healed.",
+      "Manifesting union requires you to become a match for that energy first. Every trigger you heal is one less mirror you'll need life to keep showing you.",
+      "<em class='flame'>Triggers are the doorway to union.</em> Not an obstacle blocking your way there, the actual path through."
+    ],
+    takeaways: ["Your outer reality mirrors the beliefs you carry, especially the ones you can't see yet.", "A catalyst that triggers you is often surfacing a wound so it can finally heal.", "You have to become a match for union before you can receive it.", "Triggers are the doorway to union, not the obstacle to it."]
+  },
+  { id: "reparenting", icon: "\u{1F476}", title: "The Divine Reparenting Method",
+    desc: [
+      "Reparenting means becoming the loving, attuned parent to your own inner child that you may not have fully had growing up.",
+      "Most trigger reactions aren't really your adult self responding to the present moment. They're your inner child responding to something that feels familiar.",
+      "This is the method behind everything in this roadmap. Speaking to yourself with compassion, holding your own hurt without trying to fix it immediately, is reparenting in action.",
+      "This is a practice, not a one-time fix. Small, repeated moments of reparenting are what actually rewire the pattern over time."
+    ],
+    takeaways: ["Reparenting is about giving yourself now what your inner child still needs.", "Most trigger reactions are your inner child responding, not your adult self.", "Speaking to yourself with compassion is reparenting in real, practical action.", "Consistency matters more than intensity."],
+    link: { label: "Learn & Apply the Divine Reparenting Method (full lesson)", url: "https://www.skool.com/union/classroom/6bd2fa96?md=d12ff0fbcf8141a5b282f55562996358" }
+  }
+];
+
+/* ---------- DATA: FAQ (12 entries) ---------- */
+
+const FAQS = [
+  { q: "Why do I feel triggered by such small things sometimes?", a: "A small moment can carry a big charge if it echoes something old and unprocessed. The size of the trigger doesn't have to match the size of the reaction, that's actually a clue there's older energy underneath it, not evidence you're overreacting." },
+  { q: "What's the difference between fight, flight, freeze, and fawn?", a: "These are your nervous system's four main responses to a perceived threat. Fight shows up as anger or the urge to argue and defend. Flight shows up as anxiety and the urge to leave or avoid. Freeze shows up as numbness, spacing out, or feeling stuck. Fawn shows up as people-pleasing, over-apologizing, or abandoning your own needs to keep the peace. All four are valid survival responses, none of them are a character flaw." },
+  { q: "Is it normal for the same trigger to come back even after I've healed it once?", a: "Yes, completely. Your emotional body is like an onion, there are layers. Healing one layer of a trigger can bring it back weeks later, but that's usually the next deeper layer surfacing, not a failure of the first round of healing." },
+  { q: "How do I know if I'm actually healing or just avoiding the trigger?", a: "Avoidance is pushing the feeling away and never actually being with it. Healing is being present with it, even briefly, with compassion instead of judgment. If you can sit with a feeling without needing it to disappear immediately, you're doing the real work." },
+  { q: "Why do I self-sabotage right when things start going well?", a: "Often, a protector part of you learned that familiar pain feels safer than unfamiliar peace. Sabotage isn't a flaw, it's an old strategy trying to keep you safe from a kind of hurt you haven't fully healed yet." },
+  { q: "What if I can't figure out where a trigger came from?", a: "You don't need the origin story to heal it. Healing is more about being present with the feeling and receiving its message than it is about excavating exactly where it started." },
+  { q: "Is it bad if I feel triggered by my twin flame specifically?", a: "Not at all. Twin flame connections are often powerful catalysts, meaning they're especially good at surfacing exactly what's ready to be healed in you. Being triggered by them isn't proof something's wrong with the connection, it's often proof the connection is doing its job." },
+  { q: "How long should healing a trigger take?", a: "There's no fixed timeline, and rushing it usually backfires. Smaller, consistent steps are far more effective long-term than trying to heal everything at once. Some triggers soften in one session, others take months of returning to them gently." },
+  { q: "What if I feel apathetic or numb instead of emotional during this work?", a: "That's completely normal. Apathy usually shows up when you're not fully ready to feel a trigger yet, and it just means you can come back to it later when you are. Don't push yourself if you're not ready." },
+  { q: "Can I do this work if I'm not currently triggered?", a: "Yes, and it's genuinely valuable to. Practicing self-compassion and reparenting when you're calm builds the capacity to access it faster when a real trigger hits." },
+  { q: "What's the difference between processing an emotion and being consumed by it?", a: "Processing means the feeling has room to move through you while you stay present and aware. Being consumed means the feeling has taken over and you've lost your sense of being able to observe it. If you're outside that window, it's always okay to pause, breathe, and come back to this work later." },
+  { q: "Why does self-compassion feel so uncomfortable or fake at first?", a: "If you're not used to receiving kindness from yourself, it can genuinely feel foreign or forced the first several times. That discomfort isn't a sign it's not working, it's a sign you're building a new pattern. It gets more natural with repetition, not with forcing it to feel real faster." }
+];
+
+/* ---------- DATA: COMMON TRIGGERS GUIDE (8 entries) ---------- */
+
+const COMMON_TRIGGERS = [
+  { title: "They Went Quiet Or Went No-Contact", reframe: "Their distance is about their own fear or readiness, not a measurement of your worth.", script: "It's okay that they went quiet. I'm still here for you, and you are still worthy of love right now." },
+  { title: "They're With Someone Else", reframe: "Someone else's presence doesn't cancel your worth or the realness of what you feel.", script: "I know this hurts. You don't have to compete with anyone to be loved." },
+  { title: "Mixed Signals Or Hot And Cold Behavior", reframe: "Their inconsistency reflects their own healing level right now, not your desirability.", script: "It makes sense that this confuses you. Your need for consistency is valid, not needy." },
+  { title: "Feeling Rejected After Being Vulnerable", reframe: "Their reaction is about their own capacity to receive you, not the worthiness of what you shared.", script: "Thank you for being brave enough to be seen. I'm proud of you, even if it didn't land the way you hoped." },
+  { title: "Comparing Yourself To Their Ex Or Other People", reframe: "You're not competing. You're either aligned with someone or you're not.", script: "You don't have to be more than anyone else. You just have to be you." },
+  { title: "Feeling Like You're \u201CToo Much\u201D", reframe: "Your depth was never the problem, it was met with people who couldn't hold it yet.", script: "Your feelings are not too big. They were just too big for someone who wasn't ready." },
+  { title: "Waiting For Union To Feel \u201CFixed\u201D", reframe: "Union starts with becoming whole within yourself first, waiting on someone else keeps you disempowered.", script: "You don't need them to complete you. Let's find what's already whole in you today." },
+  { title: "Repeating The Same Pattern With Different People", reframe: "The pattern isn't fate, it's an invitation showing up until you learn what it's teaching.", script: "I see the pattern too. We're allowed to learn this lesson gently, not painfully." },
+  { title: "Seeing Them Move On Or Post About Someone New", reframe: "What you see online is a snapshot, not the full truth of anyone's healing or heart.", script: "It's okay to feel a pang seeing that. Your feelings don't need to be justified to be valid." },
+  { title: "Family Or Friends Disapproving Of The Connection", reframe: "Other people's fear for you isn't the same as truth about your path.", script: "I trust what you feel, even when others don't understand it yet." },
+  { title: "Long-Distance Making You Feel Forgotten", reframe: "Distance changes logistics, it doesn't erase what's real between two people.", script: "You are not forgotten. Closeness isn't only measured in miles." },
+  { title: "An Anniversary Or Meaningful Date Passing In Silence", reframe: "A date passing quietly doesn't undo what it once meant.", script: "It's okay to grieve this moment. The meaning it held for you is still real." },
+  { title: "Feeling Like You're The Only One Doing The Work", reframe: "You can only ever be responsible for your own healing, that doesn't mean it stays one-sided forever.", script: "Your effort isn't wasted. You're doing this for you first, and that's enough reason." },
+  { title: "Doubting Whether The Connection Is Even Real", reframe: "Doubt doesn't erase truth, it's just fear asking to be reassured.", script: "It's okay to doubt sometimes. I'm not going to abandon you for feeling unsure." },
+  { title: "Feeling Behind Compared To Others' Union Timelines", reframe: "There is no universal timeline, comparing your path to someone else's only measures the wrong thing.", script: "You're not behind. You're exactly where your own healing needed you to be." },
+  { title: "A Dream Or Synchronicity That Confuses More Than Comforts", reframe: "Not every sign needs to be decoded immediately, some just need to be felt.", script: "It's okay not to understand this yet. We can sit with the mystery together." },
+  { title: "Financial Insecurity Making You Feel Unworthy Of Love", reframe: "Your bank account was never the measure of your worthiness to be loved.", script: "Money doesn't decide if you deserve love. You already do, exactly as you are." },
+  { title: "Being Criticized Or Misunderstood By Someone You Trust", reframe: "One person's misunderstanding doesn't define the truth of who you are.", script: "I know you completely, even when they don't. You are not what they misunderstood." },
+  { title: "Struggling To Set A Boundary Without Guilt", reframe: "A boundary is not rejection, it's information about what keeps you safe.", script: "It's okay to protect your peace. Saying no doesn't make you unloving." },
+  { title: "Fear Of True Intimacy Once Someone Gets Close", reframe: "Wanting to run when love gets real is a protector part, not proof something's wrong.", script: "I know closeness feels scary. We can go slowly, we don't have to bolt." },
+  { title: "Trust Issues From A Past Betrayal Resurfacing", reframe: "This new person is not automatically the last one, even if the fear feels the same.", script: "I understand why trust feels hard. You're allowed to build it slowly this time." },
+  { title: "Fear Of Being Abandoned Again", reframe: "The fear is old, even when the moment triggering it is new.", script: "I'm not leaving you, even if this feeling says I might." },
+  { title: "Feeling Unseen Even When Someone Is Right There", reframe: "Feeling unseen by one person doesn't mean you're unseeable.", script: "I see you completely, even in the moments you feel invisible to them." },
+  { title: "Feeling Not Spiritual Or Healed Enough To Deserve Union", reframe: "Union was never reserved only for the fully healed, healing is the journey, not the entry fee.", script: "You don't have to be finished healing to be worthy of love right now." },
+  { title: "The Chasing And Running Dynamic", reframe: "Chasing and running usually means both people are scared of the same intimacy in different directions.", script: "We don't have to chase or run. We can just be steady, right here." },
+  { title: "Seeing Your Own Wounds Mirrored Back Through Their Behavior", reframe: "What triggers you most in them is often showing you exactly what's ready to heal in you.", script: "Thank you for showing me what still needs love inside myself." },
+  { title: "Pressure To \u201CManifest Faster\u201D", reframe: "Real alignment can't be rushed by urgency, urgency usually just signals fear underneath.", script: "There's no deadline on love. We can let this unfold at its own pace." },
+  { title: "Spiritual Bypassing Shame", reframe: "Every emotion is acceptable and has something to teach you, none of them make you less spiritual.", script: "You're allowed to feel this, even the ugly parts. Nothing about this makes you less awakened." },
+  { title: "Feeling Like You Have To Be Perfect To Be Chosen", reframe: "Perfection was never the requirement for real love, only performance requires it.", script: "You don't have to earn love by being perfect. You're allowed to be human and still be chosen." },
+  { title: "A Friend Or Family Member Questioning If You're \u201CWasting Your Time\u201D", reframe: "Other people can't feel what you feel, their doubt is about their own frame, not your truth.", script: "I trust what I know in my own heart, even when I can't fully explain it to someone else." },
+  { title: "Feeling Triggered By Someone Else's Success In Love", reframe: "Someone else's love story arriving doesn't push yours further away.", script: "Their love is not proof mine isn't coming. I'm happy for them and still hopeful for me." },
+  { title: "Old Wounds Resurfacing After A Beautiful Moment Together", reframe: "Beautiful moments can bring old fears to the surface simply because they matter enough to protect.", script: "It's okay that fear showed up right after joy. Both can be true at the same time." }
+];
+
+/* ---------- STATE ---------- */
+
+let state = {
+  name: "", screen: "welcome",
+  healStyle: null, triggerType: null,
+  breatheCycles: 0, breathing: false,
+  currentSession: null,
+  journal: [], completedLessons: {}, lessonOpen: null, openAccordion: null
+};
+
+function go(patch) { state = { ...state, ...patch }; render(); }
+
+/* ---------- SHARED CHROME ---------- */
+
+function topNav() {
+  return `<div class="topnav-wrap">
+    <div class="topnav">
+      <div class="topnav-brand" onclick="go({screen:'hub'})"><div class="icon">\u{1F702}</div><div class="name">Trigger Recovery</div></div>
+      <div class="topnav-links">
+        <button class="nav-link" onclick="go({screen:'hub'})">Menu</button>
+        <button class="nav-link" onclick="go({screen:'learnList'})">Learn</button>
+        <button class="nav-link" onclick="go({screen:'commonTriggers'})">Triggers Guide</button>
+        <button class="nav-link" onclick="go({screen:'journal'})">Journal</button>
+        <button class="nav-link download" onclick="downloadJournal()">\u2B07 Download Journal</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function footer() {
+  return `<div class="site-footer">
+    <div class="brand">Luana <em>Spirits</em></div>
+    <div class="links">
+      <a href="mailto:luana@luanaspirits.com">luana@luanaspirits.com</a> &middot;
+      <a href="https://docs.google.com/document/d/12oUQEXXesDmVw_XEZH-GEc8NVbtFYyLYf3359hvxyFE/edit?usp=sharing" target="_blank" rel="noopener">Privacy Policy</a> &middot;
+      <a href="https://docs.google.com/document/d/1i395On2ZByesCyRaIDocu1aIguhVxuHBQ1l_nPfVReQ/edit?usp=sharing" target="_blank" rel="noopener">Terms &amp; Conditions</a> &middot; &copy; 2026
+    </div>
+  </div>`;
+}
+
+function saveReminderInline() {
+  return `<div class="save-reminder"><span>\u{1F49C}</span><span><strong>Your answers save automatically</strong>, right here in this browser, on this device. Close the tab, shut down for the night, come back next week, it'll all still be here. It won't follow you to a different browser or device though, and clearing your browser's data will erase it, so download your journal now and then whenever you want a backup you can keep.</span></div>`;
+}
+
+/* ---------- WELCOME + NAME (no nav yet) ---------- */
+
+function renderWelcome() {
+  document.getElementById("app").innerHTML = `
+    <div class="topbar-left mt-pre"><div class="topbar-icon">\u{1F702}</div><div class="topbar-title">The Trigger Recovery Roadmap</div></div>
+    <div class="center"><div class="premium-pill">PREMIUM</div></div>
+    <div class="center flower-accent">\u2727 \u{1F338} \u2727</div>
+    <h1 class="center">Hello beautiful soul, welcome to the Trigger Recovery Roadmap.</h1>
+    <p class="center" style="font-family:'Playfair Display', serif; font-style:italic; color:var(--gold-soft); font-size:15px; margin-top:-8px;">From Triggered To Grounded</p>
+    <p class="center">A gentle, guided space to work through what comes up for you on this journey, using the frequency of self-love and the practice of reparenting your own inner child.</p>
+    <div class="tagline">Triggers are the doorway to union.</div>
+    <div class="btn-row"><button class="btn gold" onclick="go({screen:'name'})">Continue</button></div>
+    ${footer()}
+  `;
+}
+
+function renderNameScreen() {
+  document.getElementById("app").innerHTML = `
+    <div class="topbar-left mt-pre"><div class="topbar-icon">\u{1F702}</div><div class="topbar-title">The Trigger Recovery Roadmap</div></div>
+    <div class="card center">
+      <h3>What should I call you?</h3>
+      <p>Every part of this journey will be personal to you.</p>
+      <input type="text" id="nameInput" placeholder="Your first name" />
+      <button class="btn gold" onclick="submitName()">Continue</button>
+    </div>
+    ${footer()}
+  `;
+}
+
+function submitName() {
+  const val = document.getElementById("nameInput").value.trim();
+  go({ name: val || "beautiful soul", screen: "safetyIntro" });
+}
+
+/* ---------- SAFETY INTRO (one time, right after name) ---------- */
+
+function renderSafetyIntro() {
+  document.getElementById("app").innerHTML = `
+    <div class="topbar-left mt-pre"><div class="topbar-icon">\u{1F702}</div><div class="topbar-title">The Trigger Recovery Roadmap</div></div>
+    <div class="center flower-accent">\u2727 \u{1F338} \u2727</div>
+    <h2 class="center">This Is A Tool For Grounded Healing</h2>
+    <p class="center">This roadmap is designed to help you regulate your nervous system and reparent your inner child from a stable, grounded place. It is not a replacement for crisis support.</p>
+    <div class="card warn">
+      <p style="color:var(--text); margin-bottom:12px;">If you're in emotional distress that feels unsafe, urgent, or like more than you can hold alone right now, please reach out for real-time support instead:</p>
+      <ul class="steps">
+        <li><span class="dot">&middot;</span><span><strong class="text-bright">US & Canada:</strong> <a href="tel:988" style="color:var(--gold-soft);">Call or text 988</a> (Suicide & Crisis Lifeline), available 24/7</span></li>
+        <li><span class="dot">&middot;</span><span>Text <strong class="text-bright">HOME</strong> to <strong class="text-bright">741741</strong> (Crisis Text Line)</span></li>
+        <li><span class="dot">&middot;</span><span><strong class="text-bright">Outside the US/Canada:</strong> please contact your local emergency number or a local crisis line</span></li>
+      </ul>
+    </div>
+    <p class="center">This is the only time you'll see this. If everything above feels clear and you're in a stable enough place to begin, let's continue.</p>
+    <div class="btn-row"><button class="btn gold" onclick="go({screen:'hub'})">I'm In A Stable Place, Let's Begin</button></div>
+    ${footer()}
+  `;
+}
+
+/* ---------- HUB ---------- */
+
+function renderHub() {
+  document.getElementById("app").innerHTML = `
+    ${topNav()}
+    <h2 class="center" style="margin-top:20px;">What would you like to do today, ${state.name}?</h2>
+    <div class="option-grid">
+      <div class="option-card" onclick="go({screen:'healStyle'})">
+        <div class="option-icon">\u{1F525}</div>
+        <div class="option-text"><div class="t">Heal A Trigger</div><div class="s">A guided path through what's coming up for you right now</div></div>
+      </div>
+      <div class="option-card" onclick="go({screen:'learnList'})">
+        <div class="option-icon">\u{1F4D6}</div>
+        <div class="option-text"><div class="t">Learn</div><div class="s">Lessons and a full FAQ library on triggers and union</div></div>
+      </div>
+      <div class="option-card" onclick="go({screen:'commonTriggers'})">
+        <div class="option-icon">\u{1F5FA}</div>
+        <div class="option-text"><div class="t">Common Triggers Guide</div><div class="s">Common scenarios, beliefs, and where they come from</div></div>
+      </div>
+      <div class="option-card" onclick="go({screen:'breathe', breatheCycles:0})">
+        <div class="option-icon">\u{1FAC1}</div>
+        <div class="option-text"><div class="t">Just Breathe</div><div class="s">A quick square breathing reset</div></div>
+      </div>
+      <div class="option-card" onclick="go({screen:'journal'})">
+        <div class="option-icon">\u{1F4D3}</div>
+        <div class="option-text"><div class="t">My Journal</div><div class="s">View or download what you've saved</div></div>
+      </div>
+    </div>
+    ${footer()}
+  `;
+}
+
+/* ---------- STYLE CHOICE ---------- */
+
+function renderHealStyle() {
+  document.getElementById("app").innerHTML = `
+    ${topNav()}
+    <div class="back-link" onclick="go({screen:'hub'})">&larr; Back</div>
+    <h2 class="center">How would you like to work through this?</h2>
+    <div class="choice-list">
+      <div class="choice" onclick="go({healStyle:'meditation', screen:'diagIntensity'})">
+        <div>\u{1F3A7} Guided Audio Meditation</div>
+        <div style="font-size:12px; color:var(--muted-2); margin-top:6px; font-weight:400;">An MP3 meditation that walks you through the healing process, hands-free, just listen and follow along.</div>
+      </div>
+      <div class="choice" onclick="go({healStyle:'journal', screen:'diagIntensity'})">
+        <div>\u270D\uFE0F Follow Prompts & Journal</div>
+        <div style="font-size:12px; color:var(--muted-2); margin-top:6px; font-weight:400;">Explore this on the thought level, in your own words, on paper or on your screen. Take your time with yourself.</div>
+      </div>
+    </div>
+    ${footer()}
+  `;
+}
+
+/* ---------- DIAGNOSTIC QUESTIONS (with direct customization option) ---------- */
+
+function renderDiagIntensity() {
+  document.getElementById("app").innerHTML = `
+    ${topNav()}
+    <div class="back-link" onclick="go({screen:'healStyle'})">&larr; Back</div>
+    <h2 class="center">Is this trigger feeling very intense right now?</h2>
+    <p class="center">Like it's hard to think straight, or your body feels like it's in fight or flight.</p>
+    <div class="choice-list">
+      <div class="choice" onclick="startSession('intense')">Yes, it's a lot right now</div>
+      <div class="choice" onclick="go({screen:'diagType'})">No, I can sit with it</div>
+    </div>
+    <div class="eyebrow center" style="margin-top:26px;">Already Know What This Is?</div>
+    <div class="choice-list">
+      <div class="choice" onclick="startSession('intense')">Very Intense</div>
+      <div class="choice" onclick="startSession('somatic')">In My Body</div>
+      <div class="choice" onclick="startSession('cognitive')">In My Thoughts</div>
+    </div>
+    ${footer()}
+  `;
+}
+
+function renderDiagType() {
+  document.getElementById("app").innerHTML = `
+    ${topNav()}
+    <div class="back-link" onclick="go({screen:'diagIntensity'})">&larr; Back</div>
+    <h2 class="center">Where is this trigger showing up most?</h2>
+    <div class="choice-list">
+      <div class="choice" onclick="startSession('somatic')">\u{1FAC1} In my body (tight chest, racing heart, anxious energy)</div>
+      <div class="choice" onclick="startSession('cognitive')">\u{1F4AD} In my thoughts (a belief or story on repeat)</div>
+    </div>
+    ${footer()}
+  `;
+}
+
+function startSession(type) {
+  state.currentSession = {
+    date: new Date().toLocaleString(),
+    type: type,
+    style: state.healStyle,
+    meditationUsed: null,
+    identify: {},
+    selectedAffirmations: [],
+    compassionText: "",
+    didRewire: false,
+    selectedNewThought: "",
+    rewireText: ""
+  };
+  go({ triggerType: type, breatheCycles: 0, screen: "breatheGate" });
+}
+
+/* ---------- BREATHING GATEWAY ---------- */
+
+let breathTimer = null;
+const BOX_PHASES = ["Breathe in...", "Hold...", "Breathe out...", "Hold..."];
+
+function renderBreatheGate() {
+  document.getElementById("app").innerHTML = `
+    ${topNav()}
+    <h2 class="center mt-nav">Let's settle your body first</h2>
+    <p class="center">A few rounds of square breathing before we begin, 4 seconds each phase.</p>
+    <div class="breathe-wrap">
+      <div class="breathe-ball" id="breatheBall"></div>
+      <div class="breathe-label" id="breatheLabel">Press start when you're ready</div>
+      <div class="box-steps" id="boxSteps">
+        <span data-p="0">Inhale</span><span data-p="1">Hold</span><span data-p="2">Exhale</span><span data-p="3">Hold</span>
+      </div>
+      <div class="cycle-count" id="cycleCount">0 of 3 rounds</div>
+      <div class="btn-row">
+        <button class="btn gold" id="breatheBtn" onclick="toggleGateBreathing()">Start</button>
+        <button class="btn ghost" onclick="proceedFromBreathe()">Skip This Step</button>
+      </div>
+    </div>
+    ${footer()}
+  `;
+}
+
+function toggleGateBreathing() {
+  const ball = document.getElementById("breatheBall");
+  const label = document.getElementById("breatheLabel");
+  const btn = document.getElementById("breatheBtn");
+  const stepsEls = document.querySelectorAll("#boxSteps span");
+  const countEl = document.getElementById("cycleCount");
+  if (state.breathing) {
+    state.breathing = false; clearTimeout(breathTimer);
+    ball.style.transform = "scale(1)"; label.textContent = "Press start when you're ready"; btn.textContent = "Start";
+    stepsEls.forEach(s => s.classList.remove("on"));
+    return;
+  }
+  state.breathing = true; btn.textContent = "Stop";
+  let phase = 0;
+  const runPhase = () => {
+    if (!state.breathing) return;
+    label.textContent = BOX_PHASES[phase];
+    stepsEls.forEach(s => s.classList.toggle("on", parseInt(s.dataset.p) === phase));
+    ball.style.transition = "transform 4s ease-in-out";
+    if (phase === 0) ball.style.transform = "scale(1.4)";
+    else if (phase === 2) ball.style.transform = "scale(1)";
+    if (phase === 3) {
+      state.breatheCycles++;
+      countEl.textContent = state.breatheCycles + " of 3 rounds";
+      if (state.breatheCycles >= 3) {
+        breathTimer = setTimeout(() => { state.breathing = false; proceedFromBreathe(); }, 4000);
+        return;
+      }
+    }
+    phase = (phase + 1) % 4;
+    breathTimer = setTimeout(runPhase, 4000);
+  };
+  runPhase();
+}
+
+function proceedFromBreathe() {
+  clearTimeout(breathTimer);
+  state.breathing = false;
+  if (state.healStyle === "meditation") {
+    go({ screen: "meditationLink" });
+  } else {
+    go({ screen: "identify" });
+  }
+}
+
+/* ---------- MEDITATION LINK (real audio) ---------- */
+
+function renderMeditationLink() {
+  const info = MEDITATIONS_INFO[state.triggerType];
+  const isPlaceholder = info.url === "#";
+  document.getElementById("app").innerHTML = `
+    ${topNav()}
+    <div class="eyebrow center mt-nav">\u{1F338} Guided Meditation</div>
+    <h2 class="center">${info.name}</h2>
+    <div class="card ritual">
+      <div class="med-card">
+        <div class="med-icon">\u{1F3A7}</div>
+        <div>
+          <p style="color:var(--text); margin-bottom:6px;"><strong>${info.source}</strong></p>
+          <p>${info.desc}</p>
+        </div>
+      </div>
+      ${isPlaceholder
+        ? `<button class="btn ghost" disabled style="opacity:0.6; cursor:not-allowed;">Meditation Link Coming Soon</button>`
+        : `<a class="btn gold" href="${info.url}" target="_blank" rel="noopener" onclick="markMeditationUsed('${info.name}')">Open The Meditation</a>`}
+    </div>
+    <p class="center">Once you've listened, come back here to continue into a short reflection.</p>
+    <div class="btn-row"><button class="btn gold" onclick="markMeditationUsed('${info.name}'); go({screen:'identify'})">I've Listened, Continue</button></div>
+    ${footer()}
+  `;
+}
+
+function markMeditationUsed(name) {
+  if (state.currentSession) state.currentSession.meditationUsed = name;
+}
+
+/* ---------- IDENTIFY (mandatory, before compassion) ---------- */
+
+function renderIdentify() {
+  const existing = state.currentSession.identify || {};
+  document.getElementById("app").innerHTML = `
+    ${topNav()}
+    <div class="eyebrow center mt-nav">${TYPE_LABELS[state.triggerType]}</div>
+    <h2 class="center">Let's explore what's here</h2>
+    <div class="card">
+      <div class="journal-q">What's the trigger that's coming up for you right now?</div>
+      <textarea id="j-0">${existing[0] || ""}</textarea>
+      <div class="journal-q">Where do you feel it in your body, and what does the sensation feel like?</div>
+      <textarea id="j-1">${existing[1] || ""}</textarea>
+    </div>
+    <div class="btn-row"><button class="btn gold" onclick="saveIdentify()">Continue</button></div>
+    ${footer()}
+  `;
+}
+
+function saveIdentify() {
+  state.currentSession.identify = { 0: document.getElementById("j-0").value, 1: document.getElementById("j-1").value };
+  go({ screen: "compassion" });
+}
+
+/* ---------- COMPASSION (MANDATORY, non-negotiable) ---------- */
+
+function renderCompassion() {
+  const type = state.triggerType;
+  const affirmations = COMPASSION_AFFIRMATIONS[type];
+  const selected = state.currentSession.selectedAffirmations || [];
+  const chips = affirmations.map(a =>
+    `<div class="chip ${selected.includes(a) ? "selected" : ""}" onclick="toggleAffirmation('${a.replace(/'/g, "\\'")}')">${a}</div>`
+  ).join("");
+  document.getElementById("app").innerHTML = `
+    ${topNav()}
+    <div class="eyebrow center mt-nav">This Step Always Comes First</div>
+    <h2 class="center">\u{1F338} Give Compassion To Your Inner Child</h2>
+    <div class="card ritual">
+      <p class="text-bright">This isn't about fixing the feeling yet, or rushing past it. Just sit with it in your body for a moment. You don't need to change anything right now, you only need to be with it.</p>
+      <p class="text-bright">Place a hand over your heart, or wherever feels right. Say quietly, out loud if you can:</p>
+      <p style="color:var(--gold-soft); font-family:'Playfair Display', serif; font-style:italic; font-size:16px;">\u201CI'm so sorry you feel this way. It's okay to feel this. I'm here. I'm not going anywhere.\u201D</p>
+    </div>
+    <div class="section-label">Which Of These Feel True Right Now?</div>
+    <p style="margin-top:-6px;">Select any that resonate.</p>
+    <div class="chip-grid">${chips}</div>
+    <div class="journal-q">Is there anything else you want to say to that part of you?</div>
+    <textarea id="compassionText">${state.currentSession.compassionText || ""}</textarea>
+    <div class="btn-row"><button class="btn gold" onclick="saveCompassion()">Continue</button></div>
+    ${footer()}
+  `;
+}
+
+function toggleAffirmation(a) {
+  const list = state.currentSession.selectedAffirmations;
+  const i = list.indexOf(a);
+  if (i > -1) list.splice(i, 1); else list.push(a);
+  render();
+}
+
+function saveCompassion() {
+  state.currentSession.compassionText = document.getElementById("compassionText").value;
+  go({ screen: "rewireChoice" });
+}
+
+/* ---------- OPTIONAL REWIRE ---------- */
+
+function renderRewireChoice() {
+  document.getElementById("app").innerHTML = `
+    ${topNav()}
+    <h2 class="center mt-nav">You've done the most important part</h2>
+    <p class="center">From here, you can choose to gently explore a new thought, or simply be complete with sitting in compassion for today. Both are enough.</p>
+    <div class="btn-row">
+      <button class="btn gold" onclick="go({screen:'rewire'})">I'd Like To Try A New Thought</button>
+      <button class="btn ghost" onclick="go({screen:'healClosing'})">I'm Complete For Today</button>
+    </div>
+    ${footer()}
+  `;
+}
+
+function renderRewire() {
+  const type = state.triggerType;
+  const thoughts = REWIRE_THOUGHTS[type];
+  const selected = state.currentSession.selectedNewThought;
+  const chips = thoughts.map(t =>
+    `<div class="chip ${selected === t ? "selected" : ""}" onclick="selectNewThought('${t.replace(/'/g, "\\'")}')">${t}</div>`
+  ).join("");
+  document.getElementById("app").innerHTML = `
+    ${topNav()}
+    <div class="eyebrow center mt-nav">Optional</div>
+    <h2 class="center">Choose A New Thought</h2>
+    <p class="center">Pick one that feels like a gentle stretch, not a lie. It doesn't need to feel 100% true yet.</p>
+    <div class="chip-grid">${chips}</div>
+    <div class="journal-q">Write it in your own words, or add anything else:</div>
+    <textarea id="rewireText">${state.currentSession.rewireText || ""}</textarea>
+    <div class="btn-row"><button class="btn gold" onclick="saveRewire()">Continue</button></div>
+    ${footer()}
+  `;
+}
+
+function selectNewThought(t) {
+  state.currentSession.selectedNewThought = t;
+  render();
+}
+
+function saveRewire() {
+  state.currentSession.didRewire = true;
+  state.currentSession.rewireText = document.getElementById("rewireText").value;
+  go({ screen: "healClosing" });
+}
+
+/* ---------- HEAL CLOSING ---------- */
+
+function renderHealClosing() {
+  state.journal.push(state.currentSession);
+  const session = state.currentSession;
+  state.currentSession = null;
+  document.getElementById("app").innerHTML = `
+    ${topNav()}
+    <h2 class="center mt-nav">\u2727 You Showed Up For Yourself Today \u2727</h2>
+    <div class="card ritual">
+      <p style="color:var(--text); font-family:'Playfair Display', serif; font-style:italic; font-size:16px; line-height:1.7; margin:0;">That's not small, ${state.name}. Every time you meet a trigger instead of running from it, you're reparenting the part of you that needed this all along. You're one step closer to union.</p>
+    </div>
+    <div class="btn-row">
+      <button class="btn gold" onclick="go({screen:'healStyle'})">Work Through Another Trigger</button>
+      <button class="btn ghost" onclick="go({screen:'hub'})">Back To Main Menu</button>
+    </div>
+    ${footer()}
+  `;
+}
+
+/* ---------- STANDALONE BREATHE ---------- */
+
+function renderBreatheStandalone() {
+  document.getElementById("app").innerHTML = `
+    ${topNav()}
+    <h2 class="center mt-nav">Just Breathe, ${state.name}</h2>
+    <p class="center">Square breathing, 4 seconds each phase, any time your body needs to settle.</p>
+    <div class="breathe-wrap">
+      <div class="breathe-ball" id="breatheBall"></div>
+      <div class="breathe-label" id="breatheLabel">Press start when you're ready</div>
+      <div class="box-steps" id="boxSteps">
+        <span data-p="0">Inhale</span><span data-p="1">Hold</span><span data-p="2">Exhale</span><span data-p="3">Hold</span>
+      </div>
+      <div class="btn-row"><button class="btn gold" id="breatheBtn" onclick="toggleFreeBreathing()">Start</button></div>
+    </div>
+    ${footer()}
+  `;
+}
+
+function toggleFreeBreathing() {
+  const ball = document.getElementById("breatheBall");
+  const label = document.getElementById("breatheLabel");
+  const btn = document.getElementById("breatheBtn");
+  const stepsEls = document.querySelectorAll("#boxSteps span");
+  if (state.breathing) {
+    state.breathing = false; clearTimeout(breathTimer);
+    ball.style.transform = "scale(1)"; label.textContent = "Press start when you're ready"; btn.textContent = "Start";
+    stepsEls.forEach(s => s.classList.remove("on"));
+    return;
+  }
+  state.breathing = true; btn.textContent = "Stop";
+  let phase = 0;
+  const runPhase = () => {
+    if (!state.breathing) return;
+    label.textContent = BOX_PHASES[phase];
+    stepsEls.forEach(s => s.classList.toggle("on", parseInt(s.dataset.p) === phase));
+    ball.style.transition = "transform 4s ease-in-out";
+    if (phase === 0) ball.style.transform = "scale(1.4)";
+    else if (phase === 2) ball.style.transform = "scale(1)";
+    phase = (phase + 1) % 4;
+    breathTimer = setTimeout(runPhase, 4000);
+  };
+  runPhase();
+}
+
+/* ---------- LEARN: LESSONS + FAQ ---------- */
+
+function renderLearnList() {
+  const lessonItems = LESSONS.map(l => {
+    const done = state.completedLessons[l.id];
+    return `<div class="lesson-item" onclick="go({screen:'lesson', lessonOpen:'${l.id}'})">
+      <div class="t">${l.icon} ${l.title} ${done ? "\u2726" : ""}</div>
+      <div class="s">A short read</div>
+    </div>`;
+  }).join("");
+
+  const faqItems = FAQS.map((f, i) => {
+    const open = state.openAccordion === "faq-" + i;
+    return `<div class="accordion-item" onclick="toggleAccordion('faq-${i}')">
+      <div class="t">${f.q}</div>
+      ${open ? `<div class="accordion-body"><p style="margin-bottom:0;">${f.a}</p></div>` : ""}
+    </div>`;
+  }).join("");
+
+  document.getElementById("app").innerHTML = `
+    ${topNav()}
+    <h2 class="mt-nav">Learn</h2>
+    <p>Lessons on triggers, union, and the reparenting method behind this roadmap.</p>
+    ${lessonItems}
+    <div class="section-label" style="margin-top:28px;">Frequently Asked Questions</div>
+    <p style="margin-top:-6px;">Skim through whenever you want to understand this work more, or rewire how you think about triggers in general. This isn't about doing it perfectly.</p>
+    ${faqItems}
+    ${footer()}
+  `;
+}
+
+function toggleAccordion(id) {
+  state.openAccordion = state.openAccordion === id ? null : id;
+  render();
+}
+
+function renderLesson() {
+  const l = LESSONS.find(x => x.id === state.lessonOpen);
+  const done = state.completedLessons[l.id];
+  document.getElementById("app").innerHTML = `
+    ${topNav()}
+    <div class="back-link" onclick="go({screen:'learnList'})">&larr; Back to lessons</div>
+    <h2>${l.icon} ${l.title}</h2>
+    ${l.desc.map(p => `<p>${p}</p>`).join("")}
+    <div class="section-label">Key Takeaways</div>
+    ${l.takeaways.map(t => `<div class="tk-item"><span class="tk-spark">\u2726</span><span>${t}</span></div>`).join("")}
+    ${l.link ? `<a class="link-btn" href="${l.link.url}" target="_blank" rel="noopener">${l.link.label} &rarr;</a>` : ""}
+    <div class="btn-row left">
+      <button class="btn gold" onclick="toggleLesson('${l.id}')">${done ? "\u2726 Completed" : "Mark Complete"}</button>
+    </div>
+    ${footer()}
+  `;
+}
+
+function toggleLesson(id) {
+  state.completedLessons[id] = !state.completedLessons[id];
+  render();
+}
+
+/* ---------- COMMON TRIGGERS GUIDE ---------- */
+
+function renderCommonTriggers() {
+  const items = COMMON_TRIGGERS.map((c, i) => {
+    const open = state.openAccordion === "ct-" + i;
+    return `<div class="accordion-item" onclick="toggleAccordion('ct-${i}')">
+      <div class="t">${c.title}</div>
+      ${open ? `
+        <div class="accordion-body">
+          <div class="accordion-label">\u{1F338} A Compassionate Reframe</div>
+          <p>${c.reframe}</p>
+          <div class="accordion-label">\u{1F338} What You Could Say To Your Inner Child</div>
+          <p style="margin-bottom:0; font-style:italic; color:var(--gold-soft);">\u201C${c.script}\u201D</p>
+        </div>` : ""}
+    </div>`;
+  }).join("");
+  document.getElementById("app").innerHTML = `
+    ${topNav()}
+    <div class="back-link" onclick="go({screen:'hub'})">&larr; Back to menu</div>
+    <h2>\u{1F338} Common Triggers Guide</h2>
+    <p>32 common scenarios on the twin flame journey, a compassionate reframe for each, and something gentle you could say to your own inner child. Tap any one to expand it.</p>
+    ${items}
+    ${footer()}
+  `;
+}
+
+/* ---------- MY JOURNAL ---------- */
+
+function renderJournal() {
+  const sorted = [...state.journal].reverse();
+  const entries = sorted.map(session => {
+    const type = TYPE_LABELS[session.type];
+    const method = session.style === "meditation" ? "Guided Meditation" + (session.meditationUsed ? ": " + session.meditationUsed : "") : "Journal Prompts";
+    let body = "";
+    if (session.identify[0]) body += `<div class="q">The trigger</div><div class="a">${session.identify[0]}</div>`;
+    if (session.identify[1]) body += `<div class="q">Where it lives in the body</div><div class="a">${session.identify[1]}</div>`;
+    if (session.selectedAffirmations && session.selectedAffirmations.length) body += `<div class="q">Affirmations that resonated</div><div class="a">${session.selectedAffirmations.join(" \u00B7 ")}</div>`;
+    if (session.compassionText) body += `<div class="q">To that part of me</div><div class="a">${session.compassionText}</div>`;
+    if (session.didRewire) {
+      if (session.selectedNewThought) body += `<div class="q">New thought chosen</div><div class="a">${session.selectedNewThought}</div>`;
+      if (session.rewireText) body += `<div class="q">In my own words</div><div class="a">${session.rewireText}</div>`;
+    }
+    return `<div class="entry"><div class="tt">${type}</div><div class="meta">${session.date} &middot; ${method}</div>${body}</div>`;
+  }).join("");
+  const empty = entries === "" ? "<p>Nothing here yet. Heal a trigger to start filling this in.</p>" : "";
+  document.getElementById("app").innerHTML = `
+    ${topNav()}
+    <h2 class="mt-nav">My Journal, ${state.name}</h2>
+    ${saveReminderInline()}
+    <div class="card">${entries || empty}</div>
+    <div class="btn-row left">
+      <button class="btn gold" onclick="downloadJournal()">Download My Journal</button>
+      <button class="btn ghost" onclick="go({screen:'healStyle'})">Work Through Another Trigger</button>
+      <button class="btn ghost" onclick="go({screen:'hub'})">Back To Main Menu</button>
+    </div>
+    ${footer()}
+  `;
+}
+
+function downloadJournal() {
+  let text = "THE TRIGGER RECOVERY ROADMAP\nMy Journal, " + (state.name || "") + "\n\n";
+  if (!state.journal.length) {
+    text += "No entries yet.\n";
+  } else {
+    [...state.journal].reverse().forEach(session => {
+      const type = TYPE_LABELS[session.type];
+      const method = session.style === "meditation" ? "Guided Meditation" + (session.meditationUsed ? ": " + session.meditationUsed : "") : "Journal Prompts";
+      text += "== " + session.date + " \u00B7 " + type + " \u00B7 " + method + " ==\n";
+      if (session.identify[0]) text += "The trigger: " + session.identify[0] + "\n";
+      if (session.identify[1]) text += "Where it lives in the body: " + session.identify[1] + "\n";
+      if (session.selectedAffirmations && session.selectedAffirmations.length) text += "Affirmations that resonated: " + session.selectedAffirmations.join(" | ") + "\n";
+      if (session.compassionText) text += "To that part of me: " + session.compassionText + "\n";
+      if (session.didRewire) {
+        if (session.selectedNewThought) text += "New thought chosen: " + session.selectedNewThought + "\n";
+        if (session.rewireText) text += "In my own words: " + session.rewireText + "\n";
+      }
+      text += "\n";
+    });
+  }
+  const blob = new Blob([text], { type: "text/plain" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = "my-trigger-recovery-journal.txt";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+/* ---------- ROUTER ---------- */
+
+const STORAGE_KEY = "trigger-recovery-roadmap-v1";
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) { /* storage unavailable */ }
+}
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) state = { ...state, ...JSON.parse(raw) };
+  } catch (e) { /* corrupted or unavailable, start fresh */ }
+}
+
+function render() {
+  saveState();
+  if (state.screen === "welcome") return renderWelcome();
+  if (state.screen === "name") return renderNameScreen();
+  if (state.screen === "safetyIntro") return renderSafetyIntro();
+  if (state.screen === "hub") return renderHub();
+  if (state.screen === "healStyle") return renderHealStyle();
+  if (state.screen === "diagIntensity") return renderDiagIntensity();
+  if (state.screen === "diagType") return renderDiagType();
+  if (state.screen === "breatheGate") return renderBreatheGate();
+  if (state.screen === "meditationLink") return renderMeditationLink();
+  if (state.screen === "identify") return renderIdentify();
+  if (state.screen === "compassion") return renderCompassion();
+  if (state.screen === "rewireChoice") return renderRewireChoice();
+  if (state.screen === "rewire") return renderRewire();
+  if (state.screen === "healClosing") return renderHealClosing();
+  if (state.screen === "breathe") return renderBreatheStandalone();
+  if (state.screen === "learnList") return renderLearnList();
+  if (state.screen === "lesson") return renderLesson();
+  if (state.screen === "commonTriggers") return renderCommonTriggers();
+  if (state.screen === "journal") return renderJournal();
+}
+
+loadState();
+render();
+</script>
+
+<!--
+  BUILD NOTES:
+  Single-file vanilla HTML/CSS/JS, no build step, no dependencies.
+  Ready to deploy as-is on GitHub Pages. Rename to index.html at the
+  root of its folder/repo and GitHub Pages will serve it automatically.
+  To edit content: lessons, FAQs, the 32 Common Triggers Guide entries,
+  compassion affirmations, and meditation info all live in the DATA
+  section near the top of the script.
+-->
+</body>
+</html>
