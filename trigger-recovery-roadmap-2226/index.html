@@ -289,7 +289,7 @@ function footer() {
 }
 
 function saveReminderInline() {
-  return `<div class="save-reminder"><span>\u{1F49C}</span><span>This saves while your browser tab stays open, but if you close it or shut down for the night, it won't be there next time. Download your journal before you go.</span></div>`;
+  return `<div class="save-reminder"><span>\u{1F49C}</span><span><strong>Your answers save automatically</strong>, right here in this browser, on this device. Close the tab, shut down for the night, come back next week, it'll all still be here. It won't follow you to a different browser or device though, and clearing your browser's data will erase it, so download your journal now and then whenever you want a backup you can keep.</span></div>`;
 }
 
 /* ---------- WELCOME + NAME (no nav yet) ---------- */
@@ -877,7 +877,19 @@ function downloadJournal() {
 
 /* ---------- ROUTER ---------- */
 
+const STORAGE_KEY = "trigger-recovery-roadmap-v1";
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) { /* storage unavailable */ }
+}
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) state = { ...state, ...JSON.parse(raw) };
+  } catch (e) { /* corrupted or unavailable, start fresh */ }
+}
+
 function render() {
+  saveState();
   if (state.screen === "welcome") return renderWelcome();
   if (state.screen === "name") return renderNameScreen();
   if (state.screen === "safetyIntro") return renderSafetyIntro();
@@ -899,6 +911,7 @@ function render() {
   if (state.screen === "journal") return renderJournal();
 }
 
+loadState();
 render();
 </script>
 
