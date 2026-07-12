@@ -1,1 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Become Magnetic To Love, an interactive roadmap for healing the inner child block that keeps you from receiving love.">
+<title>Become Magnetic To Love</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Mono:wght@400;500&family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
+  :root {
+    --bg: #2a2040;
+    --bg-2: #362a4d;
+    --bg-3: #1a1226;
+    --ink: #f7f2fa;
+    --ink-soft: rgba(247,242,250,0.82);
+    --ink-faint: rgba(247,242,250,0.56);
+    --pink: #e896c4;
+    --pink-2: #f0b8d9;
+    --purple: #a97fd4;
+    --purple-2: #c9a8e8;
+    --gold: #e8c988;
+    --holo: linear-gradient(135deg,#c9a8e8 0%,#f0b8d9 50%,#e8c988 100%);
+    --card: rgba(255,255,255,0.06);
+    --card-2: rgba(255,255,255,0.095);
+    --border: rgba(169,127,212,0.22);
+    --border-strong: rgba(169,127,212,0.40);
+  }
+
+  html, body { min-height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Nunito', sans-serif;
+    position: relative;
+  }
+
+  /* Ambient background: aurora glow + star field, sits behind everything */
+  #bg-fx {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse at 15% 0%, rgba(232,150,196,0.10) 0%, transparent 45%),
+      radial-gradient(ellipse at 85% 10%, rgba(232,201,136,0.07) 0%, transparent 45%),
+      radial-gradient(ellipse at 50% 100%, rgba(169,127,212,0.10) 0%, transparent 55%);
+  }
+  #stars { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .s-star {
+    position: absolute; width: 2px; height: 2px; border-radius: 50%;
+    background: #fff; box-shadow: 0 0 6px 1px rgba(255,255,255,0.8);
+    animation: twinkle 4s ease-in-out infinite;
+  }
+  @keyframes twinkle { 0%,100%{opacity:.15;transform:scale(.8)} 50%{opacity:.9;transform:scale(1.3)} }
+
+  #app { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; padding: 36px 20px 64px; }
+
+  h1, h2, h3 { font-family: 'Poppins', sans-serif; color: var(--ink); margin-bottom: 12px; }
+  h1 { font-weight: 800; font-size: 32px; line-height: 1.2; letter-spacing: -0.3px; }
+  h2 { font-weight: 700; font-size: 23px; }
+  h3 { font-weight: 700; font-size: 17px; }
+  p { line-height: 1.75; color: var(--ink-soft); font-size: 15px; margin-bottom: 14px; }
+
+  .holo-text { background: var(--holo); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-style: italic; }
+  .eyebrow { font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--pink-2); margin-bottom: 10px; font-weight: 500; }
+  .eyebrow.spaced { margin-top: 26px; }
+
+  /* Glass cards */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 26px;
+    margin-bottom: 18px;
+    backdrop-filter: blur(6px);
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 14px;
+    padding: 13px 28px; border-radius: 999px; border: none; cursor: pointer;
+    letter-spacing: 0.2px; text-decoration: none;
+  }
+  .btn.gold { background: var(--holo); color: #241a35; box-shadow: 0 6px 22px rgba(169,127,212,0.4), inset 0 1px 0 rgba(255,255,255,0.3); }
+  .btn.gold:hover { transform: translateY(-1px); }
+  .btn.ghost { background: transparent; color: var(--ink-soft); border: 1px solid var(--border-strong); }
+  .btn.ghost:hover { color: var(--ink); border-color: var(--purple-2); }
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+
+  input[type=text] {
+    width: 100%; background: var(--card-2); border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px 16px; font-family: 'Nunito', sans-serif;
+    font-size: 16px; color: var(--ink); margin-bottom: 16px;
+  }
+  input[type=text]::placeholder { color: var(--ink-faint); }
+  textarea {
+    width: 100%; background: var(--card-2); border: 1px solid var(--border);
+    border-radius: 12px; color: var(--ink); font-family: 'Nunito', sans-serif;
+    font-size: 14.5px; padding: 14px; resize: vertical; min-height: 85px; margin-bottom: 14px;
+  }
+  .journal-q { font-size: 14px; color: var(--ink-soft); margin-bottom: 6px; font-weight: 600; }
+
+  /* Top bar */
+  .topbar { display: flex; justify-content: space-between; align-items: center; padding-bottom: 22px; }
+  .topbar-left { display: flex; align-items: center; gap: 12px; }
+  .topbar-icon {
+    width: 36px; height: 36px; border-radius: 11px; background: var(--holo);
+    display: flex; align-items: center; justify-content: center; font-size: 16px;
+    box-shadow: 0 4px 16px rgba(169,127,212,0.4), inset 0 1px 0 rgba(255,255,255,0.3);
+  }
+  .topbar-title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 16px; color: var(--ink); }
+  .premium-pill {
+    background: var(--holo); color: #241a35; font-family: 'Nunito', sans-serif; font-weight: 800;
+    font-size: 12px; border-radius: 999px; padding: 9px 18px; text-decoration: none;
+    box-shadow: 0 4px 16px rgba(169,127,212,0.35);
+  }
+
+  /* Nav tabs */
+  .tabs { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+  .tab {
+    font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 12.5px;
+    background: var(--card); border: 1px solid var(--border); color: var(--ink-faint);
+    border-radius: 999px; padding: 9px 16px; cursor: pointer;
+  }
+  .tab:hover { color: var(--ink-soft); }
+  .tab.active { background: var(--holo); color: #241a35; border-color: transparent; }
+
+  /* Save reminder */
+  .save-reminder {
+    background: linear-gradient(135deg, rgba(232,201,136,0.12), rgba(240,184,217,0.08));
+    border: 1px solid var(--border-strong); border-radius: 14px; padding: 14px 18px;
+    font-size: 13px; color: var(--ink-soft); margin-bottom: 20px; display: flex; gap: 10px; align-items: flex-start;
+  }
+
+  /* Instructions list */
+  .steps { list-style: none; margin-bottom: 16px; }
+  .steps li { display: flex; gap: 14px; margin-bottom: 14px; font-size: 14.5px; color: var(--ink-soft); }
+  .steps .num { flex-shrink: 0; font-family: 'DM Mono', monospace; font-size: 13px; color: var(--gold); padding-top: 1px; }
+  .steps strong { color: var(--ink); }
+  .rhythm { background: var(--card-2); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; font-size: 13.5px; color: var(--ink-soft); }
+  .rhythm strong { color: var(--ink); }
+
+  /* Roadmap */
+  .map-grid { display: grid; gap: 12px; margin-bottom: 20px; }
+  .map-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+    padding: 17px 20px; cursor: pointer; display: flex; align-items: center; gap: 16px;
+    transition: all .15s;
+  }
+  .map-card:hover { background: var(--card-2); border-color: var(--border-strong); transform: translateX(2px); }
+  .map-icon { font-size: 22px; flex-shrink: 0; }
+  .map-text { flex: 1; }
+  .map-text .t { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; color: var(--ink); }
+  .map-text .s { font-size: 12.5px; color: var(--ink-faint); }
+  .check {
+    width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--border-strong);
+    flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--ink-faint);
+  }
+  .check.done { background: var(--holo); color: #241a35; border-color: transparent; }
+
+  .choice-list { display: flex; flex-direction: column; gap: 10px; margin: 18px 0; }
+  .choice {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 15px 18px; cursor: pointer; font-size: 14.5px; color: var(--ink-soft); transition: all .15s;
+  }
+  .choice:hover { border-color: var(--purple-2); background: var(--card-2); }
+  .choice.selected { border-color: var(--pink-2); background: linear-gradient(135deg, rgba(255,138,209,0.1), rgba(169,127,212,0.08)); color: var(--ink); }
+
+  /* Insight / prompt box, matches the dark gradient prompt panels */
+  .insight {
+    background: linear-gradient(135deg, #170f26, #1c1340, #170f26);
+    border: 1px solid var(--border-strong); border-radius: 16px; padding: 22px; margin-top: 16px;
+    position: relative; overflow: hidden;
+  }
+  .insight .k { font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .insight.alt .k { color: var(--pink-2); }
+  .insight p { font-family: 'Fraunces', serif; font-style: italic; font-size: 15.5px; color: var(--ink-soft); margin: 0; line-height: 1.7; }
+
+  .back-link { display: inline-block; color: var(--ink-faint); font-size: 13px; margin-bottom: 16px; cursor: pointer; }
+  .back-link:hover { color: var(--ink-soft); }
+
+  /* Card pull */
+  .pull-intro { font-size: 13.5px; color: var(--ink-faint); margin-bottom: 20px; }
+  .flip-scene { perspective: 1200px; margin-bottom: 22px; }
+  .flip-card { position: relative; width: 100%; min-height: 220px; transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(.4,.2,.2,1); }
+  .flip-card.flipped { transform: rotateY(180deg); }
+  .flip-face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 20px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 30px; }
+  .flip-front { background: var(--holo); }
+  .flip-front .mark { font-family: 'Poppins', serif; font-size: 30px; color: #241a35; letter-spacing: 0.08em; }
+  .flip-front .tap { font-family: 'DM Mono', monospace; color: rgba(36,26,53,0.65); font-size: 11px; margin-top: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .flip-back { background: linear-gradient(135deg, #170f26, #1c1340, #170f26); border: 1px solid var(--border-strong); transform: rotateY(180deg); }
+  .flip-back p { font-family: 'Fraunces', serif; font-size: 20px; font-style: italic; color: var(--ink); margin: 0; line-height: 1.5; }
+
+  /* Breathe */
+  .breathe-wrap { display: flex; flex-direction: column; align-items: center; padding: 16px 0 8px; }
+  .breathe-ball { width: 130px; height: 130px; border-radius: 50%; background: var(--holo); box-shadow: 0 0 50px rgba(169,127,212,0.4); transition: transform 4s ease-in-out; margin-bottom: 22px; }
+  .breathe-label { font-family: 'Poppins', sans-serif; font-size: 18px; color: var(--ink); min-height: 26px; }
+  .box-steps { display: flex; gap: 6px; margin-top: 8px; margin-bottom: 18px; }
+  .box-steps span { font-family: 'DM Mono', monospace; font-size: 10.5px; color: var(--ink-faint); border: 1px solid var(--border); border-radius: 999px; padding: 5px 11px; }
+  .box-steps span.on { background: var(--holo); color: #241a35; border-color: transparent; }
+
+  /* Journal entries */
+  .entry { border-bottom: 1px solid var(--border); padding-bottom: 14px; margin-bottom: 14px; }
+  .entry:last-child { border: none; margin: 0; padding: 0; }
+  .entry .tt { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+  .entry .q { font-size: 12.5px; color: var(--ink-faint); margin-bottom: 2px; }
+  .entry .a { font-size: 14px; color: var(--ink-soft); margin-bottom: 8px; }
+
+  /* Premium CTA, full version (used once) */
+  .quizcta-card {
+    background: linear-gradient(135deg, rgba(201,168,232,0.14), rgba(240,184,217,0.10));
+    border: 1px solid var(--border-strong); border-radius: 20px; padding: 30px 26px; text-align: center; margin-top: 8px;
+  }
+  .quizcta-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--pink); margin-bottom: 10px; }
+  .quizcta-title { font-family: 'Fraunces', serif; font-weight: 600; font-size: 23px; color: var(--ink); margin-bottom: 12px; }
+  .quizcta-body { font-size: 13.5px; line-height: 1.65; color: var(--ink-soft); max-width: 440px; margin: 0 auto 14px; }
+  .quizcta-list { list-style: none; text-align: left; max-width: 380px; margin: 0 auto 20px; font-size: 13px; color: var(--ink-soft); }
+  .quizcta-list li { padding: 5px 0 5px 18px; position: relative; }
+  .quizcta-list li::before { content: '\2726'; position: absolute; left: 0; color: var(--gold); font-size: 11px; top: 8px; }
+
+  /* Premium CTA, light version (used sparingly, everywhere else) */
+  .premcta-card {
+    display: flex; align-items: flex-start; gap: 13px;
+    background: linear-gradient(135deg, rgba(232,201,136,0.08), rgba(240,184,217,0.06));
+    border: 1px solid var(--border); border-radius: 16px; padding: 16px 18px; margin-top: 10px;
+  }
+  .premcta-emoji { font-size: 20px; line-height: 1; }
+  .premcta-body { flex: 1; }
+  .premcta-text { font-size: 13px; line-height: 1.6; color: var(--ink-soft); margin-bottom: 6px; }
+  .premcta-link { font-size: 12.5px; font-weight: 700; color: var(--pink-2); text-decoration: none; border-bottom: 1px solid rgba(240,184,217,0.4); padding-bottom: 1px; }
+  .premcta-link:hover { color: var(--ink); }
+
+  /* Share banner */
+  .share-banner { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px 22px; margin-top: 20px; text-align: center; }
+  .share-banner .k { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--purple-2); margin-bottom: 8px; }
+  .share-banner p { font-size: 13.5px; margin-bottom: 14px; }
+
+  /* Learn tab */
+  .learn-list { display: flex; flex-direction: column; gap: 8px; }
+  .learn-item {
+    display: flex; align-items: center; gap: 10px; padding: 15px 18px;
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px; cursor: pointer; transition: all .15s;
+  }
+  .learn-item:hover { background: var(--card-2); border-color: var(--border-strong); transform: translateX(2px); }
+  .learn-item.static { cursor: default; flex-direction: column; align-items: flex-start; }
+  .learn-item .t { font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 700; color: var(--ink); }
+  .learn-item .s { font-size: 12.5px; color: var(--ink-faint); }
+  .learn-item a { text-decoration: none; }
+  .learn-item .why { margin-top: 5px; line-height: 1.55; font-size: 12.5px; color: var(--ink-faint); }
+  .linklist-tier { font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--purple-2); }
+
+  /* Quote text used in card journal */
+  .quote-text { font-family: 'Fraunces', serif; font-style: italic; color: var(--ink); font-size: 18px; margin: 0; }
+  .prompt-text { color: var(--ink-soft); }
+
+  /* Footer */
+  .site-footer { margin-top: 44px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; }
+  .site-footer .brand { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 6px; }
+  .site-footer .links { font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: 0.5px; color: var(--ink-faint); line-height: 1.9; }
+  .site-footer a { color: var(--purple-2); text-decoration: none; }
+  .site-footer a:hover { color: var(--pink); }
+</style>
+</head>
+<body>
+<div id="bg-fx"></div>
+<div id="stars"></div>
+<div id="app"></div>
+
+<script>
+/* ---------- AMBIENT BACKGROUND (built once, not re-rendered) ---------- */
+(function initStars() {
+  const wrap = document.getElementById("stars");
+  const n = 12;
+  for (let i = 0; i < n; i++) {
+    const s = document.createElement("div");
+    s.className = "s-star";
+    s.style.top = Math.random() * 100 + "%";
+    s.style.left = Math.random() * 100 + "%";
+    s.style.animationDelay = (Math.random() * 4) + "s";
+    wrap.appendChild(s);
+  }
+})();
+
+/* ---------- DATA ---------- */
+
+const scenarios = [
+  {
+    id: "compliment", icon: "\u{1F4AC}",
+    title: "Someone Gives You a Compliment",
+    teaser: "What happens in your body when love shows up in words?",
+    steps: [
+      {
+        prompt: "A friend looks at you and says something kind. Maybe about how you look, something you made, or just who you are. What happens first?",
+        choices: [
+          { label: "I deflect it or make a joke", insight: "Deflecting protects you from the compliment fully landing. Turning it into a joke lets you stay in control of the moment." },
+          { label: "I freeze and don't know what to say", insight: "It's okay to freeze. Your body can read a compliment as a threat instead of a gift, simply because receiving is unfamiliar." },
+          { label: "I say thank you but feel uncomfortable inside", insight: "Saying thank you while uncomfortable is real progress. You're letting the words in, even while resistance is still there." },
+          { label: "I let it land and feel genuinely good", insight: "This is receiving when the pattern has softened. Notice what allowed it to land, that's information you can use again." }
+        ]
+      },
+      {
+        prompt: "A few seconds pass. The compliment is still sitting there. What do you do next?",
+        choices: [
+          { label: "I change the subject quickly", insight: "Redirecting the conversation ends the moment before you have to fully feel it." },
+          { label: "I explain why it's not really true", insight: "Explaining it away corrects what feels like a mistake in their perception, even when there's no mistake." },
+          { label: "I say something nice back immediately", insight: "Giving a compliment back can be genuine, or it can even the score so you don't have to just receive." },
+          { label: "I let the moment stay, even if it's uncomfortable", insight: "This is receiving in real time. Discomfort doesn't mean it's wrong, it means it's unfamiliar." }
+        ]
+      },
+      {
+        prompt: "Later that day, you think back on the compliment. What's still there?",
+        choices: [
+          { label: "I've mostly forgotten it", insight: "Compliments that don't land tend to slide off quickly. That's the pattern working exactly as it was built to." },
+          { label: "I still feel a little embarrassed about it", insight: "Lingering embarrassment often means it actually got through, and your system is still processing something unfamiliar." },
+          { label: "I catch myself doubting if they meant it", insight: "Doubting their sincerity protects you from being wrong about receiving it." },
+          { label: "I feel a small warmth when I think of it", insight: "This is what it feels like when receiving starts to stick. Small warmth, not proof, but a sign." }
+        ]
+      }
+    ],
+    closing: "Compliments are tiny, repeated invitations to receive, {name}. You don't have to catch every one. You just have to notice which ones you're already letting through.",
+    journalPrompts: ["Which step felt the most like you, and which felt the most unfamiliar?", "Where in your body did you notice resistance, if any?", "What would it take for a compliment to fully land next time?"]
+  },
+  {
+    id: "loved-one", icon: "\u{1F49D}",
+    title: "Your Person Does Something Loving",
+    teaser: "The moment love shows up in action, not just words.",
+    steps: [
+      {
+        prompt: "Your person, whether that's your twin flame, a partner, or someone close to you, does something loving for you. What happens inside you first?",
+        choices: [
+          { label: "I feel guilty, like I don't deserve it", insight: "Guilt is common when love has felt far away for a long time. Some part of you feels like you have to earn what's freely given." },
+          { label: "I question their motives or wait for the catch", insight: "Waiting for the catch is a protector part trying to prepare you for disappointment before it happens." },
+          { label: "I get excited but then pull back", insight: "This push and pull is what it feels like to want something and be afraid of it at the same time." },
+          { label: "I fully receive and feel safe", insight: "This is what it looks like when the guardedness has softened, even briefly." }
+        ]
+      },
+      {
+        prompt: "You notice yourself wanting to respond somehow. What's the pull?",
+        choices: [
+          { label: "I want to immediately do something back for them", insight: "Evening the score right away can be love, or it can be a way to avoid sitting in receiving mode." },
+          { label: "I want to downplay what they did", insight: "Minimizing their gesture keeps it small enough to feel manageable." },
+          { label: "I want to ask if they're sure, or if it's too much", insight: "Checking if it's 'too much' is often really asking whether you're allowed to have this." },
+          { label: "I just want to say thank you and let it be enough", insight: "Letting a thank you be the whole response, without adding or shrinking anything, is a quiet form of receiving." }
+        ]
+      },
+      {
+        prompt: "A day or two later, does the moment still affect you?",
+        choices: [
+          { label: "I've talked myself out of how special it was", insight: "Talking yourself out of it is a way of returning to familiar emotional ground." },
+          { label: "I keep waiting for something to go wrong now", insight: "Waiting for the other shoe to drop is exhausting, and it's also very common after receiving something real." },
+          { label: "I feel closer to them because of it", insight: "This is what safety building in real time looks like." },
+          { label: "I find myself wanting to receive more, not less", insight: "Wanting more is a sign the old ceiling on how much love you'll accept is starting to lift." }
+        ]
+      }
+    ],
+    closing: "I'll be honest, {name}, when I first started receiving love in my own union, it was exciting but also scary. There was a part of me that felt guilty, like I hadn't earned it yet. If that resonates, you're not behind. You're simply human.",
+    journalPrompts: ["What was your first instinct when they showed you love?", "Did any part of you want to give something back right away, or pull away instead?", "What would it feel like to just let yourself have this?"]
+  },
+  {
+    id: "admired", icon: "\u{2728}",
+    title: "Someone Admires Something About You",
+    teaser: "When love goes beneath the surface.",
+    steps: [
+      {
+        prompt: "Someone tells you they admire something about you. Your mind, your energy, the way you handle things. What's the first thing that happens?",
+        choices: [
+          { label: "I immediately think of a flaw instead", insight: "Your mind protects you by finding the version of reality it's used to. Negative beliefs feel more true simply because they're familiar." },
+          { label: "I assume they're just being nice", insight: "Explaining it away keeps the compliment at a safe distance. It's a subtle way of saying, this can't be fully true." },
+          { label: "I feel exposed, like they're seeing too much", insight: "Being truly seen can feel more vulnerable than being unseen, even when it's completely safe." },
+          { label: "I feel proud and say thank you", insight: "This is what it looks like to hold a good truth about yourself without shrinking it." }
+        ]
+      },
+      {
+        prompt: "They keep talking, going into more detail about what they admire. What happens now?",
+        choices: [
+          { label: "I want them to stop talking about me", insight: "Wanting the spotlight to move on is a way of managing how much you have to receive at once." },
+          { label: "I start listing my flaws out loud", insight: "Naming your own flaws first can feel like getting ahead of any criticism, even when none is coming." },
+          { label: "I get quiet and just take it in", insight: "Going quiet and letting it in, even without saying much, is still receiving." },
+          { label: "I ask them to say more", insight: "Wanting to hear more is a sign the old resistance to being seen is loosening." }
+        ]
+      },
+      {
+        prompt: "Afterward, does what they said change how you see yourself, even a little?",
+        choices: [
+          { label: "No, I still see myself the same way", insight: "One moment rarely undoes years of a belief. That's not failure, that's just how slow, real change tends to move." },
+          { label: "I'm not sure, but I keep thinking about it", insight: "Still thinking about it later is a sign something in you is reconsidering the old story." },
+          { label: "A little, it softened something", insight: "A small shift is still a real shift. These add up more than one big breakthrough usually does." },
+          { label: "Yes, I actually believe it a bit more now", insight: "This is what it looks like when someone else's words start to become your own truth too." }
+        ]
+      }
+    ],
+    closing: "Here's a tool for you, {name}, for the moments a negative belief shows up instead. Ask yourself what that word actually means to you. Usually there's a younger part of you underneath the belief that just needs love, not correction.",
+    journalPrompts: ["What flaw or doubt came up first, if any?", "If you asked that belief what it actually means, what answer comes up?", "What might your inner child need to hear instead?"]
+  },
+  {
+    id: "self-critic", icon: "\u{1F6E1}",
+    title: "Being Hard On Yourself First",
+    teaser: "The protector part behind the pattern.",
+    steps: [
+      {
+        prompt: "You catch yourself being hard on yourself before anyone else has the chance to be. What's your relationship to this pattern right now?",
+        choices: [
+          { label: "I don't even notice I'm doing it, it just feels normal", insight: "If you reject yourself first, some part of you believes no one else can reject you. It feels like protection." },
+          { label: "I notice it but feel like I have to stay hard on myself", insight: "This often comes from growing up around high expectations. It's not a flaw, it's a strategy that made sense once." },
+          { label: "I've caught myself doing it and want to stop", insight: "Noticing it is the actual turning point. You can't change a pattern you can't see." },
+          { label: "I've already started changing this pattern", insight: "This is real, meaningful progress. Keep noticing the moments it softens." }
+        ]
+      },
+      {
+        prompt: "Someone offers you reassurance right after you've been hard on yourself. What happens?",
+        choices: [
+          { label: "I argue with them, insisting I really am that bad", insight: "Arguing against reassurance protects the belief you've built your safety around." },
+          { label: "I accept it politely but don't really believe it", insight: "Polite acceptance without belief is a halfway point, and halfway points are still progress." },
+          { label: "I feel a little relief, but stay guarded", insight: "Relief mixed with guardedness is what it feels like when two parts of you disagree about what's safe." },
+          { label: "I let their words replace my own for a moment", insight: "Letting someone else's kinder voice in, even briefly, is a skill you're building every time you do it." }
+        ]
+      },
+      {
+        prompt: "Looking back at moments like this over the years, what pattern do you notice?",
+        choices: [
+          { label: "I've always done this, for as long as I can remember", insight: "Long-standing patterns aren't permanent, they're just well-practiced. What's practiced can be re-practiced differently." },
+          { label: "It got worse after certain relationships or experiences", insight: "Patterns often sharpen after specific wounds. Naming when it intensified can help you understand what it's protecting." },
+          { label: "It comes and goes depending on how safe I feel", insight: "That's useful information, your self-criticism isn't random, it's responding to your sense of safety." },
+          { label: "It's been softening slowly over time", insight: "Slow softening is still real softening. This is what healing usually looks like in practice." }
+        ]
+      }
+    ],
+    closing: "The one sentence I want you to remember from this whole roadmap, {name}: when someone tries to give you love, notice your resistance to it, and talk to that part of yourself. Ask it, what are you afraid of right now?",
+    journalPrompts: ["Where do you think this pattern first started for you?", "What is that protector part actually trying to keep you safe from?", "What would you say to that part of yourself, with love, right now?"]
+  },
+  {
+    id: "help-offered", icon: "\u{1F91D}",
+    title: "Someone Offers To Help You",
+    teaser: "The moment you're given support you didn't have to ask for.",
+    steps: [
+      {
+        prompt: "You're clearly overwhelmed, and someone offers to help without you asking. What's your first reaction?",
+        choices: [
+          { label: "I say I've got it, even though I don't", insight: "Declining help you actually need is often about staying in control more than it's about the task itself." },
+          { label: "I feel a flash of relief, then guilt", insight: "Relief followed by guilt is common when receiving help feels like it costs you something." },
+          { label: "I explain all the reasons I don't need it", insight: "Over-explaining is a way of justifying independence before anyone can question it." },
+          { label: "I say yes and feel genuinely grateful", insight: "Saying yes without a fight is receiving in action, not just in theory." }
+        ]
+      },
+      {
+        prompt: "They start actually helping. What's happening in your mind while they do?",
+        choices: [
+          { label: "I'm mentally making a list of how I'll repay them", insight: "Immediately planning repayment can be generosity, or it can be a way to avoid owing anyone anything, even briefly." },
+          { label: "I'm watching to make sure they do it 'right'", insight: "Hovering over how help is given is often about control, not quality." },
+          { label: "I feel awkward just standing there while they work", insight: "Awkwardness while being helped is common when you're used to being the one who does the helping." },
+          { label: "I let them do it their way and just say thank you", insight: "Letting go of how it gets done is a real act of trust and receiving." }
+        ]
+      },
+      {
+        prompt: "After they're done helping, how do you feel?",
+        choices: [
+          { label: "Like I owe them something now", insight: "Feeling indebted after receiving help suggests love and help have felt conditional for you before." },
+          { label: "Relieved, but already planning to never need help again", insight: "Vowing not to need help again is the hyperindependent pattern trying to prevent future vulnerability." },
+          { label: "Lighter, like something was actually taken off my plate", insight: "This is what it feels like when receiving help works the way it's supposed to." },
+          { label: "Surprised at how good it felt to be supported", insight: "Surprise is often a sign this wasn't something you expected to enjoy, and did anyway." }
+        ]
+      }
+    ],
+    closing: "Letting someone help you, {name}, isn't a debt. It's just two people, one giving, one receiving, and both allowed to do their part.",
+    journalPrompts: ["Was it easier to accept the offer or to accept the actual help?", "What did you tell yourself about needing help in that moment?", "What would it feel like to receive help without immediately planning to repay it?"]
+  },
+  {
+    id: "gift", icon: "\u{1F381}",
+    title: "You Receive An Unexpected Gift",
+    teaser: "Something given with no occasion attached.",
+    steps: [
+      {
+        prompt: "Someone hands you a gift for no particular reason, just because they were thinking of you. What's your first thought?",
+        choices: [
+          { label: "What did I do to deserve this", insight: "Searching for what you did to earn it assumes love needs a reason. It doesn't." },
+          { label: "I shouldn't have let them spend money on me", insight: "Redirecting to their spending is a way of managing your own discomfort, not actually about the money." },
+          { label: "I'm touched, but not sure how to react", insight: "Not knowing how to react is normal when receiving without a script feels new." },
+          { label: "I feel happy and say thank you simply", insight: "Simple gratitude, without a story attached, is receiving at its cleanest." }
+        ]
+      },
+      {
+        prompt: "You unwrap it or look closer. What happens as you take it in?",
+        choices: [
+          { label: "I start thinking about what I'll get them back", insight: "Planning your return gift before you've even finished receiving this one skips the actual moment." },
+          { label: "I downplay it out loud, saying it's too much", insight: "Saying it's too much out loud often reflects an internal belief that you're not worth this much." },
+          { label: "I notice how much thought went into it", insight: "Noticing the thought behind a gift, not just the object, is where the real receiving happens." },
+          { label: "I just enjoy it without overthinking", insight: "Enjoying something without analyzing it is rare and worth noticing when it happens." }
+        ]
+      },
+      {
+        prompt: "Days later, the gift is still around. What's your relationship to it now?",
+        choices: [
+          { label: "I feel a little uncomfortable using or wearing it", insight: "Discomfort using something given freely can mean part of you still feels you haven't earned it." },
+          { label: "I mention it to others, still processing the surprise", insight: "Talking about it is a way of making sense of something that felt unfamiliar in a good way." },
+          { label: "I think of them warmly whenever I see it", insight: "This is what it looks like when a gift becomes a lasting reminder that you're thought of." },
+          { label: "I've already started thinking of something to give back", insight: "Wanting to give back can be love, just notice if it's coming from generosity or from discomfort with receiving." }
+        ]
+      }
+    ],
+    closing: "A gift with no occasion attached, {name}, is love with no conditions attached either. You're allowed to just enjoy it.",
+    journalPrompts: ["Did you focus more on the gift or on what you owed in return?", "What story did you tell yourself about why they gave it to you?", "What would it feel like to receive something and simply enjoy it?"]
+  },
+  {
+    id: "twin-flame-return", icon: "\u{1F319}",
+    title: "Your Twin Flame Reaches Out After Distance",
+    teaser: "The moment contact returns after silence.",
+    steps: [
+      {
+        prompt: "After a stretch of distance or silence, your twin flame reaches out. What's the very first feeling?",
+        choices: [
+          { label: "Guarded, waiting to see what they actually want", insight: "Guardedness after distance is your system trying to protect you from being hurt again." },
+          { label: "Overjoyed, and a little too eager to respond", insight: "Eagerness can be genuine excitement, or it can be relief that the waiting is finally over." },
+          { label: "Numb, like I don't know how to feel yet", insight: "Numbness is often what happens when a feeling is too big to process all at once." },
+          { label: "Calm, like something in me already knew this would happen", insight: "A quiet, grounded calm is often a sign of real healing, not just hope." }
+        ]
+      },
+      {
+        prompt: "You start replying. What are you paying attention to as you write back?",
+        choices: [
+          { label: "How I sound, so I don't seem too invested", insight: "Managing how invested you look is a way of protecting yourself from being the one who cared more." },
+          { label: "Whether they'll bring up why they went quiet", insight: "Wanting an explanation is fair, and it's also worth noticing if you need it before you can receive them again." },
+          { label: "How I actually feel, and trying to say that honestly", insight: "Choosing honesty over strategy is one of the harder, more receiving-forward choices you can make here." },
+          { label: "Nothing much, I'm just present with the conversation", insight: "Presence without overthinking is what it looks like when trust has genuinely rebuilt." }
+        ]
+      },
+      {
+        prompt: "A little time passes after that first exchange. What do you notice in yourself?",
+        choices: [
+          { label: "I'm already bracing for them to disappear again", insight: "Bracing for another disappearance is a protective habit built from real experience, not a flaw in you." },
+          { label: "I'm cautiously letting myself hope again", insight: "Cautious hope is a healthy middle ground between guardedness and naivety." },
+          { label: "I feel more myself around them than I expected", insight: "Feeling like yourself again is often the clearest sign that something real is being rebuilt." },
+          { label: "I'm proud of how I showed up this time", insight: "Noticing your own growth in how you responded is worth pausing on, that's real progress." }
+        ]
+      }
+    ],
+    closing: "Twin flame reunions rarely arrive clean, {name}. Receiving them well doesn't mean having no fear, it means staying present with yourself while the fear is there.",
+    journalPrompts: ["What did your body do the moment you saw their message?", "Where did you protect yourself, and where did you let yourself hope?", "What would receiving this reunion well actually look like for you?"]
+  },
+  {
+    id: "i-love-you", icon: "\u{1F497}",
+    title: "Someone Says \"I Love You\" First",
+    teaser: "The words land before you're ready to say them back.",
+    steps: [
+      {
+        prompt: "Someone says 'I love you' before you've said it yourself. What's the immediate reaction?",
+        choices: [
+          { label: "Panic, like I need to say something back right now", insight: "The pressure to respond instantly often comes from fear of what silence might mean to them, or to you." },
+          { label: "Doubt about whether they really mean it", insight: "Doubting the words is sometimes easier than sitting with how much you want them to be true." },
+          { label: "Warmth, even if I'm not ready to say it back yet", insight: "Feeling warmth without needing to reciprocate immediately is allowed. Receiving doesn't require an instant trade." },
+          { label: "I say it back right away, and mean it", insight: "Meeting love with love, when it's true, is receiving and giving in the same breath." }
+        ]
+      },
+      {
+        prompt: "In the days after, the words replay in your mind sometimes. What do you do with them?",
+        choices: [
+          { label: "I try not to think about it too much", insight: "Avoiding the replay can be a way of not letting the words sink in fully." },
+          { label: "I analyze whether I feel the same way yet", insight: "Analyzing your own feelings is fair, just notice if it's genuine reflection or a way to stay safely uncertain." },
+          { label: "I feel a little more secure whenever I remember it", insight: "Increasing security over time, rather than instant certainty, is a very normal pace for this to unfold." },
+          { label: "I find myself wanting to say it back now too", insight: "Wanting to say it now, even if you weren't ready before, is receiving turning into your own readiness." }
+        ]
+      },
+      {
+        prompt: "Eventually the topic comes up again between you two. How do you handle it?",
+        choices: [
+          { label: "I avoid the conversation if I can", insight: "Avoidance buys time, but it can also leave the other person unsure where they stand with you." },
+          { label: "I'm honest that I'm still figuring out my feelings", insight: "Honesty about your own timeline, even an uncertain one, respects both of you." },
+          { label: "I tell them clearly how I feel now", insight: "Clear communication, whatever the answer is, is a form of respecting the love they offered you." },
+          { label: "I realize I've felt it for a while, I just hadn't said it", insight: "Sometimes the words were true before you were ready to speak them. That's okay too." }
+        ]
+      }
+    ],
+    closing: "You're never obligated to match someone's timeline, {name}, but you are allowed to let their love in while you find your own.",
+    journalPrompts: ["Did you feel pressure to respond instantly, or space to feel it out?", "What did you actually feel underneath the panic or doubt, if any?", "What would it look like to receive those words at your own pace?"]
+  },
+  {
+    id: "comfort", icon: "\u{1FAC2}",
+    title: "Someone Comforts You While You're Struggling",
+    teaser: "Being held in a hard moment instead of handling it alone.",
+    steps: [
+      {
+        prompt: "You're visibly struggling, and someone sits with you instead of trying to fix it. What happens first?",
+        choices: [
+          { label: "I apologize for needing comfort at all", insight: "Apologizing for your own struggle suggests you've learned your needs are an inconvenience to others." },
+          { label: "I try to pull it together so they don't have to deal with it", insight: "Managing your emotions for someone else's comfort is a very old habit of putting others first, even in your own hard moments." },
+          { label: "I let myself cry or feel it, even though it's uncomfortable", insight: "Letting the feeling happen in front of someone, even briefly, is real receiving." },
+          { label: "I lean into their presence and feel supported", insight: "Leaning in, rather than holding yourself up alone, is exactly what this moment is for." }
+        ]
+      },
+      {
+        prompt: "They stay, without trying to solve anything. What's your relationship to their silence?",
+        choices: [
+          { label: "It feels uncomfortable, like something should be happening", insight: "Stillness can feel unfamiliar if comfort in your life has usually come with fixing or advice attached." },
+          { label: "I fill the silence by talking more than I need to", insight: "Filling silence can be a way of staying in control of a moment that otherwise feels very vulnerable." },
+          { label: "I relax slightly, even if I don't fully understand why", insight: "Relaxing without understanding why is often your nervous system recognizing safety before your mind catches up." },
+          { label: "I feel truly held, maybe for the first time in a while", insight: "Feeling held is often rarer than feeling helped. This moment is worth noticing." }
+        ]
+      },
+      {
+        prompt: "Afterward, once the hard moment has passed, how do you think about what happened?",
+        choices: [
+          { label: "I feel embarrassed that they saw me like that", insight: "Embarrassment about being seen struggling often means vulnerability has felt unsafe before, not that anything went wrong here." },
+          { label: "I minimize it, saying I probably overreacted", insight: "Minimizing your own struggle protects you from feeling like too much, even when you weren't." },
+          { label: "I feel grateful they stayed", insight: "Gratitude for someone simply staying is a sign you're starting to trust that support can be steady." },
+          { label: "I feel closer to them, and less alone in general", insight: "This is what co-regulation does over time, it doesn't just help in the moment, it changes how alone you feel afterward." }
+        ]
+      }
+    ],
+    closing: "You don't have to struggle well to deserve comfort, {name}. You're allowed to just be held while it's hard.",
+    journalPrompts: ["Was it easier to let them stay, or to let them see you struggling?", "What did their presence do for you that being alone couldn't?", "What would it take to ask for this kind of comfort next time, instead of waiting for it?"]
+  },
+  {
+    id: "care-when-sick", icon: "\u{1FAD5}",
+    title: "Someone Takes Care Of You When You're Sick",
+    teaser: "Being looked after when you can't look after yourself.",
+    steps: [
+      {
+        prompt: "You're sick or run down, and someone steps in to take care of you. What's the first thought that comes up?",
+        choices: [
+          { label: "I insist I can take care of myself", insight: "Insisting on independence even while unwell often points to a deep discomfort with being seen as needing anything." },
+          { label: "I feel guilty that they're going out of their way", insight: "Guilt over someone's effort suggests you believe your needs should stay small and manageable." },
+          { label: "I feel cared for in a way that's unfamiliar", insight: "Unfamiliar can still be good. New sensations of being cared for often feel strange before they feel comfortable." },
+          { label: "I let myself rest and be looked after", insight: "Allowing yourself to fully rest while someone else handles things is receiving with your whole body, not just your mind." }
+        ]
+      },
+      {
+        prompt: "They bring you something, check in, or handle a task you'd normally do yourself. What happens next?",
+        choices: [
+          { label: "I try to get up and help anyway", insight: "Getting up to help, even while sick, is often the hyperindependent pattern refusing to fully stand down." },
+          { label: "I keep apologizing for the inconvenience", insight: "Repeated apologies for needing care are a sign the belief that you're a burden runs deep." },
+          { label: "I say thank you and let them keep going", insight: "Letting the care continue, without interrupting it, is real practice in staying receptive." },
+          { label: "I actually enjoy being looked after for once", insight: "Enjoying it, without guilt attached, is what this is supposed to feel like." }
+        ]
+      },
+      {
+        prompt: "Once you're feeling better, how do you think back on being cared for?",
+        choices: [
+          { label: "I feel like I need to make it up to them somehow", insight: "The urge to repay care, even freely given, suggests receiving still feels like it creates a debt." },
+          { label: "I remember it fondly but don't dwell on it", insight: "Fond, light memory without overanalysis is a sign this is starting to feel normal." },
+          { label: "I feel more comfortable asking for help next time", insight: "This is the real shift, not just receiving once, but trusting you can ask again." },
+          { label: "I want to be that kind of steady presence for someone else too", insight: "Wanting to give what you received is beautiful, just make sure it isn't replacing your own ability to receive again." }
+        ]
+      }
+    ],
+    closing: "Being taken care of isn't a debt you owe, {name}. It's just what people who love you do, and what you're allowed to let them do.",
+    journalPrompts: ["Did you resist the care or let yourself receive it?", "What did you tell yourself about needing to be looked after?", "What would it feel like to be cared for without needing to earn or repay it?"]
+  },
+  {
+    id: "win-celebrated", icon: "\u{1F389}",
+    title: "Someone Celebrates Your Win With You",
+    teaser: "Being seen and celebrated instead of quietly succeeding alone.",
+    steps: [
+      {
+        prompt: "You accomplish something, and someone gets genuinely excited for you. What's your first instinct?",
+        choices: [
+          { label: "I downplay the win before they can say much", insight: "Downplaying your win before it's even acknowledged keeps you from having to fully receive the celebration." },
+          { label: "I redirect the conversation to their life or achievements", insight: "Redirecting attention away from yourself is a familiar way of staying comfortable in the background." },
+          { label: "I feel awkward but let them keep celebrating", insight: "Letting the celebration continue, awkwardness and all, is still receiving." },
+          { label: "I let myself feel proud alongside them", insight: "Shared pride, without shrinking your part of it, is what fully receiving a win looks like." }
+        ]
+      },
+      {
+        prompt: "They want to tell others about your win, or make a bigger deal of it. What happens in you?",
+        choices: [
+          { label: "I ask them to keep it low key", insight: "Wanting it kept quiet can be genuine preference, or it can be discomfort with being visibly celebrated." },
+          { label: "I list all the reasons it's not that big of a deal", insight: "Minimizing the win out loud protects you from the vulnerability of being seen as impressive or worthy of attention." },
+          { label: "I let them share it, even though it feels exposing", insight: "Letting visibility happen, even when it's uncomfortable, is real practice in being celebrated." },
+          { label: "I feel genuinely happy that they want to share it", insight: "Genuine happiness about being celebrated publicly is a strong sign the old ceiling is lifting." }
+        ]
+      },
+      {
+        prompt: "Later, thinking back on the win itself, what do you focus on?",
+        choices: [
+          { label: "What I could have done better", insight: "Focusing on what's missing, even after a win, is a pattern that keeps receiving out of reach." },
+          { label: "How relieved I am that it's over", insight: "Relief that it's over can crowd out the space to actually enjoy what you accomplished." },
+          { label: "How good it felt to have someone celebrate with me", insight: "Remembering the shared joy, not just the achievement itself, is where real connection lives." },
+          { label: "How proud I actually am of myself", insight: "Pride that stays with you afterward, not just in the moment, is what integration looks like." }
+        ]
+      }
+    ],
+    closing: "You're allowed to be celebrated loudly, {name}, not just for the win itself, but for how far you had to come to get there.",
+    journalPrompts: ["Did you shrink the win or let it be seen fully?", "What made it easy or hard to be celebrated in that moment?", "What would it feel like to let a win be as big as it actually is?"]
+  },
+  {
+    id: "chosen", icon: "\u{1F511}",
+    title: "Someone Chooses You",
+    teaser: "Being picked, plainly and without conditions.",
+    steps: [
+      {
+        prompt: "Someone chooses you clearly, over another option, another person, or their own hesitation. What's the first feeling?",
+        choices: [
+          { label: "Disbelief that they'd choose me over the alternative", insight: "Disbelief often comes from a long-held belief that you're not usually the one who gets picked." },
+          { label: "Fear that they'll eventually change their mind", insight: "Fear of it reversing is your system trying to prepare for a loss that hasn't happened." },
+          { label: "Quiet relief, even if I don't say much", insight: "Quiet relief is still a real response. Not every feeling needs to be loud to be genuine." },
+          { label: "Genuine joy that I let myself feel fully", insight: "Full joy, without bracing for it to end, is what receiving being chosen actually looks like." }
+        ]
+      },
+      {
+        prompt: "You have a moment to respond to being chosen. What do you find yourself doing?",
+        choices: [
+          { label: "I ask them why, like I need proof it's real", insight: "Needing a reason can come from a belief that being chosen requires justification, rather than just being true." },
+          { label: "I make a joke to lighten the moment", insight: "Humor can be a gentle way to manage a feeling that's bigger than you're used to holding." },
+          { label: "I get quiet and just take it in", insight: "Taking it in quietly, without needing to respond perfectly, is enough." },
+          { label: "I tell them clearly what it means to me", insight: "Naming what it means out loud is choosing them back, and receiving them fully at the same time." }
+        ]
+      },
+      {
+        prompt: "Weeks later, being chosen that way still sits with you somehow. What's true now?",
+        choices: [
+          { label: "I still find it hard to believe some days", insight: "Some days being harder than others is normal. Healing isn't a straight line toward certainty." },
+          { label: "I've started to trust it a little more each week", insight: "Trust building gradually, rather than arriving all at once, is exactly how safety usually forms." },
+          { label: "I feel more secure in general, not just in this relationship", insight: "When security in one relationship starts to spread into how you feel overall, that's real integration." },
+          { label: "I've started choosing myself the same way they chose me", insight: "This is the deepest version of receiving, when it becomes something you also give yourself." }
+        ]
+      }
+    ],
+    closing: "Being chosen isn't something you have to keep proving you deserve, {name}. Once it's true, it's allowed to just be true.",
+    journalPrompts: ["What did you feel first, disbelief, fear, or joy, and what does that tell you?", "Did you ask for reassurance, or were you able to just receive it?", "How has being chosen changed the way you see yourself, if at all?"]
+  }
+];
+
+
+
+const cards = [
+  "Receiving is not selfish. It's magnetism.",
+  "You don't have to earn love to be worthy of it.",
+  "Every compliment you accept is a rep in becoming magnetic to love.",
+  "Letting someone help you is not weakness. It's practice.",
+  "You are allowed to receive more than you give sometimes.",
+  "Worthiness was never something you had to prove.",
+  "Love doesn't require a resume.",
+  "You can receive good things without immediately paying them back.",
+  "Your inner child is the part of you that knows how to be magnetic to love.",
+  "Learning to receive starts with learning to love your inner child.",
+  "It's okay to feel uncomfortable receiving. Normalize it gently for your inner child.",
+  "Somewhere young in you learned love had conditions. That belief can be unlearned.",
+  "Your inner child doesn't need to be fixed. She needs to be met with love.",
+  "Show up for your inner child today, even if it's just for five minutes.",
+  "The part of you that flinches at love is the part that needs it most.",
+  "You are reparenting yourself every time you choose gentleness over criticism.",
+  "If you reject yourself first, some part of you believes no one else can.",
+  "Your protector part isn't the enemy. It's just tired of trying to keep you safe.",
+  "Noticing the pattern is the turning point. You're already there.",
+  "Being hard on yourself first was a strategy, not a flaw.",
+  "You can thank your protector part and still choose something new.",
+  "Pulling away when things go well is a pattern, not a prophecy.",
+  "The urge to sabotage is loudest right before real love lands.",
+  "You are allowed to let your guard down slowly. There's no deadline.",
+  "You don't chase magnetism. You become it.",
+  "When you receive love well, you radiate that abundance to everyone around you.",
+  "Magnetism is a nervous system that feels safe, not a personality trait.",
+  "The more you receive, the more you have to give from a full cup.",
+  "Becoming magnetic isn't about doing more. It's about softening enough to let it in.",
+  "Your energy is already speaking before you say a word.",
+  "What you make room for in your body, you make room for in your life.",
+  "You are not behind. You are becoming.",
+  "Queens move slowly, elegantly, deliberately. There's no rush here.",
+  "Divine feminine energy isn't about doing less, it's about receiving more.",
+  "Softness is not the opposite of strength. It's often the bravest choice.",
+  "Your intuition already knows what your mind is still catching up to.",
+  "Being hyperindependent kept you safe once. You're allowed to set it down now.",
+  "You don't have to be the strong one in every single room.",
+  "Rest is not something you have to earn either.",
+  "You are allowed to be taken care of.",
+  "Self-love is the frequency that everything else gets built on.",
+  "Sit in self-love and watch your physical reality shift to mirror it.",
+  "The relationship you have with yourself sets the tone for every other one.",
+  "You are not too much. You were just loved by people with too little capacity.",
+  "Every small act of self-love is powerful work, even when it feels small.",
+  "You are allowed to speak to yourself the way you'd speak to someone you love.",
+  "This work doesn't have to happen every day to count.",
+  "You showed up today. That's enough."
+];
+
+const learnArticles = [
+  { id: "how-to-receive", title: "How To Receive Love", body: [
+      "Receiving love is a skill, not a personality trait. Most of us were never taught it.",
+      "Step one is noticing your resistance. When love shows up, whether as a compliment, help, or affection, pay attention to what your body does. Do you tense up? Deflect? Change the subject?",
+      "Step two is talking to that part of you instead of pushing past it. Ask it gently, what are you afraid of right now? You're not trying to force the resistance away, you're trying to understand it.",
+      "Step three is practicing in small doses. Let one compliment land this week without deflecting. That's it. Receiving is built through repetition, not willpower."
+  ]},
+  { id: "why-self-love", title: "Why Self-Love Is The Key", body: [
+      "Self-love isn't a bonus step, it's the foundation everything else gets built on.",
+      "When you sit in self-love, your physical reality begins to shift to mirror it. You start attracting people, situations, and love that reflect the way you already treat yourself.",
+      "This is why receiving and self-love are so connected. It's hard to receive love from someone else while you're still withholding it from yourself.",
+      "You don't have to overhaul your whole life to start. Small, consistent acts of self-love, even five minutes a day, are what actually rewire the pattern over time."
+  ]},
+  { id: "protector-part", title: "Understanding Your Protector Part", body: [
+      "If you find it hard to receive love, there's likely a protector part of you working overtime, usually one that formed in childhood.",
+      "A lot of us learned that if we reject ourselves first, criticize ourselves before anyone else can, or stay hyperindependent, we can't get hurt. It felt like safety.",
+      "This part isn't the enemy. It kept you safe once, in a situation where you needed it. The work now is thanking it for trying to protect you, and gently showing it that it's safe to soften.",
+      "You don't have to fight this part. You just have to stop letting it make all the decisions."
+  ]}
+];
+
+const classroomResources = {
+  standard: {
+    label: "From Foundations & Inner Union (Standard)",
+    links: [
+      { label: "What Is Self Hate Consciousness (the protector parts that block love)", url: "https://www.skool.com/union/classroom/07a7f557?md=d1b690fc332947699d51847c9f2d22b3", why: "Goes deeper into the protector parts you met in this roadmap, the ones that convince you rejecting yourself first is safer than receiving love." },
+      { label: "The Healing Power of Self-Love", url: "https://www.skool.com/union/classroom/07a7f557?md=cf1fd5184858435eb36e138899241768", why: "Explores why self-love has to come first. It's hard to fully receive love from someone else while you're still withholding it from yourself." }
+    ]
+  },
+  premium: {
+    label: "From Manifest Your Union A-Z (Premium)",
+    links: [
+      { label: "Learn & Apply the Divine Reparenting Method", url: "https://www.skool.com/union/classroom/6bd2fa96?md=d12ff0fbcf8141a5b282f55562996358", why: "The full method behind reparenting your inner child, the actual practice for teaching your nervous system that love is safe." },
+      { label: "Fragmentation, Parts & The Inner Child", url: "https://www.skool.com/union/classroom/6bd2fa96?md=da82dd8abc014cd98ca3d3de9e4a2a86", why: "Explains why trauma splits us into parts, and why that fragmentation is exactly what makes healthy love feel so hard to receive." },
+      { label: "Mapping Your Love Wounds + Beliefs", url: "https://www.skool.com/union/classroom/6bd2fa96?md=a598f6013b3643afb7ac731385882582", why: "Helps you trace your specific receiving blocks back to their root, so you're healing the actual belief, not just managing the symptom." },
+      { label: "Healing Family & Childhood Beliefs With EFT", url: "https://www.skool.com/union/classroom/6bd2fa96?md=68b2016bc7b745ffa418b236cbd0ebdb", why: "A hands-on tapping practice to release the early beliefs about love that formed before you had any say in them." }
+    ]
+  }
+};
+
+const PREMIUM_URL = "https://www.skool.com/union/plans";
+const COMMUNITY_URL = "https://www.skool.com/union/";
+
+/* ---------- STATE ---------- */
+
+let state = {
+  name: "", screen: "name", activeTab: "roadmap",
+  scenarioId: null, stepIndex: 0, stepChoice: null,
+  currentCard: null, cardFlipped: false,
+  journal: {}, cardJournal: [],
+  learnOpen: null, breathing: false
+};
+
+function go(patch) { state = { ...state, ...patch }; render(); }
+
+/* ---------- SHARED PIECES ---------- */
+
+function saveReminder() {
+  return `<div class="save-reminder"><span>\u{1F49C}</span><span>You can journal on paper and just click through the prompts, or type it here. <strong>Your answers now save automatically</strong> in this browser, on this device, so they will be here next time you visit. They will not follow you to a different browser or device though, so it is still worth hitting <strong>Download My Journal</strong> for a backup you can keep.</span></div>`;
+}
+
+function resourceNoteFull() {
+  return `<div class="quizcta-card">
+    <div class="quizcta-eyebrow">Want To Go Deeper</div>
+    <div class="quizcta-title">Premium, $33/month</div>
+    <p class="quizcta-body">Everything in Standard, plus:</p>
+    <ul class="quizcta-list">
+      <li>Manifest Your Union\u2122 signature A-Z course, my full coaching process</li>
+      <li>Weekly live coaching &amp; Q&amp;A calls, submit your questions ahead of time</li>
+      <li>Inner Union Vault: Q&amp;A replays, live healing classes &amp; searchable topics</li>
+      <li>Guided meditations, EFT tapping &amp; nervous system regulation tools</li>
+      <li>Priority access to new lessons, artifacts &amp; tools as they're released</li>
+    </ul>
+    <a class="btn gold" href="${PREMIUM_URL}" target="_blank" rel="noopener">View Premium</a>
+  </div>`;
+}
+
+function resourceNotePill() {
+  return `<div class="premcta-card">
+    <div class="premcta-emoji">\u2728</div>
+    <div class="premcta-body">
+      <div class="premcta-text">Curious what's inside Premium? It picks up right where this roadmap leaves off.</div>
+      <a class="premcta-link" href="${PREMIUM_URL}" target="_blank" rel="noopener">Take a look &rarr;</a>
+    </div>
+  </div>`;
+}
+
+function shareBanner() {
+  return `<div class="share-banner">
+    <div class="k">Share Your Journey</div>
+    <p>Had a realization, a win, or something you want to process out loud? The community would love to hear it.</p>
+    <a class="btn ghost" href="${COMMUNITY_URL}" target="_blank" rel="noopener">Post In The Community</a>
+  </div>`;
+}
+
+function topbar() {
+  return `<div class="topbar">
+    <div class="topbar-left">
+      <div class="topbar-icon">\u2728</div>
+      <div class="topbar-title">Become Magnetic To <span class="holo-text">Love</span></div>
+    </div>
+    <a class="premium-pill" href="${PREMIUM_URL}" target="_blank" rel="noopener">Premium</a>
+  </div>`;
+}
+
+function tabs() {
+  const items = [
+    { id: "roadmap", label: "Roadmap" }, { id: "cards", label: "Card Pull" },
+    { id: "learn", label: "Learn" }, { id: "breathe", label: "Breathe" }, { id: "journal", label: "My Journal" }
+  ];
+  return `<div class="tabs">${items.map(i =>
+    `<div class="tab ${state.activeTab === i.id ? "active" : ""}" onclick="go({activeTab:'${i.id}', screen:'${i.id}', scenarioId:null, stepIndex:0, stepChoice:null})">${i.label}</div>`
+  ).join("")}</div>`;
+}
+
+function footer() {
+  return `<div class="site-footer">
+    <div class="brand">Luana <span class="holo-text">Spirits</span></div>
+    <div class="links">
+      <a href="mailto:luana@luanaspirits.com">luana@luanaspirits.com</a> &middot;
+      <a href="https://docs.google.com/document/d/12oUQEXXesDmVw_XEZH-GEc8NVbtFYyLYf3359hvxyFE/edit?usp=sharing" target="_blank" rel="noopener">Privacy Policy</a> &middot;
+      <a href="https://docs.google.com/document/d/1i395On2ZByesCyRaIDocu1aIguhVxuHBQ1l_nPfVReQ/edit?usp=sharing" target="_blank" rel="noopener">Terms &amp; Conditions</a> &middot; &copy; 2026
+    </div>
+  </div>`;
+}
+
+function shell(inner) {
+  document.getElementById("app").innerHTML = topbar() + tabs() + inner + footer();
+}
+
+/* ---------- NAME GATE ---------- */
+
+function renderName() {
+  document.getElementById("app").innerHTML = `
+    <div class="topbar-left" style="margin-bottom:22px;">
+      <div class="topbar-icon">\u2728</div>
+      <div class="topbar-title">Become Magnetic To <span class="holo-text">Love</span></div>
+    </div>
+    <div class="eyebrow">Standard tier and up</div>
+    <h1>The ultimate roadmap for divine feminines and spiritual women to heal their inner child and receive love.</h1>
+    <div class="card">
+      <div class="eyebrow">How To Use This</div>
+      <ul class="steps">
+        <li><span class="num">01</span><span>Start with the <strong>Roadmap</strong>, a library of 12 real-life scenarios, each with 3 steps to walk through. Do one now, or one a day, whatever feels right.</span></li>
+        <li><span class="num">02</span><span><strong>Pull a Card</strong> any time you need a quick reset or a reminder to come back to.</span></li>
+        <li><span class="num">03</span><span>Visit <strong>Learn</strong> when you want to understand the concepts a little deeper.</span></li>
+        <li><span class="num">04</span><span>Use <strong>Breathe</strong> anytime your body needs to settle before you begin.</span></li>
+      </ul>
+      <div class="rhythm"><strong>A simple rhythm:</strong> in your first couple weeks, aim for one scenario a day, that's 3 steps and a short journal each time. After that, come back weekly to pull a card, revisit your journal, and check in with yourself.</div>
+    </div>
+    <div class="card">
+      <p style="margin-bottom:0;">There's a lot in here, and that's on purpose. The more scenarios you walk through, the more patterns you'll start to recognize in yourself, and recognizing a pattern is always the first real step to changing it. Go at your own pace. There's no version of this you can do wrong.</p>
+    </div>
+    <div class="card">
+      <h3>What should I call you?</h3>
+      <p>Every response in here will be personal to you.</p>
+      <input type="text" id="nameInput" placeholder="Your first name" />
+      <button class="btn gold" onclick="submitName()">Begin</button>
+    </div>
+    ${footer()}
+  `;
+}
+
+function submitName() {
+  const val = document.getElementById("nameInput").value.trim();
+  go({ name: val || "beautiful soul", screen: "roadmap", activeTab: "roadmap" });
+}
+
+/* ---------- ROADMAP TAB ---------- */
+
+function renderRoadmapHub() {
+  const cardsHtml = scenarios.map(s => {
+    const done = !!state.journal[s.id];
+    return `<div class="map-card" onclick="go({screen:'scenario', scenarioId:'${s.id}', stepIndex:0, stepChoice:null})">
+      <div class="map-icon">${s.icon}</div>
+      <div class="map-text"><div class="t">${s.title}</div><div class="s">${s.teaser}</div></div>
+      <div class="check ${done ? "done" : ""}">${done ? "&#10003;" : ""}</div>
+    </div>`;
+  }).join("");
+  shell(`
+    <h2>Welcome, ${state.name}</h2>
+    <div class="save-reminder"><span>\u{1F49C}</span><span>A note before you begin: <strong>your answers save automatically</strong> in this browser, on this device. Close the tab, come back next week, it will still be here. It will not follow you to a different browser or device though, and clearing your browser's data will erase it, so download your journal now and then whenever you want a backup you can keep.</span></div>
+    <p>12 real-life scenarios, each with 3 steps. Walk through them in any order, one now or one a day, whatever feels right.</p>
+    <div class="map-grid">${cardsHtml}</div>
+    ${resourceNotePill()}
+  `);
+}
+
+function renderScenario() {
+  const s = scenarios.find(x => x.id === state.scenarioId);
+  const stepNum = state.stepIndex;
+  const step = s.steps[stepNum];
+  const chosen = state.stepChoice;
+  const isLastStep = stepNum === s.steps.length - 1;
+
+  const choicesHtml = step.choices.map((c, i) => `<div class="choice ${chosen === i ? "selected" : ""}" onclick="go({stepChoice:${i}})">${c.label}</div>`).join("");
+
+  const insightHtml = chosen !== null ? `
+    <div class="insight"><div class="k">What This Can Mean</div><p>${step.choices[chosen].insight}</p></div>
+    <div class="btn-row">
+      ${isLastStep
+        ? `<button class="btn gold" onclick="go({screen:'scenarioClosing'})">See Reflection</button>`
+        : `<button class="btn gold" onclick="go({stepIndex:${stepNum + 1}, stepChoice:null})">Continue to Step ${stepNum + 2}</button>`}
+      <button class="btn ghost" onclick="go({screen:'roadmap', scenarioId:null})">Back to Roadmap</button>
+    </div>` : "";
+
+  shell(`
+    <div class="back-link" onclick="go({screen:'roadmap', scenarioId:null})">&larr; Back</div>
+    <div class="eyebrow">${s.icon} Step ${stepNum + 1} of ${s.steps.length}</div>
+    <h2>${s.title}</h2>
+    <p class="prompt-text">${step.prompt}</p>
+    <div class="choice-list">${choicesHtml}</div>
+    ${insightHtml}
+  `);
+}
+
+function renderScenarioClosing() {
+  const s = scenarios.find(x => x.id === state.scenarioId);
+  const lastStep = s.steps.length - 1;
+  shell(`
+    <div class="back-link" onclick="go({screen:'scenario', stepIndex:${lastStep}})">&larr; Back</div>
+    <div class="eyebrow">${s.icon} Reflection</div>
+    <h2>${s.title}</h2>
+    <div class="insight alt"><div class="k">From Luana</div><p>${s.closing.replace("{name}", state.name)}</p></div>
+    <div class="btn-row">
+      <button class="btn gold" onclick="go({screen:'roadmapJournal'})">Journal About This</button>
+      <button class="btn ghost" onclick="go({screen:'roadmap', scenarioId:null})">Back to Roadmap</button>
+    </div>
+  `);
+}
+
+function renderRoadmapJournal() {
+  const s = scenarios.find(x => x.id === state.scenarioId);
+  const existing = state.journal[s.id] || ["", "", ""];
+  const fields = s.journalPrompts.map((q, i) => `<div class="journal-q">${q}</div><textarea id="j-${i}">${existing[i] || ""}</textarea>`).join("");
+  shell(`
+    <div class="back-link" onclick="go({screen:'scenarioClosing'})">&larr; Back to reflection</div>
+    <div class="eyebrow">${s.icon} Journal</div>
+    <h2>${s.title}</h2>
+    ${saveReminder()}
+    ${fields}
+    <div class="btn-row">
+      <button class="btn gold" onclick="saveRoadmapJournal('${s.id}', ${s.journalPrompts.length})">Save Entry</button>
+      <button class="btn ghost" onclick="go({screen:'roadmap', scenarioId:null})">Back to Roadmap</button>
+    </div>
+  `);
+}
+
+function saveRoadmapJournal(id, count) {
+  const answers = [];
+  for (let i = 0; i < count; i++) answers.push(document.getElementById("j-" + i).value);
+  state.journal[id] = answers;
+  go({ screen: "roadmap", scenarioId: null });
+}
+
+/* ---------- CARD PULL TAB ---------- */
+
+function renderCards() {
+  const backText = state.currentCard !== null ? cards[state.currentCard] : "";
+  shell(`
+    <h2>A Message For ${state.name}</h2>
+    <p class="pull-intro">Pull a card any time you need an affirmation to re-anchor you in self-love energy, magnetic to love.</p>
+    <div class="flip-scene">
+      <div class="flip-card ${state.cardFlipped ? "flipped" : ""}" id="flipCard">
+        <div class="flip-face flip-front"><div><div class="mark">&#10022;</div><div class="tap">Tap Pull To Reveal</div></div></div>
+        <div class="flip-face flip-back"><p>"${backText}"</p></div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn gold" onclick="pullCard()">Pull a Card</button>
+      ${state.currentCard !== null && state.cardFlipped ? `<button class="btn ghost" onclick="go({screen:'cardJournal'})">Journal About This</button>` : ""}
+    </div>
+  `);
+}
+
+function pullCard() {
+  let next;
+  do { next = Math.floor(Math.random() * cards.length); } while (next === state.currentCard && cards.length > 1);
+  state.currentCard = next;
+  state.cardFlipped = false;
+  render();
+  requestAnimationFrame(() => {
+    setTimeout(() => { state.cardFlipped = true; render(); }, 120);
+  });
+}
+
+function renderCardJournal() {
+  shell(`
+    <div class="back-link" onclick="go({screen:'cards'})">&larr; Back to card pull</div>
+    <div class="eyebrow">Journal</div>
+    <h2>What comes up for you?</h2>
+    <div class="card"><p class="quote-text">"${cards[state.currentCard]}"</p></div>
+    ${saveReminder()}
+    <div class="journal-q">What does this bring up for you, ${state.name}?</div>
+    <textarea id="cardResponse"></textarea>
+    <div class="btn-row">
+      <button class="btn gold" onclick="saveCardJournal()">Save Entry</button>
+      <button class="btn ghost" onclick="go({screen:'cards'})">Back to Card Pull</button>
+    </div>
+  `);
+}
+
+function saveCardJournal() {
+  const text = document.getElementById("cardResponse").value;
+  state.cardJournal.push({ card: cards[state.currentCard], response: text });
+  go({ screen: "cards" });
+}
+
+/* ---------- LEARN TAB ---------- */
+
+function renderLearn() {
+  if (state.learnOpen) {
+    const a = learnArticles.find(x => x.id === state.learnOpen);
+    shell(`<div class="back-link" onclick="go({learnOpen:null})">&larr; Back</div><h2>${a.title}</h2>${a.body.map(p => `<p>${p}</p>`).join("")}${resourceNotePill()}`);
+    return;
+  }
+  const items = learnArticles.map(a => `<div class="learn-item" onclick="go({learnOpen:'${a.id}'})"><div class="map-text"><div class="t">${a.title}</div><div class="s">A short read, just a few minutes</div></div></div>`).join("");
+  const classroomHtml = ["standard", "premium"].map(tier => {
+    const group = classroomResources[tier];
+    const linksHtml = group.links.map(l => `<div class="learn-item static"><a href="${l.url}" target="_blank" rel="noopener"><div class="t">${l.label}</div></a><div class="why">${l.why}</div></div>`).join("");
+    return `<div class="linklist-tier eyebrow spaced">${group.label}</div><div class="learn-list">${linksHtml}</div>`;
+  }).join("");
+  shell(`<h2>Learn</h2><p>A few short reads to go deeper into the concepts behind this roadmap.</p><div class="learn-list">${items}</div>${classroomHtml}${resourceNoteFull()}`);
+}
+
+/* ---------- BREATHE TAB (box breathing) ---------- */
+
+let breathTimer = null;
+const BOX_PHASES = ["Breathe in...", "Hold...", "Breathe out...", "Hold..."];
+
+function renderBreathe() {
+  shell(`
+    <h2>Just Breathe, ${state.name}</h2>
+    <p>Your body has to feel safe before it can receive. Box breathing, 4 seconds each phase, is one way to help it get there.</p>
+    <div class="breathe-wrap">
+      <div class="breathe-ball" id="breatheBall"></div>
+      <div class="breathe-label" id="breatheLabel">Press start when you're ready</div>
+      <div class="box-steps" id="boxSteps">
+        <span data-p="0">Inhale</span><span data-p="1">Hold</span><span data-p="2">Exhale</span><span data-p="3">Hold</span>
+      </div>
+      <div class="btn-row"><button class="btn gold" id="breatheBtn" onclick="toggleBreathing()">Start</button></div>
+    </div>
+  `);
+}
+
+function toggleBreathing() {
+  const ball = document.getElementById("breatheBall");
+  const label = document.getElementById("breatheLabel");
+  const btn = document.getElementById("breatheBtn");
+  const steps = document.querySelectorAll("#boxSteps span");
+  if (state.breathing) {
+    state.breathing = false;
+    clearTimeout(breathTimer);
+    ball.style.transform = "scale(1)";
+    label.textContent = "Press start when you're ready";
+    btn.textContent = "Start";
+    steps.forEach(s => s.classList.remove("on"));
+    return;
+  }
+  state.breathing = true;
+  btn.textContent = "Stop";
+  let phase = 0;
+  const runPhase = () => {
+    if (!state.breathing) return;
+    label.textContent = BOX_PHASES[phase];
+    steps.forEach(s => s.classList.toggle("on", parseInt(s.dataset.p) === phase));
+    ball.style.transition = "transform 4s ease-in-out";
+    if (phase === 0) ball.style.transform = "scale(1.4)";
+    else if (phase === 2) ball.style.transform = "scale(1)";
+    phase = (phase + 1) % 4;
+    breathTimer = setTimeout(runPhase, 4000);
+  };
+  runPhase();
+}
+
+/* ---------- MY JOURNAL TAB ---------- */
+
+function renderJournalTab() {
+  const roadmapEntries = scenarios.filter(s => state.journal[s.id]).map(s => {
+    const answers = state.journal[s.id];
+    const qas = s.journalPrompts.map((q, i) => `<div class="q">${q}</div><div class="a">${answers[i] || "(left blank)"}</div>`).join("");
+    return `<div class="entry"><div class="tt">${s.icon} ${s.title}</div>${qas}</div>`;
+  }).join("");
+  const cardEntries = state.cardJournal.map(e => `<div class="entry"><div class="tt">Card Pull</div><div class="q">"${e.card}"</div><div class="a">${e.response || "(left blank)"}</div></div>`).join("");
+  const all = roadmapEntries + cardEntries;
+  const empty = all === "" ? "<p>Nothing here yet. Walk through the roadmap or pull a card to start filling this in.</p>" : "";
+  shell(`<h2>My Journal, ${state.name}</h2>${saveReminder()}<div class="card">${all || empty}</div><div class="btn-row"><button class="btn gold" onclick="downloadJournal()">Download My Journal</button></div>${shareBanner()}${resourceNotePill()}`);
+}
+
+function downloadJournal() {
+  let text = "BECOME MAGNETIC TO LOVE\nMy Journal, " + state.name + "\n\n";
+  scenarios.forEach(s => {
+    if (!state.journal[s.id]) return;
+    text += "== " + s.title + " ==\n";
+    s.journalPrompts.forEach((q, i) => { text += q + "\n" + (state.journal[s.id][i] || "(left blank)") + "\n\n"; });
+  });
+  if (state.cardJournal.length) {
+    text += "== Card Pull ==\n";
+    state.cardJournal.forEach(e => { text += '"' + e.card + '"\n' + (e.response || "(left blank)") + "\n\n"; });
+  }
+  if (text.trim() === "BECOME MAGNETIC TO LOVE\nMy Journal, " + state.name) text += "No entries yet.\n";
+  const blob = new Blob([text], { type: "text/plain" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "my-magnetic-love-journal.txt";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+/* ---------- ROUTER ---------- */
+
+const STORAGE_KEY = "become-magnetic-to-love-v1";
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) { /* storage unavailable */ }
+}
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) state = { ...state, ...JSON.parse(raw) };
+  } catch (e) { /* corrupted or unavailable, start fresh */ }
+}
+
+function render() {
+  saveState();
+  if (state.screen === "name") return renderName();
+  if (state.screen === "roadmap") return renderRoadmapHub();
+  if (state.screen === "scenario") return renderScenario();
+  if (state.screen === "scenarioClosing") return renderScenarioClosing();
+  if (state.screen === "roadmapJournal") return renderRoadmapJournal();
+  if (state.screen === "cards") return renderCards();
+  if (state.screen === "cardJournal") return renderCardJournal();
+  if (state.screen === "learn") return renderLearn();
+  if (state.screen === "breathe") return renderBreathe();
+  if (state.screen === "journal") return renderJournalTab();
+}
+
+loadState();
+render();
+</script>
+
+<!--
+  BUILD NOTES:
+  Single-file vanilla HTML/CSS/JS, no build step, no dependencies.
+  Ready to deploy as-is on GitHub Pages. Rename to index.html at the
+  root of its folder/repo and GitHub Pages will serve it automatically.
+  To edit content: scenario copy, card pull messages, and classroom
+  links all live in the DATA section near the top of the script.
+-->
+</body>
+</html>
