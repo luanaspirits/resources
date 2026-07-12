@@ -1,1 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Signs, Synchronicities & Dreams From The Universe, a 30-day intuition tracker with a deep symbol library, emphasizing that personal meaning matters more than any lookup.">
+<title>Signs, Synchronicities & Dreams: A 30-Day Intuition Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #faf7fc; --card: rgba(255,255,255,0.78); --card-2: rgba(255,255,255,0.95);
+    --text: #3d2e5c; --muted: #7a6b94; --muted-2: #9b8ab8;
+    --violet: #9b7fd4; --violet-deep: #6b4fa0; --periwinkle: #8ca8e8;
+    --gold: #c9a44e; --gold-soft: #e8d5a8;
+    --line: rgba(107,79,160,0.15); --line-strong: rgba(107,79,160,0.3);
+  }
+  body {
+    background: radial-gradient(ellipse at 15% 0%, #e8d9f7 0%, transparent 55%),
+                radial-gradient(ellipse at 88% 12%, #d8e8f5 0%, transparent 48%),
+                radial-gradient(ellipse at 50% 108%, #f0dff7 0%, transparent 55%), var(--bg);
+    color: var(--text); font-family: 'Jost', sans-serif; font-weight: 300; min-height: 100vh; position: relative;
+  }
+  #sparkles { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .spark { position: absolute; border-radius: 50%; background: radial-gradient(circle, #fff, var(--violet) 70%, transparent 100%); animation: twinkle 4.5s ease-in-out infinite; }
+  @keyframes twinkle { 0%,100%{opacity:.15;transform:scale(.7);} 50%{opacity:.75;transform:scale(1.2);} }
+  #app { position: relative; z-index: 2; max-width: 660px; margin: 0 auto; padding: 0 20px 60px; }
+  h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--violet-deep); margin-bottom: 12px; }
+  h1 { font-weight: 700; font-size: 28px; line-height: 1.28; }
+  h2 { font-weight: 600; font-size: 22px; }
+  h3 { font-weight: 600; font-size: 16.5px; }
+  p { line-height: 1.75; color: var(--muted); font-size: 14.5px; margin-bottom: 14px; }
+  em.hl { font-style: italic; color: var(--violet-deep); }
+  .tagline { font-family: 'Playfair Display', serif; font-style: italic; color: var(--violet-deep); font-size: 17px; text-align: center; margin: 16px 0; }
+  .center { text-align: center; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; margin-bottom: 16px; box-shadow: 0 8px 30px rgba(107,79,160,0.06); }
+  .card.ritual { background: linear-gradient(150deg, rgba(155,127,212,0.10), rgba(140,168,232,0.10)); border-color: var(--line-strong); }
+  .std-pill { display: inline-block; background: linear-gradient(135deg, var(--violet), var(--periwinkle)); color: #fff; font-family: 'Jost', sans-serif; font-weight: 800; font-size: 11px; letter-spacing: 0.5px; border-radius: 999px; padding: 6px 14px; margin-bottom: 14px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Jost', sans-serif; font-weight: 700; font-size: 14px; padding: 13px 26px; border-radius: 999px; border: none; cursor: pointer; text-decoration: none; }
+  .btn.gold { background: linear-gradient(135deg, var(--violet), var(--periwinkle)); color: #fff; box-shadow: 0 6px 20px rgba(155,127,212,0.35); }
+  .btn.ghost { background: transparent; color: var(--muted); border: 1px solid var(--line-strong); }
+  .btn.ghost:hover { color: var(--violet-deep); border-color: var(--violet); }
+  .btn.small { padding: 8px 16px; font-size: 12px; }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+  input[type=text] { width: 100%; background: rgba(255,255,255,0.7); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; font-family: 'Jost', sans-serif; font-size: 16px; color: var(--text); margin-bottom: 16px; }
+  input[type=text]::placeholder { color: var(--muted-2); }
+  textarea { width: 100%; background: rgba(255,255,255,0.7); border: 1px solid var(--line); border-radius: 12px; color: var(--text); font-family: 'Jost', sans-serif; font-size: 14.5px; padding: 13px; resize: vertical; min-height: 70px; margin-bottom: 14px; }
+  .journal-q { font-size: 13.5px; color: var(--text); margin-bottom: 6px; font-weight: 500; }
+  .topbar-left { display: flex; align-items: center; gap: 12px; justify-content: center; margin-bottom: 10px; }
+  .topbar-icon { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, var(--violet), var(--periwinkle)); display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 4px 16px rgba(155,127,212,0.4); flex-shrink: 0; }
+  .topbar-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 16px; color: var(--violet-deep); }
 
+  .topnav-wrap { position: sticky; top: 0; z-index: 10; padding: 16px 0 12px; }
+  .topnav-brand-row { display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; opacity: 0.9; margin-bottom: 14px; }
+  .topnav-brand-row .icon { width: 26px; height: 26px; border-radius: 8px; background: linear-gradient(135deg, var(--violet), var(--periwinkle)); display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+  .topnav-brand-row .name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 13px; color: var(--violet-deep); }
+  .tabs { display: flex; gap: 6px; overflow-x: auto; justify-content: center; flex-wrap: wrap; }
+  .tab { flex-shrink: 0; font-family: 'Jost', sans-serif; font-weight: 600; font-size: 12.5px; background: var(--card); border: 1px solid var(--line); color: var(--muted); border-radius: 999px; padding: 9px 16px; cursor: pointer; }
+  .tab:hover { color: var(--violet-deep); border-color: var(--violet); }
+  .tab.active { background: linear-gradient(135deg, var(--violet), var(--periwinkle)); color: #fff; border-color: transparent; font-weight: 700; }
+
+  .personal-banner { background: linear-gradient(150deg, rgba(155,127,212,0.14), rgba(140,168,232,0.10)); border: 1px solid var(--line-strong); border-radius: 16px; padding: 18px 20px; margin-bottom: 18px; }
+  .personal-banner p { color: var(--text); font-size: 13.5px; margin: 0; font-weight: 400; }
+  .personal-banner strong { color: var(--violet-deep); }
+
+  .day-stepper { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
+  .day-stepper .lbl { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 1px; color: var(--violet-deep); font-weight: 600; }
+  .day-arrow { width: 36px; height: 36px; border-radius: 50%; background: var(--card); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 16px; color: var(--violet-deep); flex-shrink: 0; }
+  .day-arrow:hover { border-color: var(--violet); }
+  .day-arrow.disabled { opacity: 0.3; pointer-events: none; }
+  .day-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 18px; }
+  .day-cell { aspect-ratio: 1; border-radius: 8px; background: var(--card); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); cursor: pointer; }
+  .day-cell.active { background: linear-gradient(135deg, var(--violet), var(--periwinkle)); color: #fff; border-color: transparent; font-weight: 700; }
+  .day-cell.done { border-color: var(--gold); color: var(--violet-deep); }
+
+  .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+  .chip { background: rgba(255,255,255,0.7); border: 1px solid var(--line); border-radius: 999px; padding: 10px 16px; font-size: 13.5px; color: var(--muted); cursor: pointer; }
+  .chip:hover { border-color: var(--violet); }
+  .chip.selected { background: linear-gradient(135deg, var(--violet), var(--periwinkle)); color: #fff; border-color: transparent; font-weight: 500; }
+
+  .accordion-item { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; cursor: pointer; margin-bottom: 12px; }
+  .accordion-item:hover { border-color: var(--violet); }
+  .accordion-item .t { font-family: 'Playfair Display', serif; font-size: 16.5px; font-weight: 600; color: var(--violet-deep); display: flex; align-items: center; gap: 10px; }
+  .accordion-item .count { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted-2); margin-top: 3px; }
+  .accordion-body { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); }
+
+  .symbol-card { background: rgba(255,255,255,0.55); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; }
+  .symbol-card .t { font-family: 'Playfair Display', serif; font-size: 14.5px; font-weight: 600; color: var(--text); display: flex; align-items: center; gap: 8px; }
+  .symbol-card .m { font-size: 13px; color: var(--muted); margin-top: 5px; line-height: 1.6; }
+  .symbol-card .log-btn { font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 0.5px; text-transform: uppercase; color: var(--violet-deep); background: none; border: 1px solid var(--violet); border-radius: 999px; padding: 5px 12px; cursor: pointer; margin-top: 8px; }
+  .symbol-card .log-btn:hover { background: var(--violet); color: #fff; }
+
+  .entry { border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 16px; }
+  .entry:last-child { border: none; margin: 0; padding: 0; }
+  .entry .tt { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; color: var(--violet-deep); margin-bottom: 2px; }
+  .entry .meta { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted-2); margin-bottom: 8px; }
+  .entry .q { font-size: 12px; color: var(--muted-2); margin-bottom: 2px; }
+  .entry .a { font-size: 13.5px; color: var(--text); margin-bottom: 8px; }
+  .save-reminder { background: rgba(201,164,78,0.10); border: 1px solid var(--gold); border-radius: 14px; padding: 14px 18px; font-size: 13px; color: var(--muted); margin-bottom: 20px; display: flex; gap: 10px; align-items: flex-start; }
+
+  .stat-row { display: flex; gap: 10px; margin-bottom: 18px; }
+  .stat-box { flex: 1; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px; text-align: center; }
+  .stat-box .n { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--violet-deep); }
+  .stat-box .l { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.5px; text-transform: uppercase; color: var(--muted-2); margin-top: 2px; }
+
+  .link-item { display: flex; gap: 14px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; margin-bottom: 10px; text-decoration: none; }
+  .link-icon { width: 40px; height: 40px; border-radius: 11px; background: linear-gradient(135deg, var(--violet), var(--periwinkle)); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .link-item .t { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; color: var(--violet-deep); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .link-item .s { font-size: 12px; color: var(--muted-2); margin-top: 3px; }
+  .tier-badge { font-family: 'DM Mono', monospace; font-size: 8.5px; letter-spacing: 1px; padding: 3px 8px; border-radius: 999px; font-weight: 500; }
+  .tier-badge.premium { background: rgba(201,164,78,0.16); color: var(--gold); border: 1px solid rgba(201,164,78,0.4); }
+  .tier-badge.standard { background: rgba(155,127,212,0.14); color: var(--violet); border: 1px solid rgba(155,127,212,0.35); }
+
+  .section-label { font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin: 20px 0 10px; }
+
+  .site-footer { margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--line); text-align: center; }
+  .site-footer .brand { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 14px; margin-bottom: 6px; color: var(--violet-deep); }
+  .site-footer .brand em { font-style: italic; color: var(--gold); }
+  .site-footer .links { font-family: 'DM Mono', monospace; font-size: 10.5px; color: var(--muted-2); line-height: 1.9; }
+  .site-footer a { color: var(--muted-2); text-decoration: none; }
+</style>
+</head>
+<body>
+<div id="sparkles"></div>
+<div id="app"></div>
+
+<script>
+/* ---------- AMBIENT SPARKLES ---------- */
+(function initSparkles() {
+  const wrap = document.getElementById("sparkles");
+  for (let i = 0; i < 18; i++) {
+    const s = document.createElement("div");
+    s.className = "spark";
+    const size = 2 + Math.random() * 4;
+    s.style.width = size + "px"; s.style.height = size + "px";
+    s.style.left = Math.random() * 100 + "%"; s.style.top = Math.random() * 100 + "%";
+    s.style.animationDelay = (Math.random() * 4.5) + "s";
+    wrap.appendChild(s);
+  }
+})();
+
+/* ---------- DATA: SYMBOL LIBRARY ---------- */
+
+const LIBRARY = [
+  { cat: "Angel Numbers", icon: "\u{1F522}", items: [
+    { name: "111", meaning: "Often seen as a sign of new beginnings and alignment, a nudge that your thoughts are manifesting quickly right now." },
+    { name: "222", meaning: "Often associated with balance, partnership, and trust that things are unfolding correctly, even if you can't see the full picture yet." },
+    { name: "333", meaning: "Often linked to spiritual guidance and support, a sense that your guides or loved ones in spirit are near." },
+    { name: "444", meaning: "Often seen as a sign of protection and stability, guides letting you know you're not alone." },
+    { name: "555", meaning: "Often associated with change and transformation, a sign that something significant is shifting." },
+    { name: "666", meaning: "Often misunderstood, many traditions see this as a call back to balance, especially between the material and spiritual." },
+    { name: "777", meaning: "Often seen as a sign of luck, alignment, and being on the right path." },
+    { name: "888", meaning: "Often linked to abundance and infinite flow, things coming full circle." },
+    { name: "999", meaning: "Often associated with endings and completion, a chapter closing to make room for the next one." },
+    { name: "1111", meaning: "Often described as a powerful alignment moment, a portal, a reminder you're being watched over." },
+    { name: "000", meaning: "Often seen as a sign of infinite potential, a fresh, wide-open start." }
+  ]},
+  { cat: "Animals & Creatures", icon: "\u{1F98B}", items: [
+    { name: "Butterfly", meaning: "Often associated with transformation and the soul, a reminder that change is beautiful, not just difficult." },
+    { name: "Hummingbird", meaning: "Often linked to joy, resilience, and finding sweetness in life, even in small moments." },
+    { name: "Cardinal (red bird)", meaning: "Often seen as a visit from a loved one who has passed, a message that they're near." },
+    { name: "Owl", meaning: "Often associated with wisdom and seeing what others can't, especially in the dark or unknown." },
+    { name: "Feather, found unexpectedly", meaning: "Often seen as a sign of angels or spirit guides nearby, offering reassurance." },
+    { name: "Dragonfly", meaning: "Often linked to transformation and seeing through illusion, a sign to trust your own light." },
+    { name: "Ladybug", meaning: "Often associated with good luck and blessings on their way." },
+    { name: "Deer", meaning: "Often seen as a symbol of gentleness and grace, an invitation to move through life more softly." },
+    { name: "Snake, shedding skin", meaning: "Often linked to renewal and releasing what no longer serves you." },
+    { name: "Spider", meaning: "Often associated with creativity and weaving your own destiny." },
+    { name: "Hawk", meaning: "Often seen as a call to pay closer attention, a message coming from a higher perspective." },
+    { name: "Fox", meaning: "Often linked to cleverness and adaptability, trusting your own resourcefulness." }
+  ]},
+  { cat: "Colors", icon: "\u{1F3A8}", items: [
+    { name: "White", meaning: "Often associated with purity, new beginnings, and spiritual clarity." },
+    { name: "Purple / Violet", meaning: "Often linked to spiritual awakening, higher consciousness, and transformation." },
+    { name: "Gold", meaning: "Often seen as a sign of abundance, divine energy, and alignment." },
+    { name: "Pink", meaning: "Often associated with unconditional love, self-love, and gentle healing." },
+    { name: "Blue", meaning: "Often linked to communication, truth, and calm clarity." },
+    { name: "Green", meaning: "Often seen as a symbol of growth, heart-centered healing, and abundance." },
+    { name: "Black", meaning: "Often associated with protection and the unknown, not something negative, but something not yet revealed." }
+  ]},
+  { cat: "Nature & Sky", icon: "\u{1F308}", items: [
+    { name: "Rainbow", meaning: "Often seen as a sign of hope and promise, a bridge between what was and what's coming." },
+    { name: "Full moon", meaning: "Often linked to culmination, release, and heightened intuition." },
+    { name: "Shooting star", meaning: "Often associated with wishes and sudden alignment, a rare, fleeting moment of magic." },
+    { name: "Sun breaking through clouds", meaning: "Often seen as a sign of clarity after confusion, hope returning." },
+    { name: "Storms", meaning: "Often linked to emotional release and clearing, intensity before calm." },
+    { name: "Rain", meaning: "Often associated with cleansing and renewal, washing away what's heavy." }
+  ]},
+  { cat: "Common Dream Themes", icon: "\u{1F4A4}", items: [
+    { name: "Flying", meaning: "Often associated with freedom and rising above a situation." },
+    { name: "Falling", meaning: "Often linked to a feeling of losing control somewhere in waking life." },
+    { name: "Water, calm or turbulent", meaning: "Often seen as a mirror of your emotional state, calm water often reflecting peace, turbulent water often reflecting overwhelm." },
+    { name: "Teeth falling out", meaning: "Often associated with anxiety around self-image, communication, or a fear of loss." },
+    { name: "Being chased", meaning: "Often linked to avoiding something in waking life that wants your attention." },
+    { name: "Finding a new room in a familiar house", meaning: "Often seen as a sign of untapped potential or a part of yourself you're just discovering." },
+    { name: "Seeing an ex", meaning: "Often more about a quality or unresolved feeling than the actual person." },
+    { name: "Seeing a deceased loved one", meaning: "Often described as feeling different from a regular dream, many experience these as real visits." },
+    { name: "Being late or lost", meaning: "Often linked to anxiety about keeping up or a fear of missing out on something important." },
+    { name: "Dreaming of your twin flame or person", meaning: "Often reported as vivid, telepathic-feeling, or emotionally intense, many describe these as real connection during sleep." }
+  ]},
+  { cat: "Everyday Synchronicities", icon: "\u2728", items: [
+    { name: "Repeated names or words", meaning: "Often noticed right when something related is relevant in your life." },
+    { name: "A song on repeat", meaning: "Often carries a message in its lyrics or the memory attached to it." },
+    { name: "Running into someone unexpectedly", meaning: "Often a sign that a conversation or connection was meant to happen." },
+    { name: "Finding money unexpectedly", meaning: "Often associated with abundance and being supported by the universe." },
+    { name: "A clock stopping or electronics glitching", meaning: "Often reported around emotionally significant moments or spirit visits." },
+    { name: "Consistently waking at the same time", meaning: "Often linked to angel numbers if the time repeats, or simply your body's own rhythm asking to be noticed." },
+    { name: "A random book or sign falling open or into view", meaning: "Often experienced as the universe pointing you toward exactly what you needed to read." }
+  ]}
+];
+
+const CATEGORIES = ["Sign", "Synchronicity", "Dream", "Nothing Today"];
+
+const LEARN_LINKS = [
+  { icon: "\u{1F451}", title: "Spirit Guide + Crown Chakra Meditation", subtitle: "Strengthens intuitive connection and clearer guidance around the signs you're noticing.", url: "https://www.skool.com/union/classroom/122ebb7b?md=1b47b396aa234233aa0023a280e32797", tier: "premium" },
+  { icon: "\u{1F49D}", title: "Twin Flame Spirit Guide Meditation", subtitle: "Connect directly with your twin flame's higher self and spirit team.", url: "https://www.skool.com/union/classroom/3260f44f?md=e04cb092eafa464096f7b15f52f04886", tier: "premium" },
+  { icon: "\u{1F4D3}", title: "Journaling Prompts For Intuition & Self-Trust", subtitle: "Guided prompts to deepen exactly the practice this tracker is built on.", url: "https://www.skool.com/union/classroom/3260f44f?md=31f7e4e7609142ef99f6adcf4d563093", tier: "premium" },
+  { icon: "\u{1F91D}", title: "Unblock Your Intuition With EFT Tapping", subtitle: "A guided tapping practice for trusting what you're already receiving.", url: "https://www.skool.com/union/classroom/07a7f557?md=d33894f0b0854726bc297c93513c716e", tier: "standard" },
+  { icon: "\u{1F52E}", title: "Tarot Workshop Replay", subtitle: "Learn to read symbols and signs intuitively, no memorizing required.", url: "https://www.skool.com/union/classroom/122ebb7b?md=aad52e09721d42a592a5c63df4752975", tier: "premium" }
+];
+
+const PREMIUM_URL = "https://skool.com/union/plans";
+const TOTAL_DAYS = 30;
+
+/* ---------- STATE ---------- */
+
+let state = {
+  name: "", screen: "name",
+  activeTab: "daily", currentDay: 1,
+  entries: {}, openCategory: null, patternsReflection: ""
+};
+
+const STORAGE_KEY = "signs-synchronicities-dreams-v1";
+
+function go(patch) { state = { ...state, ...patch }; saveState(); render(); }
+
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) { /* storage unavailable, journal still works this session */ }
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) state = { ...state, ...JSON.parse(raw) };
+  } catch (e) { /* corrupted or unavailable, start fresh */ }
+}
+
+function loggedCount() { return Object.keys(state.entries).length; }
+
+/* ---------- SHARED CHROME ---------- */
+
+function topNav() {
+  const tabs = [
+    { id: "daily", label: "Daily Log" },
+    { id: "library", label: "Symbol Library" },
+    { id: "patterns", label: "My Patterns" },
+    { id: "learn", label: "Learn More" }
+  ];
+  return `<div class="topnav-wrap">
+    <div class="topnav-brand-row" onclick="go({activeTab:'daily'})"><div class="icon">\u2728</div><div class="name">Signs, Synchronicities & Dreams</div></div>
+    <div class="tabs">${tabs.map(t => `<div class="tab ${state.activeTab === t.id ? "active" : ""}" onclick="go({activeTab:'${t.id}'})">${t.label}</div>`).join("")}</div>
+  </div>`;
+}
+
+function footer() {
+  return `<div class="site-footer">
+    <div class="brand">Luana <em>Spirits</em></div>
+    <div class="links">
+      <a href="mailto:luana@luanaspirits.com">luana@luanaspirits.com</a> &middot;
+      <a href="https://docs.google.com/document/d/12oUQEXXesDmVw_XEZH-GEc8NVbtFYyLYf3359hvxyFE/edit?usp=sharing" target="_blank" rel="noopener">Privacy Policy</a> &middot;
+      <a href="https://docs.google.com/document/d/1i395On2ZByesCyRaIDocu1aIguhVxuHBQ1l_nPfVReQ/edit?usp=sharing" target="_blank" rel="noopener">Terms &amp; Conditions</a> &middot; &copy; 2026
+    </div>
+  </div>`;
+}
+
+function personalBanner() {
+  return `<div class="personal-banner"><p><strong>Remember:</strong> symbols from the universe are personal. What it means to you, how it makes you feel, what you were thinking right before you saw it, and your own gut instinct matter more than anything this library says, or anything the internet says.</p></div>`;
+}
+
+/* ---------- NAME GATE ---------- */
+
+function renderName() {
+  document.getElementById("app").innerHTML = `
+    <div class="topbar-left" style="margin-top:36px;"><div class="topbar-icon">\u2728</div><div class="topbar-title">Signs, Synchronicities & Dreams</div></div>
+    <div class="center"><div class="std-pill">STANDARD TIER AND UP</div></div>
+    <h1 class="center">A 30-day tracker for what the universe keeps showing you.</h1>
+    <p class="center">Signs, synchronicities, and dreams, logged day by day, so you can connect more deeply with your subconscious mind and notice the patterns only visible over time.</p>
+    ${personalBanner()}
+    <div class="card">
+      <h3>What should I call you?</h3>
+      <input type="text" id="nameInput" placeholder="Your first name" />
+      <button class="btn gold" onclick="submitName()">Begin Day 1</button>
+    </div>
+    ${footer()}
+  `;
+}
+
+function submitName() {
+  const val = document.getElementById("nameInput").value.trim();
+  go({ name: val || "beautiful soul", screen: "dashboard" });
+}
+
+/* ---------- DAILY LOG ---------- */
+
+function dailyHtml() {
+  const day = state.currentDay;
+  const entry = state.entries[day] || {};
+  const isFirst = day === 1;
+  const isLast = day === TOTAL_DAYS;
+
+  const catChips = CATEGORIES.map(c => {
+    const sel = entry.category === c;
+    return `<div class="chip ${sel ? "selected" : ""}" onclick="setCategory(${day}, '${c}')">${c}</div>`;
+  }).join("");
+
+  const showFields = entry.category && entry.category !== "Nothing Today";
+
+  const fields = showFields ? `
+    <div class="journal-q">What did you notice?</div>
+    <textarea id="f-desc">${entry.desc || ""}</textarea>
+    <div class="journal-q">What were you thinking about right before this happened?</div>
+    <textarea id="f-thinking">${entry.thinking || ""}</textarea>
+    <div class="journal-q">How did it make you feel?</div>
+    <textarea id="f-feeling">${entry.feeling || ""}</textarea>
+    <div class="journal-q">What does this mean to you, personally? (Not what the library says, what YOU feel.)</div>
+    <textarea id="f-meaning">${entry.meaning || ""}</textarea>
+  ` : "";
+
+  const dayGrid = Array.from({ length: TOTAL_DAYS }, (_, i) => i + 1).map(n => {
+    const hasEntry = !!state.entries[n];
+    return `<div class="day-cell ${n === day ? "active" : ""} ${hasEntry ? "done" : ""}" onclick="go({currentDay:${n}})">${n}</div>`;
+  }).join("");
+
+  return `
+    <div class="day-stepper">
+      <div class="day-arrow ${isFirst ? "disabled" : ""}" onclick="go({currentDay:${day - 1}})">&larr;</div>
+      <div class="lbl">DAY ${day} OF ${TOTAL_DAYS}</div>
+      <div class="day-arrow ${isLast ? "disabled" : ""}" onclick="go({currentDay:${day + 1}})">&rarr;</div>
+    </div>
+    <div class="day-grid">${dayGrid}</div>
+    <h2>\u2728 What Did The Universe Show You Today?</h2>
+    <div class="chip-grid">${catChips}</div>
+    ${fields}
+    ${showFields ? `<div class="btn-row"><button class="btn gold" onclick="saveEntry(${day})">${state.entries[day] && state.entries[day].desc ? "\u2726 Update" : "Save"}</button></div>` : ""}
+    ${entry.category === "Nothing Today" ? `<p><em class="hl">That's completely okay. Not every day brings something noticeable, and that's part of the pattern too.</em></p><div class="btn-row"><button class="btn gold small" onclick="saveEntry(${day})">Save</button></div>` : ""}
+    <div class="btn-row">
+      <button class="btn ghost" onclick="go({activeTab:'library'})">Browse Symbol Library</button>
+    </div>
+  `;
+}
+
+function setCategory(day, cat) {
+  const entry = state.entries[day] || {};
+  entry.category = cat;
+  state.entries[day] = entry;
+  render();
+}
+
+function saveEntry(day) {
+  const entry = state.entries[day] || {};
+  if (entry.category && entry.category !== "Nothing Today") {
+    entry.desc = document.getElementById("f-desc") ? document.getElementById("f-desc").value : entry.desc;
+    entry.thinking = document.getElementById("f-thinking") ? document.getElementById("f-thinking").value : entry.thinking;
+    entry.feeling = document.getElementById("f-feeling") ? document.getElementById("f-feeling").value : entry.feeling;
+    entry.meaning = document.getElementById("f-meaning") ? document.getElementById("f-meaning").value : entry.meaning;
+  }
+  entry.date = new Date().toLocaleDateString();
+  state.entries[day] = entry;
+  render();
+}
+
+function logSymbolToday(symbolName) {
+  const entry = state.entries[state.currentDay] || {};
+  entry.category = entry.category || "Sign";
+  entry.desc = symbolName;
+  state.entries[state.currentDay] = entry;
+  go({ activeTab: "daily" });
+}
+
+/* ---------- SYMBOL LIBRARY ---------- */
+
+function libraryHtml() {
+  const items = LIBRARY.map((cat, i) => {
+    const open = state.openCategory === i;
+    const symbols = cat.items.map(item => `
+      <div class="symbol-card">
+        <div class="t">${item.name}</div>
+        <div class="m">${item.meaning}</div>
+        <button class="log-btn" onclick="event.stopPropagation(); logSymbolToday('${item.name.replace(/'/g, "\\'")}')">Log This Today</button>
+      </div>
+    `).join("");
+    return `<div class="accordion-item" onclick="toggleCategory(${i})">
+      <div class="t">${cat.icon} ${cat.cat}</div>
+      <div class="count">${cat.items.length} symbols</div>
+      ${open ? `<div class="accordion-body">${symbols}</div>` : ""}
+    </div>`;
+  }).join("");
+  return `
+    <h2>\u{1F4D6} Symbol Library</h2>
+    ${personalBanner()}
+    <p>Tap a category to browse. Each entry shows a commonly associated meaning, but treat it as a starting point for your own reflection, not an answer key.</p>
+    ${items}
+  `;
+}
+
+function toggleCategory(i) {
+  state.openCategory = state.openCategory === i ? null : i;
+  render();
+}
+
+/* ---------- MY PATTERNS ---------- */
+
+function patternsHtml() {
+  const entries = Object.keys(state.entries).map(k => parseInt(k)).sort((a, b) => a - b);
+  const signCount = entries.filter(d => state.entries[d].category === "Sign").length;
+  const syncCount = entries.filter(d => state.entries[d].category === "Synchronicity").length;
+  const dreamCount = entries.filter(d => state.entries[d].category === "Dream").length;
+
+  const list = entries.filter(d => state.entries[d].category !== "Nothing Today").map(d => {
+    const e = state.entries[d];
+    return `<div class="entry">
+      <div class="tt">Day ${d}, ${e.category}</div>
+      <div class="meta">${e.date || ""}</div>
+      ${e.desc ? `<div class="q">What I noticed</div><div class="a">${e.desc}</div>` : ""}
+      ${e.thinking ? `<div class="q">Right before it happened</div><div class="a">${e.thinking}</div>` : ""}
+      ${e.feeling ? `<div class="q">How it felt</div><div class="a">${e.feeling}</div>` : ""}
+      ${e.meaning ? `<div class="q">What it meant to me</div><div class="a">${e.meaning}</div>` : ""}
+    </div>`;
+  }).join("");
+
+  const empty = entries.length === 0 ? "<p>Nothing logged yet. Head to your Daily Log to begin.</p>" : "";
+
+  return `
+    <h2>\u{1F30C} My Patterns</h2>
+    <div class="save-reminder"><span>\u{1F49C}</span><span><strong>Your answers save automatically</strong>, right here in this browser, on this device. Close the tab, restart your phone, come back next week, it'll all still be here. It won't follow you to a different browser or device though, and clearing your browser's data will erase it, so download your journal now and then whenever you want a backup you can keep.</span></div>
+    <div class="stat-row">
+      <div class="stat-box"><div class="n">${loggedCount()}</div><div class="l">Days Logged</div></div>
+      <div class="stat-box"><div class="n">${signCount}</div><div class="l">Signs</div></div>
+      <div class="stat-box"><div class="n">${syncCount}</div><div class="l">Synchronicities</div></div>
+      <div class="stat-box"><div class="n">${dreamCount}</div><div class="l">Dreams</div></div>
+    </div>
+    <div class="card">${list || empty}</div>
+    <div class="section-label">\u2726 Looking Back</div>
+    <div class="card">
+      <div class="journal-q">Looking across everything you've logged, what symbol or theme keeps appearing? What do you think it's trying to tell you?</div>
+      <textarea id="patternsReflection">${state.patternsReflection}</textarea>
+      <button class="btn gold small" onclick="savePatternReflection()">Save</button>
+    </div>
+    <div class="btn-row"><button class="btn gold" onclick="downloadJournal()">Download My Journal</button></div>
+  `;
+}
+
+function savePatternReflection() {
+  state.patternsReflection = document.getElementById("patternsReflection").value;
+  render();
+}
+
+function downloadJournal() {
+  let text = "SIGNS, SYNCHRONICITIES & DREAMS FROM THE UNIVERSE\n30-Day Tracker, " + state.name + "\n\n";
+  const days = Object.keys(state.entries).map(k => parseInt(k)).sort((a, b) => a - b);
+  if (!days.length) {
+    text += "No entries yet.\n";
+  } else {
+    days.forEach(d => {
+      const e = state.entries[d];
+      text += "== Day " + d + " (" + (e.date || "") + "), " + e.category + " ==\n";
+      if (e.desc) text += "What I noticed: " + e.desc + "\n";
+      if (e.thinking) text += "Right before it happened: " + e.thinking + "\n";
+      if (e.feeling) text += "How it felt: " + e.feeling + "\n";
+      if (e.meaning) text += "What it meant to me: " + e.meaning + "\n";
+      text += "\n";
+    });
+  }
+  if (state.patternsReflection) text += "== Looking Back: My Patterns ==\n" + state.patternsReflection + "\n";
+  const blob = new Blob([text], { type: "text/plain" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = "my-30-day-intuition-tracker.txt";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+/* ---------- LEARN MORE ---------- */
+
+function learnHtml() {
+  const items = LEARN_LINKS.map(l => {
+    const badge = l.tier === "premium" ? `<span class="tier-badge premium">PREMIUM</span>` : `<span class="tier-badge standard">STANDARD</span>`;
+    return `<a href="${l.url}" target="_blank" rel="noopener" class="link-item">
+      <div class="link-icon">${l.icon}</div>
+      <div><div class="t">${l.title} ${badge}</div><div class="s">${l.subtitle}</div></div>
+    </a>`;
+  }).join("");
+  return `
+    <h2>\u2728 Learn More</h2>
+    <p>These lessons go deeper into everything this tracker touches on.</p>
+    ${items}
+    <div class="card ritual" style="margin-top:8px;">
+      <p style="margin-bottom:10px;">Want the full toolkit for developing your intuition, from muscle testing to a digital card pull to a full symbol vocabulary?</p>
+      <a class="btn gold small" href="${PREMIUM_URL}" target="_blank" rel="noopener">View Premium &rarr;</a>
+    </div>
+  `;
+}
+
+/* ---------- ROUTER ---------- */
+
+function render() {
+  if (state.screen === "name") { renderName(); return; }
+  let content = "";
+  if (state.activeTab === "daily") content = dailyHtml();
+  else if (state.activeTab === "library") content = libraryHtml();
+  else if (state.activeTab === "patterns") content = patternsHtml();
+  else if (state.activeTab === "learn") content = learnHtml();
+
+  document.getElementById("app").innerHTML = `
+    ${topNav()}
+    ${content}
+    ${footer()}
+  `;
+}
+
+loadState();
+render();
+</script>
+
+<!--
+  BUILD NOTES:
+  Single-file vanilla HTML/CSS/JS, no build step, no dependencies.
+  Ready to deploy as-is on GitHub Pages. Rename to index.html at the
+  root of its folder/repo and GitHub Pages will serve it automatically.
+  Symbol library has 53 entries across 6 categories. All Learn More
+  links are real. All library content, categories, and links live
+  in the DATA section near the top of the script.
+-->
+</body>
+</html>
