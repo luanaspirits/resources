@@ -1,1 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Overgiver To Abundant Receiver, a 7-day roadmap for divine feminines to rewire people-pleasing and over-giving into receiving.">
+<title>The Overgiver To Abundant Receiver: A 7-Day Roadmap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #fdf9f2; --card: rgba(255,255,255,0.78); --card-2: rgba(255,255,255,0.95);
+    --text: #4a3320; --muted: #8a7359; --muted-2: #a8937a;
+    --gold: #c9964e; --gold-soft: #e8c98a; --gold-deep: #a87838;
+    --violet: #9b7fd4; --periwinkle: #8ca8e8;
+    --line: rgba(168,120,56,0.16); --line-strong: rgba(168,120,56,0.3);
+  }
+  body {
+    background: radial-gradient(ellipse at 15% 0%, #f5e6c8 0%, transparent 55%),
+                radial-gradient(ellipse at 88% 12%, #ead9f5 0%, transparent 48%),
+                radial-gradient(ellipse at 50% 108%, #fdeed0 0%, transparent 55%), var(--bg);
+    color: var(--text); font-family: 'Jost', sans-serif; font-weight: 300; min-height: 100vh; position: relative;
+  }
+  #sparkles { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .spark { position: absolute; border-radius: 50%; background: radial-gradient(circle, #fff, var(--gold-soft) 70%, transparent 100%); animation: twinkle 4.5s ease-in-out infinite; }
+  @keyframes twinkle { 0%,100%{opacity:.18;transform:scale(.7);} 50%{opacity:.8;transform:scale(1.2);} }
+  #app { position: relative; z-index: 2; max-width: 660px; margin: 0 auto; padding: 0 20px 60px; }
+  h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--gold-deep); margin-bottom: 12px; }
+  h1 { font-weight: 700; font-size: 28px; line-height: 1.28; }
+  h2 { font-weight: 600; font-size: 22px; }
+  h3 { font-weight: 600; font-size: 16.5px; }
+  p { line-height: 1.75; color: var(--muted); font-size: 14.5px; margin-bottom: 14px; }
+  em.hl { font-style: italic; color: var(--gold-deep); }
+  .tagline { font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold-deep); font-size: 17px; text-align: center; margin: 16px 0; }
+  .center { text-align: center; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; margin-bottom: 16px; box-shadow: 0 8px 30px rgba(168,120,56,0.06); }
+  .card.ritual { background: linear-gradient(150deg, rgba(201,150,78,0.12), rgba(155,127,212,0.08)); border-color: var(--line-strong); }
+  .std-pill { display: inline-block; background: linear-gradient(135deg, var(--gold-soft), var(--gold)); color: #4a3320; font-family: 'Jost', sans-serif; font-weight: 800; font-size: 11px; letter-spacing: 0.5px; border-radius: 999px; padding: 6px 14px; margin-bottom: 14px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Jost', sans-serif; font-weight: 700; font-size: 14px; padding: 13px 26px; border-radius: 999px; border: none; cursor: pointer; text-decoration: none; }
+  .btn.gold { background: linear-gradient(135deg, var(--gold-soft), var(--gold)); color: #4a3320; box-shadow: 0 6px 20px rgba(201,150,78,0.3); }
+  .btn.ghost { background: transparent; color: var(--muted); border: 1px solid var(--line-strong); }
+  .btn.ghost:hover { color: var(--gold-deep); border-color: var(--gold); }
+  .btn.small { padding: 8px 16px; font-size: 12px; }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+  input[type=text] { width: 100%; background: rgba(255,255,255,0.7); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; font-family: 'Jost', sans-serif; font-size: 16px; color: var(--text); margin-bottom: 16px; }
+  input[type=text]::placeholder { color: var(--muted-2); }
+  textarea { width: 100%; background: rgba(255,255,255,0.7); border: 1px solid var(--line); border-radius: 12px; color: var(--text); font-family: 'Jost', sans-serif; font-size: 14.5px; padding: 13px; resize: vertical; min-height: 72px; margin-bottom: 14px; }
+  .journal-q { font-size: 13.5px; color: var(--text); margin-bottom: 6px; font-weight: 500; }
+  .topbar-left { display: flex; align-items: center; gap: 12px; justify-content: center; margin-bottom: 10px; }
+  .topbar-icon { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, var(--gold-soft), var(--gold)); display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 4px 16px rgba(201,150,78,0.35); flex-shrink: 0; }
+  .topbar-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 16px; color: var(--gold-deep); }
 
+  .topnav-wrap { position: sticky; top: 0; z-index: 10; padding: 16px 0 12px; }
+  .topnav-brand-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .topnav-brand { display: flex; align-items: center; gap: 8px; cursor: pointer; opacity: 0.9; }
+  .topnav-brand .icon { width: 26px; height: 26px; border-radius: 8px; background: linear-gradient(135deg, var(--gold-soft), var(--gold)); display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+  .topnav-brand .name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 12.5px; color: var(--gold-deep); }
+  .topnav-links { display: flex; gap: 10px; }
+  .nav-link { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted-2); cursor: pointer; background: none; border: none; padding: 3px 0; }
+  .nav-link:hover { color: var(--gold-deep); }
+
+  .day-pills { display: flex; gap: 7px; overflow-x: auto; padding-bottom: 4px; }
+  .day-pill { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--card); border: 1.5px solid var(--line); cursor: pointer; font-family: 'DM Mono', monospace; font-size: 13px; color: var(--muted); }
+  .day-pill.active { background: linear-gradient(135deg, var(--gold-soft), var(--gold)); color: #4a3320; border-color: transparent; box-shadow: 0 6px 16px rgba(201,150,78,0.35); font-weight: 700; }
+  .day-pill.done { border-color: var(--violet); }
+
+  .day-badge { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+  .checklist { display: flex; flex-direction: column; gap: 9px; margin: 14px 0; }
+  .check-row { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
+  .check-box { width: 20px; height: 20px; border-radius: 6px; border: 1.5px solid var(--line-strong); flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #4a3320; }
+  .check-box.done { background: linear-gradient(135deg, var(--gold-soft), var(--gold)); border-color: transparent; }
+  .check-text { font-size: 13.5px; color: var(--text); line-height: 1.55; }
+  .check-text.done { color: var(--muted-2); text-decoration: line-through; }
+
+  .accordion-item { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; cursor: pointer; margin-bottom: 14px; }
+  .accordion-item:hover { border-color: var(--gold); }
+  .accordion-item .t { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600; color: var(--gold-deep); }
+  .accordion-item .tap { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted-2); margin-top: 4px; }
+  .accordion-body { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 14px; color: var(--text); line-height: 1.7; font-family: 'Playfair Display', serif; font-style: italic; }
+
+  .shift-card { background: linear-gradient(135deg, rgba(201,150,78,0.14), rgba(155,127,212,0.10)); border: 1px solid var(--gold); border-radius: 16px; padding: 18px 20px; margin: 16px 0; }
+  .shift-card .k { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 8px; }
+  .shift-card p { color: var(--text); margin-bottom: 12px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 15px; }
+
+  .section-label { font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin: 20px 0 4px; }
+  .hint { text-align: center; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted-2); letter-spacing: 0.5px; margin-top: 6px; }
+
+  .week-shifts { background: rgba(255,255,255,0.5); border-radius: 16px; padding: 14px 18px; }
+  .week-shift-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .week-shift-row:last-child { border: none; }
+  .week-shift-row .d { font-family: 'DM Mono', monospace; font-size: 10.5px; color: var(--muted-2); width: 44px; flex-shrink: 0; }
+  .week-shift-row .s { font-size: 13px; color: var(--text); flex: 1; }
+  .week-shift-row .status { font-size: 15px; flex-shrink: 0; }
+
+  .link-item { display: flex; gap: 14px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; margin-bottom: 10px; text-decoration: none; }
+  .link-icon { width: 40px; height: 40px; border-radius: 11px; background: linear-gradient(135deg, var(--gold-soft), var(--gold)); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .link-item .t { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; color: var(--gold-deep); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .link-item .s { font-size: 12px; color: var(--muted-2); margin-top: 3px; }
+  .tier-badge { font-family: 'DM Mono', monospace; font-size: 8.5px; letter-spacing: 1px; padding: 3px 8px; border-radius: 999px; font-weight: 500; }
+  .tier-badge.premium { background: rgba(155,127,212,0.16); color: var(--violet); border: 1px solid rgba(155,127,212,0.4); }
+  .tier-badge.standard { background: rgba(201,150,78,0.14); color: var(--gold-deep); border: 1px solid rgba(201,150,78,0.35); }
+
+  .entry { border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 16px; }
+  .entry:last-child { border: none; margin: 0; padding: 0; }
+  .entry .tt { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; color: var(--gold-deep); margin-bottom: 2px; }
+  .entry .q { font-size: 12px; color: var(--muted-2); margin-bottom: 2px; }
+  .entry .a { font-size: 13.5px; color: var(--text); margin-bottom: 8px; }
+  .save-reminder { background: rgba(201,150,78,0.10); border: 1px solid var(--gold); border-radius: 14px; padding: 14px 18px; font-size: 13px; color: var(--muted); margin-bottom: 20px; display: flex; gap: 10px; align-items: flex-start; }
+
+  .cta-pill { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 12px 18px; font-size: 12.5px; color: var(--muted); margin-top: 18px; }
+  .cta-pill a { color: var(--violet); font-weight: 600; text-decoration: none; white-space: nowrap; }
+
+  .day-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; gap: 10px; }
+  .day-nav .mid { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted-2); white-space: nowrap; }
+
+  .site-footer { margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--line); text-align: center; }
+  .site-footer .brand { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 14px; margin-bottom: 6px; color: var(--gold-deep); }
+  .site-footer .brand em { font-style: italic; color: var(--violet); }
+  .site-footer .links { font-family: 'DM Mono', monospace; font-size: 10.5px; color: var(--muted-2); line-height: 1.9; }
+  .site-footer a { color: var(--muted-2); text-decoration: none; }
+</style>
+</head>
+<body>
+<div id="sparkles"></div>
+<div id="app"></div>
+
+<script>
+/* ---------- AMBIENT SPARKLES ---------- */
+(function initSparkles() {
+  const wrap = document.getElementById("sparkles");
+  for (let i = 0; i < 18; i++) {
+    const s = document.createElement("div");
+    s.className = "spark";
+    const size = 2 + Math.random() * 4;
+    s.style.width = size + "px"; s.style.height = size + "px";
+    s.style.left = Math.random() * 100 + "%"; s.style.top = Math.random() * 100 + "%";
+    s.style.animationDelay = (Math.random() * 4.5) + "s";
+    wrap.appendChild(s);
+  }
+})();
+
+/* ---------- DATA ---------- */
+
+const DAYS = [
+  {
+    id: "day1", num: 1, icon: "\u{1F331}", title: "Where People-Pleasing Begins",
+    teaching1: [
+      "People-pleasing and over-giving usually aren't personality traits, they're strategies. Somewhere early on, many of us learned that being needed, being agreeable, or anticipating everyone else's needs was the safest way to receive love, avoid conflict, or stay valued.",
+      "It often starts young, being praised for being \u201Ceasy\u201D or \u201Chelpful,\u201D or growing up somewhere your own needs felt like too much to ask for. Over time, your nervous system learns: my worth is tied to what I give, not who I am."
+    ],
+    concept: { title: "\u2726 The Original Deal", body: "Somewhere, a version of you made an unconscious deal: \u201Cif I give enough, anticipate enough, stay agreeable enough, I'll be safe, loved, needed.\u201D That deal made sense once. It doesn't have to run the show anymore." },
+    journalPrompts: [
+      "Where do you think your pattern of over-giving or people-pleasing first began?",
+      "What did being \u201Ceasy\u201D or \u201Chelpful\u201D get you as a kid? What did it protect you from?"
+    ],
+    inlineCount: 1,
+    checklist: ["Notice one moment today you say yes automatically, before checking in with yourself", "Notice how anticipating someone else's needs feels in your body", "Be gentle with yourself, awareness is the whole first step"],
+    shift: "Pause for 3 seconds before saying yes to anything today."
+  },
+  {
+    id: "day2", num: 2, icon: "\u2696", title: "The Cost Of Over-Giving",
+    teaching1: [
+      "Over-giving often feels generous, even virtuous, but it usually has a cost that stays invisible until you're depleted. Constantly giving from an empty well isn't sustainable, and it isn't actually more loving, it just delays the reckoning.",
+      "Real generosity comes from overflow, not obligation."
+    ],
+    concept: { title: "\u2726 Generosity vs Depletion", body: "Ask yourself: am I giving because I have abundance to share, or because I'm afraid of what happens if I don't?" },
+    journalPrompts: [
+      "Where in your life do you feel most depleted from giving?",
+      "What would change if you only gave from genuine abundance, not obligation or fear?"
+    ],
+    inlineCount: 1,
+    checklist: ["Notice today where giving feels heavy instead of light", "Track one moment you gave from fear rather than overflow", "Drink water, rest if today feels tender"],
+    shift: "Say no to one small thing today that doesn't feel like a genuine yes."
+  },
+  {
+    id: "day3", num: 3, icon: "\u{1F494}", title: "The Fear Underneath",
+    teaching1: [
+      "Beneath most people-pleasing is a fear, fear of conflict, fear of being seen as selfish, fear of abandonment, fear of not being needed anymore. These fears deserve compassion, not criticism. They were often protecting something real."
+    ],
+    concept: { title: "\u2726 Name The Fear", body: "What's the specific fear that shows up when you imagine disappointing someone, or putting yourself first?" },
+    journalPrompts: [
+      "What's the fear underneath your people-pleasing? Be as specific as you can.",
+      "If that fear could speak, what would it say it's trying to protect you from?"
+    ],
+    inlineCount: 1,
+    checklist: ["Notice the fear without needing to fix it today", "Place a hand on your heart when the fear shows up", "Remind yourself: this fear made sense once"],
+    shift: "Notice the fear in real time today, and just name it silently: \u201Cthere's that fear again.\u201D"
+  },
+  {
+    id: "day4", num: 4, icon: "\u{1F49D}", title: "Compassion For The Giver In You",
+    teaching1: [
+      "This part of you that overextends, anticipates, and gives until empty was trying to keep you safe, loved, needed. She deserves real compassion, not judgment for the pattern she created.",
+      "Healing this isn't about shaming the over-giver in you. It's about finally showing her the safety she's been trying to create all along."
+    ],
+    concept: { title: "\u2726 A Letter To The Giver In You", body: "Write to the part of you that always gives. Thank her for what she was trying to do. Let her know she can rest now." },
+    journalPrompts: [
+      "Write your letter here, or notes from it.",
+      "What does this part of you need to hear, that she's never been told?"
+    ],
+    inlineCount: 1,
+    checklist: ["Write the letter, don't overthink it", "Read it back to yourself if you can", "Rest today if you need to"],
+    shift: "Do one thing today purely for yourself, with no productivity attached."
+  },
+  {
+    id: "day5", num: 5, icon: "\u{1F6E1}", title: "Choosing A New Pattern",
+    teaching1: [
+      "Awareness and compassion are the foundation, but change actually happens through new choices, small, repeated moments where you choose differently than the old pattern would.",
+      "This is where it gets uncomfortable, because new boundaries feel unfamiliar at first, even when they're healthy. Discomfort here isn't a sign you're doing it wrong, it's a sign you're doing something new."
+    ],
+    concept: { title: "\u2726 The Boundary Rehearsal", body: "Practice saying a boundary out loud, even alone, before you need it in real life. \u201CI can't take that on right now.\u201D \u201CThat doesn't work for me.\u201D \u201CLet me get back to you.\u201D" },
+    journalPrompts: [
+      "What's one boundary you've been avoiding? Write it out in your own words.",
+      "What would it feel like to actually hold that boundary, even if it's uncomfortable at first?"
+    ],
+    inlineCount: 1,
+    checklist: ["Practice saying your boundary out loud, even to an empty room", "Notice the discomfort without needing it to go away", "Remember: discomfort here means growth, not failure"],
+    shift: "Hold one small boundary today, even if your voice shakes a little."
+  },
+  {
+    id: "day6", num: 6, icon: "\u2728", title: "Receiving Is A Practice",
+    teaching1: [
+      "If giving has been your default, receiving might feel unfamiliar, even uncomfortable, at first. That's normal. Receiving is a skill you build, the same way giving became a habit.",
+      "Practice noticing when someone offers you something, help, a compliment, a gift, and let yourself simply receive it, without immediately deflecting or repaying it."
+    ],
+    concept: { title: "\u2726 The Receiving Practice", body: "Next time someone offers you something, pause before deflecting. Just say thank you, and let it land." },
+    journalPrompts: [
+      "When was the last time you let yourself fully receive something, without deflecting or repaying it immediately?",
+      "What would it feel like to receive as easily as you give?"
+    ],
+    inlineCount: 1,
+    checklist: ["Practice receiving one thing today without deflecting", "Notice the urge to immediately reciprocate, and let it pass", "Say thank you, and stop there"],
+    shift: "Accept one offer of help today, even if you could technically do it yourself."
+  },
+  {
+    id: "day7", num: 7, icon: "\u{1F31F}", title: "Choosing Yourself, Over And Over",
+    teaching1: [
+      "This week wasn't about becoming a different person. It was about remembering that you were never obligated to earn love through over-giving in the first place. Your worth was never up for negotiation.",
+      "Rewiring this pattern isn't a one-time event, it's a practice you return to, choice by choice, especially on the days the old pattern feels loudest."
+    ],
+    concept: { title: "\u2726 Today's Truth", body: "You do not have to give until you're empty to be worthy of love. You are allowed to receive, simply because you exist." },
+    journalPrompts: [
+      "What did you learn about yourself this week?",
+      "What's one new pattern you want to keep practicing, moving forward?"
+    ],
+    inlineCount: 0,
+    checklist: ["Reflect on the full week", "Choose one practice from this week to keep doing", "Head to your Weekly Reflection below when you're ready"],
+    shift: "Notice one moment you chose yourself this week, and celebrate it, no guilt required."
+  }
+];
+
+const LEARN_LINKS = [
+  { icon: "\u{1F49E}", title: "The Healing Power of Self-Love", subtitle: "The foundation this whole week is built on.", url: "https://www.skool.com/union/classroom/07a7f557?md=cf1fd5184858435eb36e138899241768", tier: "standard" },
+  { icon: "\u{1F5A4}", title: "What Is Self Hate Consciousness", subtitle: "Understand the roots of over-giving and people-pleasing.", url: "https://www.skool.com/union/classroom/07a7f557?md=d1b690fc332947699d51847c9f2d22b3", tier: "standard" },
+  { icon: "\u{1F91D}", title: "Unblock Your Intuition With EFT Tapping", subtitle: "A guided tapping practice for release, useful on any day of this week.", url: "https://www.skool.com/union/classroom/07a7f557?md=d33894f0b0854726bc297c93513c716e", tier: "standard" },
+  { icon: "\u{1F476}", title: "Learn & Apply the Divine Reparenting Method", subtitle: "Go deeper into the inner child work from Day 4.", url: "https://www.skool.com/union/classroom/6bd2fa96?md=d12ff0fbcf8141a5b282f55562996358", tier: "premium" },
+  { icon: "\u{1F5FA}", title: "Mapping Your Love Wounds + Beliefs", subtitle: "Trace where the people-pleasing pattern actually started.", url: "https://www.skool.com/union/classroom/6bd2fa96?md=a598f6013b3643afb7ac731385882582", tier: "premium" },
+  { icon: "\u{1FAA9}", title: "Fragmentation, Parts & The Inner Child", subtitle: "Why trauma splits us into parts, and why the giver is often one of them.", url: "https://www.skool.com/union/classroom/6bd2fa96?md=da82dd8abc014cd98ca3d3de9e4a2a86", tier: "premium" }
+];
+
+const PREMIUM_URL = "https://skool.com/union/plans";
+
+/* ---------- STATE ---------- */
+
+let state = {
+  name: "", screen: "name",
+  view: "day", activeDay: 0,
+  checkedItems: {}, dayJournal: {}, openConcept: {}, shiftsDone: {}, weeklyReflection: null
+};
+
+const STORAGE_KEY = "overgiver-to-abundant-receiver-v1";
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) { /* storage unavailable */ }
+}
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) state = { ...state, ...JSON.parse(raw) };
+  } catch (e) { /* corrupted or unavailable, start fresh */ }
+}
+
+function go(patch) { state = { ...state, ...patch }; render(); }
+
+function dayComplete(day) {
+  const j = state.dayJournal[day.id];
+  return !!(j && day.journalPrompts.every((p, i) => j[i] && j[i].trim()));
+}
+
+/* ---------- SHARED CHROME ---------- */
+
+function topNav() {
+  return `<div class="topnav-wrap">
+    <div class="topnav-brand-row">
+      <div class="topnav-brand" onclick="go({view:'day', activeDay:0})"><div class="icon">\u2728</div><div class="name">The Overgiver To Abundant Receiver</div></div>
+      <div class="topnav-links">
+        <button class="nav-link" onclick="go({view:'journal'})">Journal</button>
+        <button class="nav-link" onclick="go({view:'learn'})">Learn</button>
+      </div>
+    </div>
+    ${state.view === "day" ? dayPillsHtml() : ""}
+  </div>`;
+}
+
+function dayPillsHtml() {
+  return `<div class="day-pills">${DAYS.map((d, i) => {
+    const done = dayComplete(d);
+    return `<div class="day-pill ${state.activeDay === i ? "active" : ""} ${done ? "done" : ""}" onclick="go({view:'day', activeDay:${i}})">${d.num}</div>`;
+  }).join("")}</div>`;
+}
+
+function footer() {
+  return `<div class="site-footer">
+    <div class="brand">Luana <em>Spirits</em></div>
+    <div class="links">
+      <a href="mailto:luana@luanaspirits.com">luana@luanaspirits.com</a> &middot;
+      <a href="https://docs.google.com/document/d/12oUQEXXesDmVw_XEZH-GEc8NVbtFYyLYf3359hvxyFE/edit?usp=sharing" target="_blank" rel="noopener">Privacy Policy</a> &middot;
+      <a href="https://docs.google.com/document/d/1i395On2ZByesCyRaIDocu1aIguhVxuHBQ1l_nPfVReQ/edit?usp=sharing" target="_blank" rel="noopener">Terms &amp; Conditions</a> &middot; &copy; 2026
+    </div>
+  </div>`;
+}
+
+function premiumPill() {
+  return `<div class="cta-pill">
+    <span>\u2728 Want to go deeper in Premium?</span>
+    <a href="${PREMIUM_URL}" target="_blank" rel="noopener">Take a look &rarr;</a>
+  </div>`;
+}
+
+/* ---------- NAME GATE ---------- */
+
+function renderName() {
+  document.getElementById("app").innerHTML = `
+    <div class="topbar-left" style="margin-top:36px;"><div class="topbar-icon">\u2728</div><div class="topbar-title">The Overgiver To Abundant Receiver</div></div>
+    <div class="center"><div class="std-pill">STANDARD TIER AND UP</div></div>
+    <h1 class="center">A 7-day roadmap to rewire people-pleasing into receiving.</h1>
+    <p class="center">For divine feminines who give until they're empty, anticipate everyone else's needs, and struggle to receive. One day at a time, this week rewires the pattern, awareness, compassion, and one tangible new choice each day.</p>
+    <div class="card">
+      <p style="margin-bottom:0;"><strong style="color:var(--gold-deep);">Your answers save automatically</strong> in this browser, on this device, so you can come back day by day without losing anything. Set a daily reminder to return, this works best done in order, over a real week.</p>
+    </div>
+    <div class="tagline">You were never obligated to earn love by giving until you're empty.</div>
+    <div class="card">
+      <h3>What should I call you?</h3>
+      <input type="text" id="nameInput" placeholder="Your first name" />
+      <button class="btn gold" onclick="submitName()">Begin Day 1</button>
+    </div>
+    ${footer()}
+  `;
+}
+
+function submitName() {
+  const val = document.getElementById("nameInput").value.trim();
+  go({ name: val || "beautiful soul", screen: "dashboard" });
+}
+
+/* ---------- DAY VIEW ---------- */
+
+function dayHtml() {
+  const d = DAYS[state.activeDay];
+  const isFirst = state.activeDay === 0;
+  const isLast = state.activeDay === DAYS.length - 1;
+  const existing = state.dayJournal[d.id] || {};
+  const conceptOpen = !!state.openConcept[d.id];
+  const shiftDone = !!state.shiftsDone[d.id];
+
+  const inlinePrompts = d.journalPrompts.slice(0, d.inlineCount);
+  const closingPrompts = d.journalPrompts.slice(d.inlineCount);
+
+  const inlineHtml = inlinePrompts.map((q, i) => `
+    <div class="journal-q">${q}</div>
+    <textarea id="jp-${i}">${existing[i] || ""}</textarea>
+  `).join("");
+
+  const closingHtml = closingPrompts.map((q, i) => {
+    const realIdx = d.inlineCount + i;
+    return `<div class="journal-q">${q}</div><textarea id="jp-${realIdx}">${existing[realIdx] || ""}</textarea>`;
+  }).join("");
+
+  const checklistHtml = d.checklist.map((item, i) => {
+    const key = d.id + "-" + i;
+    const checked = !!state.checkedItems[key];
+    return `<div class="check-row" onclick="toggleCheck('${key}')">
+      <div class="check-box ${checked ? "done" : ""}">${checked ? "\u2713" : ""}</div>
+      <div class="check-text ${checked ? "done" : ""}">${item}</div>
+    </div>`;
+  }).join("");
+
+  return `
+    <div class="day-badge">DAY ${d.num} OF 7</div>
+    <h2>${d.icon} ${d.title}</h2>
+    ${d.teaching1.map(p => `<p>${p}</p>`).join("")}
+    <div class="accordion-item" onclick="toggleConcept('${d.id}')">
+      <div class="t">${d.concept.title}</div>
+      <div class="tap">tap to reveal</div>
+      ${conceptOpen ? `<div class="accordion-body">${d.concept.body}</div>` : ""}
+    </div>
+    ${inlineHtml ? `<div class="card">${inlineHtml}</div>` : ""}
+    <div class="shift-card">
+      <div class="k">\u2726 Today's Tangible Shift</div>
+      <p>${d.shift}</p>
+      <button class="btn gold small" onclick="toggleShift('${d.id}')">${shiftDone ? "\u2726 Done Today" : "I Did This"}</button>
+    </div>
+    ${closingHtml ? `<div class="card">${closingHtml}<button class="btn gold small" onclick="saveDayJournal('${d.id}', ${d.journalPrompts.length})">${state.dayJournal[d.id] ? "\u2726 Update" : "Save"}</button></div>` : `<div class="btn-row"><button class="btn gold small" onclick="saveDayJournal('${d.id}', ${d.journalPrompts.length})">${state.dayJournal[d.id] ? "\u2726 Update" : "Save"}</button></div>`}
+    <div class="section-label">Today's Practice</div>
+    <div class="checklist">${checklistHtml}</div>
+    <div class="day-nav">
+      ${!isFirst ? `<button class="btn ghost small" onclick="go({activeDay:${state.activeDay - 1}})">&larr; Day ${DAYS[state.activeDay - 1].num}</button>` : `<span></span>`}
+      <div class="mid">Day ${d.num} of 7</div>
+      ${!isLast ? `<button class="btn ghost small" onclick="go({activeDay:${state.activeDay + 1}})">Day ${DAYS[state.activeDay + 1].num} &rarr;</button>` : `<button class="btn gold small" onclick="go({view:'reflection'})">Weekly Reflection &rarr;</button>`}
+    </div>
+    ${state.activeDay === 3 || state.activeDay === 6 ? premiumPill() : ""}
+  `;
+}
+
+function toggleConcept(id) {
+  state.openConcept[id] = !state.openConcept[id];
+  render();
+}
+
+function toggleCheck(key) {
+  state.checkedItems[key] = !state.checkedItems[key];
+  render();
+}
+
+function toggleShift(dayId) {
+  state.shiftsDone[dayId] = !state.shiftsDone[dayId];
+  render();
+}
+
+function saveDayJournal(dayId, count) {
+  const answers = {};
+  for (let i = 0; i < count; i++) {
+    const el = document.getElementById("jp-" + i);
+    if (el) answers[i] = el.value;
+  }
+  state.dayJournal[dayId] = { ...(state.dayJournal[dayId] || {}), ...answers };
+  render();
+}
+
+/* ---------- WEEKLY REFLECTION ---------- */
+
+function reflectionHtml() {
+  const existing = state.weeklyReflection || {};
+  const prompts = [
+    "Looking back at the week, which shifts felt easiest, and which felt hardest?",
+    "What's one thing you want to remember about receiving, moving forward?",
+    "What would it look like to keep choosing yourself next week, the same way you practiced this week?"
+  ];
+  const fields = prompts.map((q, i) => `<div class="journal-q">${q}</div><textarea id="wr-${i}">${existing[i] || ""}</textarea>`).join("");
+
+  const shiftRows = DAYS.map(d => `<div class="week-shift-row"><div class="d">Day ${d.num}</div><div class="s">${d.shift}</div><div class="status">${state.shiftsDone[d.id] ? "\u2726" : "\u25CB"}</div></div>`).join("");
+
+  return `
+    <div class="back-link" style="cursor:pointer; color:var(--muted-2); font-size:13px; margin-bottom:16px;" onclick="go({view:'day', activeDay:6})">&larr; Back to Day 7</div>
+    <h2>\u2728 Your Weekly Reflection</h2>
+    <p>Here are the tangible shifts you practiced this week.</p>
+    <div class="week-shifts">${shiftRows}</div>
+    <div class="card">${fields}
+      <button class="btn gold small" onclick="saveReflection()">${state.weeklyReflection ? "\u2726 Update" : "Save"}</button>
+    </div>
+    <div class="card ritual center">
+      <p style="margin-bottom:0; font-family:'Playfair Display', serif; font-style:italic; font-size:16px; color:var(--gold-deep);">You are allowed to receive, simply because you exist, ${state.name}. Not because you earned it. Not because you gave enough first. Simply because you exist.</p>
+    </div>
+    <div class="btn-row">
+      <button class="btn gold" onclick="downloadJournal()">Download My Journal</button>
+      <button class="btn ghost" onclick="go({view:'day', activeDay:0})">Back To Day 1</button>
+    </div>
+  `;
+}
+
+function saveReflection() {
+  const answers = {};
+  for (let i = 0; i < 3; i++) answers[i] = document.getElementById("wr-" + i).value;
+  state.weeklyReflection = answers;
+  render();
+}
+
+/* ---------- MY JOURNAL ---------- */
+
+function journalHtml() {
+  const entries = DAYS.filter(d => state.dayJournal[d.id]).map(d => {
+    const j = state.dayJournal[d.id];
+    const qas = d.journalPrompts.map((q, i) => j[i] ? `<div class="q">${q}</div><div class="a">${j[i]}</div>` : "").join("");
+    const shiftStatus = state.shiftsDone[d.id] ? "\u2726 Shift completed" : "";
+    return `<div class="entry"><div class="tt">${d.icon} Day ${d.num}: ${d.title}</div>${qas}${shiftStatus ? `<div class="a">${shiftStatus}</div>` : ""}</div>`;
+  }).join("");
+  const reflectionEntry = state.weeklyReflection ? `<div class="entry"><div class="tt">\u2728 Weekly Reflection</div>
+    <div class="q">Easiest and hardest shifts</div><div class="a">${state.weeklyReflection[0] || ""}</div>
+    <div class="q">What I want to remember</div><div class="a">${state.weeklyReflection[1] || ""}</div>
+    <div class="q">Keeping this going next week</div><div class="a">${state.weeklyReflection[2] || ""}</div>
+  </div>` : "";
+  const empty = entries === "" && !reflectionEntry ? "<p>Nothing here yet. Visit Day 1 to begin.</p>" : "";
+  return `
+    <h2>\u{1F4D3} My Journal, ${state.name}</h2>
+    <div class="save-reminder"><span>\u{1F49C}</span><span><strong>Your answers save automatically</strong> in this browser, on this device. They won't follow you to a different browser or device though, and clearing your browser's data will erase them, so download your journal now and then for a backup you can keep.</span></div>
+    <div class="card">${reflectionEntry}${entries || empty}</div>
+    <div class="btn-row">
+      <button class="btn gold" onclick="downloadJournal()">Download My Journal</button>
+      <button class="btn ghost" onclick="go({view:'day', activeDay:0})">Back To Day 1</button>
+    </div>
+  `;
+}
+
+function downloadJournal() {
+  let text = "THE OVERGIVER TO ABUNDANT RECEIVER\nMy 7-Day Journal, " + state.name + "\n\n";
+  const any = DAYS.some(d => state.dayJournal[d.id]) || state.weeklyReflection;
+  if (!any) {
+    text += "No entries yet.\n";
+  } else {
+    DAYS.forEach(d => {
+      const j = state.dayJournal[d.id];
+      if (!j) return;
+      text += "== Day " + d.num + ": " + d.title + " ==\n";
+      d.journalPrompts.forEach((q, i) => { if (j[i]) text += q + "\n" + j[i] + "\n\n"; });
+      text += "Tangible shift: " + d.shift + (state.shiftsDone[d.id] ? " (completed)\n\n" : " (not marked complete)\n\n");
+    });
+    if (state.weeklyReflection) {
+      text += "== Weekly Reflection ==\n";
+      const prompts = [
+        "Looking back at the week, which shifts felt easiest, and which felt hardest?",
+        "What's one thing you want to remember about receiving, moving forward?",
+        "What would it look like to keep choosing yourself next week, the same way you practiced this week?"
+      ];
+      prompts.forEach((q, i) => { if (state.weeklyReflection[i]) text += q + "\n" + state.weeklyReflection[i] + "\n\n"; });
+    }
+  }
+  const blob = new Blob([text], { type: "text/plain" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = "the-overgiver-to-abundant-receiver-journal.txt";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+/* ---------- LEARN MORE ---------- */
+
+function learnHtml() {
+  const items = LEARN_LINKS.map(l => {
+    const badge = l.tier === "premium" ? `<span class="tier-badge premium">PREMIUM</span>` : `<span class="tier-badge standard">STANDARD</span>`;
+    return `<a href="${l.url}" target="_blank" rel="noopener" class="link-item">
+      <div class="link-icon">${l.icon}</div>
+      <div><div class="t">${l.title} ${badge}</div><div class="s">${l.subtitle}</div></div>
+    </a>`;
+  }).join("");
+  return `
+    <h2>\u2728 Learn More</h2>
+    <p>These lessons go deeper into everything this week touches on.</p>
+    ${items}
+    <div class="btn-row"><button class="btn ghost" onclick="go({view:'day', activeDay:0})">Back To Day 1</button></div>
+  `;
+}
+
+/* ---------- ROUTER ---------- */
+
+function render() {
+  saveState();
+  if (state.screen === "name") { renderName(); return; }
+  let content = "";
+  if (state.view === "day") content = dayHtml();
+  else if (state.view === "reflection") content = reflectionHtml();
+  else if (state.view === "journal") content = journalHtml();
+  else if (state.view === "learn") content = learnHtml();
+
+  document.getElementById("app").innerHTML = `
+    ${topNav()}
+    ${content}
+    ${footer()}
+  `;
+}
+
+loadState();
+render();
+</script>
+
+<!--
+  BUILD NOTES:
+  Single-file vanilla HTML/CSS/JS, no build step, no dependencies.
+  Ready to deploy as-is on GitHub Pages. Rename to index.html at the
+  root of its folder/repo and GitHub Pages will serve it automatically.
+  localStorage persistence is built in from the start, unique key:
+  overgiver-to-abundant-receiver-v1. All day content, tangible shifts,
+  and Learn More links live in the DATA section near the top.
+-->
+</body>
+</html>
