@@ -1,1 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Divine Union Message From Spirit Generator, a breathing meditation, intention setting, and 78-card pull with tailored guidance on how to anchor into union.">
+<title>Divine Union Message From Spirit Generator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #faf7fc; --card: rgba(255,255,255,0.78); --card-2: rgba(255,255,255,0.95);
+    --text: #3d2e5c; --muted: #7a6b94; --muted-2: #9b8ab8;
+    --violet: #9b7fd4; --violet-deep: #6b4fa0; --periwinkle: #8ca8e8;
+    --gold: #c9a44e; --gold-soft: #e8d5a8;
+    --line: rgba(107,79,160,0.15); --line-strong: rgba(107,79,160,0.3);
+  }
+  body {
+    background: radial-gradient(ellipse at 15% 0%, #e8d9f7 0%, transparent 55%),
+                radial-gradient(ellipse at 88% 12%, #d8e8f5 0%, transparent 48%),
+                radial-gradient(ellipse at 50% 108%, #f0dff7 0%, transparent 55%), var(--bg);
+    color: var(--text); font-family: 'Jost', sans-serif; font-weight: 300; min-height: 100vh; position: relative;
+  }
+  #sparkles { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .spark { position: absolute; border-radius: 50%; background: radial-gradient(circle, #fff, var(--violet) 70%, transparent 100%); animation: twinkle 4.5s ease-in-out infinite; }
+  @keyframes twinkle { 0%,100%{opacity:.15;transform:scale(.7);} 50%{opacity:.75;transform:scale(1.2);} }
+  #app { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; padding: 0 20px 60px; }
+  h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--violet-deep); margin-bottom: 12px; }
+  h1 { font-weight: 700; font-size: 28px; line-height: 1.28; }
+  h2 { font-weight: 600; font-size: 22px; }
+  h3 { font-weight: 600; font-size: 16.5px; }
+  p { line-height: 1.75; color: var(--muted); font-size: 14.5px; margin-bottom: 14px; }
+  em.hl { font-style: italic; color: var(--violet-deep); }
+  .tagline { font-family: 'Playfair Display', serif; font-style: italic; color: var(--violet-deep); font-size: 17px; text-align: center; margin: 16px 0; }
+  .center { text-align: center; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; margin-bottom: 16px; box-shadow: 0 8px 30px rgba(107,79,160,0.06); }
+  .card.ritual { background: linear-gradient(150deg, rgba(155,127,212,0.10), rgba(140,168,232,0.10)); border-color: var(--line-strong); }
+  .std-pill { display: inline-block; background: linear-gradient(135deg, var(--violet), var(--periwinkle)); color: #fff; font-family: 'Jost', sans-serif; font-weight: 800; font-size: 11px; letter-spacing: 0.5px; border-radius: 999px; padding: 6px 14px; margin-bottom: 14px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Jost', sans-serif; font-weight: 700; font-size: 14px; padding: 13px 26px; border-radius: 999px; border: none; cursor: pointer; text-decoration: none; }
+  .btn.gold { background: linear-gradient(135deg, var(--violet), var(--periwinkle)); color: #fff; box-shadow: 0 6px 20px rgba(155,127,212,0.35); }
+  .btn.ghost { background: transparent; color: var(--muted); border: 1px solid var(--line-strong); }
+  .btn.ghost:hover { color: var(--violet-deep); border-color: var(--violet); }
+  .btn.small { padding: 8px 16px; font-size: 12px; }
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; justify-content: center; }
+  input[type=text] { width: 100%; background: rgba(255,255,255,0.7); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; font-family: 'Jost', sans-serif; font-size: 16px; color: var(--text); margin-bottom: 16px; }
+  input[type=text]::placeholder { color: var(--muted-2); }
+  textarea { width: 100%; background: rgba(255,255,255,0.7); border: 1px solid var(--line); border-radius: 12px; color: var(--text); font-family: 'Jost', sans-serif; font-size: 14.5px; padding: 13px; resize: vertical; min-height: 78px; margin-bottom: 14px; }
+  .journal-q { font-size: 13.5px; color: var(--text); margin-bottom: 6px; font-weight: 500; }
+  .topbar-left { display: flex; align-items: center; gap: 12px; justify-content: center; margin-bottom: 10px; }
+  .topbar-icon { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, var(--violet), var(--periwinkle)); display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 4px 16px rgba(155,127,212,0.4); flex-shrink: 0; }
+  .topbar-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 16px; color: var(--violet-deep); }
 
+  .topnav-wrap { position: sticky; top: 0; z-index: 10; padding: 16px 0 12px; }
+  .topnav-brand-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .topnav-brand { display: flex; align-items: center; gap: 8px; cursor: pointer; opacity: 0.9; }
+  .topnav-brand .icon { width: 26px; height: 26px; border-radius: 8px; background: linear-gradient(135deg, var(--violet), var(--periwinkle)); display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+  .topnav-brand .name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 12.5px; color: var(--violet-deep); }
+  .topnav-links { display: flex; gap: 10px; }
+  .nav-link { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted-2); cursor: pointer; background: none; border: none; padding: 3px 0; }
+  .nav-link:hover { color: var(--violet-deep); }
+
+  .breathe-wrap { display: flex; flex-direction: column; align-items: center; padding: 16px 0 8px; }
+  .breathe-ball { width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, var(--periwinkle) 45%, var(--violet) 100%); box-shadow: 0 0 50px rgba(155,127,212,0.4); transition: transform 4s ease-in-out; margin-bottom: 20px; }
+  .breathe-label { font-family: 'Playfair Display', serif; font-size: 18px; min-height: 24px; text-align: center; color: var(--violet-deep); }
+
+  .flip-scene { perspective: 1200px; display: flex; justify-content: center; margin-bottom: 20px; }
+  .flip-card { position: relative; width: 220px; height: 320px; transform-style: preserve-3d; transition: transform 0.8s cubic-bezier(.2,.8,.2,1); }
+  .flip-card.flipped { transform: rotateY(180deg); }
+  .flip-face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 22px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px 20px; text-align: center; box-shadow: 0 16px 40px rgba(107,79,160,0.22); }
+  .flip-back { background: linear-gradient(160deg, var(--violet-deep), var(--violet)); border: 2px solid rgba(255,255,255,0.5); }
+  .flip-front { transform: rotateY(180deg); }
+  .card-arcana { font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 2px; color: rgba(255,255,255,0.7); margin-top: 8px; }
+  .card-name { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 600; color: #fff; margin-top: 6px; line-height: 1.15; }
+
+  .shuffle-stage { position: relative; height: 220px; display: flex; align-items: center; justify-content: center; margin-top: 10px; }
+  .deck-card { position: absolute; width: 130px; height: 190px; border-radius: 14px; background: linear-gradient(160deg, var(--violet-deep), var(--violet)); border: 1.5px solid rgba(255,255,255,0.5); display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(107,79,160,0.3); }
+  .deck-card.shuffling { animation: shuffleLoop 1.4s ease-in-out infinite; }
+  @keyframes shuffleLoop { 0%,100%{transform:translate(0,0) rotate(0deg);} 25%{transform:translate(-40px,-6px) rotate(-7deg);} 50%{transform:translate(0,0) rotate(0deg);} 75%{transform:translate(40px,-6px) rotate(7deg);} }
+
+  .message-card { background: linear-gradient(150deg, rgba(155,127,212,0.14), rgba(140,168,232,0.10)); border: 1px solid var(--line-strong); border-radius: 18px; padding: 24px; margin-bottom: 16px; }
+  .message-card p { color: var(--text); font-family: 'Playfair Display', serif; font-style: italic; font-size: 16.5px; line-height: 1.7; margin: 0; }
+
+  .link-item { display: flex; gap: 14px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; margin-bottom: 10px; text-decoration: none; }
+  .link-icon { width: 40px; height: 40px; border-radius: 11px; background: linear-gradient(135deg, var(--violet), var(--periwinkle)); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .link-item .t { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; color: var(--violet-deep); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .link-item .s { font-size: 12px; color: var(--muted-2); margin-top: 3px; }
+  .tier-badge { font-family: 'DM Mono', monospace; font-size: 8.5px; letter-spacing: 1px; padding: 3px 8px; border-radius: 999px; font-weight: 500; }
+  .tier-badge.premium { background: rgba(201,164,78,0.16); color: var(--gold); border: 1px solid rgba(201,164,78,0.4); }
+  .tier-badge.standard { background: rgba(155,127,212,0.14); color: var(--violet); border: 1px solid rgba(155,127,212,0.35); }
+
+  .entry { border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 16px; }
+  .entry:last-child { border: none; margin: 0; padding: 0; }
+  .entry .tt { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; color: var(--violet-deep); margin-bottom: 2px; }
+  .entry .meta { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted-2); margin-bottom: 8px; }
+  .entry .q { font-size: 12px; color: var(--muted-2); margin-bottom: 2px; }
+  .entry .a { font-size: 13.5px; color: var(--text); margin-bottom: 8px; }
+  .save-reminder { background: rgba(201,164,78,0.10); border: 1px solid var(--gold); border-radius: 14px; padding: 14px 18px; font-size: 13px; color: var(--muted); margin-bottom: 20px; display: flex; gap: 10px; align-items: flex-start; }
+
+  .section-label { font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin: 20px 0 10px; }
+
+  .site-footer { margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--line); text-align: center; }
+  .site-footer .brand { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 14px; margin-bottom: 6px; color: var(--violet-deep); }
+  .site-footer .brand em { font-style: italic; color: var(--gold); }
+  .site-footer .links { font-family: 'DM Mono', monospace; font-size: 10.5px; color: var(--muted-2); line-height: 1.9; }
+  .site-footer a { color: var(--muted-2); text-decoration: none; }
+</style>
+</head>
+<body>
+<div id="sparkles"></div>
+<div id="app"></div>
+
+<script>
+/* ---------- AMBIENT SPARKLES ---------- */
+(function initSparkles() {
+  const wrap = document.getElementById("sparkles");
+  for (let i = 0; i < 18; i++) {
+    const s = document.createElement("div");
+    s.className = "spark";
+    const size = 2 + Math.random() * 4;
+    s.style.width = size + "px"; s.style.height = size + "px";
+    s.style.left = Math.random() * 100 + "%"; s.style.top = Math.random() * 100 + "%";
+    s.style.animationDelay = (Math.random() * 4.5) + "s";
+    wrap.appendChild(s);
+  }
+})();
+
+/* ---------- DATA: 78-CARD DECK WITH TAILORED UNION MESSAGES ---------- */
+
+const DECK = [
+  { name: "The Fool", arcana: "Major Arcana", glyph: "\u2726", c1: "#F0A6D8", c2: "#D96BA8", message: "Take a leap of faith in love today. Approach this connection with curiosity and innocence instead of overanalyzing every step. Union favors those who stay open." },
+  { name: "The Magician", arcana: "Major Arcana", glyph: "\u2737", c1: "#B88CED", c2: "#7B54C4", message: "You have everything you need to manifest this connection right now. Focus your intention clearly, then take aligned action instead of waiting for permission." },
+  { name: "The High Priestess", arcana: "Major Arcana", glyph: "\u263E", c1: "#7EECD4", c2: "#2FA98C", message: "Trust your intuition over what anyone else says about this connection, including advice, including this card. Your inner knowing is the real guide today." },
+  { name: "The Empress", arcana: "Major Arcana", glyph: "\u2740", c1: "#F5C265", c2: "#E09A3E", message: "Nurture yourself first today. Your abundance, warmth, and creativity are what make you magnetic, not proving anything to anyone." },
+  { name: "The Emperor", arcana: "Major Arcana", glyph: "\u2666", c1: "#A8C8F0", c2: "#5E8CD4", message: "Bring structure to your intentions today. Union isn't just a feeling, it's built through consistent, grounded choices." },
+  { name: "The Hierophant", arcana: "Major Arcana", glyph: "\u2302", c1: "#9BD88C", c2: "#4E9E5F", message: "Honor the lessons and traditions that got you here, and stay open to learning something new about love today." },
+  { name: "The Lovers", arcana: "Major Arcana", glyph: "\u2661", c1: "#F5A06B", c2: "#E06B3E", message: "This is a day for real alignment. Notice where your values and this connection's values genuinely match, not just the chemistry." },
+  { name: "The Chariot", arcana: "Major Arcana", glyph: "\u27B7", c1: "#C5B8E8", c2: "#8B7BC4", message: "Move forward with focused determination today, but let it come from clarity, not force. Union responds to direction, not control." },
+  { name: "Strength", arcana: "Major Arcana", glyph: "\u221E", c1: "#7EDCEC", c2: "#2F9EC4", message: "Approach this connection with gentle, patient power today. Real strength here looks like calm consistency, not control." },
+  { name: "The Hermit", arcana: "Major Arcana", glyph: "\u2727", c1: "#E8C86B", c2: "#C49A2E", message: "Take space today to turn inward. Union starts with the relationship you have with yourself in solitude." },
+  { name: "Wheel of Fortune", arcana: "Major Arcana", glyph: "\u2638", c1: "#F0A6D8", c2: "#D96BA8", message: "Trust that this connection is moving through its own cycles today. What feels stuck now may shift soon, timing is doing its work." },
+  { name: "Justice", arcana: "Major Arcana", glyph: "\u2696", c1: "#B88CED", c2: "#7B54C4", message: "Get honest with yourself today about what's fair, balanced, and true in this connection. Clarity is your anchor." },
+  { name: "The Hanged Man", arcana: "Major Arcana", glyph: "\u2E19", c1: "#7EECD4", c2: "#2FA98C", message: "Pause today instead of forcing an outcome. Sometimes the most aligned action in union is surrender and a shift in perspective." },
+  { name: "Death", arcana: "Major Arcana", glyph: "\u26B0", c1: "#F5C265", c2: "#E09A3E", message: "Let something end today so something truer can begin. Union sometimes asks you to release an old version of this connection first." },
+  { name: "Temperance", arcana: "Major Arcana", glyph: "\u224B", c1: "#A8C8F0", c2: "#5E8CD4", message: "Blend patience with action today. Union is built in the middle ground, not in extremes." },
+  { name: "The Devil", arcana: "Major Arcana", glyph: "\u26E7", c1: "#9BD88C", c2: "#4E9E5F", message: "Notice today where fear or attachment might be running this connection instead of love. You're allowed to choose freedom." },
+  { name: "The Tower", arcana: "Major Arcana", glyph: "\u26A1", c1: "#F5A06B", c2: "#E06B3E", message: "Something may feel like it's breaking down today, let it. Union often needs the old structure to fall before the real one can be built." },
+  { name: "The Star", arcana: "Major Arcana", glyph: "\u2605", c1: "#C5B8E8", c2: "#8B7BC4", message: "Have hope today. Even in uncertainty, you're being guided toward healing and toward union, one small step at a time." },
+  { name: "The Moon", arcana: "Major Arcana", glyph: "\u263D", c1: "#7EDCEC", c2: "#2F9EC4", message: "Trust your intuition today, even when things feel unclear. Not everything about this connection needs to make logical sense yet." },
+  { name: "The Sun", arcana: "Major Arcana", glyph: "\u2600", c1: "#E8C86B", c2: "#C49A2E", message: "Let joy lead today. Union thrives in warmth, playfulness, and genuine happiness, not just seriousness and effort." },
+  { name: "Judgement", arcana: "Major Arcana", glyph: "\u2646", c1: "#F0A6D8", c2: "#D96BA8", message: "A new level of clarity or awakening is available today. Answer the call to see this connection, and yourself, more honestly." },
+  { name: "The World", arcana: "Major Arcana", glyph: "\u25C9", c1: "#B88CED", c2: "#7B54C4", message: "You're closer to completion and wholeness than you realize today. Celebrate how far you've come in this journey." },
+  { name: "Ace of Wands", arcana: "Wands", glyph: "\u2666", c1: "#F5A06B", c2: "#E06B3E", message: "A new spark of passion is available today. Let yourself feel excited about this connection again, without needing to know exactly where it leads." },
+  { name: "Two of Wands", arcana: "Wands", glyph: "\u2666", c1: "#F5A06B", c2: "#E06B3E", message: "Take a moment today to plan your next step in this connection, intentionally, not impulsively." },
+  { name: "Three of Wands", arcana: "Wands", glyph: "\u2666", c1: "#F5A06B", c2: "#E06B3E", message: "Your efforts in this connection are starting to expand today. Stay patient as things build." },
+  { name: "Four of Wands", arcana: "Wands", glyph: "\u2666", c1: "#F5A06B", c2: "#E06B3E", message: "Celebrate a small win in this connection today, even if it's not the big milestone you're waiting for." },
+  { name: "Five of Wands", arcana: "Wands", glyph: "\u2666", c1: "#F5A06B", c2: "#E06B3E", message: "Notice today where friendly tension or minor conflict might actually be healthy friction, not a red flag." },
+  { name: "Six of Wands", arcana: "Wands", glyph: "\u2666", c1: "#F5A06B", c2: "#E06B3E", message: "You're allowed to feel proud today. Recognize your own growth in how you've shown up for this connection." },
+  { name: "Seven of Wands", arcana: "Wands", glyph: "\u2666", c1: "#F5A06B", c2: "#E06B3E", message: "Stand your ground today on what you know to be true about this connection, even if you have to defend it." },
+  { name: "Eight of Wands", arcana: "Wands", glyph: "\u2666", c1: "#F5A06B", c2: "#E06B3E", message: "Things may move quickly today. Stay present instead of getting swept up in the momentum." },
+  { name: "Nine of Wands", arcana: "Wands", glyph: "\u2666", c1: "#F5A06B", c2: "#E06B3E", message: "You're more resilient than you feel today. One more step of patience is what's being asked of you." },
+  { name: "Ten of Wands", arcana: "Wands", glyph: "\u2666", c1: "#F5A06B", c2: "#E06B3E", message: "Notice today if you're carrying more than your share in this connection. It's okay to set something down." },
+  { name: "Page of Wands", arcana: "Wands", glyph: "\u2666", c1: "#F5A06B", c2: "#E06B3E", message: "Approach this connection with curiosity today, like a beginner excited to learn, not someone who has to have it all figured out." },
+  { name: "Knight of Wands", arcana: "Wands", glyph: "\u2666", c1: "#F5A06B", c2: "#E06B3E", message: "Take bold, confident action today, just make sure it's coming from excitement, not from anxiety about the outcome." },
+  { name: "Queen of Wands", arcana: "Wands", glyph: "\u2666", c1: "#F5A06B", c2: "#E06B3E", message: "Own your confidence and warmth today. You don't have to shrink your fire to be loved." },
+  { name: "King of Wands", arcana: "Wands", glyph: "\u2666", c1: "#F5A06B", c2: "#E06B3E", message: "Lead with vision today. You know where you want this to go, trust that direction." },
+  { name: "Ace of Cups", arcana: "Cups", glyph: "\u2665", c1: "#F0A6D8", c2: "#D96BA8", message: "Your heart is open today. Let yourself feel this connection fully, without guarding against getting hurt." },
+  { name: "Two of Cups", arcana: "Cups", glyph: "\u2665", c1: "#F0A6D8", c2: "#D96BA8", message: "Focus today on the actual energy exchange in this connection, how you give love, how you receive it, and the simple day-to-day feeling of being close to someone. Pour real energy into the connections you already have." },
+  { name: "Three of Cups", arcana: "Cups", glyph: "\u2665", c1: "#F0A6D8", c2: "#D96BA8", message: "Celebrate this connection today, with community, with joy, with people who support you both." },
+  { name: "Four of Cups", arcana: "Cups", glyph: "\u2665", c1: "#F0A6D8", c2: "#D96BA8", message: "Notice today if you've become numb to something good right in front of you. Look up and receive it." },
+  { name: "Five of Cups", arcana: "Cups", glyph: "\u2665", c1: "#F0A6D8", c2: "#D96BA8", message: "Grieve what didn't work today, but notice the cups still standing. There's still something here worth holding onto." },
+  { name: "Six of Cups", arcana: "Cups", glyph: "\u2665", c1: "#F0A6D8", c2: "#D96BA8", message: "A sweet, nostalgic energy is present today. Let yourself feel tenderness without needing to over-analyze it." },
+  { name: "Seven of Cups", arcana: "Cups", glyph: "\u2665", c1: "#F0A6D8", c2: "#D96BA8", message: "You have a lot of options and feelings today, choose clarity over fantasy. What do you actually want, not just what sounds good?" },
+  { name: "Eight of Cups", arcana: "Cups", glyph: "\u2665", c1: "#F0A6D8", c2: "#D96BA8", message: "It's okay to walk away from something that isn't serving your growth today, even if it once meant something." },
+  { name: "Nine of Cups", arcana: "Cups", glyph: "\u2665", c1: "#F0A6D8", c2: "#D96BA8", message: "Let yourself feel genuinely satisfied today. You're allowed to enjoy what's already working." },
+  { name: "Ten of Cups", arcana: "Cups", glyph: "\u2665", c1: "#F0A6D8", c2: "#D96BA8", message: "Envision the emotional harmony you're building toward today. This connection can hold real, lasting happiness." },
+  { name: "Page of Cups", arcana: "Cups", glyph: "\u2665", c1: "#F0A6D8", c2: "#D96BA8", message: "A tender message or feeling may come through today, stay open to receiving it without deflecting." },
+  { name: "Knight of Cups", arcana: "Cups", glyph: "\u2665", c1: "#F0A6D8", c2: "#D96BA8", message: "Follow your heart today, this is a day for romance, sincerity, and leading with feeling." },
+  { name: "Queen of Cups", arcana: "Cups", glyph: "\u2665", c1: "#F0A6D8", c2: "#D96BA8", message: "Tend to your emotions today. Let your divine feminine energy, your sensitivity, and your open heart be your superpower, not something to apologize for." },
+  { name: "King of Cups", arcana: "Cups", glyph: "\u2665", c1: "#F0A6D8", c2: "#D96BA8", message: "Stay emotionally steady today, even if feelings run deep. Calm, mature love is what you're anchoring into." },
+  { name: "Ace of Swords", arcana: "Swords", glyph: "\u2660", c1: "#A8C8F0", c2: "#5E8CD4", message: "A moment of mental clarity is available today. Say the true thing you've been holding back." },
+  { name: "Two of Swords", arcana: "Swords", glyph: "\u2660", c1: "#A8C8F0", c2: "#5E8CD4", message: "You're avoiding a decision today. It's time to remove the blindfold and choose, even if it's uncomfortable." },
+  { name: "Three of Swords", arcana: "Swords", glyph: "\u2660", c1: "#A8C8F0", c2: "#5E8CD4", message: "There may be a painful truth to face today. Let yourself feel it, healing starts with honesty." },
+  { name: "Four of Swords", arcana: "Swords", glyph: "\u2660", c1: "#A8C8F0", c2: "#5E8CD4", message: "Rest today before you respond to anything. Clarity comes after recovery, not during exhaustion." },
+  { name: "Five of Swords", arcana: "Swords", glyph: "\u2660", c1: "#A8C8F0", c2: "#5E8CD4", message: "Notice today if you're trying to win an argument instead of trying to understand each other. Choose connection over being right." },
+  { name: "Six of Swords", arcana: "Swords", glyph: "\u2660", c1: "#A8C8F0", c2: "#5E8CD4", message: "You're moving toward calmer waters today. Let yourself transition, even if it's slow." },
+  { name: "Seven of Swords", arcana: "Swords", glyph: "\u2660", c1: "#A8C8F0", c2: "#5E8CD4", message: "Get honest today about anything you've been avoiding saying, to them or to yourself." },
+  { name: "Eight of Swords", arcana: "Swords", glyph: "\u2660", c1: "#A8C8F0", c2: "#5E8CD4", message: "You may feel stuck today, but the trap is more mental than real. You have more freedom here than you think." },
+  { name: "Nine of Swords", arcana: "Swords", glyph: "\u2660", c1: "#A8C8F0", c2: "#5E8CD4", message: "Your anxious thoughts are louder than the truth today. Ask yourself what's actually true versus what fear is telling you." },
+  { name: "Ten of Swords", arcana: "Swords", glyph: "\u2660", c1: "#A8C8F0", c2: "#5E8CD4", message: "Something is ending today, and that's not a bad thing. The hardest part is already behind you." },
+  { name: "Page of Swords", arcana: "Swords", glyph: "\u2660", c1: "#A8C8F0", c2: "#5E8CD4", message: "Stay curious and alert today, there's something new to learn about how you communicate in this connection." },
+  { name: "Knight of Swords", arcana: "Swords", glyph: "\u2660", c1: "#A8C8F0", c2: "#5E8CD4", message: "You may want to charge ahead today, pause first and make sure your words come from clarity, not urgency." },
+  { name: "Queen of Swords", arcana: "Swords", glyph: "\u2660", c1: "#A8C8F0", c2: "#5E8CD4", message: "Speak your truth today, clearly and without apology. Honesty is an act of love here." },
+  { name: "King of Swords", arcana: "Swords", glyph: "\u2660", c1: "#A8C8F0", c2: "#5E8CD4", message: "It's time to communicate more directly today, set a clear boundary, or take the lead on a conversation you've been avoiding." },
+  { name: "Ace of Pentacles", arcana: "Pentacles", glyph: "\u2663", c1: "#9BD88C", c2: "#4E9E5F", message: "A tangible new beginning is available today, something real and grounded, not just a feeling." },
+  { name: "Two of Pentacles", arcana: "Pentacles", glyph: "\u2663", c1: "#9BD88C", c2: "#4E9E5F", message: "Balance your energy today between this connection and the rest of your life. You don't have to sacrifice one for the other." },
+  { name: "Three of Pentacles", arcana: "Pentacles", glyph: "\u2663", c1: "#9BD88C", c2: "#4E9E5F", message: "Union is built with others today, notice who's actually showing up and collaborating with you." },
+  { name: "Four of Pentacles", arcana: "Pentacles", glyph: "\u2663", c1: "#9BD88C", c2: "#4E9E5F", message: "Notice today where you might be holding on too tightly, to control, to certainty, to security. Loosen your grip a little." },
+  { name: "Five of Pentacles", arcana: "Pentacles", glyph: "\u2663", c1: "#9BD88C", c2: "#4E9E5F", message: "A hard patch is passing today. Remember there is support nearby, even if it doesn't look the way you expected." },
+  { name: "Six of Pentacles", arcana: "Pentacles", glyph: "\u2663", c1: "#9BD88C", c2: "#4E9E5F", message: "Notice the balance of giving and receiving in this connection today. Real union flows both directions." },
+  { name: "Seven of Pentacles", arcana: "Pentacles", glyph: "\u2663", c1: "#9BD88C", c2: "#4E9E5F", message: "Be patient with the long-term investment you're making in yourself and this connection today. Growth takes time." },
+  { name: "Eight of Pentacles", arcana: "Pentacles", glyph: "\u2663", c1: "#9BD88C", c2: "#4E9E5F", message: "Keep refining how you show up today. Small, consistent effort is what's building real union underneath the surface." },
+  { name: "Nine of Pentacles", arcana: "Pentacles", glyph: "\u2663", c1: "#9BD88C", c2: "#4E9E5F", message: "You are allowed to feel secure and abundant today, on your own, independent of what this connection is doing." },
+  { name: "Ten of Pentacles", arcana: "Pentacles", glyph: "\u2663", c1: "#9BD88C", c2: "#4E9E5F", message: "Envision lasting, stable love today. This isn't just about a feeling, it's about a real life built together over time." },
+  { name: "Page of Pentacles", arcana: "Pentacles", glyph: "\u2663", c1: "#9BD88C", c2: "#4E9E5F", message: "A grounded opportunity for growth is available today, stay practical and curious about how to build this connection." },
+  { name: "Knight of Pentacles", arcana: "Pentacles", glyph: "\u2663", c1: "#9BD88C", c2: "#4E9E5F", message: "Show up with steady, reliable effort today. Union is built through patient, consistent action, not grand gestures." },
+  { name: "Queen of Pentacles", arcana: "Pentacles", glyph: "\u2663", c1: "#9BD88C", c2: "#4E9E5F", message: "Nurture yourself and this connection today with practical, grounded care, a good meal, rest, tending to your body." },
+  { name: "King of Pentacles", arcana: "Pentacles", glyph: "\u2663", c1: "#9BD88C", c2: "#4E9E5F", message: "You have the ability to create real security and abundance today, in yourself first, and that's what union is built on." }
+];
+
+const LEARN_LINKS = [
+  { icon: "\u{1F49E}", title: "The Healing Power of Self-Love", subtitle: "The foundation every card message points back to.", url: "https://www.skool.com/union/classroom/07a7f557?md=cf1fd5184858435eb36e138899241768", tier: "standard" },
+  { icon: "\u{1F52E}", title: "Tarot Workshop Replay", subtitle: "Learn to read intuitively, no memorizing required.", url: "https://www.skool.com/union/classroom/122ebb7b?md=aad52e09721d42a592a5c63df4752975", tier: "premium" },
+  { icon: "\u{1F91D}", title: "Unblock Your Intuition With EFT Tapping", subtitle: "A guided tapping practice to trust what you're receiving.", url: "https://www.skool.com/union/classroom/07a7f557?md=d33894f0b0854726bc297c93513c716e", tier: "standard" },
+  { icon: "\u{1F30C}", title: "Separation Consciousness vs. Unity Consciousness", subtitle: "The full teaching behind what union frequency really means.", url: "https://www.skool.com/union/classroom/6bd2fa96?md=548c0df49c514494aeaaa49f57fd1426", tier: "premium" }
+];
+
+/* ---------- STATE ---------- */
+
+let state = {
+  name: "", screen: "name",
+  activeTab: "reading", readingStep: "breathe",
+  intention: "", drawnCard: null, cardFlipped: false, shuffling: false,
+  reflection1: "", reflection2: "", breathing: false,
+  pulls: []
+};
+
+const STORAGE_KEY = "divine-union-message-generator-v1";
+function saveState() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {} }
+function loadState() { try { const raw = localStorage.getItem(STORAGE_KEY); if (raw) state = { ...state, ...JSON.parse(raw) }; } catch (e) {} }
+function go(patch) { state = { ...state, ...patch }; render(); }
+
+/* ---------- SHARED CHROME ---------- */
+
+function topNav() {
+  return `<div class="topnav-wrap">
+    <div class="topnav-brand-row">
+      <div class="topnav-brand" onclick="go({activeTab:'reading', readingStep:'breathe'})"><div class="icon">\u2728</div><div class="name">Divine Union Message From Spirit</div></div>
+      <div class="topnav-links">
+        <button class="nav-link" onclick="go({activeTab:'journal'})">Journal</button>
+        <button class="nav-link" onclick="go({activeTab:'learn'})">Learn</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function footer() {
+  return `<div class="site-footer">
+    <div class="brand">Luana <em>Spirits</em></div>
+    <div class="links">
+      <a href="mailto:luana@luanaspirits.com">luana@luanaspirits.com</a> &middot;
+      <a href="https://docs.google.com/document/d/12oUQEXXesDmVw_XEZH-GEc8NVbtFYyLYf3359hvxyFE/edit?usp=sharing" target="_blank" rel="noopener">Privacy Policy</a> &middot;
+      <a href="https://docs.google.com/document/d/1i395On2ZByesCyRaIDocu1aIguhVxuHBQ1l_nPfVReQ/edit?usp=sharing" target="_blank" rel="noopener">Terms &amp; Conditions</a> &middot; &copy; 2026
+    </div>
+  </div>`;
+}
+
+/* ---------- NAME GATE ---------- */
+
+function renderName() {
+  document.getElementById("app").innerHTML = `
+    <div class="topbar-left" style="margin-top:36px;"><div class="topbar-icon">\u2728</div><div class="topbar-title">Divine Union Message From Spirit</div></div>
+    <div class="center"><div class="std-pill">STANDARD TIER AND UP</div></div>
+    <h1 class="center">A breath, an intention, and a card for wherever you need guidance today.</h1>
+    <p class="center">Ground yourself, set an intention, then pull from a full 78-card deck. Every single card carries its own tailored message on how to anchor into union, not a generic tarot meaning.</p>
+    <div class="tagline">You can pull as many times as you need, for as many topics as you need.</div>
+    <div class="card">
+      <h3>What should I call you?</h3>
+      <input type="text" id="nameInput" placeholder="Your first name" />
+      <button class="btn gold" onclick="submitName()">Begin</button>
+    </div>
+    ${footer()}
+  `;
+}
+
+function submitName() {
+  const val = document.getElementById("nameInput").value.trim();
+  go({ name: val || "beautiful soul", screen: "dashboard" });
+}
+
+/* ---------- READING FLOW ---------- */
+
+let breathTimer = null;
+const BOX_PHASES = ["Breathe in...", "Hold...", "Breathe out...", "Hold..."];
+
+function readingHtml() {
+  if (state.readingStep === "breathe") return breatheHtml();
+  if (state.readingStep === "intention") return intentionHtml();
+  if (state.readingStep === "shuffle") return shuffleHtml();
+  if (state.readingStep === "reveal") return revealHtml();
+  if (state.readingStep === "journal") return postJournalHtml();
+}
+
+function breatheHtml() {
+  return `
+    <h2 class="center">Let's Begin With A Breath</h2>
+    <p class="center">A few rounds of square breathing, 4 seconds each phase, to settle your body before you pull.</p>
+    <div class="breathe-wrap">
+      <div class="breathe-ball" id="breatheBall"></div>
+      <div class="breathe-label" id="breatheLabel">Press start when you're ready</div>
+      <div class="btn-row">
+        <button class="btn gold" id="breatheBtn" onclick="toggleBreathing()">Start</button>
+        <button class="btn ghost" onclick="go({readingStep:'intention'})">Skip This Step</button>
+      </div>
+    </div>
+  `;
+}
+
+function toggleBreathing() {
+  const ball = document.getElementById("breatheBall");
+  const label = document.getElementById("breatheLabel");
+  const btn = document.getElementById("breatheBtn");
+  if (state.breathing) {
+    state.breathing = false; clearTimeout(breathTimer);
+    ball.style.transform = "scale(1)"; label.textContent = "Press start when you're ready"; btn.textContent = "Start";
+    return;
+  }
+  state.breathing = true; btn.textContent = "Continue \u2192";
+  btn.setAttribute("onclick", "go({readingStep:'intention'})");
+  let phase = 0;
+  const runPhase = () => {
+    if (!state.breathing) return;
+    label.textContent = BOX_PHASES[phase];
+    ball.style.transition = "transform 4s ease-in-out";
+    if (phase === 0) ball.style.transform = "scale(1.4)";
+    else if (phase === 2) ball.style.transform = "scale(1)";
+    phase = (phase + 1) % 4;
+    breathTimer = setTimeout(runPhase, 4000);
+  };
+  runPhase();
+}
+
+function intentionHtml() {
+  return `
+    <h2 class="center">Set Your Intention</h2>
+    <p class="center">What do you want guidance on today? Love, a specific connection, your own healing, anything is welcome here.</p>
+    <div class="card">
+      <textarea id="intentionField" placeholder="I'm calling in guidance on...">${state.intention}</textarea>
+      <div class="btn-row"><button class="btn gold" onclick="saveIntentionAndShuffle()">Continue To My Card &rarr;</button></div>
+    </div>
+  `;
+}
+
+function saveIntentionAndShuffle() {
+  state.intention = document.getElementById("intentionField").value;
+  go({ readingStep: "shuffle" });
+}
+
+function shuffleHtml() {
+  return `
+    <h2 class="center">The Deck Is Shuffling</h2>
+    <p class="center">Hold your intention in mind. When it feels right, tap to draw your card.</p>
+    <div class="shuffle-stage">
+      ${[0,1,2].map(i => `<div class="deck-card shuffling" style="animation-delay:${i*0.12}s; z-index:${10-i};"><span style="font-size:24px;color:rgba(255,255,255,0.6);">\u2726</span></div>`).join("")}
+    </div>
+    <div class="btn-row"><button class="btn gold" onclick="drawCard()">Pull My Card &rarr;</button></div>
+  `;
+}
+
+function drawCard() {
+  const card = DECK[Math.floor(Math.random() * DECK.length)];
+  go({ drawnCard: card, cardFlipped: false, readingStep: "reveal" });
+}
+
+function revealHtml() {
+  const c = state.drawnCard;
+  return `
+    <h2 class="center">\u2727 Your Card \u2727</h2>
+    <div class="flip-scene">
+      <div class="flip-card ${state.cardFlipped ? "flipped" : ""}" onclick="flipCard()">
+        <div class="flip-face flip-back"><span style="font-size:30px;color:rgba(255,255,255,0.7);">\u2726</span></div>
+        <div class="flip-face flip-front" style="background:linear-gradient(165deg, var(--violet-deep) 0%, var(--violet) 55%, ${c.c2} 135%);">
+          <div style="font-size:38px; color:${c.c1};">${c.glyph}</div>
+          <div class="card-arcana">${c.arcana.toUpperCase()}</div>
+          <div class="card-name">${c.name}</div>
+        </div>
+      </div>
+    </div>
+    ${state.cardFlipped ? `
+      <div class="message-card"><p>${c.message}</p></div>
+      <div class="btn-row"><button class="btn gold" onclick="go({readingStep:'journal'})">Journal About This &rarr;</button></div>
+    ` : `<p class="center hint" style="font-family:'DM Mono', monospace; font-size:11px; color:var(--muted-2);">Tap the card to reveal your message</p>`}
+  `;
+}
+
+function flipCard() {
+  go({ cardFlipped: true });
+}
+
+function postJournalHtml() {
+  const c = state.drawnCard;
+  return `
+    <h2>${c.name}</h2>
+    <div class="message-card"><p>${c.message}</p></div>
+    <div class="card">
+      <div class="journal-q">How does this message land for you?</div>
+      <textarea id="reflection1">${state.reflection1}</textarea>
+      <div class="journal-q">What's one way you can apply this today?</div>
+      <textarea id="reflection2">${state.reflection2}</textarea>
+      <button class="btn gold small" onclick="savePull()">Save This Reading</button>
+    </div>
+    <div class="btn-row">
+      <button class="btn gold" onclick="pullAgain()">Pull Again, New Topic &rarr;</button>
+      <button class="btn ghost" onclick="go({activeTab:'journal'})">View My Journal</button>
+    </div>
+  `;
+}
+
+function savePull() {
+  state.reflection1 = document.getElementById("reflection1").value;
+  state.reflection2 = document.getElementById("reflection2").value;
+  state.pulls.push({
+    date: new Date().toLocaleString(),
+    intention: state.intention,
+    card: state.drawnCard.name,
+    message: state.drawnCard.message,
+    reflection1: state.reflection1,
+    reflection2: state.reflection2
+  });
+  render();
+}
+
+function pullAgain() {
+  go({ readingStep: "intention", intention: "", drawnCard: null, cardFlipped: false, reflection1: "", reflection2: "" });
+}
+
+/* ---------- MY JOURNAL ---------- */
+
+function journalHtml() {
+  const sorted = [...state.pulls].reverse();
+  const entries = sorted.map(p => `<div class="entry">
+    <div class="tt">${p.card}</div>
+    <div class="meta">${p.date}</div>
+    ${p.intention ? `<div class="q">My intention</div><div class="a">${p.intention}</div>` : ""}
+    <div class="q">The message</div><div class="a">${p.message}</div>
+    ${p.reflection1 ? `<div class="q">How it landed</div><div class="a">${p.reflection1}</div>` : ""}
+    ${p.reflection2 ? `<div class="q">How I'll apply it</div><div class="a">${p.reflection2}</div>` : ""}
+  </div>`).join("");
+  const empty = entries === "" ? "<p>Nothing here yet. Pull your first card to begin.</p>" : "";
+  return `
+    <h2>\u{1F4D3} My Journal, ${state.name}</h2>
+    <div class="save-reminder"><span>\u{1F49C}</span><span><strong>Your readings save automatically</strong> in this browser, on this device. They won't follow you to a different browser or device though, and clearing your browser's data will erase them, so download your journal now and then for a backup you can keep.</span></div>
+    <div class="card">${entries || empty}</div>
+    <div class="btn-row">
+      <button class="btn gold" onclick="downloadJournal()">Download My Journal</button>
+      <button class="btn ghost" onclick="go({activeTab:'reading', readingStep:'intention', drawnCard:null, cardFlipped:false, intention:'', reflection1:'', reflection2:''})">Pull A New Card</button>
+    </div>
+  `;
+}
+
+function downloadJournal() {
+  let text = "DIVINE UNION MESSAGE FROM SPIRIT\nMy Journal, " + state.name + "\n\n";
+  if (!state.pulls.length) {
+    text += "No entries yet.\n";
+  } else {
+    [...state.pulls].reverse().forEach(p => {
+      text += "== " + p.date + " \u00B7 " + p.card + " ==\n";
+      if (p.intention) text += "My intention: " + p.intention + "\n";
+      text += "The message: " + p.message + "\n";
+      if (p.reflection1) text += "How it landed: " + p.reflection1 + "\n";
+      if (p.reflection2) text += "How I'll apply it: " + p.reflection2 + "\n";
+      text += "\n";
+    });
+  }
+  const blob = new Blob([text], { type: "text/plain" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = "my-divine-union-messages.txt";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+/* ---------- LEARN MORE ---------- */
+
+function learnHtml() {
+  const items = LEARN_LINKS.map(l => {
+    const badge = l.tier === "premium" ? `<span class="tier-badge premium">PREMIUM</span>` : `<span class="tier-badge standard">STANDARD</span>`;
+    return `<a href="${l.url}" target="_blank" rel="noopener" class="link-item">
+      <div class="link-icon">${l.icon}</div>
+      <div><div class="t">${l.title} ${badge}</div><div class="s">${l.subtitle}</div></div>
+    </a>`;
+  }).join("");
+  return `<h2>\u2728 Learn More</h2><p>These lessons go deeper into everything this generator touches on.</p>${items}`;
+}
+
+/* ---------- ROUTER ---------- */
+
+function render() {
+  saveState();
+  if (state.screen === "name") { renderName(); return; }
+  let content = "";
+  if (state.activeTab === "reading") content = readingHtml();
+  else if (state.activeTab === "journal") content = journalHtml();
+  else if (state.activeTab === "learn") content = learnHtml();
+
+  document.getElementById("app").innerHTML = `
+    ${topNav()}
+    ${content}
+    ${footer()}
+  `;
+}
+
+loadState();
+render();
+</script>
+
+<!--
+  BUILD NOTES:
+  Single-file vanilla HTML/CSS/JS, no build step, no dependencies.
+  Ready to deploy as-is on GitHub Pages. Rename to index.html at the
+  root of its folder/repo and GitHub Pages will serve it automatically.
+  localStorage persistence built in from the start, unique key:
+  divine-union-message-generator-v1. All 78 cards have individually
+  tailored union messages, not generic tarot meanings, they live in
+  the DECK array near the top of the script.
+-->
+</body>
+</html>
