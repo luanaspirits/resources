@@ -1,1 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Your Union Integration Path, a free gift to help you integrate your reading, ground with a mini S.E.L.F. Method practice, and take one small step at a time.">
+<title>Your Union Integration Path</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #241238; --card: rgba(255,255,255,0.06); --card-2: rgba(255,255,255,0.10);
+    --text: #f5eefb; --muted: #b8a4d4; --muted-2: #8a76ac;
+    --violet: #a988e8; --violet-deep: #7a5bc4; --periwinkle: #8ca8e8;
+    --gold: #d4af5f; --gold-soft: #e8c98a;
+    --line: rgba(255,255,255,0.12); --line-strong: rgba(255,255,255,0.22);
+  }
+  body {
+    background: radial-gradient(ellipse at 15% 0%, #4a2c6e60 0%, transparent 55%),
+                radial-gradient(ellipse at 88% 10%, #8ca8e830 0%, transparent 48%),
+                radial-gradient(ellipse at 50% 105%, #d4af5f25 0%, transparent 55%), var(--bg);
+    color: var(--text); font-family: 'Jost', sans-serif; font-weight: 300; min-height: 100vh; position: relative;
+  }
+  #sparkles { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .spark { position: absolute; border-radius: 50%; background: radial-gradient(circle, #fff, var(--violet) 70%, transparent 100%); animation: twinkle 4.5s ease-in-out infinite; }
+  .glyph-spark { position: absolute; animation: twinkle 5.5s ease-in-out infinite; opacity: 0.5; }
+  @keyframes twinkle { 0%,100%{opacity:.15;transform:scale(.7);} 50%{opacity:.75;transform:scale(1.2);} }
+  #app { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; padding: 0 20px 60px; }
+  h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text); margin-bottom: 12px; }
+  h1 { font-weight: 700; font-size: 27px; line-height: 1.3; }
+  h2 { font-weight: 600; font-size: 21px; }
+  h3 { font-weight: 600; font-size: 16px; }
+  p { line-height: 1.75; color: var(--muted); font-size: 14.5px; margin-bottom: 14px; }
+  em.hl { font-style: italic; color: var(--gold-soft); }
+  .tagline { font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold-soft); font-size: 16.5px; text-align: center; margin: 16px 0; }
+  .eyebrow { font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .center { text-align: center; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; margin-bottom: 16px; box-shadow: 0 8px 30px rgba(107,79,160,0.06); }
+  .card.ritual { background: linear-gradient(150deg, rgba(155,127,212,0.10), rgba(140,168,232,0.10)); border-color: var(--line-strong); }
+  .btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Jost', sans-serif; font-weight: 700; font-size: 14px; padding: 13px 26px; border-radius: 999px; border: none; cursor: pointer; text-decoration: none; }
+  .btn.gold { background: linear-gradient(135deg, var(--violet), var(--periwinkle)); color: #fff; box-shadow: 0 6px 20px rgba(155,127,212,0.35); }
+  .btn.ghost { background: transparent; color: var(--muted); border: 1px solid var(--line-strong); }
+  .btn.small { padding: 8px 16px; font-size: 12px; }
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+  input[type=text] { width: 100%; background: rgba(0,0,0,0.2); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; font-family: 'Jost', sans-serif; font-size: 16px; color: var(--text); margin-bottom: 16px; }
+  input[type=text]::placeholder { color: var(--muted-2); }
+  textarea { width: 100%; background: rgba(0,0,0,0.2); border: 1px solid var(--line); border-radius: 12px; color: var(--text); font-family: 'Jost', sans-serif; font-size: 14.5px; padding: 13px; resize: vertical; min-height: 70px; margin-bottom: 14px; }
+  .journal-q { font-size: 13.5px; color: var(--text); margin-bottom: 6px; font-weight: 500; }
+  .topbar-left { display: flex; align-items: center; gap: 12px; justify-content: center; margin-bottom: 10px; }
+  .topbar-icon { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, var(--violet), var(--periwinkle)); display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 4px 16px rgba(155,127,212,0.4); flex-shrink: 0; }
+  .topbar-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 16px; color: var(--text); }
 
+  .topnav-wrap { position: sticky; top: 0; z-index: 10; padding: 16px 0 12px; }
+  .topnav-brand-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px; }
+  .topnav-brand { display: flex; align-items: center; gap: 8px; cursor: pointer; opacity: 0.9; }
+  .topnav-brand-row .icon { width: 26px; height: 26px; border-radius: 8px; background: linear-gradient(135deg, var(--violet), var(--periwinkle)); display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+  .topnav-brand-row .name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 13px; color: var(--text); }
+  .topnav-actions { display: flex; align-items: center; gap: 8px; }
+  .icon-btn { width: 34px; height: 34px; border-radius: 50%; background: var(--card); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-size: 14px; cursor: pointer; color: var(--text); text-decoration: none; }
+  .icon-btn:hover { border-color: var(--violet); }
+  .menu-panel { background: var(--card-2); border: 1px solid var(--line-strong); border-radius: 16px; padding: 8px; margin-top: 8px; display: flex; flex-direction: column; gap: 2px; }
+  .menu-item { font-family: 'Jost', sans-serif; font-size: 13.5px; color: var(--muted); padding: 11px 14px; border-radius: 10px; cursor: pointer; }
+  .menu-item:hover { background: rgba(255,255,255,0.06); color: var(--text); }
+  .menu-item.active { background: linear-gradient(135deg, var(--violet), var(--periwinkle)); color: #fff; font-weight: 600; }
+
+  .step-progress { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1px; color: var(--muted-2); text-align: center; margin-bottom: 8px; }
+  .step-dots { display: flex; gap: 6px; justify-content: center; margin-bottom: 18px; }
+  .step-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--line-strong); }
+  .step-dot.active { background: var(--violet); width: 20px; border-radius: 4px; }
+  .step-dot.done { background: var(--gold); }
+
+  .breathe-wrap { display: flex; flex-direction: column; align-items: center; padding: 12px 0 4px; }
+  .breathe-ball { width: 100px; height: 100px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, var(--periwinkle) 45%, var(--violet) 100%); box-shadow: 0 0 40px rgba(155,127,212,0.4); transition: transform 4s ease-in-out; margin-bottom: 16px; }
+  .breathe-label { font-family: 'Playfair Display', serif; font-size: 16px; min-height: 22px; text-align: center; color: var(--text); }
+
+  .checklist { display: flex; flex-direction: column; gap: 9px; margin: 14px 0; }
+  .check-row { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
+  .check-box { width: 20px; height: 20px; border-radius: 6px; border: 1.5px solid var(--line-strong); flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; }
+  .check-box.done { background: linear-gradient(135deg, var(--violet), var(--periwinkle)); border-color: transparent; }
+  .check-text { font-size: 13.5px; color: var(--text); line-height: 1.55; }
+  .check-text.done { color: var(--muted-2); text-decoration: line-through; }
+
+  .progress-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.5px; color: var(--gold-soft); margin-bottom: 14px; }
+  .day-pills-row { display: flex; gap: 6px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+  .day-pill { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--card); border: 1.5px solid var(--line); cursor: pointer; font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); }
+  .day-pill.active { background: linear-gradient(135deg, var(--violet), var(--periwinkle)); color: #fff; border-color: transparent; font-weight: 700; }
+  .day-pill.done { border-color: var(--gold); }
+  .day-badge { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.5px; color: var(--gold); }
+  .resource-item { display: flex; gap: 14px; align-items: flex-start; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; margin-bottom: 12px; }
+  .resource-check { width: 24px; height: 24px; border-radius: 8px; border: 1.5px solid var(--line-strong); flex-shrink: 0; margin-top: 2px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #fff; cursor: pointer; }
+  .resource-icon { width: 24px; height: 24px; border-radius: 8px; background: linear-gradient(135deg, var(--gold-soft), var(--violet)); flex-shrink: 0; margin-top: 2px; display: flex; align-items: center; justify-content: center; font-size: 13px; }
+  .resource-check.done { background: linear-gradient(135deg, var(--violet), var(--periwinkle)); border-color: transparent; }
+  .resource-body { flex: 1; }
+  .resource-t { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; color: var(--text); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .resource-d { font-size: 12.5px; color: var(--muted); margin-top: 5px; line-height: 1.6; }
+  .resource-link { display: inline-block; margin-top: 10px; color: var(--periwinkle); font-size: 12px; text-decoration: none; border-bottom: 1px solid var(--periwinkle); }
+  .taste-item { display: flex; gap: 12px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; margin-bottom: 10px; }
+  .taste-icon { width: 34px; height: 34px; border-radius: 10px; background: linear-gradient(135deg, var(--violet), var(--periwinkle)); display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+  .taste-item .t { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 600; color: var(--text); }
+  .taste-item .s { font-size: 11.5px; color: var(--muted-2); }
+  .tier-badge { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.5px; padding: 2px 7px; border-radius: 999px; font-weight: 500; margin-left: 6px; }
+  .tier-badge.premium { background: rgba(201,164,78,0.16); color: var(--gold); border: 1px solid rgba(201,164,78,0.4); }
+  .tier-badge.standard { background: rgba(155,127,212,0.14); color: var(--violet); border: 1px solid rgba(155,127,212,0.35); }
+
+  .section-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin: 20px 0 8px; }
+  .accordion-item { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 15px 18px; cursor: pointer; margin-bottom: 10px; }
+  .accordion-item:hover { border-color: var(--violet); }
+  .accordion-item .t { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 600; color: var(--text); }
+  .accordion-body { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--muted); line-height: 1.65; }
+  .tap-hint { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted-2); margin-top: 4px; }
+  .quiz-progress { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; color: var(--muted-2); margin-bottom: 8px; }
+  .choice-list { display: flex; flex-direction: column; gap: 9px; }
+  .choice { background: rgba(0,0,0,0.15); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; cursor: pointer; font-size: 13.5px; color: var(--text); }
+  .choice:hover { border-color: var(--violet); background: rgba(155,127,212,0.08); }
+
+  .concept-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0; }
+  @media (max-width: 420px) { .concept-grid { grid-template-columns: 1fr; } }
+  .concept-flip-scene { perspective: 1000px; }
+  .concept-flip-card { position: relative; width: 100%; height: 170px; transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(.2,.8,.2,1); cursor: pointer; }
+  .concept-flip-card.flipped { transform: rotateY(180deg); }
+  .concept-face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 16px; text-align: center; }
+  .concept-front { background: linear-gradient(160deg, var(--violet-deep), var(--violet)); border: 1.5px solid rgba(255,255,255,0.3); }
+  .concept-back { background: linear-gradient(160deg, var(--violet), var(--periwinkle)); border: 1.5px solid rgba(255,255,255,0.3); transform: rotateY(180deg); }
+  .concept-term { font-family: 'Playfair Display', serif; font-size: 14.5px; font-weight: 600; color: #fff; margin-top: 6px; }
+  .concept-pain { font-family: 'Playfair Display', serif; font-style: italic; font-size: 11.5px; color: rgba(255,255,255,0.85); margin-bottom: 6px; }
+  .concept-desc { font-size: 10.5px; color: rgba(255,255,255,0.95); line-height: 1.5; margin-bottom: 8px; }
+  .concept-link { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.5px; color: #fff; text-decoration: underline; }
+  .tier-compare { display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
+  .tier-col { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
+  .tier-col.premium { border-color: var(--gold); background: linear-gradient(150deg, rgba(212,175,95,0.10), rgba(155,127,212,0.08)); }
+  .tier-col-title { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+  .tier-col-title.standard { color: var(--periwinkle); }
+  .tier-col-title.premium { color: var(--gold); }
+  .tier-col-price { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted-2); margin-bottom: 12px; line-height: 1.6; }
+  .tier-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .tier-col li { font-size: 13px; color: var(--text); line-height: 1.5; padding-left: 18px; position: relative; }
+  .tier-col li::before { content: "\2726"; position: absolute; left: 0; color: var(--gold); font-size: 11px; top: 2px; }
+
+  .site-footer { margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--line); text-align: center; }
+  .site-footer .brand { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 14px; margin-bottom: 6px; color: var(--text); }
+  .site-footer .brand em { font-style: italic; color: var(--gold); }
+  .site-footer .links { font-family: 'DM Mono', monospace; font-size: 10.5px; color: var(--muted-2); line-height: 1.9; }
+  .site-footer a { color: var(--muted-2); text-decoration: none; }
+</style>
+</head>
+<body>
+<div id="sparkles"></div>
+<div id="app"></div>
+
+<script>
+(function initSparkles() {
+  const wrap = document.getElementById("sparkles");
+  for (let i = 0; i < 14; i++) {
+    const s = document.createElement("div");
+    s.className = "spark";
+    const size = 2 + Math.random() * 4;
+    s.style.width = size + "px"; s.style.height = size + "px";
+    s.style.left = Math.random() * 100 + "%"; s.style.top = Math.random() * 100 + "%";
+    s.style.animationDelay = (Math.random() * 4.5) + "s";
+    wrap.appendChild(s);
+  }
+  const glyphs = ["\u2727", "\u2726", "\u263D", "\u2729", "\u2734"];
+  for (let i = 0; i < 10; i++) {
+    const g = document.createElement("div");
+    g.className = "glyph-spark";
+    g.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+    g.style.fontSize = (10 + Math.random() * 14) + "px";
+    g.style.left = Math.random() * 100 + "%"; g.style.top = Math.random() * 100 + "%";
+    g.style.animationDelay = (Math.random() * 5) + "s";
+    g.style.color = Math.random() > 0.5 ? "var(--gold-soft)" : "var(--periwinkle)";
+    wrap.appendChild(g);
+  }
+})();
+
+/* ---------- DATA ---------- */
+
+const SELF_STEPS = [
+  { letter: "S", word: "Stillness", body: "Take a moment to become present with your body, no analysis, no story, just your breath and your body right now.", prompt: "What do you notice in your body right now?", breathe: true },
+  { letter: "E", word: "Embrace", body: "Whatever came up in your reading, whatever part of you it touched, place a hand on your heart and speak to that part gently, the way you'd speak to a child.", prompt: "What would you say to comfort that part of you right now?" },
+  { letter: "L", word: "Liberate", body: "A small taste of EFT tapping: gently tap your collarbone, or the side of your hand, a few times while you say, silently or out loud, \u201CEven though I feel this, I deeply and completely accept myself.\u201D", prompt: "How do you feel after tapping, even a little different?" },
+  { letter: "F", word: "Follow", body: "Now that you've made a little space, ask yourself what's next.", prompt: "What's one small, aligned next step your intuition is nudging you toward?" }
+];
+
+const TRACKER_DAYS = [
+  { title: "First Impressions", prompts: [
+    "What's the very first feeling that comes up when you think about your reading? Don't edit it, just name it.",
+    "What part of the reading are you most curious to understand more deeply?",
+    "How does your body feel right now, as you sit with all of this?"
+  ]},
+  { title: "What Already Felt True", prompts: [
+    "What's one thing from your reading that felt like it was already true, deep down, before you even heard it?",
+    "Where in your life have you already seen evidence of this, even in a small way?",
+    "What would it mean to fully trust that this part of your reading is accurate?"
+  ]},
+  { title: "Meeting The Hard Part", prompts: [
+    "Is there a part of your reading that felt hard to hear? Name it here.",
+    "What is your union self, the version of you already living in alignment, whispering to you about that part?",
+    "What would it feel like to make peace with this, even just a little, today?"
+  ]},
+  { title: "Naming The Old Story", prompts: [
+    "What old story or pattern do you notice yourself slipping into when you think about this connection?",
+    "Where do you think that story first began?",
+    "What would it look like to respond differently than that old story taught you to?"
+  ]},
+  { title: "Letting Your Union Self Speak", prompts: [
+    "If your union self, calm, secure, already whole, was the one answering your questions instead of your fear, what would she say to you right now?",
+    "What does she know that your fear doesn't?",
+    "How can you borrow a little of her certainty today?"
+  ]},
+  { title: "One Aligned Action", prompts: [
+    "What's one small action today that your union self would take, not out of urgency or fear, but from already knowing she's on the right path?",
+    "What's been holding you back from taking it until now?",
+    "How do you think you'll feel once it's done?"
+  ]},
+  { title: "Looking Back", prompts: [
+    "Looking back at this whole week, what shifted, even slightly, in how you're holding this connection?",
+    "What do you want to carry forward from here?",
+    "What would you tell someone just starting this same week, from where you're standing now?"
+  ]}
+];
+
+const MANIFEST_UNION_RESOURCES = [
+  { title: "Why You Chose This Path: Soul Contracts", desc: "Gain real clarity on why your soul chose this exact path toward Divine Union, and start transforming spiritual labels into your own embodied truth.", url: "https://www.skool.com/union/classroom/6bd2fa96?md=b0dc61e87e5f4c6ca30db7de7be7eaee" },
+  { title: "Karmic Patterns: How To Break The Cycle", desc: "Stop repeating the same lesson with different people, and start dissolving karmic cycles at the root.", url: "https://www.skool.com/union/classroom/6bd2fa96?md=98b196f184a74fd084c45fabe9d1f949" },
+  { title: "Fragmentation, Parts & The Inner Child", desc: "Understand why trauma splits us into parts, and why that's exactly what makes healthy love feel hard to receive.", url: "https://www.skool.com/union/classroom/6bd2fa96?md=da82dd8abc014cd98ca3d3de9e4a2a86" },
+  { title: "Learn & Apply The Divine Reparenting Method", desc: "My full A-Z process for tending to your wounded parts with real, embodied compassion.", url: "https://www.skool.com/union/classroom/6bd2fa96?md=d12ff0fbcf8141a5b282f55562996358" },
+  { title: "Mapping Your Love Wounds + Beliefs", desc: "Trace exactly where what's getting activated in you started, so you're healing the real root, not just the symptom.", url: "https://www.skool.com/union/classroom/6bd2fa96?md=a598f6013b3643afb7ac731385882582" },
+  { title: "Releasing Attachments & Surrendering", desc: "Loosen your grip on the outcome and the timeline, without ever having to abandon yourself to do it.", url: "https://www.skool.com/union/classroom/6bd2fa96?md=327c624f2a9840f084b253bb6890c92d" },
+  { title: "Separation Consciousness vs. Unity Consciousness", desc: "The single shift in perspective that changes how this entire journey feels, from scarcity to trust.", url: "https://www.skool.com/union/classroom/6bd2fa96?md=548c0df49c514494aeaaa49f57fd1426" },
+  { title: "Healing Family & Childhood Beliefs With EFT", desc: "Use EFT tapping to release the earliest beliefs about love that are still quietly running the show.", url: "https://www.skool.com/union/classroom/6bd2fa96?md=68b2016bc7b745ffa418b236cbd0ebdb" }
+];
+
+const FOUNDATIONS_RESOURCES = [
+  { title: "What Is Self-Hate Consciousness", desc: "Understand the protector parts and inherited patterns behind self-hate consciousness, and why naming it is the first real step out of it.", url: "https://www.skool.com/union/classroom/07a7f557?md=d1b690fc332947699d51847c9f2d22b3" },
+  { title: "The Healing Power of Self-Love Consciousness", desc: "The foundation every other lesson on this path is built on, what self-love consciousness actually is, and how to embody it daily.", url: "https://www.skool.com/union/classroom/07a7f557?md=cf1fd5184858435eb36e138899241768" },
+  { title: "Unblock Your Intuition With EFT Tapping", desc: "A guided tapping practice to release the fear that's been quietly blocking you from trusting your own intuition.", url: "https://www.skool.com/union/classroom/07a7f557?md=d33894f0b0854726bc297c93513c716e" }
+];
+
+const EXPLORE_ARTIFACTS = [
+  { icon: "\u{1F31A}", title: "Twin Flame Union Subliminal", subtitle: "A guided audio to reprogram your subconscious for union while you rest.", tier: "premium", url: "https://www.skool.com/union/classroom/3260f44f?md=1a1de36d34174190bbf93f31695230d7" },
+  { icon: "\u{1F9F2}", title: "Become Magnetic To Love", subtitle: "Attract a true twin flame or high-vibe soulmate by becoming the frequency first.", tier: "standard", url: "https://www.skool.com/union/classroom/8e5a29d0?md=93ed2637d9604322824e00f6a600d34a" },
+  { icon: "\u{1F52E}", title: "Become Your Own Psychic", subtitle: "Learn to read for yourself, no experience needed.", tier: "premium", url: "https://www.skool.com/union/classroom/122ebb7b?md=8d26d0b394f54da3a2e34345ad1b19b1" },
+  { icon: "\u{1F525}", title: "The Trigger Recovery Roadmap", subtitle: "Real tools for the exact moment a trigger hits.", tier: "premium", url: "https://www.skool.com/union/classroom/49a0a9e5?md=0c334ece5846494695e16845365371ad" }
+];
+
+const BOOK_READING_URL = "https://stan.store/luanaspirits";
+const SELF_METHOD_URL = "https://www.skool.com/union/classroom/07a7f557?md=1373a24d9564428fb57b781a96c9e4dd";
+const UNION_URL = "https://skool.com/union";
+const PLANS_URL = "https://www.skool.com/union/plans";
+
+const PLANS = {
+  standard: {
+    price: "$7/month", trial: "7-Day Free Trial",
+    features: [
+      "Complete Union Alignment Method\u2122 Foundations Course",
+      "The complete Quiz Healing Blueprint + EFT Tapping",
+      "Community discussions & weekly reflection posts",
+      "Accountability check-ins to keep you moving forward",
+      "New lessons & resources added regularly"
+    ]
+  },
+  premium: {
+    price: "$33/month", trial: "Everything in Standard, plus:",
+    features: [
+      "Manifest Your Union\u2122 signature A-Z course, my full coaching process",
+      "Bi-weekly live coaching & Q&A calls, submit your questions ahead of time",
+      "Inner Union Vault: Q&A replays, live healing classes & searchable topics",
+      "Guided meditations, EFT tapping & nervous system regulation tools",
+      "Priority access to new lessons, artifacts & tools as they're released"
+    ]
+  }
+};
+
+const TIER_QUIZ = [
+  { q: "How deep do you want to go right now?", options: [
+    { label: "I want to explore at my own pace", weight: 0 },
+    { label: "I'm ready for real, guided transformation", weight: 1 }
+  ]},
+  { q: "Do you want live support along the way?", options: [
+    { label: "I'll take it slow with community posts", weight: 0 },
+    { label: "Yes, I want live coaching calls and Q&A", weight: 1 }
+  ]},
+  { q: "What are you looking for most?", options: [
+    { label: "A steady foundation to start with", weight: 0 },
+    { label: "The full A-Z process to actually get me to union", weight: 1 }
+  ]}
+];
+
+const CONCEPT_CARDS = [
+  { term: "Self-Love Consciousness", pain: "Struggling to feel worthy of love?", desc: "The foundational shift from earning love through effort to simply embodying it as your natural state. This is where every part of the healing journey begins.", course: "Foundations", url: "https://www.skool.com/union/classroom/07a7f557?md=cf1fd5184858435eb36e138899241768" },
+  { term: "Self-Hate Consciousness", pain: "Feel like you're your own harshest critic?", desc: "The inherited, protective pattern underneath self-criticism, and why naming it is the first real step out of it.", course: "Foundations", url: "https://www.skool.com/union/classroom/07a7f557?md=d1b690fc332947699d51847c9f2d22b3" },
+  { term: "The Law of Mirroring", pain: "Keep attracting the same painful patterns?", desc: "Your external reality reflects your internal emotional frequency, not your effort, not your words. Shift the frequency, shift what gets mirrored back.", course: "Foundations", url: "https://www.skool.com/union/classroom/07a7f557?md=1373a24d9564428fb57b781a96c9e4dd" },
+  { term: "Karmic Patterns", pain: "Feel like you keep repeating the same lesson with different people?", desc: "The cycles that show up again and again until you finally heal the root, not just the symptom.", course: "Manifest Your Union", url: "https://www.skool.com/union/classroom/6bd2fa96?md=98b196f184a74fd084c45fabe9d1f949" },
+  { term: "Divine Reparenting", pain: "Old wounds keep resurfacing no matter how much you heal?", desc: "My full A-Z process for tending to your wounded inner parts with real, embodied compassion, not just talking about healing, but doing it.", course: "Manifest Your Union", url: "https://www.skool.com/union/classroom/6bd2fa96?md=d12ff0fbcf8141a5b282f55562996358" },
+  { term: "Unity Consciousness", pain: "Feel scarcity or lack around love?", desc: "The single shift in perspective that changes how this entire journey feels, from scarcity and separation to trust and connection.", course: "Manifest Your Union", url: "https://www.skool.com/union/classroom/6bd2fa96?md=548c0df49c514494aeaaa49f57fd1426" }
+];
+
+/* ---------- STATE ---------- */
+
+let state = {
+  name: "", screen: "name",
+  activeTab: "reflect", menuOpen: false,
+  reflect1: "", reflect2: "", reflectSaved: false,
+  selfStep: 0, selfAnswers: {}, selfDone: false,
+  trackerDay: 0, trackerAnswers: {},
+  manifestChecked: {}, foundationsChecked: {},
+  previewOpen: false, tierQuizStep: 0, tierQuizAnswers: [], tierQuizResult: null,
+  flippedConcepts: {},
+  breathing: false
+};
+
+const STORAGE_KEY = "union-integration-path-v1";
+function saveState() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {} }
+function loadState() { try { const raw = localStorage.getItem(STORAGE_KEY); if (raw) state = { ...state, ...JSON.parse(raw) }; } catch (e) {} }
+function go(patch) { state = { ...state, ...patch }; render(); }
+
+/* ---------- CHROME ---------- */
+
+function topNav() {
+  const tabs = [
+    { id: "reflect", label: "Reflect" },
+    { id: "ground", label: "Ground" },
+    { id: "tracker", label: "7-Day Tracker" },
+    { id: "union", label: "Join The Academy" },
+    { id: "foundations", label: "Foundations" },
+    { id: "manifest", label: "Manifest Union" },
+    { id: "explore", label: "Explore More" }
+  ];
+  const menuItems = tabs.map(t => `<div class="menu-item ${state.activeTab === t.id ? "active" : ""}" onclick="selectTabAndCloseMenu('${t.id}')">${t.label}</div>`).join("");
+  return `<div class="topnav-wrap">
+    <div class="topnav-brand-row">
+      <div class="topnav-brand" onclick="go({activeTab:'reflect', menuOpen:false})"><div class="icon">\u2728</div><div class="name">Your Union Integration Path</div></div>
+      <div class="topnav-actions">
+        <a class="icon-btn" href="${BOOK_READING_URL}" target="_blank" rel="noopener" title="Book A Reading">\u{1F52E}</a>
+        <button class="icon-btn" onclick="toggleMenu()" title="Menu">${state.menuOpen ? "\u2715" : "\u2630"}</button>
+      </div>
+    </div>
+    ${state.menuOpen ? `<div class="menu-panel">${menuItems}</div>` : ""}
+  </div>`;
+}
+
+function toggleMenu() {
+  go({ menuOpen: !state.menuOpen });
+}
+
+function selectTabAndCloseMenu(id) {
+  const patch = { activeTab: id, menuOpen: false };
+  go(patch);
+}
+
+function footer() {
+  return `<div class="site-footer">
+    <div class="brand">Luana <em>Spirits</em></div>
+    <div class="links">
+      <a href="https://docs.google.com/document/d/12oUQEXXesDmVw_XEZH-GEc8NVbtFYyLYf3359hvxyFE/edit?usp=sharing" target="_blank" rel="noopener">Privacy Policy</a> &middot;
+      <a href="https://docs.google.com/document/d/1i395On2ZByesCyRaIDocu1aIguhVxuHBQ1l_nPfVReQ/edit?usp=sharing" target="_blank" rel="noopener">Terms &amp; Conditions</a> &middot; &copy; 2026
+    </div>
+  </div>`;
+}
+
+/* ---------- NAME GATE / OPENING ---------- */
+
+function renderName() {
+  document.getElementById("app").innerHTML = `
+    <div class="topbar-left" style="margin-top:36px;"><div class="topbar-icon">\u2728</div><div class="topbar-title">Your Union Integration Path</div></div>
+    <h1 class="center">Welcome home, beautiful soul \u{1F49C}</h1>
+    <p class="center">Now that you've received your reading, this is where the real magic actually begins. Your guides brought this through for you, and this companion exists so you don't just read it once and let it fade.</p>
+    <div class="card ritual">
+      <p style="margin-bottom:0; color:var(--text);">Here's something worth knowing: manifesting union, manifesting love, raising your vibration high enough to actually attract it, all of it requires consistency. Not perfection, just showing up, again and again, in small ways. That's exactly why I built this.</p>
+    </div>
+    <div class="card">
+      <h3>\u2727 Before You Begin</h3>
+      <p style="margin-bottom:0;">Open your calendar right now and set a daily reminder, morning or night, whatever actually works for your life, to come back and open this tool. That one small habit is the whole practice. This is your unique pathway to manifest union, and it's built one small, real step at a time.</p>
+    </div>
+    <div class="tagline">You don't have to figure this all out today. You just have to come back tomorrow.</div>
+    <div class="card">
+      <h3>What should I call you?</h3>
+      <input type="text" id="nameInput" placeholder="Your first name" />
+      <button class="btn gold" onclick="submitName()">Begin Your Pathway</button>
+    </div>
+    ${footer()}
+  `;
+}
+
+function submitName() {
+  const val = document.getElementById("nameInput").value.trim();
+  go({ name: val || "beautiful soul", screen: "dashboard" });
+}
+
+/* ---------- REFLECT ---------- */
+
+function reflectHtml() {
+  return `
+    <h2>\u2728 Reflect On Your Reading</h2>
+    <p>Before we do anything else, let's just sit with what came through. No need to overthink this, whatever comes first is usually right.</p>
+    <div class="card">
+      <div class="journal-q">What stood out most to you from your reading?</div>
+      <textarea id="reflect1" placeholder="Write whatever comes to mind...">${state.reflect1}</textarea>
+      <div class="journal-q">What's one thing you want to remember from this, on a hard day?</div>
+      <textarea id="reflect2">${state.reflect2}</textarea>
+      <button class="btn gold small" onclick="saveReflect()">${state.reflectSaved ? "\u2726 Saved" : "Save My Reflection"}</button>
+    </div>
+    <div class="btn-row"><button class="btn gold" onclick="go({activeTab:'ground'})">Continue To Ground &rarr;</button></div>
+  `;
+}
+
+function saveReflect() {
+  state.reflect1 = document.getElementById("reflect1").value;
+  state.reflect2 = document.getElementById("reflect2").value;
+  state.reflectSaved = true;
+  render();
+}
+
+/* ---------- GROUND (S.E.L.F. METHOD MINI PRACTICE) ---------- */
+
+let breathTimer = null;
+const BOX_PHASES = ["Breathe in...", "Hold...", "Breathe out...", "Hold..."];
+
+function groundHtml() {
+  if (state.selfDone) return groundCompleteHtml();
+  const step = SELF_STEPS[state.selfStep];
+  const isLast = state.selfStep === SELF_STEPS.length - 1;
+  const dots = SELF_STEPS.map((s, i) => `<div class="step-dot ${i === state.selfStep ? "active" : i < state.selfStep ? "done" : ""}"></div>`).join("");
+  return `
+    <div class="step-progress">A MINI S.E.L.F. METHOD PRACTICE</div>
+    <div class="step-dots">${dots}</div>
+    <h2>${step.letter} \u2014 ${step.word}</h2>
+    <p>${step.body}</p>
+    ${step.breathe ? `
+      <div class="breathe-wrap">
+        <div class="breathe-ball" id="breatheBall"></div>
+        <div class="breathe-label" id="breatheLabel">Press start when you're ready</div>
+        <button class="btn ghost small" id="breatheBtn" onclick="toggleBreathing()">Start Breathing</button>
+      </div>
+    ` : ""}
+    <div class="card">
+      <div class="journal-q">${step.prompt}</div>
+      <textarea id="selfField">${state.selfAnswers[state.selfStep] || ""}</textarea>
+    </div>
+    <div class="btn-row">
+      ${state.selfStep > 0 ? `<button class="btn ghost" onclick="selfNav(-1)">&larr; Back</button>` : ""}
+      <button class="btn gold" onclick="${isLast ? "finishSelf()" : "selfNav(1)"}">${isLast ? "Finish" : "Continue"} &rarr;</button>
+    </div>
+  `;
+}
+
+function selfNav(dir) {
+  state.selfAnswers[state.selfStep] = document.getElementById("selfField").value;
+  go({ selfStep: state.selfStep + dir });
+}
+
+function finishSelf() {
+  state.selfAnswers[state.selfStep] = document.getElementById("selfField").value;
+  go({ selfDone: true });
+}
+
+function toggleBreathing() {
+  const ball = document.getElementById("breatheBall");
+  const label = document.getElementById("breatheLabel");
+  const btn = document.getElementById("breatheBtn");
+  if (state.breathing) {
+    state.breathing = false; clearTimeout(breathTimer);
+    ball.style.transform = "scale(1)"; label.textContent = "Press start when you're ready"; btn.textContent = "Start Breathing";
+    return;
+  }
+  state.breathing = true; btn.textContent = "Stop";
+  let phase = 0;
+  const runPhase = () => {
+    if (!state.breathing) return;
+    label.textContent = BOX_PHASES[phase];
+    ball.style.transition = "transform 4s ease-in-out";
+    if (phase === 0) ball.style.transform = "scale(1.35)";
+    else if (phase === 2) ball.style.transform = "scale(1)";
+    phase = (phase + 1) % 4;
+    breathTimer = setTimeout(runPhase, 4000);
+  };
+  runPhase();
+}
+
+function groundCompleteHtml() {
+  return `
+    <h2 class="center">\u2727 You Just Completed A Mini S.E.L.F. Method Practice \u2727</h2>
+    <p class="center">Stillness, Embrace, Liberate, Follow. This is one of the most powerful tools I teach, and what you just did was a small taste of it.</p>
+    <div class="card ritual">
+      <p style="margin-bottom:0; color:var(--text);">There's a full guided course version of this method waiting for you inside Union, with follow-along audio and video for each step.</p>
+    </div>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn gold" href="${SELF_METHOD_URL}" target="_blank" rel="noopener">Explore The Full S.E.L.F. Method &rarr;</a>
+      <button class="btn ghost" onclick="go({activeTab:'tracker'})">Continue To Your 7-Day Tracker</button>
+    </div>
+  `;
+}
+
+/* ---------- 7-DAY GENTLE ACTION TRACKER ---------- */
+
+function trackerHtml() {
+  const n = state.trackerDay;
+  const day = TRACKER_DAYS[n];
+  const isFirst = n === 0;
+  const isLast = n === TRACKER_DAYS.length - 1;
+  const dayDone = (i) => {
+    const ans = state.trackerAnswers[i];
+    return ans && day.prompts.every((p, pi) => ans[pi] && ans[pi].trim());
+  };
+  const doneCount = TRACKER_DAYS.filter((d, i) => dayDone(i)).length;
+
+  const pills = TRACKER_DAYS.map((d, i) => {
+    const done = dayDone(i);
+    return `<div class="day-pill ${n === i ? "active" : ""} ${done ? "done" : ""}" onclick="go({trackerDay:${i}})">${i + 1}</div>`;
+  }).join("");
+
+  const existing = state.trackerAnswers[n] || {};
+  const promptFields = day.prompts.map((p, i) => `
+    <div class="journal-q" style="margin-top:${i > 0 ? "16px" : "8px"};">${p}</div>
+    <textarea id="trackerField-${i}">${existing[i] || ""}</textarea>
+  `).join("");
+
+  return `
+    <h2>\u2728 Your 7-Day Union Self Journal</h2>
+    <p>Consistency is the whole practice. A few minutes a day, each one guiding you a little closer to connecting with your union self, the version of you already living in alignment.</p>
+    <div class="progress-label">${doneCount} of 7 days complete</div>
+    <div class="day-pills-row">${pills}</div>
+    <div class="card">
+      <div class="day-badge">DAY ${n + 1} OF 7, ${day.title.toUpperCase()}</div>
+      ${promptFields}
+      <button class="btn gold small" onclick="saveTrackerDay()">${dayDone(n) ? "\u2726 Update" : "Save Today's Entry"}</button>
+    </div>
+    <div class="btn-row">
+      ${!isFirst ? `<button class="btn ghost small" onclick="trackerNav(-1)">&larr; Day ${n}</button>` : `<span></span>`}
+      ${!isLast ? `<button class="btn ghost small" onclick="trackerNav(1)">Day ${n + 2} &rarr;</button>` : `<button class="btn gold small" onclick="go({activeTab:'union'})">Continue Your Pathway &rarr;</button>`}
+    </div>
+  `;
+}
+
+function collectTrackerAnswers(dayIndex) {
+  const day = TRACKER_DAYS[dayIndex];
+  const answers = { ...(state.trackerAnswers[dayIndex] || {}) };
+  day.prompts.forEach((p, i) => {
+    const el = document.getElementById("trackerField-" + i);
+    if (el) answers[i] = el.value;
+  });
+  return answers;
+}
+
+function saveTrackerDay() {
+  state.trackerAnswers[state.trackerDay] = collectTrackerAnswers(state.trackerDay);
+  render();
+}
+
+function trackerNav(dir) {
+  state.trackerAnswers[state.trackerDay] = collectTrackerAnswers(state.trackerDay);
+  go({ trackerDay: state.trackerDay + dir });
+}
+
+/* ---------- FOUNDATIONS FOR UNION ---------- */
+
+function foundationsHtml() {
+  const doneCount = FOUNDATIONS_RESOURCES.filter((r, i) => state.foundationsChecked[i]).length;
+  const items = FOUNDATIONS_RESOURCES.map((r, i) => {
+    const checked = !!state.foundationsChecked[i];
+    return `<div class="resource-item">
+      <div class="resource-check ${checked ? "done" : ""}" onclick="toggleFoundations(${i})">${checked ? "\u2713" : ""}</div>
+      <div class="resource-body">
+        <div class="resource-t">${r.title}</div>
+        <div class="resource-d">${r.desc}</div>
+        <a class="resource-link" href="${r.url}" target="_blank" rel="noopener">Open Lesson &rarr;</a>
+      </div>
+    </div>`;
+  }).join("");
+  return `
+    <div class="eyebrow center">Step One On Your Pathway</div>
+    <h2>Foundations For Union</h2>
+    <p>This is where your unique pathway to manifest union naturally begins. Before any of the deeper healing work, it helps to have real groundwork underneath you, understanding your own patterns, your own worth, and your own intuition, so everything else you build actually has something solid to stand on.</p>
+    <p>Each lesson below lives inside the Academy. Mark one off as you move through it, there's no rush, this is meant to be walked through slowly.</p>
+    <div class="progress-label">${doneCount} of ${FOUNDATIONS_RESOURCES.length} complete</div>
+    ${items}
+    <div class="btn-row"><button class="btn gold" onclick="go({activeTab:'manifest'})">Continue Your Pathway &rarr;</button></div>
+  `;
+}
+
+function toggleFoundations(i) {
+  state.foundationsChecked[i] = !state.foundationsChecked[i];
+  render();
+}
+
+/* ---------- MANIFEST YOUR UNION ---------- */
+
+function manifestHtml() {
+  const doneCount = MANIFEST_UNION_RESOURCES.filter((r, i) => state.manifestChecked[i]).length;
+  const items = MANIFEST_UNION_RESOURCES.map((r, i) => {
+    const checked = !!state.manifestChecked[i];
+    return `<div class="resource-item">
+      <div class="resource-check ${checked ? "done" : ""}" onclick="toggleManifest(${i})">${checked ? "\u2713" : ""}</div>
+      <div class="resource-body">
+        <div class="resource-t">${r.title} <span class="tier-badge premium">PREMIUM</span></div>
+        <div class="resource-d">${r.desc}</div>
+        <a class="resource-link" href="${r.url}" target="_blank" rel="noopener">Open Lesson &rarr;</a>
+      </div>
+    </div>`;
+  }).join("");
+  return `
+    <div class="eyebrow center">The Deeper Layer Of Your Pathway</div>
+    <h2>Manifest Your Union</h2>
+    <p>This is the full A-Z process, the same one I use with my own coaching clients, for healing what's in the way and actually calling in Divine Union. It's Premium, but here's a real taste of what's inside.</p>
+    <div class="progress-label">${doneCount} of ${MANIFEST_UNION_RESOURCES.length} complete</div>
+    ${items}
+    <div class="btn-row"><button class="btn gold" onclick="go({activeTab:'explore'})">Continue Your Pathway &rarr;</button></div>
+  `;
+}
+
+function toggleManifest(i) {
+  state.manifestChecked[i] = !state.manifestChecked[i];
+  render();
+}
+
+/* ---------- BRIDGE TO UNION ---------- */
+
+function unionHtml() {
+  return `
+    <h2>\u{1F49C} You're Not Alone In This</h2>
+    <p>You just got real clarity from your reading. Some part of you is probably already worried it'll fade in a few days, or that you'll go back to piecing together advice from a hundred different places instead of one place built specifically for this journey.</p>
+    <div class="card ritual">
+      <p style="margin-bottom:0; color:var(--text);">That's exactly what the Spiritual Love Healing Academy solves. One home for the healing, the education, and the community, so integration doesn't stop the moment your reading ends.</p>
+    </div>
+
+    <div class="section-label">A Preview From Foundations For Union</div>
+    <div class="accordion-item" onclick="togglePreview()">
+      <div class="t">\u2727 The Law of Attraction Is Really The Law of Mirroring</div>
+      <div class="tap-hint">tap to read</div>
+      ${state.previewOpen ? `
+        <div class="accordion-body">
+          <p>One of the very first things you learn inside Foundations For Union is this: the Law of Attraction isn't really about positive thinking, it's the Law of Mirroring. Your external reality reflects your internal emotional frequency, not your words, not your effort, just how you actually feel deep down.</p>
+          <p style="margin-bottom:0;">That's exactly why affirmations alone often don't work. You can't think your way into a new frequency, you have to feel your way there. This is just the beginning of what's waiting for you inside.</p>
+        </div>
+      ` : ""}
+    </div>
+
+    ${tierQuizHtml()}
+
+    <div class="section-label">What Each Tier Includes</div>
+    ${plansHtml()}
+
+    <div class="section-label">About Your Guide</div>
+    <div class="card">
+      <p style="margin-bottom:0;">I'm Luana, a psychic medium, energy healer, and spiritual teacher. I've done over 4,000 twin flame and spiritual readings for women since 2019, and I've walked this journey myself, longing, confusion, breakthroughs, and finally manifesting my own Divine Union. Everything inside the Academy comes from what actually worked, not just theory.</p>
+    </div>
+
+    <p class="center" style="margin-top:4px;">Prefer another 1:1 reading first? <a href="${BOOK_READING_URL}" target="_blank" rel="noopener" style="color:var(--periwinkle);">Book one here</a>.</p>
+    <div class="tagline">I say this with so much love, welcome home. \u{1F49C}\u{1F319}</div>
+
+    <div class="section-label">Get A Closer Look</div>
+    <div class="btn-row">
+      <button class="btn ghost small" onclick="go({activeTab:'foundations'})">Preview Foundations &rarr;</button>
+      <button class="btn ghost small" onclick="go({activeTab:'manifest'})">Preview Manifest Your Union &rarr;</button>
+    </div>
+
+    <div class="section-label">Learn A Few Key Concepts</div>
+    <p>Tap a card to flip it, each one connects to a real lesson that solves a real pain point.</p>
+    ${conceptCardsHtml()}
+  `;
+}
+
+function togglePreview() {
+  state.previewOpen = !state.previewOpen;
+  render();
+}
+
+function flipConcept(i) {
+  state.flippedConcepts[i] = !state.flippedConcepts[i];
+  render();
+}
+
+function tierQuizHtml() {
+  if (state.tierQuizResult) {
+    const result = state.tierQuizResult;
+    const plan = PLANS[result];
+    const isPremium = result === "premium";
+    return `
+      <div class="section-label">Your Recommendation</div>
+      <div class="card ritual center">
+        <div style="font-size:30px; margin-bottom:8px;">${isPremium ? "\u2728" : "\u{1F338}"}</div>
+        <h3>${isPremium ? "Premium Sounds Right For You" : "Standard Is A Great Place To Start"}</h3>
+        <p>${isPremium ? "Based on your answers, it sounds like you're ready for the full A-Z process, live support, and everything the deepest layer of the Academy offers." : "Based on your answers, Standard gives you real momentum right now, and you can always go deeper into Premium whenever you're ready."}</p>
+        <div class="btn-row" style="justify-content:center;">
+          <a class="btn gold" href="${PLANS_URL}" target="_blank" rel="noopener">${isPremium ? "Join Premium" : "Join Standard"} &rarr;</a>
+          <button class="btn ghost small" onclick="resetTierQuiz()">Retake Quiz</button>
+        </div>
+      </div>
+    `;
+  }
+  const q = TIER_QUIZ[state.tierQuizStep];
+  const optionsHtml = q.options.map(o => `<div class="choice" onclick="answerTierQuiz(${o.weight})">${o.label}</div>`).join("");
+  return `
+    <div class="section-label">Which Tier Is Right For You?</div>
+    <div class="card">
+      <div class="quiz-progress">QUESTION ${state.tierQuizStep + 1} OF ${TIER_QUIZ.length}</div>
+      <div class="journal-q" style="font-size:15px; margin-bottom:10px;">${q.q}</div>
+      <div class="choice-list">${optionsHtml}</div>
+    </div>
+  `;
+}
+
+function answerTierQuiz(weight) {
+  const answers = [...state.tierQuizAnswers, weight];
+  if (state.tierQuizStep < TIER_QUIZ.length - 1) {
+    go({ tierQuizAnswers: answers, tierQuizStep: state.tierQuizStep + 1 });
+  } else {
+    const total = answers.reduce((a, b) => a + b, 0);
+    const result = total >= 2 ? "premium" : "standard";
+    go({ tierQuizAnswers: answers, tierQuizResult: result });
+  }
+}
+
+function resetTierQuiz() {
+  go({ tierQuizStep: 0, tierQuizAnswers: [], tierQuizResult: null });
+}
+
+function plansHtml() {
+  return `
+    <div class="tier-compare">
+      <div class="tier-col">
+        <div class="tier-col-title standard">Standard</div>
+        <div class="tier-col-price">${PLANS.standard.price}<br><span>${PLANS.standard.trial}</span></div>
+        <ul>${PLANS.standard.features.map(f => `<li>${f}</li>`).join("")}</ul>
+        <a class="btn gold small" href="${PLANS_URL}" target="_blank" rel="noopener" style="margin-top:14px; display:inline-block;">Join Standard &rarr;</a>
+      </div>
+      <div class="tier-col premium">
+        <div class="tier-col-title premium">Premium</div>
+        <div class="tier-col-price">${PLANS.premium.price}<br><span>${PLANS.premium.trial}</span></div>
+        <ul>${PLANS.premium.features.map(f => `<li>${f}</li>`).join("")}</ul>
+        <a class="btn gold small" href="${PLANS_URL}" target="_blank" rel="noopener" style="margin-top:14px; display:inline-block;">Join Premium &rarr;</a>
+      </div>
+    </div>
+  `;
+}
+
+function conceptCardsHtml() {
+  const cards = CONCEPT_CARDS.map((c, i) => {
+    const flipped = !!state.flippedConcepts[i];
+    return `<div class="concept-flip-scene">
+      <div class="concept-flip-card ${flipped ? "flipped" : ""}" onclick="flipConcept(${i})">
+        <div class="concept-face concept-front">
+          <div style="font-size:22px;">\u2726</div>
+          <div class="concept-term">${c.term}</div>
+          <div class="tap-hint">tap to reveal</div>
+        </div>
+        <div class="concept-face concept-back">
+          <div class="concept-pain">${c.pain}</div>
+          <div class="concept-desc">${c.desc}</div>
+          <a href="${c.url}" target="_blank" rel="noopener" class="concept-link" onclick="event.stopPropagation()">Learn This In ${c.course} &rarr;</a>
+        </div>
+      </div>
+    </div>`;
+  }).join("");
+  return `<div class="concept-grid">${cards}</div>`;
+}
+
+
+/* ---------- EXPLORE MORE ---------- */
+
+function exploreHtml() {
+  const items = EXPLORE_ARTIFACTS.map(t => {
+    const badge = t.tier === "premium" ? `<span class="tier-badge premium">PREMIUM</span>` : `<span class="tier-badge standard">STANDARD</span>`;
+    return `<a href="${t.url}" target="_blank" rel="noopener" class="taste-item" style="text-decoration:none;">
+      <div class="taste-icon">${t.icon}</div>
+      <div><div class="t">${t.title} ${badge}</div><div class="s">${t.subtitle}</div></div>
+    </a>`;
+  }).join("");
+  return `
+    <h2>\u2728 Explore More Healing Tools</h2>
+    <p>This companion is just one small piece of what's waiting for you inside. Here's a taste of the other interactive tools and artifacts living in the Academy right now.</p>
+    ${items}
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn gold" href="${UNION_URL}" target="_blank" rel="noopener">Explore Everything Inside &rarr;</a>
+    </div>
+  `;
+}
+
+/* ---------- ROUTER ---------- */
+
+function render() {
+  saveState();
+  if (state.screen === "name") { renderName(); return; }
+  let content = "";
+  if (state.activeTab === "reflect") content = reflectHtml();
+  else if (state.activeTab === "ground") content = groundHtml();
+  else if (state.activeTab === "tracker") content = trackerHtml();
+  else if (state.activeTab === "foundations") content = foundationsHtml();
+  else if (state.activeTab === "manifest") content = manifestHtml();
+  else if (state.activeTab === "explore") content = exploreHtml();
+  else if (state.activeTab === "union") content = unionHtml();
+
+  document.getElementById("app").innerHTML = `${topNav()}${content}${footer()}`;
+}
+
+loadState();
+render();
+</script>
+</body>
+</html>
