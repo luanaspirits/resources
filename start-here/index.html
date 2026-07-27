@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Start Here | Spiritual Love Healing Academy</title>
-<meta name="description" content="Your 7-day mini course to get oriented in Spiritual Love Healing Academy, welcome to welcome to woven." />
+<meta name="description" content="Your 7-day mini course to get oriented in Spiritual Love Healing Academy." />
 
 <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
@@ -670,9 +670,23 @@ function PremiumCTA({ reason }) {
 function AppFooter() {
   return /* @__PURE__ */ React.createElement("div", { className: "app-footer" }, "Luana Spirits Consulting \xB7 ", /* @__PURE__ */ React.createElement("a", { href: "mailto:luana@luanaspirits.com" }, "luana@luanaspirits.com"), " \xB7 ", /* @__PURE__ */ React.createElement("a", { href: "https://docs.google.com/document/d/12oUQEXXesDmVw_XEZH-GEc8NVbtFYyLYf3359hvxyFE/edit?usp=sharing", target: "_blank", rel: "noopener noreferrer" }, "Privacy Policy"), " \xB7 ", /* @__PURE__ */ React.createElement("a", { href: "https://docs.google.com/document/d/1i395On2ZByesCyRaIDocu1aIguhVxuHBQ1l_nPfVReQ/edit?usp=sharing", target: "_blank", rel: "noopener noreferrer" }, "Terms & Conditions"), " \xB7 \xA9 2026");
 }
+const STORAGE_KEY = "slha_start_here_progress_v1";
+function loadProgress() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return { active: 0, done: {} };
+    const parsed = JSON.parse(raw);
+    return {
+      active: typeof parsed.active === "number" ? parsed.active : 0,
+      done: parsed.done && typeof parsed.done === "object" ? parsed.done : {}
+    };
+  } catch (e) {
+    return { active: 0, done: {} };
+  }
+}
 function StartHereCourse() {
-  const [active, setActive] = useState(0);
-  const [done, setDone] = useState({});
+  const [active, setActive] = useState(() => loadProgress().active);
+  const [done, setDone] = useState(() => loadProgress().done);
   const [activeTab, setActiveTab] = useState("overview");
   const [expanded, setExpanded] = useState({});
   const [pickedPath, setPickedPath] = useState(null);
@@ -689,6 +703,12 @@ function StartHereCourse() {
   useEffect(() => {
     setReveal((n) => n + 1);
   }, [activeTab]);
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ active, done }));
+    } catch (e) {
+    }
+  }, [active, done]);
   const lesson = lessons[active];
   const doneCount = Object.values(done).filter(Boolean).length;
   const progress = Math.round(doneCount / lessons.length * 100);
