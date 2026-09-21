@@ -1,1 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Is He Really Your Mirror? A divine feminine's guide to mixed signals, pulled from a live coaching call inside the Spiritual Love Healing Academy.">
+<title>The Mirroring Trap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #0e1119; --bg2: #171c2b;
+    --card: rgba(255,255,255,0.05); --card2: rgba(255,255,255,0.08);
+    --text: #f2efe9; --muted: #aab0c2; --muted-2: #7c839a;
+    --copper: #cf9163; --copper-soft: #e8b98e;
+    --silver: #93a4c4; --silver-soft: #c3cfe6;
+    --cream: #f0e8db;
+    --line: rgba(255,255,255,0.12); --line-strong: rgba(255,255,255,0.22);
+    color-scheme: dark;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background:
+      radial-gradient(ellipse at 12% 0%, #cf916330 0%, transparent 55%),
+      radial-gradient(ellipse at 90% 10%, #93a4c428 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 100%, #cf916320 0%, transparent 55%),
+      var(--bg);
+    color: var(--text); font-family: 'Jost', sans-serif; font-weight: 300;
+    overflow-x: hidden;
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text); }
+  p { line-height: 1.75; color: var(--muted); font-size: 15px; }
+  em { font-style: italic; color: var(--silver-soft); }
+  .section { max-width: 680px; margin: 0 auto; padding: 70px 24px; position: relative; z-index: 2; }
+  .center { text-align: center; }
+  .eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--copper); margin-bottom: 14px; }
+  .tagline { font-family: 'Playfair Display', serif; font-style: italic; color: var(--silver-soft); font-size: 18px; margin: 18px 0; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 26px; margin-bottom: 18px; backdrop-filter: blur(6px); }
+  .card.edge { border-color: var(--copper); background: linear-gradient(150deg, rgba(207,145,99,0.10), rgba(147,164,196,0.08)); }
+  .btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Jost', sans-serif; font-weight: 600; font-size: 14px; padding: 14px 28px; border-radius: 999px; border: none; cursor: pointer; text-decoration: none; }
+  .btn.gold { background: linear-gradient(135deg, var(--copper-soft), var(--silver-soft)); color: #16121e; box-shadow: 0 8px 26px rgba(207,145,99,0.32); }
+  .btn.ghost { background: transparent; color: var(--muted); border: 1px solid var(--line-strong); }
+  .btn.small { padding: 9px 18px; font-size: 12.5px; }
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; justify-content: center; }
 
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* ---------- TOP NAV ---------- */
+  .topnav {
+    position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 50;
+    display: flex; justify-content: flex-end; gap: 8px;
+    padding: 14px 18px;
+    pointer-events: none;
+  }
+  .topnav a {
+    pointer-events: auto;
+    font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.5px;
+    color: var(--cream); text-decoration: none;
+    background: rgba(14,17,25,0.55); backdrop-filter: blur(8px);
+    border: 1px solid var(--line-strong); border-radius: 999px;
+    padding: 8px 13px; white-space: nowrap;
+  }
+  .topnav a.primary { background: linear-gradient(135deg, var(--copper-soft), var(--silver-soft)); color: #16121e; border-color: transparent; }
+  @media (max-width: 560px) {
+    .topnav { justify-content: center; flex-wrap: wrap; position: static; padding: 14px 16px 0; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero { min-height: 90vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 90px 24px 60px; position: relative; }
+  .hero-glow { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 30%, rgba(147,164,196,0.16) 0%, transparent 60%); pointer-events: none; }
+  .mirror-motif { font-size: 30px; margin-bottom: 18px; letter-spacing: 10px; color: var(--copper-soft); filter: drop-shadow(0 0 18px rgba(207,145,99,0.5)); }
+  .hero h1 {
+    font-size: clamp(36px, 8vw, 56px); font-weight: 700; line-height: 1.08; margin-bottom: 16px;
+    background: linear-gradient(120deg, var(--copper-soft), var(--silver-soft), var(--cream), var(--copper-soft));
+    background-size: 300% auto;
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    animation: shimmer 10s ease-in-out infinite;
+  }
+  @keyframes shimmer { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+  .hero .subtitle { font-family: 'Playfair Display', serif; font-style: italic; color: var(--silver-soft); font-size: clamp(16px,2.6vw,20px); margin-bottom: 22px; }
+  .hero .msg { max-width: 480px; font-size: 15.5px; line-height: 1.85; }
+  .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; justify-content: center; }
+  .badge { font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: 1px; padding: 7px 13px; border-radius: 999px; background: var(--card2); border: 1px solid var(--line); color: var(--muted); }
+  .scroll-hint { position: absolute; bottom: 26px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--muted-2); animation: bob 2.4s ease-in-out infinite; }
+  @keyframes bob { 0%,100%{transform:translateY(0);} 50%{transform:translateY(8px);} }
+
+  /* ---------- ANIMATED BACKGROUND ---------- */
+  #bgfx { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .star { position: absolute; border-radius: 50%; background: radial-gradient(circle, #fff, var(--copper-soft) 70%, transparent 100%); animation: twinkle 5s ease-in-out infinite; }
+  @keyframes twinkle { 0%,100%{opacity:.12;transform:scale(.7);} 50%{opacity:.8;transform:scale(1.25);} }
+  .orb { position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.5; animation: drift 34s ease-in-out infinite; }
+  .orb.o1 { width: 340px; height: 340px; background: radial-gradient(circle, #cf916355, transparent 70%); top: -6%; left: -8%; animation-duration: 38s; }
+  .orb.o2 { width: 300px; height: 300px; background: radial-gradient(circle, #93a4c455, transparent 70%); bottom: 6%; right: -6%; animation-duration: 44s; animation-direction: reverse; }
+  .orb.o3 { width: 220px; height: 220px; background: radial-gradient(circle, #f0e8db33, transparent 70%); top: 46%; left: 60%; animation-duration: 30s; }
+  @keyframes drift { 0%{transform:translate(0,0);} 50%{transform:translate(26px,-34px);} 100%{transform:translate(0,0);} }
+  @media (prefers-reduced-motion: reduce) {
+    .star, .orb, .hero h1 { animation: none !important; }
+  }
+
+  /* ---------- CHECKLIST ---------- */
+  .checklist { background: var(--card); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; }
+  .check-item { display: flex; align-items: flex-start; gap: 14px; padding: 18px 22px; border-bottom: 1px solid var(--line); cursor: pointer; transition: background .15s ease; }
+  .check-item:last-of-type { border-bottom: none; }
+  .check-item:hover { background: var(--card2); }
+  .check-box { flex: none; width: 23px; height: 23px; border-radius: 7px; border: 1.5px solid var(--copper-soft); margin-top: 2px; display: flex; align-items: center; justify-content: center; transition: background .15s ease; }
+  .check-box svg { opacity: 0; transform: scale(.6); transition: opacity .15s ease, transform .15s ease; }
+  .check-item.on .check-box { background: linear-gradient(135deg, var(--copper-soft), var(--silver-soft)); border-color: transparent; }
+  .check-item.on .check-box svg { opacity: 1; transform: scale(1); }
+  .check-item.on .check-box svg path { stroke: #16121e; }
+  .check-text { font-size: 15px; color: var(--text); }
+  .checklist-hint { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1px; color: var(--muted-2); text-align: center; padding: 14px 20px 18px; }
+  .checklist-result { padding: 22px; background: var(--card2); border-top: 1px solid var(--line); display: none; gap: 16px; align-items: flex-start; }
+  .checklist-result.show { display: flex; }
+  .checklist-result .num { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; color: var(--copper-soft); line-height: 1; flex: none; }
+  .checklist-result .msg { font-size: 14px; color: var(--muted); }
+  .checklist-result .msg strong { color: var(--cream); font-weight: 600; }
+  .checklist-result .step { margin-top: 8px; font-style: italic; color: var(--silver-soft); font-size: 13.5px; }
+
+  /* ---------- MYTH CARDS ---------- */
+  .myth-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 22px; }
+  @media (max-width: 640px) { .myth-grid { grid-template-columns: 1fr; } }
+  .myth-card { perspective: 1200px; height: 210px; cursor: pointer; }
+  .myth-inner { position: relative; width: 100%; height: 100%; transition: transform .55s cubic-bezier(.2,.8,.2,1); transform-style: preserve-3d; }
+  .myth-card.flipped .myth-inner { transform: rotateY(180deg); }
+  .myth-face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 18px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--line); }
+  .myth-front { background: var(--card); }
+  .myth-front .lbl { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted-2); }
+  .myth-front .belief { font-family: 'Playfair Display', serif; font-style: italic; font-size: 17px; line-height: 1.32; color: var(--cream); }
+  .myth-front .tap { font-family: 'DM Mono', monospace; font-size: 10.5px; color: var(--copper-soft); }
+  .myth-back { background: linear-gradient(150deg, var(--copper), var(--silver)); color: #15121d; transform: rotateY(180deg); border-color: transparent; }
+  .myth-back .lbl { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; opacity: 0.75; }
+  .myth-back .truth { font-size: 14px; line-height: 1.45; }
+
+  /* ---------- DECISION ---------- */
+  .decision { background: var(--card2); border: 1px solid var(--line-strong); border-radius: 22px; padding: 26px 24px; }
+  .decision .prompt { font-family: 'Playfair Display', serif; font-size: 19px; color: var(--cream); margin-bottom: 18px; }
+  .decision-options { display: flex; gap: 10px; flex-wrap: wrap; }
+  .decision-btn { flex: 1 1 150px; border: 1.5px solid var(--silver); background: rgba(0,0,0,0.15); color: var(--silver-soft); font-family: 'Jost', sans-serif; font-weight: 500; font-size: 13.5px; padding: 13px 14px; border-radius: 13px; cursor: pointer; transition: all .18s ease; }
+  .decision-btn:hover { border-color: var(--copper-soft); }
+  .decision-btn.active { background: linear-gradient(135deg, var(--copper-soft), var(--silver-soft)); color: #16121e; border-color: transparent; }
+  .decision-result { margin-top: 16px; padding: 16px 18px; border-radius: 14px; background: rgba(0,0,0,0.2); border: 1px solid var(--line); font-size: 14px; color: var(--text); display: none; }
+  .decision-result.show { display: block; }
+
+  /* ---------- DOOR QUOTE ---------- */
+  .door-quote { text-align: center; padding: 32px 26px; }
+  .door-quote .line { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(17px,3vw,21px); color: var(--cream); line-height: 1.5; }
+  .door-quote .line em { color: var(--copper-soft); }
+
+  /* ---------- DEEPER SECTION ---------- */
+  .deeper-list { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+  .deeper-item { display: flex; gap: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; align-items: flex-start; }
+  .deeper-icon { flex: none; width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, var(--copper-soft), var(--silver-soft)); display: flex; align-items: center; justify-content: center; color: #16121e; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 13px; }
+  .deeper-item .t { font-family: 'Playfair Display', serif; font-size: 15.5px; color: var(--cream); font-weight: 600; margin-bottom: 4px; }
+  .deeper-item .d { font-size: 13.5px; color: var(--muted); line-height: 1.55; }
+  .deeper-item .tag { display: inline-block; margin-top: 8px; font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 1px; text-transform: uppercase; color: var(--copper-soft); }
+
+  /* ---------- CTA ---------- */
+  .cta { text-align: center; background: linear-gradient(180deg, var(--card2), var(--card)); border: 1px solid var(--line-strong); border-radius: 24px; padding: 48px 26px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .cta h2 { font-size: clamp(24px,5vw,30px); max-width: 22ch; }
+  .cta p { max-width: 46ch; }
+  .cta-note { font-size: 12px; color: var(--muted-2); max-width: 42ch; margin-top: 4px; }
+
+  .site-footer { text-align: center; padding: 50px 24px 60px; }
+  .site-footer .sig { font-family: 'Playfair Display', serif; font-style: italic; color: var(--silver-soft); font-size: 16px; margin-bottom: 14px; }
+  .site-footer .brand { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 15px; margin-bottom: 8px; }
+  .site-footer .brand em { color: var(--copper-soft); }
+  .site-footer .links { font-family: 'DM Mono', monospace; font-size: 10.5px; color: var(--muted-2); line-height: 1.9; }
+  .site-footer a { color: var(--muted-2); text-decoration: none; }
+  .site-footer a:hover { color: var(--copper-soft); }
+</style>
+</head>
+<body>
+
+<div id="bgfx">
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+  <div class="orb o3"></div>
+</div>
+
+<nav class="topnav">
+  <a href="https://stan.store/luanaspirits" target="_blank" rel="noopener">Book A Reading With Luana &rarr;</a>
+  <a class="primary" href="https://skool.com/union" target="_blank" rel="noopener">Join The Academy &amp; Manifest Union &rarr;</a>
+</nav>
+
+<!-- ================= HERO ================= -->
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="mirror-motif">◆ ✦ ◆</div>
+  <div class="eyebrow">From A Live Coaching Call &middot; Spiritual Love Healing Academy</div>
+  <h1>The Mirroring Trap</h1>
+  <div class="subtitle">Is he really your mirror? A divine feminine's guide to mixed signals.</div>
+  <p class="msg">One of our members asked the question so many of you carry quietly: if he's giving me one-word replies, is that my wound reflecting back at me, or is it simply him? What came out of that call is one of the most important reframes I've ever taught &mdash; and it's yours, free, right here.</p>
+  <div class="badge-row">
+    <span class="badge">FREE INSIDE THE ACADEMY</span>
+    <span class="badge">ALSO A DIGITAL DOWNLOAD</span>
+    <span class="badge">8 MIN READ</span>
+  </div>
+  <div class="scroll-hint">SCROLL TO BEGIN ↓</div>
+</div>
+
+<!-- ================= CHECKLIST ================= -->
+<div class="section reveal" id="checklist-section">
+  <div class="eyebrow center">Start Here</div>
+  <h2 class="center">Are You Carrying His Wound?</h2>
+  <p class="center">Before we get into the teaching itself, check off anything that feels familiar. There's no wrong answer, just information.</p>
+
+  <div class="checklist" id="checklist" style="margin-top:22px;">
+    <div class="check-item" data-item="1">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.3L5.4 10.2L11.5 3.8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="check-text">I soften or reword my messages so he'll actually respond</span>
+    </div>
+    <div class="check-item" data-item="2">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.3L5.4 10.2L11.5 3.8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="check-text">I blame my own "union block" when he goes quiet</span>
+    </div>
+    <div class="check-item" data-item="3">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.3L5.4 10.2L11.5 3.8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="check-text">I feel like I'm the only one rowing the boat</span>
+    </div>
+    <div class="check-item" data-item="4">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.3L5.4 10.2L11.5 3.8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="check-text">I keep asking what I need to heal so he'll finally show up</span>
+    </div>
+    <div class="check-item" data-item="5">
+      <span class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.3L5.4 10.2L11.5 3.8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="check-text">My energy dips after he replies &mdash; but I reach out again anyway</span>
+    </div>
+    <div class="checklist-hint" id="checklist-hint">Tap any that feel true for you</div>
+    <div class="checklist-result" id="checklist-result">
+      <span class="num" id="checklist-num">0</span>
+      <span class="msg" id="checklist-msg"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ================= MYTHS ================= -->
+<div class="section reveal" id="myths-section">
+  <div class="eyebrow center">The Teaching</div>
+  <h2 class="center">Three Mirroring Myths, Flipped</h2>
+  <p class="center">Tap a card to see the reframe shared on the call.</p>
+  <div class="myth-grid">
+    <div class="myth-card" data-card="1">
+      <div class="myth-inner">
+        <div class="myth-face myth-front">
+          <span class="lbl">Myth 01</span>
+          <span class="belief">"Everything he does is a mirror of my wounds."</span>
+          <span class="tap">Tap to reveal &rarr;</span>
+        </div>
+        <div class="myth-face myth-back">
+          <span class="lbl">Reframe</span>
+          <span class="truth">Sometimes it's simply a trigger, a boundary moment, or plain unworkable behavior. Not every mirror is a direct mirror.</span>
+        </div>
+      </div>
+    </div>
+    <div class="myth-card" data-card="2">
+      <div class="myth-inner">
+        <div class="myth-face myth-front">
+          <span class="lbl">Myth 02</span>
+          <span class="belief">"If I heal enough, he'll finally change."</span>
+          <span class="tap">Tap to reveal &rarr;</span>
+        </div>
+        <div class="myth-face myth-back">
+          <span class="lbl">Reframe</span>
+          <span class="truth">You cannot heal your way into someone else's maturity. His growth is his to do, not a prize you unlock for him.</span>
+        </div>
+      </div>
+    </div>
+    <div class="myth-card" data-card="3">
+      <div class="myth-inner">
+        <div class="myth-face myth-front">
+          <span class="lbl">Myth 03</span>
+          <span class="belief">"The masculine is the mirror."</span>
+          <span class="tap">Tap to reveal &rarr;</span>
+        </div>
+        <div class="myth-face myth-back">
+          <span class="lbl">Reframe</span>
+          <span class="truth">He's part of the mirror, not the whole mirror. The universe as a whole reflects your beliefs; he is only one piece of it.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:22px;">
+    <p style="margin-bottom:0;">Here's the piece most twin flame teachings skip: mirroring isn't just one thing. On the call, we named a fourth kind, the <em>contrast mirror</em>, sometimes called "Reverse UNO." That's when your open, regulated energy doesn't reflect his wound back to him gently, it makes the gap between where he is and where you are impossible for him to ignore. Direct mirror, trigger, belief mirror, contrast mirror, each one asks something different of you, and lumping them together is exactly how this teaching gets weaponized against your worth.</p>
+  </div>
+</div>
+
+<!-- ================= DECISION COMPASS ================= -->
+<div class="section reveal" id="decision-section">
+  <div class="eyebrow center">The Compass</div>
+  <h2 class="center">Should You Text Him?</h2>
+  <p class="center">The answer isn't in his last message. It's in your own energy.</p>
+  <div class="decision" style="margin-top:22px;">
+    <p class="prompt">Close your eyes and picture yourself sending the message. Does your energy feel&hellip;</p>
+    <div class="decision-options">
+      <button class="decision-btn" data-choice="bright">Brighter &amp; expansive</button>
+      <button class="decision-btn" data-choice="dim">Dimmer or anxious</button>
+      <button class="decision-btn" data-choice="unsure">Honestly, I don't know</button>
+    </div>
+    <div class="decision-result" id="decision-result"></div>
+  </div>
+  <div class="card edge" style="margin-top:16px;">
+    <p style="margin-bottom:0;"><strong style="color:var(--cream);">The energetic ultimatum:</strong> you don't have to wait forever for one person. You can say, "I would love for this to be him," and in the same breath, "I remain open to receiving this love from the most aligned, healthy, committed masculine there is." That isn't giving up on him, it's refusing to close yourself off to love while you wait.</p>
+  </div>
+</div>
+
+<!-- ================= DOOR QUOTE ================= -->
+<div class="section reveal">
+  <div class="card door-quote">
+    <div class="line">You are <em>the door.</em> Not a project to manage, a threshold to protect. It's not a matter of how you can get someone to walk through, it's whether they deserve to.</div>
+  </div>
+</div>
+
+<!-- ================= GO DEEPER ================= -->
+<div class="section reveal" id="deeper-section">
+  <div class="eyebrow center">Where We Go Deeper Together</div>
+  <h2 class="center">This Call Went Even Further</h2>
+  <p class="center">This is a taste of what unfolded across the full hour. Here's what else is waiting for you inside the Academy.</p>
+  <div class="deeper-list">
+    <div class="deeper-item">
+      <span class="deeper-icon">1</span>
+      <span>
+        <div class="t">The Complete Mirroring Decoder</div>
+        <div class="d">All four kinds of mirrors unpacked one by one, plus "beliefception," the strange loop where learning about mirroring becomes the very thing being mirrored back to you.</div>
+        <span class="tag">Inside The Academy</span>
+      </span>
+    </div>
+    <div class="deeper-item">
+      <span class="deeper-icon">2</span>
+      <span>
+        <div class="t">The Queen vs. Page Energy Map</div>
+        <div class="d">Why a maturity gap feels the way it does, mapped through the tarot court cards, and what it means when you're facing an Empress-level connection at a Page-level pace.</div>
+        <span class="tag">Inside The Academy</span>
+      </span>
+    </div>
+    <div class="deeper-item">
+      <span class="deeper-icon">3</span>
+      <span>
+        <div class="t">Who Enters My Door: The Full Worksheet</div>
+        <div class="d">A guided walk through your non-negotiables and green flags, ending in a printable Door Policy you can return to any time you feel yourself softening a boundary.</div>
+        <span class="tag">Inside The Academy</span>
+      </span>
+    </div>
+    <div class="deeper-item">
+      <span class="deeper-icon">4</span>
+      <span>
+        <div class="t">The Full Call Replay</div>
+        <div class="d">Every question, every answer, exactly as it was spoken live, including the parts about rowing the boat, insecurity in the divine masculine, and reclaiming your voice.</div>
+        <span class="tag">Inside The Academy</span>
+      </span>
+    </div>
+    <div class="deeper-item">
+      <span class="deeper-icon">5</span>
+      <span>
+        <div class="t">Self-Love Daily Practice Toolkit</div>
+        <div class="d">The Divine Reparenting Method, the "do it for fun" perfectionism release, and Teal Swan's one question: what would someone who loves themselves do?</div>
+        <span class="tag">Inside The Academy</span>
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- ================= CTA ================= -->
+<div class="section reveal">
+  <div class="cta">
+    <div class="eyebrow">Join Us Live</div>
+    <h2>Your Soul Family Is On The Other Side Of This Door</h2>
+    <p>Our coaching calls are a fun, inspiring, beautifully uplifting space to hang out, ask your questions, talk spirituality, and support each other as divine feminines. Come sit with us next time.</p>
+    <div class="btn-row">
+      <a class="btn gold" href="https://skool.com/union/plans" target="_blank" rel="noopener">Join The Academy &rarr;</a>
+      <a class="btn ghost small" href="https://stan.store/luanaspirits" target="_blank" rel="noopener">Book A Reading &rarr;</a>
+    </div>
+    <p class="cta-note">This guide is free for every member of the Spiritual Love Healing Academy, and available as a stand-alone digital download.</p>
+  </div>
+</div>
+
+<div class="site-footer">
+  <div class="sig">With so much love,</div>
+  <div class="brand">Luana <em>Spirits</em></div>
+  <div class="links">Twin Flame Guide, Psychic Medium &amp; Energy Healer<br>
+    <a href="mailto:luana@luanaspirits.com">luana@luanaspirits.com</a> &middot;
+    <a href="https://docs.google.com/document/d/12oUQEXXesDmVw_XEZH-GEc8NVbtFYyLYf3359hvxyFE/edit?usp=sharing" target="_blank" rel="noopener">Privacy Policy</a> &middot;
+    <a href="https://docs.google.com/document/d/1i395On2ZByesCyRaIDocu1aIguhVxuHBQ1l_nPfVReQ/edit?usp=sharing" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+  </div>
+</div>
+
+<script>
+/* ---------- STARFIELD ---------- */
+(function initStars() {
+  const wrap = document.getElementById("bgfx");
+  for (let i = 0; i < 46; i++) {
+    const s = document.createElement("div");
+    s.className = "star";
+    const size = 1.5 + Math.random() * 3;
+    s.style.width = size + "px"; s.style.height = size + "px";
+    s.style.left = Math.random() * 100 + "%"; s.style.top = Math.random() * 100 + "%";
+    s.style.animationDelay = (Math.random() * 5) + "s";
+    wrap.appendChild(s);
+  }
+})();
+
+/* ---------- SCROLL REVEAL ---------- */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("in"); });
+}, { threshold: 0.12 });
+document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+/* ---------- PERSISTED STATE (localStorage, per-visitor) ---------- */
+var STORAGE_KEY = "mirroring-trap-state-v1";
+function loadState(){
+  try {
+    var raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : { checked: [], decision: null };
+  } catch(e){ return { checked: [], decision: null }; }
+}
+function saveState(state){
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e){}
+}
+var pageState = loadState();
+
+/* ---------- CHECKLIST ---------- */
+(function(){
+  var items = document.querySelectorAll('.check-item');
+  var hint = document.getElementById('checklist-hint');
+  var resultBox = document.getElementById('checklist-result');
+  var numEl = document.getElementById('checklist-num');
+  var msgEl = document.getElementById('checklist-msg');
+
+  var messages = [
+    { txt: "You're leading with real discernment right now.", step: "Keep trusting what your body tells you before you send the next message." },
+    { txt: "Mostly discernment, with a little of the trap creeping in.", step: "Notice the moment you start explaining his behavior for him, that's your cue to pause." },
+    { txt: "You're leaning into the responsibility trap.", step: "Some of his wound is riding on your shoulders. Try naming, out loud, what's actually his to carry." },
+    { txt: "You're deep in the responsibility trap.", step: "This is exactly the pattern this teaching breaks down, you are not the one who needs to change." },
+    { txt: "You're deep in the responsibility trap.", step: "This is exactly the pattern this teaching breaks down, you are not the one who needs to change." }
+  ];
+
+  function currentChecked(){
+    var out = [];
+    items.forEach(function(el){ if(el.classList.contains('on')) out.push(el.dataset.item); });
+    return out;
+  }
+
+  function update(persist){
+    var checked = document.querySelectorAll('.check-item.on').length;
+    if(checked === 0){
+      hint.style.display = 'block';
+      resultBox.classList.remove('show');
+    } else {
+      hint.style.display = 'none';
+      resultBox.classList.add('show');
+      numEl.textContent = checked;
+      var m = messages[checked-1];
+      msgEl.innerHTML = '<strong>' + checked + ' of 5</strong> &mdash; ' + m.txt + '<div class="step">Try this: ' + m.step + '</div>';
+    }
+    if(persist !== false){
+      pageState.checked = currentChecked();
+      saveState(pageState);
+    }
+  }
+
+  items.forEach(function(el){
+    el.addEventListener('click', function(){
+      el.classList.toggle('on');
+      update();
+    });
+  });
+
+  // restore from storage
+  if(pageState.checked && pageState.checked.length){
+    items.forEach(function(el){
+      if(pageState.checked.indexOf(el.dataset.item) !== -1){ el.classList.add('on'); }
+    });
+    update(false);
+  }
+})();
+
+/* ---------- MYTH CARDS ---------- */
+document.querySelectorAll('.myth-card').forEach(function(c){
+  c.addEventListener('click', function(){ c.classList.toggle('flipped'); });
+});
+
+/* ---------- DECISION COMPASS ---------- */
+(function(){
+  var decisionBtns = document.querySelectorAll('.decision-btn');
+  var decisionResult = document.getElementById('decision-result');
+  var copy = {
+    bright: "That's your inspired yes. Send it, and release the outcome, your job ends at the message.",
+    dim: "That's your body's amber light. Pull your energy back and let him rise to meet you. You deserve someone who pursues.",
+    unsure: "That's alright. Sit with it a little longer before you act, clarity usually arrives when you stop forcing the answer."
+  };
+
+  function select(choice, persist){
+    decisionBtns.forEach(function(b){ b.classList.toggle('active', b.dataset.choice === choice); });
+    decisionResult.textContent = copy[choice];
+    decisionResult.classList.add('show');
+    if(persist !== false){
+      pageState.decision = choice;
+      saveState(pageState);
+    }
+  }
+
+  decisionBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){ select(btn.dataset.choice); });
+  });
+
+  // restore from storage
+  if(pageState.decision && copy[pageState.decision]){
+    select(pageState.decision, false);
+  }
+})();
+</script>
+</body>
+</html>
